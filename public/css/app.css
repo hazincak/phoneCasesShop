@@ -17027,10 +17027,29 @@ a.text-dark:focus {
   transform: translate(-50%, -50%);
 }
 
+.card {
+  padding: 4.5%;
+  border: none;
+  background-color: #999;
+}
+
+.card__icon {
+  font-size: 300%;
+  color: #01a9b4;
+  margin-bottom: 1rem;
+}
+
 .section-title {
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/images/hero2.jpg?aa076a812ae5229d08f2ef34d4228f32);
   background-size: cover;
   background-position: center center;
   height: 100vh;
+}
+
+.section-cards {
+  padding: 7% 15%;
+  position: relative;
+  background-color: #999;
+  z-index: 1;
 }
 
