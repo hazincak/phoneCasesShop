@@ -4,6 +4,9 @@
 // Abstracts
 @import 'abstracts/variables';
 
+//BootstrapVue
+@import 'node_modules/bootstrap/scss/bootstrap';
+@import 'node_modules/bootstrap-vue/src/index.scss';
 
 // Font awesome
 @import "~@fortawesome/fontawesome-free/scss/fontawesome";
