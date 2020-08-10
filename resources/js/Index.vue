@@ -12,8 +12,11 @@
             </li>
           </ul>
           <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                  <a class="nav-link" href="#">Login</a>
+            <li class="nav-item">
+                <a href="" class="nav-link"><i class="fas fa-shopping-cart"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Login</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Registruj</a>
@@ -21,8 +24,11 @@
           </ul>
         </div>
     </nav>
-
     
+
         <router-view></router-view>
+
     </div>
+
+
 </template>
