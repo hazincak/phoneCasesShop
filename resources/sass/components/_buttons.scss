@@ -1,9 +1,38 @@
-.button-teal-dark{
-    border-radius: 200px;
-    background-color: $color-teal-dark;
+// .button{
+//     &,
+//     &:link,
+//     &:visited{
+//     text-transform: uppercase;
+//     text-decoration: none;
+//     padding: 1.5% 4%;
+//     border-radius: 200px;
+//     -webkit-border-radius: 200px;
+//     -moz-border-radius: 200px;
+//     -ms-border-radius: 200px;
+//     -o-border-radius: 200px;
+//     display: inline-block;
+//     position: relative;
+//     transition: all .2s;
+//     -webkit-transition: all .2s;
+//     -moz-transition: all .2s;
+//     -ms-transition: all .2s;
+//     -o-transition: all .2s;
+//     }
+   
+
+//     &__teal-dark{
+//         background-color: $color-teal-dark;
+//         color: $color-yellow-light;
+
+//         &:hover{
+//             background-color: $color-yellow-light;
+//             color: $color-teal-dark;
+//         }
+        
+//     }
+// }
+
     
-    
-}
 
 .center{
     position: absolute;

@@ -17015,11 +17015,6 @@ a.text-dark:focus {
   text-transform: uppercase;
 }
 
-.button-teal-dark {
-  border-radius: 200px;
-  background-color: #086972;
-}
-
 .center {
   position: absolute;
   top: 50%;
@@ -17030,7 +17025,7 @@ a.text-dark:focus {
 .card {
   padding: 4.5%;
   border: none;
-  background-color: #999;
+  background-color: #cfe1e3;
 }
 
 .card__icon {
@@ -17040,16 +17035,20 @@ a.text-dark:focus {
 }
 
 .section-title {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/images/hero2.jpg?aa076a812ae5229d08f2ef34d4228f32);
+  background-image: linear-gradient(rgba(8, 105, 114, 0.801), rgba(207, 225, 227, 0.801)), url(/images/hero2.jpg?aa076a812ae5229d08f2ef34d4228f32);
   background-size: cover;
   background-position: center center;
   height: 100vh;
 }
 
 .section-cards {
-  padding: 7% 15%;
+  padding: 4% 12%;
   position: relative;
-  background-color: #999;
+  background-color: #cfe1e3;
   z-index: 1;
+}
+
+.section-shop {
+  background-color: #fff;
 }
 

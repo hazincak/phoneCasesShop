@@ -1,7 +1,7 @@
 <template>
     <div class="section-cards">
         <div class="container">
-            <div class="row p-3 ">
+            <div class="row p-2 ">
                 <div class="col mb-6">
                     <h2 class="text-center">Our rules</h2>
                 </div>

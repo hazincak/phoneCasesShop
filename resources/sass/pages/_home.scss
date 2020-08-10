@@ -1,15 +1,17 @@
 .section-title{
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)), url("../images/hero2.jpg");
+    background-image: linear-gradient(rgba($color-teal-dark, 0.801), rgba($color-grey-blue, 0.801)), url("../images/hero2.jpg");
     background-size: cover;
     background-position: center center;
     height: 100vh;
 }
 
 .section-cards{
-    padding: 7% 15%;
+    padding: 4% 12%;
     position: relative;
-    background-color: $color-grey-dark-2;
-    z-index: 1;
-    
+    background-color: $color-grey-blue;
+    z-index: 1;   
+}
+.section-shop{
+    background-color: $color-white;
 }
 
