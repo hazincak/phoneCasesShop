@@ -1,20 +1,23 @@
 .navbar{
-    background-color: $color-teal-dark;
+    background-color: rgba($color-teal-dark, 0.9);
 }
 
 .navbar-brand{
-    font-size: 2.0rem;
+    font-size: 1.5rem;
     font-weight: bold;
 }
 
-nav .navbar-nav li a{
+nav .navbar-nav li a  {
     color: white !important;
-    transition: all .2s;
+    transition: all .1s;
   }
+  
 
-nav .navbar-nav li a:hover{
+nav .navbar-nav li 
+a:hover
+{
     color: $color-yellow-light !important;
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 
 .nav-item{
