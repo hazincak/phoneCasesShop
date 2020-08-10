@@ -31225,8 +31225,50 @@ a.text-dark:focus {
   margin-bottom: 1rem;
 }
 
+.navbar {
+  background-color: #086972;
+}
+
+.navbar-brand {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+nav .navbar-nav li a {
+  color: white !important;
+  transition: all 0.2s;
+}
+
+nav .navbar-nav li a:hover {
+  color: #fbfd8a !important;
+  transform: scale(1.2);
+}
+
+.nav-item {
+  padding: 0 6px;
+}
+
+.nav-item:hover {
+  color: #fbfd8a;
+}
+
+.nav-link {
+  font-size: 1.2rem;
+}
+
+.nav-link:hover {
+  color: #fbfd8a;
+}
+
+.section-footer {
+  padding: 4% 12%;
+  background-color: #333;
+  color: #87dfd6;
+  z-index: 1;
+}
+
 .section-title {
-  background-image: linear-gradient(rgba(8, 105, 114, 0.801), rgba(207, 225, 227, 0.801)), url(/images/hero2.jpg?aa076a812ae5229d08f2ef34d4228f32);
+  background-image: linear-gradient(rgba(8, 105, 114, 0.9), rgba(207, 225, 227, 0.801)), url(/images/hero2.jpg?aa076a812ae5229d08f2ef34d4228f32);
   background-size: cover;
   background-position: center center;
   height: 100vh;

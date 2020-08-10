@@ -26,6 +26,7 @@
     </nav> -->
         <navbar></navbar>
         <router-view></router-view>
+        <section-footer></section-footer>
 
     </div>
 
