@@ -31206,6 +31206,69 @@ a.text-dark:focus {
   text-transform: uppercase;
 }
 
+.button,
+.button:link,
+.button:visited {
+  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 1.5% 3.5%;
+  border-radius: 10rem;
+  -webkit-border-radius: 10rem;
+  -moz-border-radius: 10rem;
+  -ms-border-radius: 10rem;
+  -o-border-radius: 10rem;
+  display: inline-block;
+  position: relative;
+  transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+}
+
+.button:hover {
+  transform: translateY(-3px);
+  -webkit-transform: translateY(-3px);
+  -moz-transform: translateY(-3px);
+  -ms-transform: translateY(-3px);
+  -o-transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.button--teal-light {
+  background-color: #87dfd6;
+  color: #fff;
+}
+
+.button--teal-light:hover {
+  background-color: #fbfd8a;
+  color: #086972;
+  font-weight: bolder;
+}
+
+.button--teal {
+  background-color: #01a9b4;
+  color: #fff;
+}
+
+.button--teal:hover {
+  background-color: #fbfd8a;
+  color: #086972;
+  font-weight: bolder;
+}
+
+.button--teal-dark {
+  background-color: #086972;
+  color: #fff;
+}
+
+.button--teal-dark:hover {
+  background-color: #fbfd8a;
+  color: #086972;
+  font-weight: bolder;
+}
+
 .center {
   position: absolute;
   top: 50%;
