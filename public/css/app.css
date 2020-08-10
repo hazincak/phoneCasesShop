@@ -17010,3 +17010,27 @@ a.text-dark:focus {
   }
 }
 
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.button-teal-dark {
+  border-radius: 200px;
+  background-color: #086972;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.section-title {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/images/hero2.jpg?aa076a812ae5229d08f2ef34d4228f32);
+  background-size: cover;
+  background-position: center center;
+  height: 100vh;
+}
+

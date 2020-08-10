@@ -1,10 +1,10 @@
 import VueRouter from "vue-router";
-import Home from "./pages/Domov";
+import Domov from "./pages/Domov";
 
 const routes = [
     {
         path: "/",
-        component: Home,
+        component: Domov,
         name: "home",
     },
 ];
