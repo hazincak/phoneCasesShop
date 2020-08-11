@@ -13,9 +13,10 @@ import Footer from "./components/Footer";
 
 
 import Title from "./pages/homePageComponents/Title";
-import Cards from "./pages/homePageComponents/Cards";
-import Shop from "./pages/homePageComponents/Shop";
-import Press from "./pages/homePageComponents/Press";
+import HomeCard from "./pages/homePageComponents/HomeCards";
+import ShopCard from "./pages/shopPageComponents/ProductItemCard"
+
+
 
 
 
@@ -30,9 +31,10 @@ Vue.component("sidebar", Sidebar);
 Vue.component("section-footer", Footer);
 
 Vue.component("section-title", Title);
-Vue.component("section-cards", Cards);
-Vue.component("section-shop", Shop);
-Vue.component("section-press", Press);
+Vue.component("home-section-cards", HomeCard);
+
+Vue.component("product-item-card", ShopCard);
+
 
 
 
