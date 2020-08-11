@@ -3,13 +3,13 @@
         <div class="container-fluid">
             <div class="row">
                 <div class = "col-lg-4 text-center">
-                    <a href="#" class="footer-link"><i class="fas fa-phone-alt"></i> Kontakt</a>
+                    <a href="#"><i class="fas fa-phone-alt"></i> Kontakt</a>
                 </div>
                 <div class = "col-lg-4 text-center">
-                    <a href="#" class="footer-link"><i class="fas fa-list-ol"></i> Obchodné podmienky</a>
+                    <a href="#"><i class="fas fa-list-ol"></i> Obchodné podmienky</a>
                 </div>
                 <div class = "col-lg-4 text-center">
-                    <a href="#" class="footer-link"><i class="fas fa-shield-alt"></i> Ochrana osobných údajov</a>
+                    <a href="#"><i class="fas fa-shield-alt"></i> Ochrana osobných údajov</a>
                 </div>
             </div>
             <div class="row">

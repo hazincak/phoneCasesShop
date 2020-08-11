@@ -31269,13 +31269,6 @@ a.text-dark:focus {
   font-weight: bolder;
 }
 
-.center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
 .card {
   padding: 4.5%;
   border: none;
@@ -31288,18 +31281,43 @@ a.text-dark:focus {
   margin-bottom: 1rem;
 }
 
+.press {
+  background-color: transparent;
+  text-align: center;
+  padding-bottom: 3%;
+  position: absolute;
+}
+
+.press-logo {
+  width: 6%;
+  margin: 20px 20px 50px;
+  -webkit-filter: opacity(60%) grayscale(100%) !important;
+  filter: opacity(60%) grayscale(100%) !important;
+  transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  cursor: pointer;
+}
+
+.press-logo:hover {
+  -webkit-filter: grayscale(0) !important;
+  filter: grayscale(0) !important;
+}
+
 .navbar {
-  background-color: rgba(8, 105, 114, 0.9);
+  background-color: #086972;
 }
 
 .navbar-brand {
   font-size: 1.5rem;
-  font-weight: bold;
 }
 
 nav .navbar-nav li a {
+  text-transform: uppercase;
   color: white !important;
-  transition: all 0.1s;
+  transition: all 0.2s;
 }
 
 nav .navbar-nav li a:hover {
@@ -31329,8 +31347,9 @@ nav .navbar-nav li a:hover {
   color: #87dfd6;
 }
 
-.section-footer {
+.section-footer a {
   text-decoration: none;
+  color: inherit;
 }
 
 .section-title {
@@ -31349,5 +31368,19 @@ nav .navbar-nav li a:hover {
 
 .section-shop {
   background-color: #fff;
+}
+
+.my-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.my-bottom-center {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 

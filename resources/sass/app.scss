@@ -4,6 +4,7 @@
 // Abstracts
 @import 'abstracts/variables';
 
+
 //BootstrapVue
 @import 'node_modules/bootstrap/scss/bootstrap';
 @import 'node_modules/bootstrap-vue/src/index.scss';
@@ -22,11 +23,15 @@
 //Components
 @import "components/buttons";
 @import "components/card";
+@import "components/press";
 
 
 //Import layouts
 @import 'layout/navigation';
 @import 'layout/footer';
 
+
 //Import pages
 @import 'pages/home';
+
+@import 'helpers';

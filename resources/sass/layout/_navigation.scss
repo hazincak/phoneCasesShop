@@ -1,17 +1,18 @@
 .navbar{
-    background-color: rgba($color-teal-dark, 0.9);
+    background-color: $color-teal-dark;
 }
 
 .navbar-brand{
     font-size: 1.5rem;
-    font-weight: bold;
+    
 }
 
-nav .navbar-nav li a  {
+nav .navbar-nav li a {
+    text-transform: uppercase ;
     color: white !important;
-    transition: all .1s;
+    transition: all .2s;
+
   }
-  
 
 nav .navbar-nav li 
 a:hover
