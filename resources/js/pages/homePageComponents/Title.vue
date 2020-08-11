@@ -4,7 +4,7 @@
            
                 <div class="col-lg-6 text-center my-center ">
                     <h1 class="heading-primary">Get a new case for your electronical companion</h1>
-                    <router-link :to="{name: 'shop'}" class="button button--teal-dark mt-2">Do obchodu</router-link>
+                    <router-link :to="{name: 'shop'}" class="button button__rounded button--teal-dark mt-2">Do obchodu</router-link>
                 </div>
            
                 <div class="col-lg-12 text-center my-bottom-center ">

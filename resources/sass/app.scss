@@ -1,8 +1,7 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
-// Abstracts
-@import 'abstracts/variables';
+
 
 
 //BootstrapVue
@@ -16,6 +15,9 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+// Abstracts
+@import 'abstracts/variables';
 
 //Base
 @import 'base/typography';

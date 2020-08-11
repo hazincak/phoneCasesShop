@@ -14,7 +14,7 @@ import Footer from "./components/Footer";
 
 import Title from "./pages/homePageComponents/Title";
 import HomeCard from "./pages/homePageComponents/HomeCards";
-import ShopCard from "./pages/shopPageComponents/ProductItemCard"
+import ProductCard from "./pages/shopPageComponents/ProductCard"
 
 
 
@@ -33,7 +33,7 @@ Vue.component("section-footer", Footer);
 Vue.component("section-title", Title);
 Vue.component("home-section-cards", HomeCard);
 
-Vue.component("product-item-card", ShopCard);
+Vue.component("product-item-card", ProductCard);
 
 
 
