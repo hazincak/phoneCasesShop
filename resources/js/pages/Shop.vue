@@ -1,13 +1,12 @@
 <template>
     <div class="section-shop">
         <div class="container-fluid">
-            <bread-crumbs></bread-crumbs>
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <sidebar></sidebar>
                 </div>
-                <div class="col-md-9">
-                    
+                <div class="col-md-10">
+                    <bread-crumbs></bread-crumbs>
                     <div class="row mb-4 ">
                     
                         <div class="col d-flex align-items-stretch"><product-item-card></product-item-card></div>

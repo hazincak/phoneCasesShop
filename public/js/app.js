@@ -1976,7 +1976,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -37856,26 +37855,94 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("ul", { staticClass: "list-group" }, [
-        _c("li", { staticClass: "list-group-item" }, [
-          _vm._v("Cras justo odio")
+    return _c("div", { staticClass: "wrapper" }, [
+      _c("nav", { attrs: { id: "sidebar" } }, [
+        _c("div", { staticClass: "sidebar-header text-center" }, [
+          _c("h3", [_vm._v("Menu")])
         ]),
         _vm._v(" "),
-        _c("li", { staticClass: "list-group-item" }, [
-          _vm._v("Dapibus ac facilisis in")
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "list-group-item" }, [
-          _vm._v("Morbi leo risus")
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "list-group-item" }, [
-          _vm._v("Porta ac consectetur ac")
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "list-group-item" }, [
-          _vm._v("Vestibulum at eros")
+        _c("ul", { staticClass: "list-unstyled components text-center" }, [
+          _c("div", { staticClass: "text-center" }, [
+            _c("p", [_vm._v("Kategorie")])
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "active" }, [
+            _c(
+              "a",
+              {
+                staticClass: "dropdown-toggle",
+                attrs: {
+                  href: "#homeSubmenu",
+                  "data-toggle": "collapse",
+                  "aria-expanded": "false"
+                }
+              },
+              [_vm._v("Značky")]
+            ),
+            _vm._v(" "),
+            _c(
+              "ul",
+              {
+                staticClass: "collapse list-unstyled",
+                attrs: { id: "homeSubmenu" }
+              },
+              [
+                _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [_vm._v("Apple")])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [_vm._v("Samsung")])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [_vm._v("Motorola")])
+                ])
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("About")])]),
+          _vm._v(" "),
+          _c("li", [
+            _c(
+              "a",
+              {
+                staticClass: "dropdown-toggle",
+                attrs: {
+                  href: "#pageSubmenu",
+                  "data-toggle": "collapse",
+                  "aria-expanded": "false"
+                }
+              },
+              [_vm._v("Pages")]
+            ),
+            _vm._v(" "),
+            _c(
+              "ul",
+              {
+                staticClass: "collapse list-unstyled",
+                attrs: { id: "pageSubmenu" }
+              },
+              [
+                _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [_vm._v("Page 1")])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [_vm._v("Page 2")])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [_vm._v("Page 3")])
+                ])
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Portfolio")])]),
+          _vm._v(" "),
+          _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Contact")])])
         ])
       ])
     ])
@@ -38110,16 +38177,16 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "section-shop" }, [
-    _c(
-      "div",
-      { staticClass: "container-fluid" },
-      [
-        _c("bread-crumbs"),
+    _c("div", { staticClass: "container-fluid" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-md-2" }, [_c("sidebar")], 1),
         _vm._v(" "),
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-md-3" }, [_c("sidebar")], 1),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-9" }, [
+        _c(
+          "div",
+          { staticClass: "col-md-10" },
+          [
+            _c("bread-crumbs"),
+            _vm._v(" "),
             _c("div", { staticClass: "row mb-4 " }, [
               _c(
                 "div",
@@ -38188,11 +38255,11 @@ var render = function() {
                 1
               )
             ])
-          ])
-        ])
-      ],
-      1
-    )
+          ],
+          1
+        )
+      ])
+    ])
   ])
 }
 var staticRenderFns = []

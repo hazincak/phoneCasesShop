@@ -1,26 +1,70 @@
 .wrapper {
-    display: flex;
+    
+    height: 100%;
     align-items: stretch;
+    border-right: 1px solid $color-teal-light;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #999;
+}
+
+a, a:hover, a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
 }
 
 #sidebar {
+    
     min-width: 250px;
     max-width: 250px;
     min-height: 100vh;
+    /* don't forget to add all the previously mentioned styles here too */
+    background: $color-white;
+    color: $color-teal;
+    transition: all 0.3s;
+
+    
+
 }
 
-#sidebar.active {
-    margin-left: -250px;
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: $color-white;
+    color: $color-teal-dark;
 }
 
-a[data-toggle="collapse"] {
-    position: relative;
+#sidebar ul.components {
+    padding: 20px 0;
 }
 
-.dropdown-toggle::after {
+#sidebar ul p {
+    color: $color-teal;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
     display: block;
-    position: absolute;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
+}
+#sidebar ul li a:hover {
+    color:$color-teal-dark;
+    background: $color-teal-light;
+}
+
+#sidebar ul li.active > a, a[aria-expanded="true"] {
+    color: #fff;
+    background: $color-teal;
+}
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: $color-teal;
+    color: #fff;
 }

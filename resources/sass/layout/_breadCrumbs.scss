@@ -1,0 +1,12 @@
+.breadcrumb{
+ background-color: $color-white;
+}
+
+.breadcrumb-item{
+    color: $color-teal;
+}
+
+.breadcrumb-item.active{
+    color: $color-teal-dark;
+    font-weight: bold;
+}

@@ -23,12 +23,6 @@ Vue.component("bread-crumbs", BreadCrumbs);
 Vue.component("sidebar", Sidebar);
 Vue.component("section-footer", Footer);
 
-
-
-
-
-
-
 const app = new Vue({
     el: '#app',
     router,
