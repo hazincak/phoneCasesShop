@@ -2,6 +2,7 @@ import VueRouter from "vue-router";
 import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 import Basket from "./pages/Basket";
+import Product from "./pages/shopPageComponents/DisplayProduct.vue";
 
 const routes = [
     {
@@ -15,10 +16,17 @@ const routes = [
         name: "shop",
     },
     {
+        path: "/product/:id",
+        component: Product,
+        name: "product"
+
+    },
+    {
         path: "/basket",
         component: Basket,
         name: "basket",
     },
+
 
 ];
 

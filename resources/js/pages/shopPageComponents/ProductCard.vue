@@ -1,10 +1,16 @@
 <template>
-	<div class="card mr-2 text-center"> 
+	<div class="card mr-2"> 
      	<div class="card-product">
-			<div class="img-wrap"><img src="../../../images/samples/Product1.jpg"></div>
+			<router-link :to="{name: 'product', params: { id }}">
+				<div class="img-wrap"><img src="../../../images/samples/Product1.jpg"></div>
+			</router-link>	
 			<div class="info-wrap">
-					<h5 class="title">{{title}}</h5>
-					<p class="desc">{{description}}</p>
+					<router-link :to="{name: 'product', params: { id }}">
+						<h6 class="card-title">{{title}}</h6>
+					</router-link>
+						
+					
+					<p class="card-text">{{model}}</p>
 			</div>
 			<div class="bottom-wrap">
 				<a href="" class="button button--teal-outline float-right"><i class="fas fa-cart-arrow-down"></i> do košíka</a>	
@@ -18,6 +24,6 @@
 </template>
 <script>
 export default {
-    props: {"title":String, "description":String, "price":Number}
+    props: {"model":String, "title":String, "price":Number, "id":Number}
 };
 </script>

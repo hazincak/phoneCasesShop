@@ -1,10 +1,10 @@
 <template>
-    <div class="section-shop">
-        <div class="container">
+    <div class="container">
             <div v-if="loading">
                 Data is loading...
             </div>
             <div v-else>
+                <bread-crumbs></bread-crumbs>
                 <div class="row">
                     <div class="col-md-3 sm-12">
                          <button  @click="sideBarOpen = !sideBarOpen">
@@ -13,15 +13,13 @@
                         <side-bar v-bind:sideBarOpen="sideBarOpen"></side-bar>
                     </div>
                     <div class="col-md-9 sm-12">
-                        <bread-crumbs></bread-crumbs>
-
+                        
                         <div class="row mb-4">
                             <div v-for="product in products" :key="product.id" class="col-md-4 xs-12"><product-item-card v-bind="product"></product-item-card></div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
     </div>
 </template>
 

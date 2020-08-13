@@ -17164,7 +17164,7 @@ a.text-dark:focus {
 
 .card-product .info-wrap {
   overflow: hidden;
-  padding: 15px;
+  padding: 10px;
 }
 
 .card-product .bottom-wrap {
@@ -17319,9 +17319,7 @@ ul ul a {
 }
 
 .section-cards {
-  padding: 4% 12%;
   position: relative;
   background-color: #cfe1e3;
-  z-index: 1;
 }
 
