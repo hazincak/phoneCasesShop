@@ -5,6 +5,4 @@
         <section-footer></section-footer>
 
     </div>
-
-
 </template>

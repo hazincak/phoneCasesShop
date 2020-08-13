@@ -1,9 +1,10 @@
 <template>
   <div class="wrapper">
     
-    
     <!-- Sidebar -->
-    <nav id="sidebar">
+    <nav 
+        id="sidebar" 
+        :class="{'active' : isNavbarActive}">
         <div class="sidebar-header text-center">
             <h3>Menu</h3>
         </div>
@@ -53,6 +54,13 @@
     </nav>
 
 </div>
-  
-
 </template>
+<script>
+export default {
+   
+
+    data: () =>({
+        isNavbarActive: true
+    }),
+}
+</script>

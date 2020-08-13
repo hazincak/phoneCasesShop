@@ -17227,7 +17227,6 @@ nav .navbar-nav li a:hover {
 .wrapper {
   height: 100%;
   align-items: stretch;
-  border-right: 1px solid #87dfd6;
 }
 
 p {
@@ -17250,10 +17249,16 @@ a:focus {
   min-width: 250px;
   max-width: 250px;
   min-height: 100vh;
+  margin-left: -265px;
   /* don't forget to add all the previously mentioned styles here too */
   background: #fff;
   color: #01a9b4;
   transition: all 0.3s;
+  border-right: 1px solid #87dfd6;
+}
+
+#sidebar.active {
+  margin-left: 0px;
 }
 
 #sidebar .sidebar-header {

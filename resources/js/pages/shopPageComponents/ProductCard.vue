@@ -1,5 +1,5 @@
 <template>
-	<div class="card mr-4 text-center"> 
+	<div class="card mr-2 text-center"> 
      	<div class="card-product">
 			<div class="img-wrap"><img src="../../../images/samples/Product1.jpg"></div>
 			<div class="info-wrap">

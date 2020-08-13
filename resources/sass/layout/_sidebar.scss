@@ -2,7 +2,7 @@
     
     height: 100%;
     align-items: stretch;
-    border-right: 1px solid $color-teal-light;
+    
 }
 
 p {
@@ -24,13 +24,15 @@ a, a:hover, a:focus {
     min-width: 250px;
     max-width: 250px;
     min-height: 100vh;
+    margin-left: -265px;
     /* don't forget to add all the previously mentioned styles here too */
     background: $color-white;
     color: $color-teal;
     transition: all 0.3s;
-
-    
-
+    border-right: 1px solid $color-teal-light;
+}
+#sidebar.active {
+    margin-left: 0px;
 }
 
 #sidebar .sidebar-header {
