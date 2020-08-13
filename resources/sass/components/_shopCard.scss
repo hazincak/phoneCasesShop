@@ -1,5 +1,5 @@
  .card{
-    border: 1px solid $color-teal-light;
+    border: none;
 }
 
 .card-product .img-wrap {
@@ -8,7 +8,7 @@
     position: relative;
     height: 220px;
     text-align: center;
-    border-top: 1px solid $color-teal-light;
+    // border-top: 1px solid $color-teal-light;
 }
 .card-product .img-wrap img {
     max-height: 100%;
@@ -18,13 +18,13 @@
 .card-product .info-wrap {
     overflow: hidden;
     padding: 15px;
-    border-top: 1px solid $color-teal-light;
+    // border-top: 1px solid $color-teal-light;
 }
 .card-product .bottom-wrap {
     padding: 15px;
     border-top: 1px solid $color-teal-light;
 }
 
-.card-product .price-old {
+.card-product .text-muted {
     color: #999;
 }

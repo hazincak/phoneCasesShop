@@ -31201,6 +31201,20 @@ a.text-dark:focus {
   }
 }
 
+.my-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.my-bottom-center {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
@@ -31346,7 +31360,7 @@ a.text-dark:focus {
 }
 
 .card {
-  border: 1px solid #87dfd6;
+  border: none;
 }
 
 .card-product .img-wrap {
@@ -31354,7 +31368,6 @@ a.text-dark:focus {
   position: relative;
   height: 220px;
   text-align: center;
-  border-top: 1px solid #87dfd6;
 }
 
 .card-product .img-wrap img {
@@ -31367,7 +31380,6 @@ a.text-dark:focus {
 .card-product .info-wrap {
   overflow: hidden;
   padding: 15px;
-  border-top: 1px solid #87dfd6;
 }
 
 .card-product .bottom-wrap {
@@ -31375,7 +31387,7 @@ a.text-dark:focus {
   border-top: 1px solid #87dfd6;
 }
 
-.card-product .price-old {
+.card-product .text-muted {
   color: #999;
 }
 
@@ -31414,6 +31426,33 @@ nav .navbar-nav li a:hover {
   color: #fbfd8a;
 }
 
+.wrapper {
+  display: flex;
+  align-items: stretch;
+}
+
+#sidebar {
+  min-width: 250px;
+  max-width: 250px;
+  min-height: 100vh;
+}
+
+#sidebar.active {
+  margin-left: -250px;
+}
+
+a[data-toggle=collapse] {
+  position: relative;
+}
+
+.dropdown-toggle::after {
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+}
+
 .section-footer {
   padding: 4% 30%;
   background-color: #333;
@@ -31437,19 +31476,5 @@ nav .navbar-nav li a:hover {
   position: relative;
   background-color: #cfe1e3;
   z-index: 1;
-}
-
-.my-center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.my-bottom-center {
-  position: absolute;
-  top: 80%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 

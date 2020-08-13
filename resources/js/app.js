@@ -20,7 +20,6 @@ import ProductCard from "./pages/shopPageComponents/ProductCard"
 
 
 
-
 window.Vue = require('vue');
 
 Vue.use(VueRouter);
