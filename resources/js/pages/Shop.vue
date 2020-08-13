@@ -15,20 +15,8 @@
                     <div class="col-md-9 sm-12">
                         <bread-crumbs></bread-crumbs>
 
-                        <div class="row mb-4 ">
-                            <div class="col-md-4 xs-12"><product-item-card></product-item-card></div>
-                             <div class="col-md-4 xs-12"><product-item-card></product-item-card></div>
-                             <div class="col-md-4 xs-12"><product-item-card></product-item-card></div>
-                             <div class="col-md-4 xs-12"><product-item-card></product-item-card></div>
-                             <div class="col-md-4 xs-12"><product-item-card></product-item-card></div>
-                             <div class="col-md-4 xs-12"><product-item-card></product-item-card></div>
-                             <div class="col-md-4 xs-12"><product-item-card></product-item-card></div>
-                             <div class="col-md-4 xs-12"><product-item-card></product-item-card></div>
-                             <div class="col-md-4 xs-12"><product-item-card></product-item-card></div>
-                             <div class="col-md-4 xs-12"><product-item-card></product-item-card></div>
-                             <div class="col-md-4 xs-12"><product-item-card></product-item-card></div>
-                             <div class="col-md-4 xs-12"><product-item-card></product-item-card></div>
-
+                        <div class="row mb-4">
+                            <div v-for="product in products" :key="product.id" class="col-md-4 xs-12"><product-item-card v-bind="product"></product-item-card></div>
                         </div>
                     </div>
                 </div>
@@ -57,9 +45,18 @@ export default {
         }
     },
 
-    // created(){
-    //     axios.get()
-    // }
+     created(){
+        this.loading = true
+
+        const request = axios.get("api/shop/products")
+        .then(response => {
+        this.products = response.data
+        this.loading = false;
+        });
+          
+         
+    }
+
 
 
    
