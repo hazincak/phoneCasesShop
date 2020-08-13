@@ -39,7 +39,7 @@ $factory->define(Product::class, function (Faker $faker) use($randomBrands, $ran
         'brand' => Arr::random($randomBrands),
         'purpose' => Arr::random($randomPurpose),
 
-        'price' => random_int(4.90, 25.90)
+        'price' => mt_rand (4.50*10, 25.99*10) / 10
 
         
 
