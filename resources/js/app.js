@@ -12,14 +12,6 @@ import Sidebar from "./components/Sidebar"
 import Footer from "./components/Footer";
 
 
-import Title from "./pages/homePageComponents/Title";
-import HomeCard from "./pages/homePageComponents/HomeCards";
-import ProductCard from "./pages/shopPageComponents/ProductCard";
-
-
-
-
-
 window.Vue = require('vue');
 
 Vue.use(VueRouter);
@@ -29,10 +21,8 @@ Vue.component("navbar", Navbar);
 Vue.component("sidebar", Sidebar);
 Vue.component("section-footer", Footer);
 
-Vue.component("section-title", Title);
-Vue.component("home-section-cards", HomeCard);
 
-Vue.component("product-item-card", ProductCard);
+
 
 
 
