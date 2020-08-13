@@ -1,5 +1,6 @@
 <?php
 
+use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,4 +17,19 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::get('shop/products', function (Request $request){
+    return Product::all();
+});
+
+Route::get('shop/products-by-id/{id}', function(Request $request, $id){
+    return Product::findOrFail($id);
+});
+
+Route::get('shop/products-by-brand/{brand}', function(Request $request, $brand){
+    return Product::where('brand', $brand)->get();
+});
+Route::get('shop/products-by-model/{model}', function(Request $request, $model){
+    return Product::where('model', $model)->get();
 });
