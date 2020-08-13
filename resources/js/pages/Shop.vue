@@ -1,6 +1,7 @@
 <template>
     <div class="section-shop">
         <div class="container-fluid">
+            <bread-crumbs></bread-crumbs>
             <div class="row">
                 <div class="col-md-3">
                     <sidebar></sidebar>
