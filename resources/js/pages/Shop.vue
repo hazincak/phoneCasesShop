@@ -1,5 +1,6 @@
 <template>
     <div class="section-shop">
+<<<<<<< HEAD
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-3">
@@ -33,7 +34,35 @@
                     </div>
                 </div>
                 
+=======
+        <sidebar></sidebar>
+        <div class="container">
+            <div class="row mb-4 ">
+               
+                <div class="col d-flex align-items-stretch"><product-item-card></product-item-card></div>
+                <div class="col d-flex align-items-stretch"><product-item-card></product-item-card></div>
+                <div class="col d-flex align-items-stretch"><product-item-card></product-item-card></div>
+                <div class="col d-flex align-items-stretch"><product-item-card></product-item-card></div>
+               
             </div>
+            <div class="row mb-4 ">
+               
+                <div class="col d-flex align-items-stretch"><product-item-card></product-item-card></div>
+                <div class="col d-flex align-items-stretch"><product-item-card></product-item-card></div>
+                <div class="col d-flex align-items-stretch"><product-item-card></product-item-card></div>
+                <div class="col d-flex align-items-stretch"><product-item-card></product-item-card></div>
+               
+            </div>
+            <div class="row mb-4 ">
+               
+                <div class="col d-flex align-items-stretch"><product-item-card></product-item-card></div>
+                <div class="col d-flex align-items-stretch"><product-item-card></product-item-card></div>
+                <div class="col d-flex align-items-stretch"><product-item-card></product-item-card></div>
+                <div class="col d-flex align-items-stretch"><product-item-card></product-item-card></div>
+               
+>>>>>>> af04ddf8cdbb815299bb752ff680893c4ff51ce0
+            </div>
+            
         </div>
     </div>
 </template>
