@@ -14,7 +14,7 @@ import Footer from "./components/Footer";
 
 import Title from "./pages/homePageComponents/Title";
 import HomeCard from "./pages/homePageComponents/HomeCards";
-import ProductCard from "./pages/shopPageComponents/ProductCard"
+import ProductCard from "./pages/shopPageComponents/ProductCard";
 
 
 
