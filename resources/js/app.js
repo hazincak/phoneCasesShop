@@ -1,6 +1,6 @@
 require('./bootstrap');
 
-import  BootstrapVue  from 'bootstrap-vue';
+
 
 import router from "./routes";
 import VueRouter from "vue-router";
@@ -16,7 +16,7 @@ import Footer from "./components/Footer";
 window.Vue = require('vue');
 
 Vue.use(VueRouter);
-Vue.use(BootstrapVue);
+
 
 Vue.component("navbar", Navbar);
 Vue.component("bread-crumbs", BreadCrumbs);
