@@ -1978,21 +1978,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    sideBarOpen: Boolean
+  },
   components: {
     ProductItemCard: _shopPageComponents_ProductCard__WEBPACK_IMPORTED_MODULE_0__["default"],
     SideBar: _shopPageComponents_Sidebar__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   data: function data() {
     return {
-      isOpen: true
+      products: null,
+      loading: false
     };
-  }
+  } // created(){
+  //     axios.get()
+  // }
+
 });
 
 /***/ }),
@@ -2063,13 +2067,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      isNavbarActive: true
-    };
-  }
-});
+/* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
 
@@ -38158,105 +38156,132 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "section-shop" }, [
-    _c("div", { staticClass: "container-fluid" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-md-2" }, [_c("side-bar")], 1),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "col-md-10" },
-          [
-            _c("bread-crumbs"),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-info",
-                on: {
-                  click: function($event) {
-                    this.isOpen = false
-                  }
-                }
-              },
-              [
-                _c("i", { staticClass: "fas fa-align-left" }),
-                _vm._v(" "),
-                _c("span", [_vm._v("Toggle Sidebar")])
-              ]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "row mb-4 " }, [
+    _c("div", { staticClass: "container" }, [
+      _vm.loading
+        ? _c("div", [_vm._v("\n            Data is loading...\n        ")])
+        : _c("div", [
+            _c("div", { staticClass: "row" }, [
               _c(
                 "div",
-                { staticClass: "col d-flex align-items-stretch" },
-                [_c("product-item-card")],
+                { staticClass: "col-md-3 sm-12" },
+                [
+                  _c(
+                    "button",
+                    {
+                      on: {
+                        click: function($event) {
+                          _vm.sideBarOpen = !_vm.sideBarOpen
+                        }
+                      }
+                    },
+                    [
+                      _vm._v(
+                        "\n                         Toggle\n                    "
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("side-bar", { attrs: { sideBarOpen: _vm.sideBarOpen } })
+                ],
                 1
               ),
               _vm._v(" "),
               _c(
                 "div",
-                { staticClass: "col d-flex align-items-stretch" },
-                [_c("product-item-card")],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "col d-flex align-items-stretch" },
-                [_c("product-item-card")],
-                1
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row mb-4 " }, [
-              _c(
-                "div",
-                { staticClass: "col d-flex align-items-stretch" },
-                [_c("product-item-card")],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "col d-flex align-items-stretch" },
-                [_c("product-item-card")],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "col d-flex align-items-stretch" },
-                [_c("product-item-card")],
-                1
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row mb-4 " }, [
-              _c(
-                "div",
-                { staticClass: "col d-flex align-items-stretch" },
-                [_c("product-item-card")],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "col d-flex align-items-stretch" },
-                [_c("product-item-card")],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "col d-flex align-items-stretch" },
-                [_c("product-item-card")],
+                { staticClass: "col-md-9 sm-12" },
+                [
+                  _c("bread-crumbs"),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row mb-4 " }, [
+                    _c(
+                      "div",
+                      { staticClass: "col-md-4 xs-12" },
+                      [_c("product-item-card")],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "col-md-4 xs-12" },
+                      [_c("product-item-card")],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "col-md-4 xs-12" },
+                      [_c("product-item-card")],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "col-md-4 xs-12" },
+                      [_c("product-item-card")],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "col-md-4 xs-12" },
+                      [_c("product-item-card")],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "col-md-4 xs-12" },
+                      [_c("product-item-card")],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "col-md-4 xs-12" },
+                      [_c("product-item-card")],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "col-md-4 xs-12" },
+                      [_c("product-item-card")],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "col-md-4 xs-12" },
+                      [_c("product-item-card")],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "col-md-4 xs-12" },
+                      [_c("product-item-card")],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "col-md-4 xs-12" },
+                      [_c("product-item-card")],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "col-md-4 xs-12" },
+                      [_c("product-item-card")],
+                      1
+                    )
+                  ])
+                ],
                 1
               )
             ])
-          ],
-          1
-        )
-      ])
+          ])
     ])
   ])
 }
@@ -38539,7 +38564,9 @@ var staticRenderFns = [
               _vm._v("€12.50 "),
               _c("p", { staticClass: "text-muted" }, [_vm._v("s DPH.")])
             ])
-          ])
+          ]),
+          _vm._v(" "),
+          _c("hr")
         ])
       ])
     ])
@@ -38569,7 +38596,7 @@ var render = function() {
   return _c("div", { staticClass: "wrapper" }, [
     _c(
       "nav",
-      { class: { active: _vm.isNavbarActive }, attrs: { id: "sidebar" } },
+      { class: { active: _vm.$parent.sideBarOpen }, attrs: { id: "sidebar" } },
       [_vm._m(0), _vm._v(" "), _vm._m(1)]
     )
   ])

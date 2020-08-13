@@ -4,7 +4,7 @@
     <!-- Sidebar -->
     <nav 
         id="sidebar" 
-        :class="{'active' : isNavbarActive}">
+        :class="{'active' : $parent.sideBarOpen}">
         <div class="sidebar-header text-center">
             <h3>Menu</h3>
         </div>
@@ -59,8 +59,6 @@
 export default {
    
 
-    data: () =>({
-        isNavbarActive: true
-    }),
+  
 }
 </script>

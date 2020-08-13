@@ -11,6 +11,7 @@
 				<div class="price-wrap h6">
 					<span class="price-new">€12.50 <p class="text-muted">s DPH.</p></span> 
 				</div> 
+				<hr>
 			</div> 
     	</div>
 	</div>
