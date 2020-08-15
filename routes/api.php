@@ -23,7 +23,7 @@ Route::get('shop/products', function (Request $request){
     return Product::all();
 });
 
-Route::get('shop/products-by-id/{id}', function(Request $request, $id){
+Route::get('shop/product-by-id/{id}', function(Request $request, $id){
     return Product::findOrFail($id);
 });
 

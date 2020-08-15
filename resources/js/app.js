@@ -1,16 +1,16 @@
 require('./bootstrap');
 
-import router from "./routes";
 import VueRouter from "vue-router";
 import Vuex from "vuex";
-import StoreDefinition from './store';
-
 import Index from "./Index";
+import router from "./routes";
+
 
 import Navbar from "./components/Navbar";
 import BreadCrumbs from "./components/BreadCrumbs.vue";
 import Footer from "./components/Footer";
 
+import StoreDefinition from './store';
 
 window.Vue = require('vue');
 

@@ -15,7 +15,7 @@
                     <div class="col-md-9 sm-12">
                         
                         <div class="row mb-4">
-                            <div v-for="product in products" :key="product.id" class="col-md-4 xs-12"><product-item-card v-bind="product"></product-item-card></div>
+                            <div v-for="product in products" :key="product.id" class="col-md-4 xs-12"><product-item-card v-bind:product="product"></product-item-card></div>
                         </div>
                     </div>
                 </div>
@@ -24,6 +24,7 @@
 </template>
 
 <script>
+import { mapState, mapGetters } from "vuex";
 import ProductItemCard from "./shopPageComponents/ProductCard";
 import SideBar from "./shopPageComponents/Sidebar";
 export default {
@@ -43,7 +44,7 @@ export default {
         }
     },
 
-     created(){
+    created(){
         this.loading = true
 
         const request = axios.get("api/shop/products")
@@ -51,13 +52,6 @@ export default {
         this.products = response.data
         this.loading = false;
         });
-          
-         
-    }
-
-
-
-   
-    
+    },
 }
 </script>
