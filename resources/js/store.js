@@ -15,6 +15,26 @@ export default{
             state.basket = payload;
         },
     },
+
+    actions:{
+        loadStoredState(context){
+            const basket = localStorage.getItem('basket');
+            if(basket) {
+                context.commit('setBasket', JSON.parse(basket));
+            }
+        },
+
+        addToBasket({commit, state}, payload){
+            commit('addToBasket', payload);
+            localStorage.setItem('basket', JSON.stringify(state.basket));
+        },
+
+        removeFromBasket({commit, state}, payload){
+            commit('removeFromBasket', payload);
+            localStorage.setItem('basket', JSON.stringify(state.basket));
+        }
+    },
+
     getters: {
         itemsInBasket: (state) => state.basket.items.length,
         inBasketAlready(state) {

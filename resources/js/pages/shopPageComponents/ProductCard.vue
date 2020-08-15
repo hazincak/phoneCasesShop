@@ -18,12 +18,12 @@
 					v-if="inBasketAlready" 
 					class="button button--teal-outline float-right"
 					@click="removeFromBasket"
-					> Remove</button>
+					>odstrániť <i class="fas fa-trash-restore"></i></button>
 				
 				<button 
 					v-else
 					class="button button--teal-outline float-right"
-					@click="addToBasket"><i class="fas fa-cart-arrow-down"></i> do košíka</button>	
+					@click="addToBasket">do košíka <i class="fas fa-cart-arrow-down"></i></button>	
 				<div class="price-wrap h6">
 					<span class="price-new">€{{product.price.toFixed(2)}} <p class="text-muted">s DPH.</p></span> 
 				</div> 
@@ -51,12 +51,12 @@ export default {
 
 	methods: {
 		addToBasket() {
-      		this.$store.commit("addToBasket", {
+      		this.$store.dispatch("addToBasket", {
         	product: this.product,
       			});
 		},
 		removeFromBasket(){
-			this.$store.commit("removeFromBasket", this.product);
+			this.$store.dispatch("removeFromBasket", this.product.id);
 		}
 	}	
 };

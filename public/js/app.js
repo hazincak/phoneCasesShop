@@ -2154,12 +2154,12 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     addToBasket: function addToBasket() {
-      this.$store.commit("addToBasket", {
+      this.$store.dispatch("addToBasket", {
         product: this.product
       });
     },
     removeFromBasket: function removeFromBasket() {
-      this.$store.commit("removeFromBasket", this.product);
+      this.$store.dispatch("removeFromBasket", this.product.id);
     }
   }
 });
@@ -37969,71 +37969,77 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("nav", { staticClass: "navbar navbar-expand-md navbar-dark" }, [
-      _c("a", { staticClass: "navbar-brand", attrs: { href: "#" } }, [
-        _vm._v("LOGO")
-      ]),
-      _vm._v(" "),
-      _c("ul", { staticClass: "navbar-nav mr-auto" }, [
+    _c(
+      "nav",
+      { staticClass: "navbar fixed-top navbar-expand-md navbar-dark" },
+      [
+        _c("a", { staticClass: "navbar-brand", attrs: { href: "#" } }, [
+          _vm._v("LOGO")
+        ]),
+        _vm._v(" "),
+        _c("ul", { staticClass: "navbar-nav mr-auto" }, [
+          _c(
+            "li",
+            { staticClass: "nav-item active" },
+            [
+              _c(
+                "router-link",
+                {
+                  staticClass: "nav-link",
+                  attrs: { to: { name: "home" }, href: "#" }
+                },
+                [
+                  _c("i", { staticClass: "fas fa-home" }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "sr-only" }, [_vm._v("(current)")])
+                ]
+              )
+            ],
+            1
+          )
+        ]),
+        _vm._v(" "),
+        _vm._m(0),
+        _vm._v(" "),
         _c(
-          "li",
-          { staticClass: "nav-item active" },
+          "div",
+          {
+            staticClass: "collapse navbar-collapse",
+            attrs: { id: "navbarSupportedContent" }
+          },
           [
-            _c(
-              "router-link",
-              {
-                staticClass: "nav-link",
-                attrs: { to: { name: "home" }, href: "#" }
-              },
-              [
-                _c("i", { staticClass: "fas fa-home" }),
-                _vm._v(" "),
-                _c("span", { staticClass: "sr-only" }, [_vm._v("(current)")])
-              ]
-            )
-          ],
-          1
+            _c("ul", { staticClass: "navbar-nav ml-auto" }, [
+              _c(
+                "li",
+                { staticClass: "nav-item" },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "nav-link",
+                      attrs: { to: { name: "basket" }, href: "#" }
+                    },
+                    [
+                      _c("i", { staticClass: "fas fa-shopping-cart" }),
+                      _c(
+                        "span",
+                        { staticClass: "badge badge-secondary badge-pill" },
+                        [_vm._v(_vm._s(_vm.itemsInBasket))]
+                      )
+                    ]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _vm._m(1),
+              _vm._v(" "),
+              _vm._m(2)
+            ])
+          ]
         )
-      ]),
-      _vm._v(" "),
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "collapse navbar-collapse",
-          attrs: { id: "navbarSupportedContent" }
-        },
-        [
-          _c("ul", { staticClass: "navbar-nav ml-auto" }, [
-            _c(
-              "li",
-              { staticClass: "nav-item" },
-              [
-                _c(
-                  "router-link",
-                  {
-                    staticClass: "nav-link",
-                    attrs: { to: { name: "basket" }, href: "#" }
-                  },
-                  [
-                    _c("i", { staticClass: "fas fa-shopping-cart" }),
-                    _c("span", { staticClass: "badge badge-pill" }, [
-                      _vm._v(_vm._s(_vm.itemsInBasket))
-                    ])
-                  ]
-                )
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _vm._m(1),
-            _vm._v(" "),
-            _vm._m(2)
-          ])
-        ]
-      )
-    ])
+      ]
+    )
   ])
 }
 var staticRenderFns = [
@@ -38708,7 +38714,10 @@ var render = function() {
                   staticClass: "button button--teal-outline float-right",
                   on: { click: _vm.removeFromBasket }
                 },
-                [_vm._v(" Remove")]
+                [
+                  _vm._v("odstrániť "),
+                  _c("i", { staticClass: "fas fa-trash-restore" })
+                ]
               )
             : _c(
                 "button",
@@ -38717,8 +38726,8 @@ var render = function() {
                   on: { click: _vm.addToBasket }
                 },
                 [
-                  _c("i", { staticClass: "fas fa-cart-arrow-down" }),
-                  _vm._v(" do košíka")
+                  _vm._v("do košíka "),
+                  _c("i", { staticClass: "fas fa-cart-arrow-down" })
                 ]
               ),
           _vm._v(" "),
@@ -55513,6 +55522,9 @@ var app = new Vue({
   store: store,
   components: {
     "index": _Index__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
+  beforeCreate: function beforeCreate() {
+    this.$store.dispatch("loadStoredState");
   }
 });
 
@@ -56313,6 +56325,27 @@ __webpack_require__.r(__webpack_exports__);
     },
     setBasket: function setBasket(state, payload) {
       state.basket = payload;
+    }
+  },
+  actions: {
+    loadStoredState: function loadStoredState(context) {
+      var basket = localStorage.getItem('basket');
+
+      if (basket) {
+        context.commit('setBasket', JSON.parse(basket));
+      }
+    },
+    addToBasket: function addToBasket(_ref, payload) {
+      var commit = _ref.commit,
+          state = _ref.state;
+      commit('addToBasket', payload);
+      localStorage.setItem('basket', JSON.stringify(state.basket));
+    },
+    removeFromBasket: function removeFromBasket(_ref2, payload) {
+      var commit = _ref2.commit,
+          state = _ref2.state;
+      commit('removeFromBasket', payload);
+      localStorage.setItem('basket', JSON.stringify(state.basket));
     }
   },
   getters: {

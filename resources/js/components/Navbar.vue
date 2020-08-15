@@ -1,6 +1,6 @@
 <template>
     <div>
-    <nav class="navbar navbar-expand-md navbar-dark">
+    <nav class="navbar fixed-top navbar-expand-md navbar-dark">
         <a class="navbar-brand" href="#">LOGO</a>
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
@@ -14,7 +14,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-            <router-link :to="{name: 'basket'}" class="nav-link" href="#"><i class="fas fa-shopping-cart"></i><span class="badge badge-pill">{{itemsInBasket}}</span></router-link>
+            <router-link :to="{name: 'basket'}" class="nav-link" href="#"><i class="fas fa-shopping-cart"></i><span class="badge badge-secondary badge-pill">{{itemsInBasket}}</span></router-link>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#">Prihlásiť sa</a>
