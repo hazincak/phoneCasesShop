@@ -94,6 +94,7 @@
                     </h6>
                 </div>
                 <div>
+                    <transition-group name="fade">
                     <div v-for="item in basket" :key="item.product.id" class="pt-2 pb-2 border-top d-flex justify-content-between">
                        <div class="pt-2 pb-2 d-flex justify-content-between">
                             <span>
@@ -107,6 +108,7 @@
                             </button>
                         </div>
                     </div>
+                    </transition-group>
                 </div>
             </div>
         </div>

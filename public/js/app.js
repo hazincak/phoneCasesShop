@@ -2102,6 +2102,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(['itemsInBasket'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])({
@@ -38941,68 +38943,75 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "div",
-                _vm._l(_vm.basket, function(item) {
-                  return _c(
-                    "div",
-                    {
-                      key: item.product.id,
-                      staticClass:
-                        "pt-2 pb-2 border-top d-flex justify-content-between"
-                    },
-                    [
-                      _c(
+                [
+                  _c(
+                    "transition-group",
+                    { attrs: { name: "fade" } },
+                    _vm._l(_vm.basket, function(item) {
+                      return _c(
                         "div",
                         {
+                          key: item.product.id,
                           staticClass:
-                            "pt-2 pb-2 d-flex justify-content-between"
+                            "pt-2 pb-2 border-top d-flex justify-content-between"
                         },
                         [
                           _c(
-                            "span",
+                            "div",
+                            {
+                              staticClass:
+                                "pt-2 pb-2 d-flex justify-content-between"
+                            },
                             [
                               _c(
-                                "router-link",
-                                {
-                                  attrs: {
-                                    to: {
-                                      name: "product",
-                                      params: { id: item.product.id }
-                                    }
-                                  }
-                                },
-                                [_vm._v(_vm._s(item.product.title))]
-                              )
-                            ],
-                            1
+                                "span",
+                                [
+                                  _c(
+                                    "router-link",
+                                    {
+                                      attrs: {
+                                        to: {
+                                          name: "product",
+                                          params: { id: item.product.id }
+                                        }
+                                      }
+                                    },
+                                    [_vm._v(_vm._s(item.product.title))]
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c("span", { staticClass: "font-weight-bold" }, [
+                                _vm._v("€" + _vm._s(item.product.price))
+                              ])
+                            ]
                           ),
                           _vm._v(" "),
-                          _c("span", { staticClass: "font-weight-bold" }, [
-                            _vm._v("€" + _vm._s(item.product.price))
+                          _c("div", { staticClass: "pt-2 pb-2 text-right" }, [
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-sm btn-outline-secondary",
+                                on: {
+                                  click: function($event) {
+                                    return _vm.$store.dispatch(
+                                      "removeFromBasket",
+                                      item.product.id
+                                    )
+                                  }
+                                }
+                              },
+                              [_c("i", { staticClass: "fas fa-trash-alt" })]
+                            )
                           ])
                         ]
-                      ),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "pt-2 pb-2 text-right" }, [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-sm btn-outline-secondary",
-                            on: {
-                              click: function($event) {
-                                return _vm.$store.dispatch(
-                                  "removeFromBasket",
-                                  item.product.id
-                                )
-                              }
-                            }
-                          },
-                          [_c("i", { staticClass: "fas fa-trash-alt" })]
-                        )
-                      ])
-                    ]
+                      )
+                    }),
+                    0
                   )
-                }),
-                0
+                ],
+                1
               )
             ])
           ])
