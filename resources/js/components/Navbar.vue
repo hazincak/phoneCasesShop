@@ -14,7 +14,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-            <router-link :to="{name: 'basket'}" class="nav-link" href="#"><i class="fas fa-shopping-cart"></i><span class="badge badge-pill">4</span></router-link>
+            <router-link :to="{name: 'basket'}" class="nav-link" href="#"><i class="fas fa-shopping-cart"></i><span class="badge badge-pill">{{itemsInBasket}}</span></router-link>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#">Prihlásiť sa</a>
@@ -27,6 +27,16 @@
 </nav>
     </div>
 </template>
+<script>
+import {mapGetters} from "vuex";
+export default {
+    computed: {
+        ...mapGetters({
+            itemsInBasket: "itemsInBasket"
+        })
+    }
+}
+</script>
 
 
 
