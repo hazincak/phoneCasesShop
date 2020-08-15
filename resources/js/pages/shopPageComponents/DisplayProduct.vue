@@ -1,7 +1,11 @@
 <template>
     <div class="container">
-        <bread-crumbs></bread-crumbs>
-        <div class="row">
+        <div v-if="loading">
+                Data is loading...
+        </div>
+        <div v-else>
+            <bread-crumbs></bread-crumbs>
+            <div class="row">
             <div class="col-mb-6">
                 <img src="./../../../images/samples/Product3.jpg" alt="">
             </div>
@@ -9,6 +13,7 @@
                   <h3>{{product.title}}</h3>
                 <p>{{product.description}}</p>
             </div>     
+            </div>
         </div>
     </div>
 </template>

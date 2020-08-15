@@ -1,6 +1,6 @@
 <template>
     <div>
-    <nav class="navbar fixed-top navbar-expand-md navbar-dark">
+    <nav class="navbar navbar-expand-md navbar-dark">
         <a class="navbar-brand" href="#">LOGO</a>
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
