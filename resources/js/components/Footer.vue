@@ -14,7 +14,7 @@
             </div>
             <div class="row">
                 <div class = "col-lg-12 text-center mt-2">
-                    © Copyright 2020 najlacnejsieObaly.online
+                    © Copyright 2020 najlacnejsieobaly.shop
                 </div>
             </div>
         </div>

@@ -1,11 +1,11 @@
 <template>
 	<div class="card mr-2"> 
      	<div class="card-product">
-			<router-link :to="{name: 'product', params: { id:product.id }}">
+			<router-link :to="{name: 'product', params: { id: product.id, title:product.title, brand:product.brand }}">
 				<div class="img-wrap"><img src="../../../images/samples/Product1.jpg"></div>
 			</router-link>	
 			<div class="info-wrap">
-					<router-link :to="{name: 'product', params: { id:product.id }}">
+					<router-link :to="{name: 'product', params: { id: product.id }}">
 						<h6 class="card-title">{{product.title}}</h6>
 					</router-link>
 						
@@ -16,7 +16,7 @@
 				
 				<button 
 					v-if="inBasketAlready" 
-					class="button button--teal-outline float-right"
+					class=" btn btn-danger float-right"
 					@click="removeFromBasket"
 					>odstrániť <i class="fas fa-trash-restore"></i></button>
 				

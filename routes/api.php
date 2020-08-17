@@ -19,17 +19,21 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('shop/products', function (Request $request){
+Route::get('obchod/produkty', function (Request $request){
     return Product::all();
 });
 
-Route::get('shop/product-by-id/{id}', function(Request $request, $id){
+Route::get('obchod/produkt-podla-id/{id}', function(Request $request, $id){
     return Product::findOrFail($id);
 });
 
-Route::get('shop/products-by-brand/{brand}', function(Request $request, $brand){
+Route::get('obchod/produkty-podla-znacky/{brand}', function(Request $request, $brand){
     return Product::where('brand', $brand)->get();
 });
-Route::get('shop/products-by-model/{model}', function(Request $request, $model){
+Route::get('obchod/produkty-podla-modelu/{model}', function(Request $request, $model){
     return Product::where('model', $model)->get();
 });
+Route::get('obchod/produkt-podla-nazvu/{title}', function(Request $request, $title){
+    return Product::where('title', $title)->get();
+});
+

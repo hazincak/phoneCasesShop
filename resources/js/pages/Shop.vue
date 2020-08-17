@@ -47,7 +47,7 @@ export default {
     created(){
         this.loading = true
 
-        const request = axios.get("api/shop/products")
+        const request = axios.get("api/obchod/produkty")
         .then(response => {
         this.products = response.data
         this.loading = false;

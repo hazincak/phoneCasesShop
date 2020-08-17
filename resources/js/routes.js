@@ -2,7 +2,7 @@ import VueRouter from "vue-router";
 import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 import Basket from "./pages/Basket";
-import Product from "./pages/shopPageComponents/DisplayProduct.vue";
+import DisplayProduct from "./pages/shopPageComponents/DisplayProduct.vue";
 
 const routes = [
     {
@@ -11,18 +11,18 @@ const routes = [
         name: "home",
     },
     {
-        path: "/shop",
+        path: "/obchod",
         component: Shop,
         name: "shop",
     },
     {
-        path: "/product/:id",
-        component: Product,
+        path: "/produkt/:brand/:title",
+        component: DisplayProduct,
         name: "product"
 
     },
     {
-        path: "/basket",
+        path: "/kosik",
         component: Basket,
         name: "basket",
     },

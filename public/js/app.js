@@ -2202,7 +2202,7 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     this.loading = true;
-    var request = axios.get("api/shop/products").then(function (response) {
+    var request = axios.get("api/obchod/produkty").then(function (response) {
       _this.products = response.data;
       _this.loading = false;
     });
@@ -2251,7 +2251,7 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     this.loading = true;
-    axios.get("/api/shop/product-by-id/".concat(this.$route.params.id)).then(function (response) {
+    axios.get("/api/obchod/produkt-podla-id/".concat(this.$route.params.id)).then(function (response) {
       _this.product = response.data;
       _this.loading = false;
     });
@@ -38751,7 +38751,7 @@ var staticRenderFns = [
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-lg-12 text-center mt-2" }, [
             _vm._v(
-              "\n                © Copyright 2020 najlacnejsieObaly.online\n            "
+              "\n                © Copyright 2020 najlacnejsieobaly.shop\n            "
             )
           ])
         ])
@@ -38783,7 +38783,7 @@ var render = function() {
   return _c("div", [
     _c("nav", { staticClass: "navbar navbar-expand-md navbar-dark" }, [
       _c("a", { staticClass: "navbar-brand", attrs: { href: "#" } }, [
-        _vm._v("LOGO")
+        _vm._v("najlacnejsieobaly.shop")
       ]),
       _vm._v(" "),
       _c("ul", { staticClass: "navbar-nav mr-auto" }, [
@@ -39562,7 +39562,16 @@ var render = function() {
         _c(
           "router-link",
           {
-            attrs: { to: { name: "product", params: { id: _vm.product.id } } }
+            attrs: {
+              to: {
+                name: "product",
+                params: {
+                  id: _vm.product.id,
+                  title: _vm.product.title,
+                  brand: _vm.product.brand
+                }
+              }
+            }
           },
           [
             _c("div", { staticClass: "img-wrap" }, [
@@ -39603,7 +39612,7 @@ var render = function() {
             ? _c(
                 "button",
                 {
-                  staticClass: "button button--teal-outline float-right",
+                  staticClass: " btn btn-danger float-right",
                   on: { click: _vm.removeFromBasket }
                 },
                 [
@@ -57204,15 +57213,15 @@ var routes = [{
   component: _pages_Home__WEBPACK_IMPORTED_MODULE_1__["default"],
   name: "home"
 }, {
-  path: "/shop",
+  path: "/obchod",
   component: _pages_Shop__WEBPACK_IMPORTED_MODULE_2__["default"],
   name: "shop"
 }, {
-  path: "/product/:id",
+  path: "/produkt/:brand/:title",
   component: _pages_shopPageComponents_DisplayProduct_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
   name: "product"
 }, {
-  path: "/basket",
+  path: "/kosik",
   component: _pages_Basket__WEBPACK_IMPORTED_MODULE_3__["default"],
   name: "basket"
 }];
