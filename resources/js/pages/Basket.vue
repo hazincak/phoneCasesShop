@@ -1,7 +1,7 @@
 <template>
-
-    <div class="container" v-if="itemsInBasket">
-        <div class="row">
+    <div class="container">
+        <breadcrumb></breadcrumb>
+        <div class="row" v-if="itemsInBasket">
             <div class="col-md-8">
                 <div class="row">
                     <div class="col-md-6 form-group">
@@ -112,16 +112,16 @@
                 </div>
             </div>
         </div>
-    </div>
+    
             
             <!-- <div class="col-md-8" v-else >
                 <div class="jumbotron jumbotron-fluid text-center">
                     <h1>Empty</h1>
                 </div>
             </div> -->
-        <div class="container" v-else>
+        
             
-            <div class="row">
+            <div class="row" v-else>
                 <div class="col-sm-12 text-center"> 
                     
                         <i class="fas fa-cart-plus"></i>
@@ -131,7 +131,8 @@
                     
                 </div>
             </div>
-        </div>
+        
+    </div>
     
 </template>
 <script>

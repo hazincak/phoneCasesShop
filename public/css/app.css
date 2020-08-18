@@ -17217,6 +17217,7 @@ nav .navbar-nav li a:hover {
 
 .breadcrumb-item {
   color: #01a9b4;
+  cursor: pointer;
 }
 
 .breadcrumb-item.active {

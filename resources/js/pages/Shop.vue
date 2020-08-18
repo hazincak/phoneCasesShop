@@ -4,6 +4,7 @@
                 Data is loading...
             </div>
             <div v-else>
+                <breadcrumb></breadcrumb>
                 <div class="row">
                     <div class="col-md-3 sm-12">
                          <button  @click="sideBarOpen = !sideBarOpen">
