@@ -1,6 +1,6 @@
 <template>
+
     <div class="container" v-if="itemsInBasket">
-        <bread-crumbs></bread-crumbs>
         <div class="row">
             <div class="col-md-8">
                 <div class="row">
@@ -120,6 +120,7 @@
                 </div>
             </div> -->
         <div class="container" v-else>
+            
             <div class="row">
                 <div class="col-sm-12 text-center"> 
                     

@@ -18,10 +18,11 @@ window.Vue = require('vue');
 Vue.use(VueRouter);
 Vue.use(Vuex);
 
-
 Vue.component("navbar", Navbar);
 Vue.component("bread-crumbs", BreadCrumbs);
 Vue.component("section-footer", Footer);
+
+Vue.component('pagination', require('laravel-vue-pagination'));
 
 const store = new Vuex.Store(StoreDefinition);
 

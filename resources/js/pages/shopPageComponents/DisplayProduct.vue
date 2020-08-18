@@ -4,7 +4,6 @@
                 Data is loading...
         </div>
         <div v-else>
-            <bread-crumbs></bread-crumbs>
             <div class="row">
             <div class="col-mb-6">
                 <img src="./../../../images/samples/Product3.jpg" alt="">

@@ -20,7 +20,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('obchod/produkty', function (Request $request){
-    return Product::all();
+    
+    return Product::paginate(12);
 });
 
 Route::get('obchod/produkt-podla-id/{id}', function(Request $request, $id){
