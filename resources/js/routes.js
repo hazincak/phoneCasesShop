@@ -8,23 +8,39 @@ const routes = [
     {
         path: "/",
         component: Home,
-        name: "home",
+        name: "domov",
+        meta:{
+            breadcrumb: 'domov'
+        }
     },
     {
         path: "/obchod",
         component: Shop,
-        name: "shop",
+        name: "obchod",
+        meta: {
+            breadcrumb: $route => `route params id: ${$route.id}`
+          }
     },
     {
-        path: "/produkt/:brand/:title",
+        path: "/produkt/:id",
         component: DisplayProduct,
-        name: "product"
+        name: "produkt",
+        meta: {
+            breadcrumb() {
+              const { name } = this.$route;
+  
+              return {
+                label: name,
+                parent: 'domov'
+              };
+            }
+          }
 
     },
     {
         path: "/kosik",
         component: Basket,
-        name: "basket",
+        name: "kosik",
     },
 
 

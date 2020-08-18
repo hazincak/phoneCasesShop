@@ -38795,7 +38795,7 @@ var render = function() {
               "router-link",
               {
                 staticClass: "nav-link",
-                attrs: { to: { name: "home" }, href: "#" }
+                attrs: { to: { name: "domov" }, href: "#" }
               },
               [
                 _c("i", { staticClass: "fas fa-home" }),
@@ -38826,7 +38826,7 @@ var render = function() {
                   "router-link",
                   {
                     staticClass: "nav-link",
-                    attrs: { to: { name: "basket" }, href: "#" }
+                    attrs: { to: { name: "kosik" }, href: "#" }
                   },
                   [
                     _c("i", { staticClass: "fas fa-shopping-cart" }),
@@ -39385,7 +39385,7 @@ var render = function() {
             "router-link",
             {
               staticClass: "button button__rounded button--teal-dark mt-2",
-              attrs: { to: { name: "shop" } }
+              attrs: { to: { name: "obchod" } }
             },
             [_vm._v("Do obchodu")]
           )
@@ -39562,16 +39562,7 @@ var render = function() {
         _c(
           "router-link",
           {
-            attrs: {
-              to: {
-                name: "product",
-                params: {
-                  id: _vm.product.id,
-                  title: _vm.product.title,
-                  brand: _vm.product.brand
-                }
-              }
-            }
+            attrs: { to: { name: "produkt", params: { id: _vm.product.id } } }
           },
           [
             _c("div", { staticClass: "img-wrap" }, [
@@ -39590,7 +39581,7 @@ var render = function() {
               "router-link",
               {
                 attrs: {
-                  to: { name: "product", params: { id: _vm.product.id } }
+                  to: { name: "produkt", params: { id: _vm.product.id } }
                 }
               },
               [
@@ -57211,19 +57202,36 @@ __webpack_require__.r(__webpack_exports__);
 var routes = [{
   path: "/",
   component: _pages_Home__WEBPACK_IMPORTED_MODULE_1__["default"],
-  name: "home"
+  name: "domov",
+  meta: {
+    breadcrumb: 'domov'
+  }
 }, {
   path: "/obchod",
   component: _pages_Shop__WEBPACK_IMPORTED_MODULE_2__["default"],
-  name: "shop"
+  name: "obchod",
+  meta: {
+    breadcrumb: function breadcrumb($route) {
+      return "route params id: ".concat($route.id);
+    }
+  }
 }, {
-  path: "/produkt/:brand/:title",
+  path: "/produkt/:id",
   component: _pages_shopPageComponents_DisplayProduct_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
-  name: "product"
+  name: "produkt",
+  meta: {
+    breadcrumb: function breadcrumb() {
+      var name = this.$route.name;
+      return {
+        label: name,
+        parent: 'domov'
+      };
+    }
+  }
 }, {
   path: "/kosik",
   component: _pages_Basket__WEBPACK_IMPORTED_MODULE_3__["default"],
-  name: "basket"
+  name: "kosik"
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
   routes: routes,
