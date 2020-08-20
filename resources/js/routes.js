@@ -26,6 +26,14 @@ const routes = [
             ]
         }
     },
+
+    {
+        path:"/obchod/obaly-na-apple",
+        component: Shop,
+        name: 'obchod/apple'
+
+    },
+
     {
         path: "/produkt/:id",
         component: DisplayProduct,

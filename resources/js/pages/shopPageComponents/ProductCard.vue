@@ -16,7 +16,7 @@
 				
 				<button 
 					v-if="inBasketAlready" 
-					class=" btn btn-danger float-right"
+					class=" button button--teal-dark float-right"
 					@click="removeFromBasket"
 					>odstrániť <i class="fas fa-trash-restore"></i></button>
 				

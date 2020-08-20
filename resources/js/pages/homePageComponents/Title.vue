@@ -1,6 +1,6 @@
 <template>
-    <div class="section-title">
-        <div class = "container-fluid">
+    <div class="container-fluid section-title">
+        
            
                 <div class="col-lg-6 text-center my-center ">
                     <h1 class="heading-primary">Nieco v zmysle: oblec svoj mobil</h1>
@@ -20,6 +20,6 @@
                     </div>
                 </div>
             
-        </div>
+        
     </div> 
 </template>

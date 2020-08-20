@@ -2241,7 +2241,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 
@@ -2266,7 +2265,7 @@ __webpack_require__.r(__webpack_exports__);
 
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
       this.loading = true;
-      axios.get('api/obchod/produkty?page=' + page).then(function (response) {
+      axios.get("api/obchod/produkty?page=" + page).then(function (response) {
         _this.products = response.data;
         _this.loading = false;
       });
@@ -39927,63 +39926,57 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
+  return _c("div", { staticClass: "container-fluid" }, [
     _vm.loading
       ? _c("div", [_vm._v("\n            Data is loading...\n        ")])
-      : _c(
-          "div",
-          [
-            _c("breadcrumb"),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c(
-                "div",
-                { staticClass: "col-md-3 sm-12" },
-                [
-                  _c("side-bar", {
-                    on: {
-                      "menu-option": function($event) {
-                        _vm.selectedOption = $event
-                      }
+      : _c("div", [
+          _c("div", { staticClass: "row" }, [
+            _c(
+              "div",
+              { staticClass: "col-md-2 sm-12" },
+              [
+                _c("side-bar", {
+                  on: {
+                    "menu-option": function($event) {
+                      _vm.selectedOption = $event
                     }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "col-md-9 sm-12" },
-                [
-                  _c(
-                    "div",
-                    { staticClass: "row mb-4" },
-                    _vm._l(_vm.products.data, function(product) {
-                      return _c(
-                        "div",
-                        { key: product.id, staticClass: "col-md-4 xs-12" },
-                        [
-                          _c("product-item-card", {
-                            attrs: { product: product }
-                          })
-                        ],
-                        1
-                      )
-                    }),
-                    0
-                  ),
-                  _vm._v(" "),
-                  _c("pagination", {
-                    attrs: { data: _vm.products, align: "center" },
-                    on: { "pagination-change-page": _vm.getResults }
-                  })
-                ],
-                1
-              )
-            ])
-          ],
-          1
-        )
+                  }
+                })
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "col-md-10 sm-12" },
+              [
+                _c("breadcrumb"),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "row mb-4" },
+                  _vm._l(_vm.products.data, function(product) {
+                    return _c(
+                      "div",
+                      { key: product.id, staticClass: "col-md-3 xs-12" },
+                      [
+                        _c("product-item-card", { attrs: { product: product } })
+                      ],
+                      1
+                    )
+                  }),
+                  0
+                ),
+                _vm._v(" "),
+                _c("pagination", {
+                  attrs: { data: _vm.products, align: "center" },
+                  on: { "pagination-change-page": _vm.getResults }
+                })
+              ],
+              1
+            )
+          ])
+        ])
   ])
 }
 var staticRenderFns = []
@@ -40099,30 +40092,28 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "section-title" }, [
-    _c("div", { staticClass: "container-fluid" }, [
-      _c(
-        "div",
-        { staticClass: "col-lg-6 text-center my-center " },
-        [
-          _c("h1", { staticClass: "heading-primary" }, [
-            _vm._v("Nieco v zmysle: oblec svoj mobil")
-          ]),
-          _vm._v(" "),
-          _c(
-            "router-link",
-            {
-              staticClass: "button button__rounded button--teal-dark mt-2",
-              attrs: { to: { name: "obchod" } }
-            },
-            [_vm._v("Do obchodu")]
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _vm._m(0)
-    ])
+  return _c("div", { staticClass: "container-fluid section-title" }, [
+    _c(
+      "div",
+      { staticClass: "col-lg-6 text-center my-center " },
+      [
+        _c("h1", { staticClass: "heading-primary" }, [
+          _vm._v("Nieco v zmysle: oblec svoj mobil")
+        ]),
+        _vm._v(" "),
+        _c(
+          "router-link",
+          {
+            staticClass: "button button__rounded button--teal-dark mt-2",
+            attrs: { to: { name: "obchod" } }
+          },
+          [_vm._v("Do obchodu")]
+        )
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _vm._m(0)
   ])
 }
 var staticRenderFns = [
@@ -40224,7 +40215,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
+  return _c("div", { staticClass: "container section-show" }, [
     _vm.loading
       ? _c("div", [_vm._v("\n            Data is loading...\n    ")])
       : _c(
@@ -40331,7 +40322,7 @@ var render = function() {
             ? _c(
                 "button",
                 {
-                  staticClass: " btn btn-danger float-right",
+                  staticClass: " button button--teal-dark float-right",
                   on: { click: _vm.removeFromBasket }
                 },
                 [
@@ -58170,6 +58161,10 @@ var routes = [{
       name: 'Obchod'
     }]
   }
+}, {
+  path: "/obchod/obaly-na-apple",
+  component: _pages_Shop__WEBPACK_IMPORTED_MODULE_2__["default"],
+  name: 'obchod/apple'
 }, {
   path: "/produkt/:id",
   component: _pages_shopPageComponents_DisplayProduct_vue__WEBPACK_IMPORTED_MODULE_4__["default"],

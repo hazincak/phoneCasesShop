@@ -17046,7 +17046,6 @@ a.text-dark:focus {
 .button--teal-light:hover {
   background-color: #fbfd8a;
   color: #086972;
-  font-weight: bolder;
 }
 
 .button--teal {
@@ -17057,7 +17056,6 @@ a.text-dark:focus {
 .button--teal:hover {
   background-color: #fbfd8a;
   color: #086972;
-  font-weight: bolder;
 }
 
 .button--teal-dark {
@@ -17068,7 +17066,6 @@ a.text-dark:focus {
 .button--teal-dark:hover {
   background-color: #fbfd8a;
   color: #086972;
-  font-weight: bolder;
 }
 
 .button--teal-light-outline {
@@ -17110,7 +17107,7 @@ a.text-dark:focus {
 .title-card {
   padding: 4.5%;
   border: none;
-  background-color: #cfe1e3;
+  background-color: #d9f6fa;
 }
 
 .title-card__icon {
@@ -17294,6 +17291,19 @@ ul ul ul a {
   color: #01a9b4;
 }
 
+.page-link {
+  color: #01a9b4;
+}
+
+.page-link:hover {
+  background-color: #87dfd6;
+}
+
+.page-item.active .page-link {
+  background-color: #01a9b4;
+  border-color: #01a9b4;
+}
+
 .section-footer {
   padding: 4% 30%;
   background-color: #333;
@@ -17306,7 +17316,7 @@ ul ul ul a {
 }
 
 .section-title {
-  background-image: linear-gradient(#086972, rgba(207, 225, 227, 0.801)), url(/images/hero2.jpg?aa076a812ae5229d08f2ef34d4228f32);
+  background-image: linear-gradient(#086972, rgba(217, 246, 250, 0.801)), url(/images/hero2.jpg?aa076a812ae5229d08f2ef34d4228f32);
   background-size: cover;
   background-position: center center;
   height: 100vh;
@@ -17314,7 +17324,7 @@ ul ul ul a {
 
 .section-cards {
   position: relative;
-  background-color: #cfe1e3;
+  background-color: #d9f6fa;
 }
 
 .fade-enter-active,

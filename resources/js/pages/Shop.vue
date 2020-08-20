@@ -1,18 +1,17 @@
 <template>
-    <div class="container">
+    <div class="container-fluid">
             <div v-if="loading">
                 Data is loading...
             </div>
             <div v-else>
-                <breadcrumb></breadcrumb>
                 <div class="row">
-                    <div class="col-md-3 sm-12">
+                    <div class="col-md-2 sm-12">
                         <side-bar @menu-option = "selectedOption = $event"></side-bar>
                     </div>
-                    <div class="col-md-9 sm-12">
-                        
+                    <div class="col-md-10 sm-12">
+                        <breadcrumb></breadcrumb>
                         <div class="row mb-4">
-                            <div v-for="product in products.data" :key="product.id" class="col-md-4 xs-12"><product-item-card v-bind:product="product"></product-item-card></div>
+                            <div v-for="product in products.data" :key="product.id" class="col-md-3 xs-12"><product-item-card v-bind:product="product"></product-item-card></div>
                         </div>
                         <pagination :data="products" align='center' @pagination-change-page="getResults">
  
@@ -47,19 +46,17 @@ export default {
         this.getResults();
     },
 
-    methods:{
 
-        
-        
-    
-       
+    methods:{
         getResults(page = 1){
              this.loading = true
-            axios.get('api/obchod/produkty?page=' + page)
+         
+                axios.get(`api/obchod/produkty?page=` + page)
                 .then(response => {
                     this.products = response.data;
                     this.loading=false;
                 });
+
         }
     }
 
