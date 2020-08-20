@@ -2253,7 +2253,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       products: {},
-      loading: false
+      loading: false,
+      selectedOption: null
     };
   },
   created: function created() {
@@ -2399,6 +2400,89 @@ __webpack_require__.r(__webpack_exports__);
     },
     removeFromBasket: function removeFromBasket() {
       this.$store.dispatch("removeFromBasket", this.product.id);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/shopPageComponents/Sidebar.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/shopPageComponents/Sidebar.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  methods: {
+    sendOption: function sendOption(arg) {
+      this.$emit('menu-option', arg);
     }
   }
 });
@@ -39852,7 +39936,20 @@ var render = function() {
             _c("breadcrumb"),
             _vm._v(" "),
             _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-md-3 sm-12" }, [_c("side-bar")], 1),
+              _c(
+                "div",
+                { staticClass: "col-md-3 sm-12" },
+                [
+                  _c("side-bar", {
+                    on: {
+                      "menu-option": function($event) {
+                        _vm.selectedOption = $event
+                      }
+                    }
+                  })
+                ],
+                1
+              ),
               _vm._v(" "),
               _c(
                 "div",
@@ -40290,137 +40387,229 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "wrapper" }, [
+    _c("nav", { staticClass: "active", attrs: { id: "sidebar" } }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("ul", { staticClass: "list-unstyled components" }, [
+        _c("h5", [_vm._v("KATEGÓRIE PRODUKTOV")]),
+        _vm._v(" "),
+        _c("li", [
+          _c(
+            "a",
+            {
+              staticClass: "dropdown-toggle",
+              attrs: {
+                href: "#phoneCovers",
+                "data-toggle": "collapse",
+                "aria-expanded": "false"
+              }
+            },
+            [_vm._v("Obaly na mobil")]
+          ),
+          _vm._v(" "),
+          _c(
+            "ul",
+            {
+              staticClass: "collapse list-unstyled",
+              attrs: { id: "phoneCovers" }
+            },
+            [
+              _c("li", [
+                _c(
+                  "a",
+                  {
+                    staticClass: "dropdown-toggle",
+                    attrs: {
+                      href: "#phoneBrandApple",
+                      "data-toggle": "collapse",
+                      "aria-expanded": "false"
+                    }
+                  },
+                  [_vm._v("Apple")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "ul",
+                  {
+                    staticClass: "collapse list-unstyled",
+                    attrs: { id: "phoneBrandApple" }
+                  },
+                  [
+                    _c(
+                      "li",
+                      {
+                        on: {
+                          click: function($event) {
+                            return _vm.sendOption("Iphone 10")
+                          }
+                        }
+                      },
+                      [_vm._v("Iphone 10")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      {
+                        on: {
+                          click: function($event) {
+                            return _vm.sendOption("Iphone 9")
+                          }
+                        }
+                      },
+                      [_vm._v("Iphone 9")]
+                    )
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c(
+                  "a",
+                  {
+                    staticClass: "dropdown-toggle",
+                    attrs: {
+                      href: "#phoneBrandSamsung",
+                      "data-toggle": "collapse",
+                      "aria-expanded": "false"
+                    }
+                  },
+                  [_vm._v("Samsung")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "ul",
+                  {
+                    staticClass: "collapse list-unstyled",
+                    attrs: { id: "phoneBrandSamsung" }
+                  },
+                  [
+                    _c(
+                      "li",
+                      {
+                        on: {
+                          click: function($event) {
+                            return _vm.sendOption("Galaxy 5")
+                          }
+                        }
+                      },
+                      [_vm._v("Galaxy 5")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      {
+                        on: {
+                          click: function($event) {
+                            return _vm.sendOption("Galaxy 7")
+                          }
+                        }
+                      },
+                      [_vm._v("Galaxy 7")]
+                    )
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _vm._m(1)
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _vm._m(2),
+        _vm._v(" "),
+        _vm._m(3),
+        _vm._v(" "),
+        _vm._m(4)
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "wrapper" }, [
-      _c("nav", { staticClass: "active", attrs: { id: "sidebar" } }, [
-        _c("div", { staticClass: "sidebar-header" }, [
-          _c("h3", [_vm._v("Menu")])
-        ]),
-        _vm._v(" "),
-        _c("ul", { staticClass: "list-unstyled components" }, [
-          _c("h5", [_vm._v("KATEGÓRIE PRODUKTOV")]),
-          _vm._v(" "),
-          _c("li", { staticClass: "active" }, [
+    return _c("div", { staticClass: "sidebar-header" }, [
+      _c("h3", [_vm._v("Menu")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c(
+        "a",
+        {
+          staticClass: "dropdown-toggle",
+          attrs: {
+            href: "#phoneBrandMotorola",
+            "data-toggle": "collapse",
+            "aria-expanded": "false"
+          }
+        },
+        [_vm._v("Motorola")]
+      ),
+      _vm._v(" "),
+      _c(
+        "ul",
+        {
+          staticClass: "collapse list-unstyled",
+          attrs: { id: "phoneBrandMotorola" }
+        },
+        [_c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Razr")])])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c(
+        "a",
+        {
+          staticClass: "dropdown-toggle",
+          attrs: {
+            href: "#tabletCovers",
+            "data-toggle": "collapse",
+            "aria-expanded": "false"
+          }
+        },
+        [_vm._v("Obaly na tablet")]
+      ),
+      _vm._v(" "),
+      _c(
+        "ul",
+        {
+          staticClass: "collapse list-unstyled",
+          attrs: { id: "tabletCovers" }
+        },
+        [
+          _c("li", [
             _c(
               "a",
               {
                 staticClass: "dropdown-toggle",
                 attrs: {
-                  href: "#phoneCovers",
+                  href: "#tabletBrandApple",
                   "data-toggle": "collapse",
                   "aria-expanded": "false"
                 }
               },
-              [_vm._v("Obaly na mobil")]
+              [_vm._v("Apple")]
             ),
             _vm._v(" "),
             _c(
               "ul",
               {
                 staticClass: "collapse list-unstyled",
-                attrs: { id: "phoneCovers" }
+                attrs: { id: "tabletBrandApple" }
               },
               [
                 _c("li", [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "dropdown-toggle",
-                      attrs: {
-                        href: "#phoneBrandApple",
-                        "data-toggle": "collapse",
-                        "aria-expanded": "false"
-                      }
-                    },
-                    [_vm._v("Apple")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "ul",
-                    {
-                      staticClass: "collapse list-unstyled",
-                      attrs: { id: "phoneBrandApple" }
-                    },
-                    [
-                      _c("li", [
-                        _c("a", { attrs: { href: "#" } }, [_vm._v("Iphone 10")])
-                      ]),
-                      _vm._v(" "),
-                      _c("li", [
-                        _c("a", { attrs: { href: "#" } }, [_vm._v("Iphone 9")])
-                      ])
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "dropdown-toggle",
-                      attrs: {
-                        href: "#phoneBrandSamsung",
-                        "data-toggle": "collapse",
-                        "aria-expanded": "false"
-                      }
-                    },
-                    [_vm._v("Samsung")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "ul",
-                    {
-                      staticClass: "collapse list-unstyled",
-                      attrs: { id: "phoneBrandSamsung" }
-                    },
-                    [
-                      _c("li", [
-                        _c("a", { attrs: { href: "#" } }, [_vm._v("Galaxy 7")])
-                      ]),
-                      _vm._v(" "),
-                      _c("li", [
-                        _c("a", { attrs: { href: "#" } }, [_vm._v("Galaxy 6")])
-                      ]),
-                      _vm._v(" "),
-                      _c("li", [
-                        _c("a", { attrs: { href: "#" } }, [_vm._v("Galaxy 5")])
-                      ])
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "dropdown-toggle",
-                      attrs: {
-                        href: "#phoneBrandMotorola",
-                        "data-toggle": "collapse",
-                        "aria-expanded": "false"
-                      }
-                    },
-                    [_vm._v("Motorola")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "ul",
-                    {
-                      staticClass: "collapse list-unstyled",
-                      attrs: { id: "phoneBrandMotorola" }
-                    },
-                    [
-                      _c("li", [
-                        _c("a", { attrs: { href: "#" } }, [_vm._v("Razr")])
-                      ])
-                    ]
-                  )
+                  _c("a", { attrs: { href: "#" } }, [_vm._v("Apple iPad Pro")])
                 ])
               ]
             )
@@ -40432,93 +40621,45 @@ var staticRenderFns = [
               {
                 staticClass: "dropdown-toggle",
                 attrs: {
-                  href: "#tabletCovers",
+                  href: "#tabletBrandSamsung",
                   "data-toggle": "collapse",
                   "aria-expanded": "false"
                 }
               },
-              [_vm._v("Obaly na tablet")]
+              [_vm._v("Samsung")]
             ),
             _vm._v(" "),
             _c(
               "ul",
               {
                 staticClass: "collapse list-unstyled",
-                attrs: { id: "tabletCovers" }
+                attrs: { id: "tabletBrandSamsung" }
               },
               [
                 _c("li", [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "dropdown-toggle",
-                      attrs: {
-                        href: "#tabletBrandApple",
-                        "data-toggle": "collapse",
-                        "aria-expanded": "false"
-                      }
-                    },
-                    [_vm._v("Apple")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "ul",
-                    {
-                      staticClass: "collapse list-unstyled",
-                      attrs: { id: "tabletBrandApple" }
-                    },
-                    [
-                      _c("li", [
-                        _c("a", { attrs: { href: "#" } }, [
-                          _vm._v("Apple iPad Pro")
-                        ])
-                      ])
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "dropdown-toggle",
-                      attrs: {
-                        href: "#tabletBrandSamsung",
-                        "data-toggle": "collapse",
-                        "aria-expanded": "false"
-                      }
-                    },
-                    [_vm._v("Samsung")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "ul",
-                    {
-                      staticClass: "collapse list-unstyled",
-                      attrs: { id: "tabletBrandSamsung" }
-                    },
-                    [
-                      _c("li", [
-                        _c("a", { attrs: { href: "#" } }, [
-                          _vm._v("Galaxy Tab s")
-                        ])
-                      ])
-                    ]
-                  )
+                  _c("a", { attrs: { href: "#" } }, [_vm._v("Galaxy Tab s")])
                 ])
               ]
             )
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { attrs: { href: "#" } }, [_vm._v("Ochranné sklá")])
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { attrs: { href: "#" } }, [_vm._v("Príslušenstvo")])
           ])
-        ])
-      ])
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c("a", { attrs: { href: "#" } }, [_vm._v("Ochranné sklá")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c("a", { attrs: { href: "#" } }, [_vm._v("Príslušenstvo")])
     ])
   }
 ]
@@ -57930,15 +58071,17 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Sidebar_vue_vue_type_template_id_364f90f1___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Sidebar.vue?vue&type=template&id=364f90f1& */ "./resources/js/pages/shopPageComponents/Sidebar.vue?vue&type=template&id=364f90f1&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _Sidebar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Sidebar.vue?vue&type=script&lang=js& */ "./resources/js/pages/shopPageComponents/Sidebar.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-var script = {}
+
+
 
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
-  script,
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Sidebar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _Sidebar_vue_vue_type_template_id_364f90f1___WEBPACK_IMPORTED_MODULE_0__["render"],
   _Sidebar_vue_vue_type_template_id_364f90f1___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
@@ -57952,6 +58095,20 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 if (false) { var api; }
 component.options.__file = "resources/js/pages/shopPageComponents/Sidebar.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/pages/shopPageComponents/Sidebar.vue?vue&type=script&lang=js&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/pages/shopPageComponents/Sidebar.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Sidebar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Sidebar.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/shopPageComponents/Sidebar.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Sidebar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 

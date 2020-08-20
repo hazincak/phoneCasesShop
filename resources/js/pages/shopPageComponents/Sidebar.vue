@@ -8,22 +8,21 @@
 
         <ul class="list-unstyled components">
             <h5>KATEGÓRIE PRODUKTOV</h5>
-            <li class="active">
+            <li>
                 <a href="#phoneCovers" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Obaly na mobil</a>
                   <ul class="collapse list-unstyled" id="phoneCovers">
                       <li>
                           <a href="#phoneBrandApple" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Apple</a>
                             <ul class="collapse list-unstyled" id="phoneBrandApple">
-                                <li><a href="#">Iphone 10</a></li>
-                                <li><a href="#">Iphone 9</a></li>
+                                <li @click="sendOption('Iphone 10')">Iphone 10</li>
+                                <li @click="sendOption('Iphone 9')">Iphone 9</li>
                             </ul>
                       </li>
                       <li>
                           <a href="#phoneBrandSamsung" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Samsung</a>
                             <ul class="collapse list-unstyled" id="phoneBrandSamsung">
-                              <li><a href="#">Galaxy 7</a></li>
-                              <li><a href="#">Galaxy 6</a></li>
-                              <li><a href="#">Galaxy 5</a></li>
+                              <li @click="sendOption('Galaxy 5')">Galaxy 5</li>
+                              <li @click="sendOption('Galaxy 7')">Galaxy 7</li>
                             </ul>
                       </li>
                       <li>
@@ -62,4 +61,15 @@
 
 </div>
 </template>
+
+<script>
+export default {
+  methods: {
+    sendOption(arg){
+      this.$emit('menu-option', arg);
+    }
+  }
+}
+</script>
+
 

@@ -7,7 +7,7 @@
                 <breadcrumb></breadcrumb>
                 <div class="row">
                     <div class="col-md-3 sm-12">
-                        <side-bar></side-bar>
+                        <side-bar @menu-option = "selectedOption = $event"></side-bar>
                     </div>
                     <div class="col-md-9 sm-12">
                         
@@ -39,6 +39,7 @@ export default {
         return{
             products: {},
             loading:false,
+            selectedOption: null,
         }
     },
 
@@ -47,6 +48,10 @@ export default {
     },
 
     methods:{
+
+        
+        
+    
        
         getResults(page = 1){
              this.loading = true
