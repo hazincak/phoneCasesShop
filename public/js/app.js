@@ -2258,7 +2258,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       products: {},
       loading: false,
-      selectedOption: null
+      url: ""
     };
   },
   created: function created() {
@@ -2269,8 +2269,9 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-      this.loading = true;
-      axios.get("api/obchod/produkty?page=" + page).then(function (response) {
+      this.loading = true; // this.products = {}
+
+      axios.get("api/obchod/produkty".concat(this.url, "?page=") + page).then(function (response) {
         _this.products = response.data;
         _this.loading = false;
       });
@@ -45291,7 +45292,7 @@ var render = function() {
                 _c("side-bar", {
                   on: {
                     "menu-option": function($event) {
-                      _vm.selectedOption = $event
+                      _vm.getResults($event), (_vm.url = $event)
                     }
                   }
                 })
@@ -45785,7 +45786,7 @@ var render = function() {
                       {
                         on: {
                           click: function($event) {
-                            return _vm.sendOption("Iphone 10")
+                            return _vm.sendOption("-podla-modelu/Iphone 10")
                           }
                         }
                       },
@@ -45797,7 +45798,7 @@ var render = function() {
                       {
                         on: {
                           click: function($event) {
-                            return _vm.sendOption("Iphone 9")
+                            return _vm.sendOption("-podla-modelu/Iphone 9")
                           }
                         }
                       },

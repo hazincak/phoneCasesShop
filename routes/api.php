@@ -32,7 +32,7 @@ Route::get('obchod/produkty-podla-znacky/{brand}', function(Request $request, $b
     return Product::where('brand', $brand)->paginate(12);
 });
 Route::get('obchod/produkty-podla-modelu/{model}', function(Request $request, $model){
-    return Product::where('model', $model)->get();
+    return Product::where('model', $model)->paginate(12);
 });
 Route::get('obchod/produkt-podla-nazvu/{title}', function(Request $request, $title){
     return Product::where('title', $title)->get();
