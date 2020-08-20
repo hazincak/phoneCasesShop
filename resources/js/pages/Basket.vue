@@ -98,7 +98,7 @@
                     <div v-for="item in basket" :key="item.product.id" class="pt-2 pb-2 border-top d-flex justify-content-between">
                        <div class="pt-2 pb-2 d-flex justify-content-between">
                             <span>
-                                <router-link :to="{name: 'product', params: {id: item.product.id}}">{{item.product.title}}</router-link>
+                                <router-link :to="{name: 'produkt', params: {id: item.product.id}}">{{item.product.title}}</router-link>
                             </span>
                             <span class="font-weight-bold">€{{item.product.price}}</span>
                         </div>
@@ -127,7 +127,7 @@
                         <i class="fas fa-cart-plus"></i>
                         <h3><strong>Your Cart is Empty</strong></h3>
                         <h4>Add something to make me happy :)</h4> 
-                        <router-link :to="{name: 'shop'}" class="btn btn-primary">pokračujte v nákupe <i class="fas fa-arrow-circle-left"></i></router-link>
+                        <router-link :to="{name: 'obchod'}" class="btn btn-primary">pokračujte v nákupe <i class="fas fa-arrow-circle-left"></i></router-link>
                     
                 </div>
             </div>

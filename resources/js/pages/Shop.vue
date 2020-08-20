@@ -7,10 +7,7 @@
                 <breadcrumb></breadcrumb>
                 <div class="row">
                     <div class="col-md-3 sm-12">
-                         <button  @click="sideBarOpen = !sideBarOpen">
-                             Toggle
-                        </button>
-                        <side-bar v-bind:sideBarOpen="sideBarOpen"></side-bar>
+                        <side-bar></side-bar>
                     </div>
                     <div class="col-md-9 sm-12">
                         
@@ -33,9 +30,6 @@ import ProductItemCard from "./shopPageComponents/ProductCard";
 import SideBar from "./shopPageComponents/Sidebar";
 export default {
 
-    props:{
-        sideBarOpen:Boolean
-    },
 
     components:{
         ProductItemCard, SideBar

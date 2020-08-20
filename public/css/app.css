@@ -17228,14 +17228,7 @@ nav .navbar-nav li a:hover {
 .wrapper {
   height: 100%;
   align-items: stretch;
-}
-
-p {
-  font-family: "Poppins", sans-serif;
-  font-size: 1.1em;
-  font-weight: 300;
-  line-height: 1.7em;
-  color: #999;
+  border-right: 1px solid #87dfd6;
 }
 
 a,
@@ -17251,11 +17244,9 @@ a:focus {
   max-width: 250px;
   min-height: 100vh;
   margin-left: -800px;
-  /* don't forget to add all the previously mentioned styles here too */
   background: #fff;
   color: #01a9b4;
   transition: all 0.3s;
-  border-right: 1px solid #87dfd6;
 }
 
 #sidebar.active {
@@ -17270,11 +17261,6 @@ a:focus {
 
 #sidebar ul.components {
   padding: 20px 0;
-}
-
-#sidebar ul p {
-  color: #01a9b4;
-  padding: 10px;
 }
 
 #sidebar ul li a {
@@ -17297,8 +17283,15 @@ a[aria-expanded=true] {
 ul ul a {
   font-size: 0.9em !important;
   padding-left: 30px !important;
-  background: #01a9b4;
-  color: #fff;
+  background: #fff;
+  color: #01a9b4;
+}
+
+ul ul ul a {
+  font-size: 0.9em !important;
+  padding-left: 60px !important;
+  background: #fff;
+  color: #01a9b4;
 }
 
 .section-footer {

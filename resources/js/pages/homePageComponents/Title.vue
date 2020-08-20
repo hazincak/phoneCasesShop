@@ -22,20 +22,4 @@
             
         </div>
     </div> 
-    <!-- <div class="section-title">
-        <div class = "container-fluid">
-            <div class="d-flex flex-column justify-content-center align-items-center">
-                <div class="p-2">
-                    <h1 class="heading-primary">Get a new case for your electronical companion</h1>
-                </div>
-                <div class="p-2"><a href="#" class="button button--teal-dark mt-2">Do obchodu</a></div>
-            </div>
-            <div class="d-flex flex-row justify-content-center align-items-baseline">
-                <div class="p-2">
-                    <section-press></section-press>
-                </div>
-            </div>
-        </div>
-    </div>
-    -->
 </template>

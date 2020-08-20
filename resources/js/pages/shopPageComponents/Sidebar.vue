@@ -1,64 +1,65 @@
 <template>
-  <div class="wrapper">
-    
-    <!-- Sidebar -->
-    <nav 
-        id="sidebar" 
-        :class="{'active' : $parent.sideBarOpen}">
-        <div class="sidebar-header text-center">
+<div class="wrapper">
+   
+    <nav id="sidebar" class="active">
+        <div class="sidebar-header">
             <h3>Menu</h3>
         </div>
 
-        <ul class="list-unstyled components text-center">
-            <div class="text-center">
-                <p>Kategorie</p>
-            </div>
+        <ul class="list-unstyled components">
+            <h5>KATEGÓRIE PRODUKTOV</h5>
             <li class="active">
-                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Značky</a>
-                <ul class="collapse list-unstyled" id="homeSubmenu">
+                <a href="#phoneCovers" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Obaly na mobil</a>
+                  <ul class="collapse list-unstyled" id="phoneCovers">
+                      <li>
+                          <a href="#phoneBrandApple" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Apple</a>
+                            <ul class="collapse list-unstyled" id="phoneBrandApple">
+                                <li><a href="#">Iphone 10</a></li>
+                                <li><a href="#">Iphone 9</a></li>
+                            </ul>
+                      </li>
+                      <li>
+                          <a href="#phoneBrandSamsung" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Samsung</a>
+                            <ul class="collapse list-unstyled" id="phoneBrandSamsung">
+                              <li><a href="#">Galaxy 7</a></li>
+                              <li><a href="#">Galaxy 6</a></li>
+                              <li><a href="#">Galaxy 5</a></li>
+                            </ul>
+                      </li>
+                      <li>
+                          <a href="#phoneBrandMotorola" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Motorola</a>
+                            <ul class="collapse list-unstyled" id="phoneBrandMotorola">
+                              <li><a href="#">Razr</a></li>
+                            </ul>
+                      </li>
+                  </ul>
+            </li>
+            <li>
+                <a href="#tabletCovers" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Obaly na tablet</a>
+                <ul class="collapse list-unstyled" id="tabletCovers">
                     <li>
-                        <a href="#">Apple</a>
-                    </li>
-                    <li>
-                        <a href="#">Samsung</a>
-                    </li>
-                    <li>
-                        <a href="#">Motorola</a>
-                    </li>
+                          <a href="#tabletBrandApple" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Apple</a>
+                            <ul class="collapse list-unstyled" id="tabletBrandApple">
+                                <li><a href="#">Apple iPad Pro</a></li>
+                            </ul>
+                      </li>
+                      <li>
+                          <a href="#tabletBrandSamsung" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Samsung</a>
+                            <ul class="collapse list-unstyled" id="tabletBrandSamsung">
+                              <li><a href="#">Galaxy Tab s</a></li>
+                            </ul>
+                      </li>
                 </ul>
             </li>
             <li>
-                <a href="#">About</a>
+                <a href="#">Ochranné sklá</a>
             </li>
             <li>
-                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
-                <ul class="collapse list-unstyled" id="pageSubmenu">
-                    <li>
-                        <a href="#">Page 1</a>
-                    </li>
-                    <li>
-                        <a href="#">Page 2</a>
-                    </li>
-                    <li>
-                        <a href="#">Page 3</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">Portfolio</a>
-            </li>
-            <li>
-                <a href="#">Contact</a>
+                <a href="#">Príslušenstvo</a>
             </li>
         </ul>
     </nav>
 
 </div>
 </template>
-<script>
-export default {
-   
 
-  
-}
-</script>

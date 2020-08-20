@@ -2242,16 +2242,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: {
-    sideBarOpen: Boolean
-  },
   components: {
     ProductItemCard: _shopPageComponents_ProductCard__WEBPACK_IMPORTED_MODULE_1__["default"],
     SideBar: _shopPageComponents_Sidebar__WEBPACK_IMPORTED_MODULE_2__["default"]
@@ -2408,76 +2402,6 @@ __webpack_require__.r(__webpack_exports__);
     }
   }
 });
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/shopPageComponents/Sidebar.vue?vue&type=script&lang=js&":
-/*!********************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/shopPageComponents/Sidebar.vue?vue&type=script&lang=js& ***!
-  \********************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
 
@@ -39691,7 +39615,7 @@ var render = function() {
                                     {
                                       attrs: {
                                         to: {
-                                          name: "product",
+                                          name: "produkt",
                                           params: { id: item.product.id }
                                         }
                                       }
@@ -39750,7 +39674,7 @@ var render = function() {
                   "router-link",
                   {
                     staticClass: "btn btn-primary",
-                    attrs: { to: { name: "shop" } }
+                    attrs: { to: { name: "obchod" } }
                   },
                   [
                     _vm._v("pokračujte v nákupe "),
@@ -39928,30 +39852,7 @@ var render = function() {
             _c("breadcrumb"),
             _vm._v(" "),
             _c("div", { staticClass: "row" }, [
-              _c(
-                "div",
-                { staticClass: "col-md-3 sm-12" },
-                [
-                  _c(
-                    "button",
-                    {
-                      on: {
-                        click: function($event) {
-                          _vm.sideBarOpen = !_vm.sideBarOpen
-                        }
-                      }
-                    },
-                    [
-                      _vm._v(
-                        "\n                         Toggle\n                    "
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("side-bar", { attrs: { sideBarOpen: _vm.sideBarOpen } })
-                ],
-                1
-              ),
+              _c("div", { staticClass: "col-md-3 sm-12" }, [_c("side-bar")], 1),
               _vm._v(" "),
               _c(
                 "div",
@@ -40389,97 +40290,235 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "wrapper" }, [
-    _c(
-      "nav",
-      { class: { active: _vm.$parent.sideBarOpen }, attrs: { id: "sidebar" } },
-      [_vm._m(0), _vm._v(" "), _vm._m(1)]
-    )
-  ])
+  return _vm._m(0)
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "sidebar-header text-center" }, [
-      _c("h3", [_vm._v("Menu")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("ul", { staticClass: "list-unstyled components text-center" }, [
-      _c("div", { staticClass: "text-center" }, [
-        _c("p", [_vm._v("Kategorie")])
-      ]),
-      _vm._v(" "),
-      _c("li", { staticClass: "active" }, [
-        _c(
-          "a",
-          {
-            staticClass: "dropdown-toggle",
-            attrs: {
-              href: "#homeSubmenu",
-              "data-toggle": "collapse",
-              "aria-expanded": "false"
-            }
-          },
-          [_vm._v("Značky")]
-        ),
+    return _c("div", { staticClass: "wrapper" }, [
+      _c("nav", { staticClass: "active", attrs: { id: "sidebar" } }, [
+        _c("div", { staticClass: "sidebar-header" }, [
+          _c("h3", [_vm._v("Menu")])
+        ]),
         _vm._v(" "),
-        _c(
-          "ul",
-          {
-            staticClass: "collapse list-unstyled",
-            attrs: { id: "homeSubmenu" }
-          },
-          [
-            _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Apple")])]),
+        _c("ul", { staticClass: "list-unstyled components" }, [
+          _c("h5", [_vm._v("KATEGÓRIE PRODUKTOV")]),
+          _vm._v(" "),
+          _c("li", { staticClass: "active" }, [
+            _c(
+              "a",
+              {
+                staticClass: "dropdown-toggle",
+                attrs: {
+                  href: "#phoneCovers",
+                  "data-toggle": "collapse",
+                  "aria-expanded": "false"
+                }
+              },
+              [_vm._v("Obaly na mobil")]
+            ),
             _vm._v(" "),
-            _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Samsung")])]),
+            _c(
+              "ul",
+              {
+                staticClass: "collapse list-unstyled",
+                attrs: { id: "phoneCovers" }
+              },
+              [
+                _c("li", [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "dropdown-toggle",
+                      attrs: {
+                        href: "#phoneBrandApple",
+                        "data-toggle": "collapse",
+                        "aria-expanded": "false"
+                      }
+                    },
+                    [_vm._v("Apple")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "ul",
+                    {
+                      staticClass: "collapse list-unstyled",
+                      attrs: { id: "phoneBrandApple" }
+                    },
+                    [
+                      _c("li", [
+                        _c("a", { attrs: { href: "#" } }, [_vm._v("Iphone 10")])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", [
+                        _c("a", { attrs: { href: "#" } }, [_vm._v("Iphone 9")])
+                      ])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "dropdown-toggle",
+                      attrs: {
+                        href: "#phoneBrandSamsung",
+                        "data-toggle": "collapse",
+                        "aria-expanded": "false"
+                      }
+                    },
+                    [_vm._v("Samsung")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "ul",
+                    {
+                      staticClass: "collapse list-unstyled",
+                      attrs: { id: "phoneBrandSamsung" }
+                    },
+                    [
+                      _c("li", [
+                        _c("a", { attrs: { href: "#" } }, [_vm._v("Galaxy 7")])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", [
+                        _c("a", { attrs: { href: "#" } }, [_vm._v("Galaxy 6")])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", [
+                        _c("a", { attrs: { href: "#" } }, [_vm._v("Galaxy 5")])
+                      ])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "dropdown-toggle",
+                      attrs: {
+                        href: "#phoneBrandMotorola",
+                        "data-toggle": "collapse",
+                        "aria-expanded": "false"
+                      }
+                    },
+                    [_vm._v("Motorola")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "ul",
+                    {
+                      staticClass: "collapse list-unstyled",
+                      attrs: { id: "phoneBrandMotorola" }
+                    },
+                    [
+                      _c("li", [
+                        _c("a", { attrs: { href: "#" } }, [_vm._v("Razr")])
+                      ])
+                    ]
+                  )
+                ])
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c(
+              "a",
+              {
+                staticClass: "dropdown-toggle",
+                attrs: {
+                  href: "#tabletCovers",
+                  "data-toggle": "collapse",
+                  "aria-expanded": "false"
+                }
+              },
+              [_vm._v("Obaly na tablet")]
+            ),
             _vm._v(" "),
-            _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Motorola")])])
-          ]
-        )
-      ]),
-      _vm._v(" "),
-      _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("About")])]),
-      _vm._v(" "),
-      _c("li", [
-        _c(
-          "a",
-          {
-            staticClass: "dropdown-toggle",
-            attrs: {
-              href: "#pageSubmenu",
-              "data-toggle": "collapse",
-              "aria-expanded": "false"
-            }
-          },
-          [_vm._v("Pages")]
-        ),
-        _vm._v(" "),
-        _c(
-          "ul",
-          {
-            staticClass: "collapse list-unstyled",
-            attrs: { id: "pageSubmenu" }
-          },
-          [
-            _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Page 1")])]),
-            _vm._v(" "),
-            _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Page 2")])]),
-            _vm._v(" "),
-            _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Page 3")])])
-          ]
-        )
-      ]),
-      _vm._v(" "),
-      _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Portfolio")])]),
-      _vm._v(" "),
-      _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Contact")])])
+            _c(
+              "ul",
+              {
+                staticClass: "collapse list-unstyled",
+                attrs: { id: "tabletCovers" }
+              },
+              [
+                _c("li", [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "dropdown-toggle",
+                      attrs: {
+                        href: "#tabletBrandApple",
+                        "data-toggle": "collapse",
+                        "aria-expanded": "false"
+                      }
+                    },
+                    [_vm._v("Apple")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "ul",
+                    {
+                      staticClass: "collapse list-unstyled",
+                      attrs: { id: "tabletBrandApple" }
+                    },
+                    [
+                      _c("li", [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("Apple iPad Pro")
+                        ])
+                      ])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "dropdown-toggle",
+                      attrs: {
+                        href: "#tabletBrandSamsung",
+                        "data-toggle": "collapse",
+                        "aria-expanded": "false"
+                      }
+                    },
+                    [_vm._v("Samsung")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "ul",
+                    {
+                      staticClass: "collapse list-unstyled",
+                      attrs: { id: "tabletBrandSamsung" }
+                    },
+                    [
+                      _c("li", [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("Galaxy Tab s")
+                        ])
+                      ])
+                    ]
+                  )
+                ])
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "#" } }, [_vm._v("Ochranné sklá")])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "#" } }, [_vm._v("Príslušenstvo")])
+          ])
+        ])
+      ])
     ])
   }
 ]
@@ -57891,17 +57930,15 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Sidebar_vue_vue_type_template_id_364f90f1___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Sidebar.vue?vue&type=template&id=364f90f1& */ "./resources/js/pages/shopPageComponents/Sidebar.vue?vue&type=template&id=364f90f1&");
-/* harmony import */ var _Sidebar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Sidebar.vue?vue&type=script&lang=js& */ "./resources/js/pages/shopPageComponents/Sidebar.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-
-
+var script = {}
 
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _Sidebar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  script,
   _Sidebar_vue_vue_type_template_id_364f90f1___WEBPACK_IMPORTED_MODULE_0__["render"],
   _Sidebar_vue_vue_type_template_id_364f90f1___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
@@ -57915,20 +57952,6 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 if (false) { var api; }
 component.options.__file = "resources/js/pages/shopPageComponents/Sidebar.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/pages/shopPageComponents/Sidebar.vue?vue&type=script&lang=js&":
-/*!************************************************************************************!*\
-  !*** ./resources/js/pages/shopPageComponents/Sidebar.vue?vue&type=script&lang=js& ***!
-  \************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Sidebar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Sidebar.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/shopPageComponents/Sidebar.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Sidebar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 

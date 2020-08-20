@@ -38,3 +38,11 @@ Route::get('obchod/produkt-podla-nazvu/{title}', function(Request $request, $tit
     return Product::where('title', $title)->get();
 });
 
+Route::get('obchod/kryty-na-{brand}', function(Request $request, $brand){
+    return Product::where('purpose', 'Phone cover')->where('brand', $brand)->get();
+});
+
+Route::get('obchod/kryty-na-model/{model}', function(Request $request, $model){
+    return Product::where('purpose', 'Phone cover')->where('model', $model)->get();
+});
+
