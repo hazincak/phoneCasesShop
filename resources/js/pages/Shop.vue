@@ -1,7 +1,12 @@
 <template>
     <div class="container-fluid">
-            <div v-if="loading">
-                Data is loading...
+            <div v-if="loading" >
+           <atom-spinner class="my-center"
+          :animation-duration="1000"
+          :size="80"
+          :color="'#086972'"
+     />
+  
             </div>
             <div v-else>
                 <div class="row">

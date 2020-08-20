@@ -11,6 +11,8 @@ import Navbar from "./components/Navbar";
 import BreadCrumb from "./components/BreadCrumbs.vue";
 import Footer from "./components/Footer";
 
+import {SpringSpinner} from 'epic-spinners'
+
 import StoreDefinition from './store';
 
 window.Vue = require('vue');
@@ -24,6 +26,7 @@ Vue.component("navbar", Navbar);
 Vue.component("breadcrumb", BreadCrumb);
 Vue.component("section-footer", Footer);
 
+Vue.component('atom-spinner', SpringSpinner);
 Vue.component('pagination', require('laravel-vue-pagination'));
 
 const store = new Vuex.Store(StoreDefinition);
