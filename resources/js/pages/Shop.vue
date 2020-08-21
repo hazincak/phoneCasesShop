@@ -65,14 +65,6 @@ export default {
         }
     }
 
-    // created(){
-    //     this.loading = true
 
-    //     const request = axios.get("api/obchod/produkty?page=" +this.page)
-    //     .then(response => {
-    //     this.products = response.data
-    //     this.loading = false;
-    //     });
-    // },
 }
 </script>

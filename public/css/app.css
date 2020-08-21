@@ -17000,6 +17000,11 @@ a.text-dark:focus {
   transform: translate(-50%, -50%);
 }
 
+html {
+  /* font-size: 10px; */
+  font-size: 62.5%;
+}
+
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
@@ -17009,7 +17014,6 @@ a.text-dark:focus {
 .button:link,
 .button:visited {
   text-transform: uppercase;
-  font-weight: bold;
   text-decoration: none;
   padding: 1.2% 3%;
   display: inline-block;
@@ -17143,6 +17147,7 @@ a.text-dark:focus {
 
 .card {
   border: none;
+  font-size: inherit;
 }
 
 .card-product .img-wrap {
@@ -17238,7 +17243,7 @@ a:focus {
 
 #sidebar {
   min-width: 250px;
-  max-width: 250px;
+  max-width: 255px;
   min-height: 100vh;
   margin-left: -800px;
   background: #fff;

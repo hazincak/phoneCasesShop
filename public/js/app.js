@@ -2276,15 +2276,7 @@ __webpack_require__.r(__webpack_exports__);
         _this.loading = false;
       });
     }
-  } // created(){
-  //     this.loading = true
-  //     const request = axios.get("api/obchod/produkty?page=" +this.page)
-  //     .then(response => {
-  //     this.products = response.data
-  //     this.loading = false;
-  //     });
-  // },
-
+  }
 });
 
 /***/ }),
