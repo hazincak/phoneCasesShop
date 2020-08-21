@@ -102,7 +102,7 @@ const routes = [
         meta:{
             breadcrumb: [
                 {name: 'Domov', link: '/'},
-                {name: 'Obchod', link: 'obchod/produkty'},
+                {name: 'Obchod', link: 'obchod'},
                 {name: 'Košík'}
             ]
         }

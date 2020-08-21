@@ -4,6 +4,7 @@
     &:visited{
     text-transform: uppercase;
     text-decoration: none;
+    outline: none;
     padding: 1.2% 3.0%;
     display: inline-block;
     position: relative;
@@ -47,26 +48,17 @@
     &--teal{
         background-color: $color-teal;
         color: $color-white;
+        border: 1px solid $color-teal;
         &:hover{
             background-color: $color-yellow-light;
-            color: $color-teal-dark;
+            color: $color-teal;
+            border: 1px solid $color-teal ;
         }
     }
 
     &--teal-dark{
         background-color: $color-teal-dark;
         color: $color-white;
-        &:hover{
-            background-color: $color-yellow-light;
-            color: $color-teal-dark;
-        }
-    }
-
-    &--teal-light-outline{
-        background-color: $color-white;
-        border: 1px solid $color-teal-light;
-        color: $color-teal-light;
-        display: inline-block;
         &:hover{
             background-color: $color-yellow-light;
             color: $color-teal-dark;

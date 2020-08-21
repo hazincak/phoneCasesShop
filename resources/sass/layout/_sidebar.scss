@@ -3,6 +3,7 @@
     height: 100%;
     align-items: stretch;
     border-right: 1px solid $color-teal-light;
+    background-color: aliceblue;
     
 }
 
@@ -17,7 +18,7 @@ a, a:hover, a:focus {
     max-width: 255px;
     min-height: 100vh;
     margin-left: -800px;
-    background: $color-white;
+    background-color: aliceblue;
     color: $color-teal;
     transition: all 0.3s;
 }
@@ -27,8 +28,9 @@ a, a:hover, a:focus {
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: $color-white;
+    background-color: aliceblue;
     color: $color-teal-dark;
+
 }
 
 #sidebar ul.components {
@@ -42,22 +44,21 @@ a, a:hover, a:focus {
 }
 #sidebar ul li a:hover {
     color:$color-teal-dark;
-    background: $color-teal-light;
 }
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
-    color: $color-white;
-    background: $color-teal;
+    color: $color-teal-dark;
+    background-color: aliceblue;
 }
 ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
-    background: $color-white;
+    background-color: aliceblue;
     color: $color-teal;
 }
 ul ul ul li {
     font-size: 0.9em !important;
     padding-left:0px !important;
-    background: $color-white;
+    background-color: aliceblue;
     color: $color-teal;
 }

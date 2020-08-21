@@ -1,16 +1,12 @@
-// body{
-//     font-family: "Lato", sans-serif;
-//     font-weight: 400;
-//     font-size: 1.6rem;
-// }
-
-// p{
-//     font-size: 1.6rem;
-// }
-
-
+a{
+    text-decoration:none
+}
 
 .heading-primary{
     color: $color-white;
+    text-transform: uppercase;
+}
+
+.heading-secondary{
     text-transform: uppercase;
 }

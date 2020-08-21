@@ -16,7 +16,6 @@
 @import 'abstracts/helpers';
 
 //Base
-@import 'base/base';
 @import 'base/typography';
 
 //Components
@@ -35,6 +34,7 @@
 
 //Import pages
 @import 'pages/home';
+@import 'pages/shop';
 
 .fade-enter-active, .fade-leave-active {
     transition: opacity .5s;

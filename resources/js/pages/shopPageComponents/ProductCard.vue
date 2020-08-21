@@ -1,5 +1,5 @@
 <template>
-	<div class="card mr-2"> 
+	<div class="card mr-2 mb-4"> 
      	<div class="card-product">
 			<router-link :to="{name: 'produkt', params: { id: product.id }}">
 				<div class="img-wrap"><img src="../../../images/samples/Product1.jpg"></div>
@@ -12,11 +12,10 @@
 					
 					<p class="card-text">{{product.model}}</p>
 			</div>
-			<div class="bottom-wrap">
-				
+			<div class="bottom-wrap pt-3">
 				<button 
 					v-if="inBasketAlready" 
-					class=" button button--teal-dark float-right"
+					class=" button button--teal float-right"
 					@click="removeFromBasket"
 					>odstrániť <i class="fas fa-trash-restore"></i></button>
 				
@@ -27,7 +26,6 @@
 				<div class="price-wrap h6">
 					<span class="price-new">€{{product.price.toFixed(2)}} <p class="text-muted">s DPH.</p></span> 
 				</div> 
-				<hr>
 			</div> 
     	</div> 
 	</div>

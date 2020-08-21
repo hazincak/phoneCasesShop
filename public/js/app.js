@@ -2371,8 +2371,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   // props: {"model":String, "title":String, "price":Number, "id":Number}
@@ -2398,95 +2396,6 @@ __webpack_require__.r(__webpack_exports__);
       this.$store.dispatch("removeFromBasket", this.product.id);
     }
   }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/shopPageComponents/Sidebar.vue?vue&type=script&lang=js&":
-/*!********************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/shopPageComponents/Sidebar.vue?vue&type=script&lang=js& ***!
-  \********************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({// methods: {
-  //   // sendOption(){
-  //   //   this.$emit('menu-option');
-  //   // },
-  //   // selectOption(arg){
-  //   // this.$store.dispatch('setSelectedOption',{
-  //   //   url: arg,
-  //   // } )
-  //   // this.$router.go();
-  // }
-  // },
 });
 
 /***/ }),
@@ -45268,7 +45177,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container-fluid" }, [
+  return _c("div", { staticClass: "shop-section" }, [
     _vm.loading
       ? _c(
           "div",
@@ -45348,12 +45257,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "section-cards" }, [
       _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "row p-2 " }, [
-          _c("div", { staticClass: "col mb-6" }, [
-            _c("h2", { staticClass: "text-center" }, [_vm._v("Our rules")])
-          ])
-        ]),
-        _vm._v(" "),
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "title-card col-lg-3 text-center" }, [
             _c("i", {
@@ -45611,7 +45514,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "card mr-2" }, [
+  return _c("div", { staticClass: "card mr-2 mb-4" }, [
     _c(
       "div",
       { staticClass: "card-product" },
@@ -45655,12 +45558,12 @@ var render = function() {
           1
         ),
         _vm._v(" "),
-        _c("div", { staticClass: "bottom-wrap" }, [
+        _c("div", { staticClass: "bottom-wrap pt-3" }, [
           _vm.inBasketAlready
             ? _c(
                 "button",
                 {
-                  staticClass: " button button--teal-dark float-right",
+                  staticClass: " button button--teal float-right",
                   on: { click: _vm.removeFromBasket }
                 },
                 [
@@ -45685,9 +45588,7 @@ var render = function() {
               _vm._v("€" + _vm._s(_vm.product.price.toFixed(2)) + " "),
               _c("p", { staticClass: "text-muted" }, [_vm._v("s DPH.")])
             ])
-          ]),
-          _vm._v(" "),
-          _c("hr")
+          ])
         ])
       ],
       1
@@ -45721,7 +45622,9 @@ var render = function() {
       _vm._m(0),
       _vm._v(" "),
       _c("ul", { staticClass: "list-unstyled components" }, [
-        _c("h5", [_vm._v("KATEGÓRIE PRODUKTOV")]),
+        _c("h5", { staticClass: "text-center" }, [
+          _vm._v("KATEGÓRIE PRODUKTOV")
+        ]),
         _vm._v(" "),
         _c("li", [
           _c(
@@ -45893,7 +45796,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "sidebar-header" }, [
-      _c("h3", [_vm._v("Menu")])
+      _c("h3", { staticClass: "text-center" }, [_vm._v("Menu")])
     ])
   },
   function() {
@@ -63436,17 +63339,15 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Sidebar_vue_vue_type_template_id_364f90f1___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Sidebar.vue?vue&type=template&id=364f90f1& */ "./resources/js/pages/shopPageComponents/Sidebar.vue?vue&type=template&id=364f90f1&");
-/* harmony import */ var _Sidebar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Sidebar.vue?vue&type=script&lang=js& */ "./resources/js/pages/shopPageComponents/Sidebar.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-
-
+var script = {}
 
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _Sidebar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  script,
   _Sidebar_vue_vue_type_template_id_364f90f1___WEBPACK_IMPORTED_MODULE_0__["render"],
   _Sidebar_vue_vue_type_template_id_364f90f1___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
@@ -63460,20 +63361,6 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 if (false) { var api; }
 component.options.__file = "resources/js/pages/shopPageComponents/Sidebar.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/pages/shopPageComponents/Sidebar.vue?vue&type=script&lang=js&":
-/*!************************************************************************************!*\
-  !*** ./resources/js/pages/shopPageComponents/Sidebar.vue?vue&type=script&lang=js& ***!
-  \************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Sidebar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Sidebar.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/shopPageComponents/Sidebar.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Sidebar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -63603,7 +63490,7 @@ var routes = [{
       link: '/'
     }, {
       name: 'Obchod',
-      link: 'obchod/produkty'
+      link: 'obchod'
     }, {
       name: 'Košík'
     }]

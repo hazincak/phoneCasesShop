@@ -1,11 +1,6 @@
 <template>
     <div class="section-cards">
         <div class="container">
-            <div class="row p-2 ">
-                <div class="col mb-6">
-                    <h2 class="text-center">Our rules</h2>
-                </div>
-            </div>
             <div class="row">
                 <div class="title-card col-lg-3 text-center">
                     <i class="fas fa-check-circle icon title-card__icon"></i>

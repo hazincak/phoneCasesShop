@@ -3,11 +3,11 @@
    
     <nav id="sidebar" class="active">
         <div class="sidebar-header">
-            <h3>Menu</h3>
+            <h3 class="text-center">Menu</h3>
         </div>
 
         <ul class="list-unstyled components">
-            <h5>KATEGÓRIE PRODUKTOV</h5>
+            <h5 class="text-center">KATEGÓRIE PRODUKTOV</h5>
             <li>
                 <a href="#phoneCovers" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Obaly na mobil</a>
                   <ul class="collapse list-unstyled" id="phoneCovers">
@@ -63,24 +63,5 @@
 </div>
 </template>
 
-<script>
-export default {
-
-  // methods: {
-  //   // sendOption(){
-  //   //   this.$emit('menu-option');
-  //   // },
-
-  //   // selectOption(arg){
-  //   // this.$store.dispatch('setSelectedOption',{
-  //   //   url: arg,
-  //   // } )
-  //   // this.$router.go();
-  // }
-  // },
-
-  
-}
-</script>
 
 

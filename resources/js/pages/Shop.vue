@@ -1,5 +1,5 @@
 <template>
-    <div class="container-fluid">
+    <div class="shop-section">
             <div v-if="loading" >
            <atom-spinner class="my-center"
           :animation-duration="1000"

@@ -1,13 +1,14 @@
  .card{
     border: none;
     font-size: inherit;
+    
 }
 
 .card-product .img-wrap {
     // border-radius: 3px 3px 0 0;
     overflow: hidden;
     position: relative;
-    height: 220px;
+    height: 180px;
     text-align: center;
     // border-top: 1px solid $color-teal-light;
 }
@@ -18,13 +19,14 @@
 }
 .card-product .info-wrap {
     overflow: hidden;
-    padding: 10px;
     // border-top: 1px solid $color-teal-light;
 }
 .card-product .bottom-wrap {
-    padding: 15px;
     border-top: 1px solid $color-teal-light;
 }
+    .card-product .price-wrap{
+        border-bottom: 1px solid $color-teal-light;
+    }
 
 .card-product .text-muted {
     color: #999;
