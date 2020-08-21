@@ -17289,7 +17289,7 @@ ul ul a {
   color: #01a9b4;
 }
 
-ul ul ul a {
+ul ul ul li {
   font-size: 0.9em !important;
   padding-left: 0px !important;
   background: #fff;

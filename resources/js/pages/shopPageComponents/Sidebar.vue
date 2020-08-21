@@ -14,8 +14,9 @@
                       <li>
                           <a href="#phoneBrandApple" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Apple</a>
                             <ul class="collapse list-unstyled" id="phoneBrandApple">
-                                <li @click="sendOption('/obaly-na-Iphone 10')">Iphone 10</li>
-                                <li @click="sendOption('-podla-modelu/Iphone 9')">Iphone 9</li>
+                                <li ><router-link :to="{name:'obchod-model-obaly', params: {model: 'Iphone 10'}}">Iphone 10</router-link></li>
+                                <li ><router-link :to="{name:'obchod-model-obaly', params: {model: 'Iphone 9'}}">Iphone 9</router-link></li>
+                                <li ><router-link :to="{name:'obchod-model-obaly', params: {model: 'Iphone 8'}}">Iphone 8</router-link></li>
                             </ul>
                       </li>
                       <li>
@@ -64,11 +65,21 @@
 
 <script>
 export default {
-  methods: {
-    sendOption(arg){
-      this.$emit('menu-option', arg);
-    }
-  }
+
+  // methods: {
+  //   // sendOption(){
+  //   //   this.$emit('menu-option');
+  //   // },
+
+  //   // selectOption(arg){
+  //   // this.$store.dispatch('setSelectedOption',{
+  //   //   url: arg,
+  //   // } )
+  //   // this.$router.go();
+  // }
+  // },
+
+  
 }
 </script>
 

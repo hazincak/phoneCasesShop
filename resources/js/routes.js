@@ -46,9 +46,16 @@ const routes = [
     },
 
     {
-        path:"/obchod/produkty/obaly-na-:model",
+        path:"/obaly-na-:model",
         component: Shop,
-        name: 'obchod-model-obaly'
+        name: 'obchod-model-obaly',
+        meta:{
+            breadcrumb: [
+                {name: 'Domov', link: '/'},
+                {name: 'Obchod', link: '/obchod'},
+                {name: 'Kryty na mobil'}
+            ]
+        }
     },
 
     {
@@ -83,7 +90,7 @@ const routes = [
         meta:{
             breadcrumb: [
                 {name: 'Domov', link: '/'},
-                {name: 'Obchod', link: '/obchod/produkty'},
+                {name: 'Obchod', link: '/obchod'},
                 {name: 'Produkt'}
             ]
         }

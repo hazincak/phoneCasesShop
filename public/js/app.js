@@ -2257,8 +2257,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       products: {},
-      loading: false,
-      url: ""
+      loading: false
     };
   },
   created: function created() {
@@ -2271,7 +2270,7 @@ __webpack_require__.r(__webpack_exports__);
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
       this.loading = true; // this.products = {}
 
-      axios.get("api/obchod/produkty".concat(this.url, "?page=") + page).then(function (response) {
+      axios.get("api".concat(this.$route.path, "?page=") + page).then(function (response) {
         _this.products = response.data;
         _this.loading = false;
       });
@@ -2476,12 +2475,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({
-  methods: {
-    sendOption: function sendOption(arg) {
-      this.$emit('menu-option', arg);
-    }
-  }
+//
+/* harmony default export */ __webpack_exports__["default"] = ({// methods: {
+  //   // sendOption(){
+  //   //   this.$emit('menu-option');
+  //   // },
+  //   // selectOption(arg){
+  //   // this.$store.dispatch('setSelectedOption',{
+  //   //   url: arg,
+  //   // } )
+  //   // this.$router.go();
+  // }
+  // },
 });
 
 /***/ }),
@@ -44699,7 +44704,7 @@ var render = function() {
     [
       _c("navbar"),
       _vm._v(" "),
-      _c("router-view"),
+      _c("router-view", { key: _vm.$route.path }),
       _vm._v(" "),
       _c("section-footer")
     ],
@@ -45277,20 +45282,7 @@ var render = function() {
         )
       : _c("div", [
           _c("div", { staticClass: "row" }, [
-            _c(
-              "div",
-              { staticClass: "col-md-2 sm-12" },
-              [
-                _c("side-bar", {
-                  on: {
-                    "menu-option": function($event) {
-                      _vm.getResults($event), (_vm.url = $event)
-                    }
-                  }
-                })
-              ],
-              1
-            ),
+            _c("div", { staticClass: "col-md-2 sm-12" }, [_c("side-bar")], 1),
             _vm._v(" "),
             _c(
               "div",
@@ -45775,26 +45767,59 @@ var render = function() {
                   [
                     _c(
                       "li",
-                      {
-                        on: {
-                          click: function($event) {
-                            return _vm.sendOption("/obaly-na-Iphone 10")
-                          }
-                        }
-                      },
-                      [_vm._v("Iphone 10")]
+                      [
+                        _c(
+                          "router-link",
+                          {
+                            attrs: {
+                              to: {
+                                name: "obchod-model-obaly",
+                                params: { model: "Iphone 10" }
+                              }
+                            }
+                          },
+                          [_vm._v("Iphone 10")]
+                        )
+                      ],
+                      1
                     ),
                     _vm._v(" "),
                     _c(
                       "li",
-                      {
-                        on: {
-                          click: function($event) {
-                            return _vm.sendOption("-podla-modelu/Iphone 9")
-                          }
-                        }
-                      },
-                      [_vm._v("Iphone 9")]
+                      [
+                        _c(
+                          "router-link",
+                          {
+                            attrs: {
+                              to: {
+                                name: "obchod-model-obaly",
+                                params: { model: "Iphone 9" }
+                              }
+                            }
+                          },
+                          [_vm._v("Iphone 9")]
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      [
+                        _c(
+                          "router-link",
+                          {
+                            attrs: {
+                              to: {
+                                name: "obchod-model-obaly",
+                                params: { model: "Iphone 8" }
+                              }
+                            }
+                          },
+                          [_vm._v("Iphone 8")]
+                        )
+                      ],
+                      1
                     )
                   ]
                 )
@@ -63523,9 +63548,20 @@ var routes = [{
   component: _pages_Shop__WEBPACK_IMPORTED_MODULE_2__["default"],
   name: 'obchod-znacka-obaly'
 }, {
-  path: "/obchod/produkty/obaly-na-:model",
+  path: "/obaly-na-:model",
   component: _pages_Shop__WEBPACK_IMPORTED_MODULE_2__["default"],
-  name: 'obchod-model-obaly'
+  name: 'obchod-model-obaly',
+  meta: {
+    breadcrumb: [{
+      name: 'Domov',
+      link: '/'
+    }, {
+      name: 'Obchod',
+      link: '/obchod'
+    }, {
+      name: 'Kryty na mobil'
+    }]
+  }
 }, {
   path: "/obchod/produkty/ochranne-skla-na-:brand",
   component: _pages_Shop__WEBPACK_IMPORTED_MODULE_2__["default"],
@@ -63552,7 +63588,7 @@ var routes = [{
       link: '/'
     }, {
       name: 'Obchod',
-      link: '/obchod/produkty'
+      link: '/obchod'
     }, {
       name: 'Produkt'
     }]
