@@ -45778,7 +45778,7 @@ var render = function() {
                       {
                         on: {
                           click: function($event) {
-                            return _vm.sendOption("-podla-modelu/Iphone 10")
+                            return _vm.sendOption("/obaly-na-Iphone 10")
                           }
                         }
                       },
@@ -63511,9 +63511,37 @@ var routes = [{
     }]
   }
 }, {
-  path: "/obchod/obaly-na-apple",
+  path: "/obchod/produkty/:brand",
   component: _pages_Shop__WEBPACK_IMPORTED_MODULE_2__["default"],
-  name: 'obchod/apple'
+  name: 'obchod-znacka'
+}, {
+  path: "/obchod/produkty/na-:model",
+  component: _pages_Shop__WEBPACK_IMPORTED_MODULE_2__["default"],
+  name: 'obchod-model'
+}, {
+  path: "/obchod/produkty/obaly-na-:brand",
+  component: _pages_Shop__WEBPACK_IMPORTED_MODULE_2__["default"],
+  name: 'obchod-znacka-obaly'
+}, {
+  path: "/obchod/produkty/obaly-na-:model",
+  component: _pages_Shop__WEBPACK_IMPORTED_MODULE_2__["default"],
+  name: 'obchod-model-obaly'
+}, {
+  path: "/obchod/produkty/ochranne-skla-na-:brand",
+  component: _pages_Shop__WEBPACK_IMPORTED_MODULE_2__["default"],
+  name: 'obchod-znacka-ochranne-skla'
+}, {
+  path: "/obchod/produkty/ochranne-skla-na-:model",
+  component: _pages_Shop__WEBPACK_IMPORTED_MODULE_2__["default"],
+  name: 'obchod-model-ochranne-skla'
+}, {
+  path: "/obchod/produkty/prislusenstvo-na-:brand",
+  component: _pages_Shop__WEBPACK_IMPORTED_MODULE_2__["default"],
+  name: 'obchod-znacka-prislusenstvo'
+}, {
+  path: "/obchod/produkty/prislusenstvo-na-:model",
+  component: _pages_Shop__WEBPACK_IMPORTED_MODULE_2__["default"],
+  name: 'obchod-model-prislusenstvo'
 }, {
   path: "/produkt/:id",
   component: _pages_shopPageComponents_DisplayProduct_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
@@ -63524,7 +63552,7 @@ var routes = [{
       link: '/'
     }, {
       name: 'Obchod',
-      link: '/obchod'
+      link: '/obchod/produkty'
     }, {
       name: 'Produkt'
     }]
@@ -63539,7 +63567,7 @@ var routes = [{
       link: '/'
     }, {
       name: 'Obchod',
-      link: 'obchod'
+      link: 'obchod/produkty'
     }, {
       name: 'Košík'
     }]

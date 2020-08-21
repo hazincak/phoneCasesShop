@@ -53,7 +53,7 @@ export default {
 
 
     methods:{
-        getResults(page = 1){
+        getResults(  page = 1){
              this.loading = true
             // this.products = {}
                 axios.get(`api/obchod/produkty${this.url}?page=` + page)

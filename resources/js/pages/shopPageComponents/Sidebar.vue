@@ -14,7 +14,7 @@
                       <li>
                           <a href="#phoneBrandApple" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Apple</a>
                             <ul class="collapse list-unstyled" id="phoneBrandApple">
-                                <li @click="sendOption('-podla-modelu/Iphone 10')">Iphone 10</li>
+                                <li @click="sendOption('/obaly-na-Iphone 10')">Iphone 10</li>
                                 <li @click="sendOption('-podla-modelu/Iphone 9')">Iphone 9</li>
                             </ul>
                       </li>

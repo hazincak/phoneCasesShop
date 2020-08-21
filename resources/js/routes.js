@@ -28,11 +28,53 @@ const routes = [
     },
 
     {
-        path:"/obchod/obaly-na-apple",
+        path:"/obchod/produkty/:brand",
         component: Shop,
-        name: 'obchod/apple'
-
+        name: 'obchod-znacka'
     },
+
+    {
+        path:"/obchod/produkty/na-:model",
+        component: Shop,
+        name: 'obchod-model'
+    },
+
+    {
+        path:"/obchod/produkty/obaly-na-:brand",
+        component: Shop,
+        name: 'obchod-znacka-obaly'
+    },
+
+    {
+        path:"/obchod/produkty/obaly-na-:model",
+        component: Shop,
+        name: 'obchod-model-obaly'
+    },
+
+    {
+        path:"/obchod/produkty/ochranne-skla-na-:brand",
+        component: Shop,
+        name: 'obchod-znacka-ochranne-skla'
+    },
+
+    {
+        path:"/obchod/produkty/ochranne-skla-na-:model",
+        component: Shop,
+        name: 'obchod-model-ochranne-skla'
+    },
+    {
+        path:"/obchod/produkty/prislusenstvo-na-:brand",
+        component: Shop,
+        name: 'obchod-znacka-prislusenstvo'
+    },
+
+    {
+        path:"/obchod/produkty/prislusenstvo-na-:model",
+        component: Shop,
+        name: 'obchod-model-prislusenstvo'
+    },
+
+
 
     {
         path: "/produkt/:id",
@@ -41,7 +83,7 @@ const routes = [
         meta:{
             breadcrumb: [
                 {name: 'Domov', link: '/'},
-                {name: 'Obchod', link: '/obchod'},
+                {name: 'Obchod', link: '/obchod/produkty'},
                 {name: 'Produkt'}
             ]
         }
@@ -53,7 +95,7 @@ const routes = [
         meta:{
             breadcrumb: [
                 {name: 'Domov', link: '/'},
-                {name: 'Obchod', link: 'obchod'},
+                {name: 'Obchod', link: 'obchod/produkty'},
                 {name: 'Košík'}
             ]
         }
