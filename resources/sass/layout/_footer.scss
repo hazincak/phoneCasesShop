@@ -1,5 +1,14 @@
 .section-footer{
     padding: 4% 30%;
     background-color: $color-grey-dark-3;
-    color: $color-grey-light;
+    color: $color-grey-light; 
+
+    a{
+        color: $color-grey-light;
+        text-decoration:none;
+
+        &:hover{
+            color: $color-teal
+        }
+    }
 }

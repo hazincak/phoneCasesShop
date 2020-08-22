@@ -17143,10 +17143,23 @@ a {
   border: none;
   font-size: inherit;
   width: 16rem;
+  transition: all 0.3s;
 }
 
 .card a {
+  color: #777;
+}
+
+.card:hover a {
   color: #01a9b4;
+}
+
+.card:hover .card-product .bottom-wrap {
+  border-top: 1px solid #01a9b4;
+}
+
+.card:hover .card-product .price-wrap {
+  border-bottom: 1px solid #01a9b4;
 }
 
 .card-product .img-wrap {
@@ -17163,20 +17176,43 @@ a {
      object-fit: cover;
 }
 
-.card-product .info-wrap {
-  overflow: hidden;
-}
-
 .card-product .bottom-wrap {
-  border-top: 1px solid #01a9b4;
+  border-top: 1px solid #ebebeb;
 }
 
 .card-product .price-wrap {
-  border-bottom: 1px solid #01a9b4;
+  border-bottom: 1px solid #ebebeb;
 }
 
 .card-product .text-muted {
   color: #999;
+}
+
+.breadcrumb {
+  background-color: #fff;
+}
+
+.breadcrumb-item {
+  color: #01a9b4;
+  cursor: pointer;
+}
+
+.breadcrumb-item.active {
+  color: #086972;
+  font-weight: bold;
+}
+
+.page-link {
+  color: #01a9b4;
+}
+
+.page-link:hover {
+  background-color: #87dfd6;
+}
+
+.page-item.active .page-link {
+  background-color: #01a9b4;
+  border-color: #01a9b4;
 }
 
 .navbar {
@@ -17212,20 +17248,6 @@ nav .navbar-nav li a:hover {
 
 .nav-link:hover {
   color: #fbfd8a;
-}
-
-.breadcrumb {
-  background-color: #fff;
-}
-
-.breadcrumb-item {
-  color: #01a9b4;
-  cursor: pointer;
-}
-
-.breadcrumb-item.active {
-  color: #086972;
-  font-weight: bold;
 }
 
 .sidebar__wrapper {
@@ -17290,23 +17312,43 @@ ul ul ul li {
   color: #01a9b4;
 }
 
-.page-link {
-  color: #01a9b4;
-}
-
-.page-link:hover {
-  background-color: #87dfd6;
-}
-
-.page-item.active .page-link {
-  background-color: #01a9b4;
-  border-color: #01a9b4;
-}
-
 .section-footer {
   padding: 4% 30%;
   background-color: #333;
   color: #ebebeb;
+}
+
+.section-footer a {
+  color: #ebebeb;
+  text-decoration: none;
+}
+
+.section-footer a:hover {
+  color: #01a9b4;
+}
+
+.menu-items {
+  list-style-type: none;
+  font-size: 11px;
+  display: inline-flex;
+  margin-bottom: 0;
+  margin-top: 20px;
+}
+
+.menu-items li {
+  margin-right: 25px;
+  text-transform: uppercase;
+  font-weight: lighter;
+  cursor: pointer;
+}
+
+.menu-items li.active {
+  border-bottom: 3px solid #01a9b4;
+}
+
+.description-area {
+  border-top: 1px solid silver;
+  padding: 15px;
 }
 
 .section-title {

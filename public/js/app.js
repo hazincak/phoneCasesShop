@@ -2289,6 +2289,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 //
 //
 //
@@ -2309,11 +2310,61 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       product: null,
-      loading: false
+      loading: false,
+      options: [{
+        title: 'Popis'
+      }, {
+        title: 'Podrobnosti'
+      }],
+      selected: 'Popis'
     };
   },
   created: function created() {
@@ -2324,6 +2375,25 @@ __webpack_require__.r(__webpack_exports__);
       _this.product = response.data;
       _this.loading = false;
     });
+  },
+  computed: {
+    inBasketAlready: function inBasketAlready() {
+      if (null === this.product) {
+        return false;
+      }
+
+      return this.$store.getters.inBasketAlready(this.product.id);
+    }
+  },
+  methods: {
+    addToBasket: function addToBasket() {
+      this.$store.dispatch("addToBasket", {
+        product: this.product
+      });
+    },
+    removeFromBasket: function removeFromBasket() {
+      this.$store.dispatch("removeFromBasket", this.product.id);
+    }
   }
 });
 
@@ -45456,9 +45526,9 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container section-show" }, [
+  return _c("div", { staticClass: "container" }, [
     _vm.loading
-      ? _c("div", [_vm._v("\n            Data is loading...\n    ")])
+      ? _c("div", [_vm._v("\n                Data is loading...\n        ")])
       : _c(
           "div",
           [
@@ -45470,7 +45540,75 @@ var render = function() {
               _c("div", { staticClass: "col-mb-6" }, [
                 _c("h3", [_vm._v(_vm._s(_vm.product.title))]),
                 _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.product.description))])
+                _c("h4", [_vm._v("€" + _vm._s(_vm.product.price) + " s DPH")]),
+                _vm._v(" "),
+                _c("p", [_vm._v(_vm._s(_vm.product.description))]),
+                _vm._v(" "),
+                _vm.inBasketAlready
+                  ? _c(
+                      "button",
+                      {
+                        staticClass: " button button--teal float-right",
+                        on: { click: _vm.removeFromBasket }
+                      },
+                      [
+                        _vm._v("odstrániť "),
+                        _c("i", { staticClass: "fas fa-trash-restore" })
+                      ]
+                    )
+                  : _c(
+                      "button",
+                      {
+                        staticClass: "button button--teal-outline float-right",
+                        on: { click: _vm.addToBasket }
+                      },
+                      [
+                        _vm._v("do košíka "),
+                        _c("i", { staticClass: "fas fa-cart-arrow-down" })
+                      ]
+                    )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-12" }, [
+                  _c(
+                    "ul",
+                    { staticClass: "menu-items" },
+                    _vm._l(_vm.options, function(option) {
+                      return _c(
+                        "li",
+                        {
+                          key: option.title,
+                          class: { active: option.title == _vm.selected },
+                          attrs: { title: option.title },
+                          on: {
+                            click: function($event) {
+                              _vm.selected = option.title
+                            }
+                          }
+                        },
+                        [_vm._v(_vm._s(option.title))]
+                      )
+                    }),
+                    0
+                  ),
+                  _vm._v(" "),
+                  _vm.selected == "Popis"
+                    ? _c("div", { staticClass: "description-area " }, [
+                        _c("small", [
+                          _vm._v(
+                            "\n                            Stay connected either on the phone or the Web with the Galaxy S4 I337 from Samsung. With 16 GB of memory and a 4G connection, this phone stores precious photos and video and lets you upload them to a cloud or social network at blinding-fast speed. With a 17-hour operating life from one charge, this phone allows you keep in touch even on the go. \n        \n                            With its built-in photo editor, the Galaxy S4 allows you to edit photos with the touch of a finger, eliminating extraneous background items. Usable with most carriers, this smartphone is the perfect companion for work or entertainment.\n                            "
+                          )
+                        ])
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.selected == "Podrobnosti"
+                    ? _c("div", { staticClass: "description-area " }, [
+                        _vm._m(1)
+                      ])
+                    : _vm._e()
+                ])
               ])
             ])
           ],
@@ -45490,6 +45628,30 @@ var staticRenderFns = [
           alt: ""
         }
       })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("ul", { staticClass: "list-group list-group-flush" }, [
+      _c("li", { staticClass: "list-group-item w-100" }, [
+        _vm._v("Cras justo odio")
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "list-group-item" }, [
+        _vm._v("Dapibus ac facilisis in")
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "list-group-item" }, [_vm._v("Morbi leo risus")]),
+      _vm._v(" "),
+      _c("li", { staticClass: "list-group-item" }, [
+        _vm._v("Porta ac consectetur ac")
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "list-group-item" }, [
+        _vm._v("Vestibulum at eros")
+      ])
     ])
   }
 ]
@@ -45535,7 +45697,6 @@ var render = function() {
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "info-wrap" },
           [
             _c(
               "router-link",

@@ -2,12 +2,27 @@
     border: none;
     font-size: inherit;
     width: 16rem;
+    transition: all 0.3s;
+    a{
+        color: $color-grey-dark;
+    }
 
+    &:hover{
+        a{
+            color:$color-teal
+        }
+
+        .card-product .bottom-wrap {
+            border-top: 1px solid $color-teal;
+            
+        }
+
+        .card-product .price-wrap{
+            border-bottom: 1px solid $color-teal;
+        }
+    }
 }
 
-.card a{
-    color: $color-teal;
-}
 
 .card-product .img-wrap {
     overflow: hidden;
@@ -20,16 +35,13 @@
     max-width: 100%;
     object-fit: cover;
 }
-.card-product .info-wrap {
-    overflow: hidden;
-    // border-top: 1px solid $color-teal-light;
-}
+
 .card-product .bottom-wrap {
-    border-top: 1px solid $color-teal;
+    border-top: 1px solid $color-grey-light;
 }
-    .card-product .price-wrap{
-        border-bottom: 1px solid $color-teal;
-    }
+.card-product .price-wrap{
+    border-bottom: 1px solid $color-grey-light;
+}
 
 .card-product .text-muted {
     color: #999;

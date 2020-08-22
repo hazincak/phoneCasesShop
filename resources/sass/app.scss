@@ -23,18 +23,18 @@
 @import "components/titleCard";
 @import "components/press";
 @import "components/shopCard";
+@import 'components/breadCrumbs';
+@import 'components/pagination';
 
 
 //Import layouts
 @import 'layout/navigation';
-@import 'layout/breadCrumbs';
 @import 'layout/sidebar';
-@import 'layout/pagination';
 @import 'layout/footer';
+@import 'layout/productBottomBar';
 
 //Import pages
-@import 'pages/home';
-@import 'pages/shop';
+@import 'pages/sections';
 
 .fade-enter-active, .fade-leave-active {
     transition: opacity .5s;
