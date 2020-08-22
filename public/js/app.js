@@ -45617,12 +45617,12 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "wrapper" }, [
+  return _c("div", { staticClass: "sidebar__wrapper" }, [
     _c("nav", { staticClass: "active", attrs: { id: "sidebar" } }, [
       _vm._m(0),
       _vm._v(" "),
       _c("ul", { staticClass: "list-unstyled components" }, [
-        _c("h5", { staticClass: "text-center" }, [
+        _c("h6", { staticClass: "text-center" }, [
           _vm._v("KATEGÓRIE PRODUKTOV")
         ]),
         _vm._v(" "),

@@ -17002,6 +17002,7 @@ a.text-dark:focus {
 
 a {
   text-decoration: none;
+  transition: all 0.3s;
 }
 
 .heading-primary {
@@ -17105,7 +17106,7 @@ a {
 .title-card {
   padding: 4.5%;
   border: none;
-  background-color: #d3e8eb;
+  background-color: #ebebeb;
 }
 
 .title-card__icon {
@@ -17141,13 +17142,18 @@ a {
 .card {
   border: none;
   font-size: inherit;
+  width: 16rem;
+}
+
+.card a {
+  color: #01a9b4;
 }
 
 .card-product .img-wrap {
   overflow: hidden;
   position: relative;
-  height: 180px;
   text-align: center;
+  color: #fff;
 }
 
 .card-product .img-wrap img {
@@ -17162,11 +17168,11 @@ a {
 }
 
 .card-product .bottom-wrap {
-  border-top: 1px solid #87dfd6;
+  border-top: 1px solid #01a9b4;
 }
 
 .card-product .price-wrap {
-  border-bottom: 1px solid #87dfd6;
+  border-bottom: 1px solid #01a9b4;
 }
 
 .card-product .text-muted {
@@ -17222,19 +17228,11 @@ nav .navbar-nav li a:hover {
   font-weight: bold;
 }
 
-.wrapper {
+.sidebar__wrapper {
   height: 100%;
   align-items: stretch;
-  border-right: 1px solid #87dfd6;
-  background-color: aliceblue;
-}
-
-a,
-a:hover,
-a:focus {
-  color: inherit;
-  text-decoration: none;
-  transition: all 0.3s;
+  border-right: 1px solid transparent;
+  background-color: #ebebeb;
 }
 
 #sidebar {
@@ -17242,8 +17240,8 @@ a:focus {
   max-width: 255px;
   min-height: 100vh;
   margin-left: -800px;
-  background-color: aliceblue;
-  color: #01a9b4;
+  background-color: #ebebeb;
+  color: #086972;
   transition: all 0.3s;
 }
 
@@ -17253,18 +17251,19 @@ a:focus {
 
 #sidebar .sidebar-header {
   padding: 20px;
-  background-color: aliceblue;
-  color: #086972;
+  background-color: #ebebeb;
+  color: #000;
 }
 
 #sidebar ul.components {
-  padding: 20px 0;
+  padding: 20px;
 }
 
 #sidebar ul li a {
   padding: 10px;
   font-size: 1.1em;
   display: block;
+  color: #01a9b4;
 }
 
 #sidebar ul li a:hover {
@@ -17273,21 +17272,21 @@ a:focus {
 
 #sidebar ul li.active > a,
 a[aria-expanded=true] {
-  color: #086972;
-  background-color: aliceblue;
+  color: #01a9b4;
+  background-color: #ebebeb;
 }
 
 ul ul a {
   font-size: 0.9em !important;
   padding-left: 30px !important;
-  background-color: aliceblue;
+  background-color: #ebebeb;
   color: #01a9b4;
 }
 
 ul ul ul li {
   font-size: 0.9em !important;
-  padding-left: 0px !important;
-  background-color: aliceblue;
+  padding-left: 40px !important;
+  background-color: #ebebeb;
   color: #01a9b4;
 }
 
@@ -17307,11 +17306,11 @@ ul ul ul li {
 .section-footer {
   padding: 4% 30%;
   background-color: #333;
-  color: #d3e8eb;
+  color: #ebebeb;
 }
 
 .section-title {
-  background-image: linear-gradient(#086972, rgba(211, 232, 235, 0.801)), url(/images/hero2.jpg?aa076a812ae5229d08f2ef34d4228f32);
+  background-image: linear-gradient(#086972, rgba(235, 235, 235, 0.801)), url(/images/hero2.jpg?aa076a812ae5229d08f2ef34d4228f32);
   background-size: cover;
   background-position: center center;
   height: 100vh;
@@ -17319,7 +17318,7 @@ ul ul ul li {
 
 .section-cards {
   position: relative;
-  background-color: #d3e8eb;
+  background-color: #ebebeb;
 }
 
 .fade-enter-active,

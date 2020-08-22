@@ -1,5 +1,5 @@
 <template>
-<div class="wrapper">
+<div class="sidebar__wrapper">
    
     <nav id="sidebar" class="active">
         <div class="sidebar-header">
@@ -7,7 +7,7 @@
         </div>
 
         <ul class="list-unstyled components">
-            <h5 class="text-center">KATEGÓRIE PRODUKTOV</h5>
+            <h6 class="text-center">KATEGÓRIE PRODUKTOV</h6>
             <li>
                 <a href="#phoneCovers" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Obaly na mobil</a>
                   <ul class="collapse list-unstyled" id="phoneCovers">

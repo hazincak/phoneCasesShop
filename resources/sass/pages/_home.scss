@@ -1,5 +1,5 @@
 .section-title{
-    background-image: linear-gradient(rgba($color-teal-dark, 1), rgba($color-blue-light, 0.801)), url("../images/hero2.jpg");
+    background-image: linear-gradient(rgba($color-teal-dark, 1), rgba($color-grey-light, 0.801)), url("../images/hero2.jpg");
     background-size: cover;
     background-position: center center;
     height: 100vh;
@@ -8,7 +8,7 @@
 .section-cards{
     
     position: relative;
-    background-color: $color-blue-light;
+    background-color: $color-grey-light;
     
 }
 
