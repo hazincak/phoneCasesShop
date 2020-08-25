@@ -13,10 +13,9 @@ class ImagesTableSeeder extends Seeder
      */
     public function run()
     {
-        $products = Product::all();
-        factory(Image::class, 150)->make()->each(function($image) use($products){
-            $image->product_id = $products->random()->id;
-            $image->save();
+        Product::all()->each(function($product){
+            $images = factory (Image::class, random_int(1, 5))->make();
+            $product->images()->saveMany($images);
         });
     }
 }

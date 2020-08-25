@@ -21,7 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('obchod', function (Request $request){
     
-    return Product::paginate(12);
+    return Product::with('images')->paginate(12);
 });
 
 Route::get('obchod/produkt-podla-id/{id}', function(Request $request, $id){
