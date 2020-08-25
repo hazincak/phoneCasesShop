@@ -49,11 +49,11 @@
                                     <tbody>
                                       <tr>
                                         <th scope="row">Farba</th>
-                                        <td>Cierna</td>
+                                        <td>{{product.color}}</td>
                                       </tr>
                                       <tr>
                                         <th scope="row">Material</th>
-                                        <td>Jacob</td>
+                                        <td>{{product.material}}</td>
                                       </tr>
                                       <tr>
                                         <th scope="row">Model</th>
@@ -76,7 +76,7 @@
 
 <script>
 import { mapState, mapGetters } from "vuex";
-import ProductGallery from "./ProductGallery";
+import ProductGallery from "./displayProductPageComponents/ProductGallery";
 export default {
     components:{
         ProductGallery

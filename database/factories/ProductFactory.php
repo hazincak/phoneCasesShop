@@ -14,7 +14,6 @@ $brands = [
     'Motorola',
     'OnePlus',
     'Xiaomi',
-    'Nokia',
 ];
 
 $purpose = [
@@ -55,7 +54,7 @@ $factory->define(Product::class, function (Faker $faker) use($brands, $purpose, 
     }else if ($randomBrand == 'LG'){
         $randomModel = Arr::random(['G6','K40','K61']);
     }else if ($randomBrand == 'OnePlus'){
-        $randomModel = Arr::random(['OnePlus 6T','OnePlus 7 Pro','OnePlus OnePlus 7T']);
+        $randomModel = Arr::random(['OnePlus 6T','OnePlus 7 Pro','OnePlus 7T']);
     }else if ($randomBrand == 'Motorola'){
         $randomModel = Arr::random(['Moto G7','Moto E6','One']);
     }else if ($randomBrand == 'Xiaomi'){

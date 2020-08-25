@@ -2,7 +2,7 @@ import VueRouter from "vue-router";
 import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 import Basket from "./pages/Basket";
-import DisplayProduct from "./pages/shopPageComponents/DisplayProduct.vue";
+import DisplayProduct from "./pages/DisplayProduct.vue";
 
 const routes = [
     {
