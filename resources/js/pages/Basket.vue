@@ -5,7 +5,7 @@
             <div class="col-md-8">
                 <div class="row">
                     <div class="col-md-6 form-group">
-                        <label for="first_name">First name</label>
+                        <label for="first_name">Meno</label>
                         <input 
                         type="text" 
                         class="form-control" 
@@ -13,7 +13,7 @@
                        >
                     </div>
                     <div class="col-md-6 form-group">
-                        <label for="last_name">Last name</label>
+                        <label for="last_name">Priezvisko</label>
                         <input 
                         type="text" 
                         class="form-control" 
@@ -33,7 +33,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6 form-group">
-                        <label for="street">Street</label>
+                        <label for="street">Ulica</label>
                         <input 
                         type="text" 
                         class="form-control" 
@@ -41,7 +41,7 @@
                         >
                     </div>
                     <div class="col-md-6 form-group">
-                        <label for="city">City</label>
+                        <label for="city">Mesto</label>
                         <input 
                         type="text" 
                         class="form-control" 
@@ -51,24 +51,41 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6 form-group">
-                        <label for="county">County</label>
+                    <!-- <div class="col-md-6 form-group">
+                        <label for="county">Kraj</label>
                         <input 
                         type="text" 
                         class="form-control" 
                         name="county" 
                         >
                     </div>
-                    <div class="col-md-4 form-group">
+                    <div class="col-md-6 form-group"> -->
+                    <div class="col-md-8 form-group">
+                  <div class="input-group-prepend">
+                    <label for="county">Kraj</label>
+                  </div>
+                  <select class="custom-select" id="inputGroupSelect01">
+                    <option selected>Vyberte kraj</option>
+                    <option>Bratislavský kraj</option>
+                    <option>Trnavský kraj</option>
+                    <option>Trenčiansky kraj</option>
+                    <option>Nitriansky kraj</option>
+                    <option>Žilinský kraj</option>
+                    <option>Banskobystrický kraj</option>
+                    <option>Prešovský kraj</option>
+                    <option>Košický kraj</option>
+                  </select>
+                </div>
+                    <!-- <div class="col-md-4 form-group">
                         <label for="state">State</label>
                         <input 
                         type="text" 
                         class="form-control" 
                         name="state" 
                         >
-                    </div>
-                    <div class="col-md-2 form-group">
-                        <label for="zip">Zip</label>
+                    </div> -->
+                    <div class="col-md-4 form-group">
+                        <label for="zip">PSČ</label>
                         <input 
                         type="text" 
                         class="form-control" 
@@ -81,8 +98,8 @@
                     <div class="col-md-12 form-group">
                         <button 
                         type="submit" 
-                        class="btn btn-lg btn-primary btn-block" 
-                        >Book now!</button>
+                        class="button button__block button--teal" 
+                        >Dokončite objednávku <i class="fas fa-check"></i></button>
                     </div>
                 </div>
             </div>
@@ -120,18 +137,18 @@
                 </div>
             </div> -->
         
+        <div class="empty-basket-section"  v-else>
             
-            <div class="row" v-else>
-                <div class="col-sm-12 text-center"> 
+                <div class="col-sm-6 text-center my-center"> 
                     
-                        <i class="fas fa-cart-plus"></i>
-                        <h3><strong>Your Cart is Empty</strong></h3>
-                        <h4>Add something to make me happy :)</h4> 
-                        <router-link :to="{name: 'obchod'}" class="btn btn-primary">pokračujte v nákupe <i class="fas fa-arrow-circle-left"></i></router-link>
+                        <i class="fas fa-cart-plus icon"></i>
+                        <h3><strong>Váš košík je prázdny</strong></h3>
+                        <h4>Pridajte tovar a dokončite nákup :)</h4> 
+                        <router-link :to="{name: 'obchod'}" class="button button__block button--teal">pokračujte v nákupe <i class="fas fa-arrow-circle-left"></i></router-link>
                     
                 </div>
-            </div>
-        
+            
+        </div>
     </div>
     
 </template>

@@ -22,7 +22,7 @@
     
 			    	<button 
 			    		v-else
-			    		class="button button--teal-outline float-right"
+			    		class="button button__block button--teal-outline"
 			    		@click="addToBasket">do košíka <i class="fas fa-cart-arrow-down"></i></button>	
                 </div>
             </div>
@@ -33,17 +33,17 @@
                         <!-- <li :class="{active: active}" @click="active = active">Podrobnosti</li> -->
                     </ul>
                     
-                         <div class="description-area " v-if="selected == 'Popis'" >
+                         <div class="description-area text-center" v-if="selected == 'Popis'" >
                         
-                            <small>
+                            
                             Stay connected either on the phone or the Web with the Galaxy S4 I337 from Samsung. With 16 GB of memory and a 4G connection, this phone stores precious photos and video and lets you upload them to a cloud or social network at blinding-fast speed. With a 17-hour operating life from one charge, this phone allows you keep in touch even on the go. 
         
                             With its built-in photo editor, the Galaxy S4 allows you to edit photos with the touch of a finger, eliminating extraneous background items. Usable with most carriers, this smartphone is the perfect companion for work or entertainment.
-                            </small>
+                            
                       
                         </div>
                     
-                        <div class="description-area " v-if="selected == 'Podrobnosti'">
+                        <div class="description-area text-center" v-if="selected == 'Podrobnosti'">
                             
                                 <table class="table">
                                     <tbody>

@@ -2164,6 +2164,23 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(['itemsInBasket'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])({
@@ -45168,21 +45185,21 @@ var render = function() {
               )
             ])
           ])
-        : _c("div", { staticClass: "row" }, [
+        : _c("div", { staticClass: "empty-basket-section" }, [
             _c(
               "div",
-              { staticClass: "col-sm-12 text-center" },
+              { staticClass: "col-sm-6 text-center my-center" },
               [
-                _c("i", { staticClass: "fas fa-cart-plus" }),
+                _c("i", { staticClass: "fas fa-cart-plus icon" }),
                 _vm._v(" "),
                 _vm._m(1),
                 _vm._v(" "),
-                _c("h4", [_vm._v("Add something to make me happy :)")]),
+                _c("h4", [_vm._v("Pridajte tovar a dokončite nákup :)")]),
                 _vm._v(" "),
                 _c(
                   "router-link",
                   {
-                    staticClass: "btn btn-primary",
+                    staticClass: "button button__block button--teal",
                     attrs: { to: { name: "obchod" } }
                   },
                   [
@@ -45206,7 +45223,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "col-md-8" }, [
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col-md-6 form-group" }, [
-          _c("label", { attrs: { for: "first_name" } }, [_vm._v("First name")]),
+          _c("label", { attrs: { for: "first_name" } }, [_vm._v("Meno")]),
           _vm._v(" "),
           _c("input", {
             staticClass: "form-control",
@@ -45215,7 +45232,7 @@ var staticRenderFns = [
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "col-md-6 form-group" }, [
-          _c("label", { attrs: { for: "last_name" } }, [_vm._v("Last name")]),
+          _c("label", { attrs: { for: "last_name" } }, [_vm._v("Priezvisko")]),
           _vm._v(" "),
           _c("input", {
             staticClass: "form-control",
@@ -45237,7 +45254,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col-md-6 form-group" }, [
-          _c("label", { attrs: { for: "street" } }, [_vm._v("Street")]),
+          _c("label", { attrs: { for: "street" } }, [_vm._v("Ulica")]),
           _vm._v(" "),
           _c("input", {
             staticClass: "form-control",
@@ -45246,7 +45263,7 @@ var staticRenderFns = [
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "col-md-6 form-group" }, [
-          _c("label", { attrs: { for: "city" } }, [_vm._v("City")]),
+          _c("label", { attrs: { for: "city" } }, [_vm._v("Mesto")]),
           _vm._v(" "),
           _c("input", {
             staticClass: "form-control",
@@ -45256,26 +45273,43 @@ var staticRenderFns = [
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-md-6 form-group" }, [
-          _c("label", { attrs: { for: "county" } }, [_vm._v("County")]),
+        _c("div", { staticClass: "col-md-8 form-group" }, [
+          _c("div", { staticClass: "input-group-prepend" }, [
+            _c("label", { attrs: { for: "county" } }, [_vm._v("Kraj")])
+          ]),
           _vm._v(" "),
-          _c("input", {
-            staticClass: "form-control",
-            attrs: { type: "text", name: "county" }
-          })
+          _c(
+            "select",
+            {
+              staticClass: "custom-select",
+              attrs: { id: "inputGroupSelect01" }
+            },
+            [
+              _c("option", { attrs: { selected: "" } }, [
+                _vm._v("Vyberte kraj")
+              ]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Bratislavský kraj")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Trnavský kraj")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Trenčiansky kraj")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Nitriansky kraj")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Žilinský kraj")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Banskobystrický kraj")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Prešovský kraj")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Košický kraj")])
+            ]
+          )
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "col-md-4 form-group" }, [
-          _c("label", { attrs: { for: "state" } }, [_vm._v("State")]),
-          _vm._v(" "),
-          _c("input", {
-            staticClass: "form-control",
-            attrs: { type: "text", name: "state" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-2 form-group" }, [
-          _c("label", { attrs: { for: "zip" } }, [_vm._v("Zip")]),
+          _c("label", { attrs: { for: "zip" } }, [_vm._v("PSČ")]),
           _vm._v(" "),
           _c("input", {
             staticClass: "form-control",
@@ -45291,10 +45325,13 @@ var staticRenderFns = [
           _c(
             "button",
             {
-              staticClass: "btn btn-lg btn-primary btn-block",
+              staticClass: "button button__block button--teal",
               attrs: { type: "submit" }
             },
-            [_vm._v("Book now!")]
+            [
+              _vm._v("Dokončite objednávku "),
+              _c("i", { staticClass: "fas fa-check" })
+            ]
           )
         ])
       ])
@@ -45304,7 +45341,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("h3", [_c("strong", [_vm._v("Your Cart is Empty")])])
+    return _c("h3", [_c("strong", [_vm._v("Váš košík je prázdny")])])
   }
 ]
 render._withStripped = true
@@ -45366,7 +45403,8 @@ var render = function() {
                   : _c(
                       "button",
                       {
-                        staticClass: "button button--teal-outline float-right",
+                        staticClass:
+                          "button button__block button--teal-outline",
                         on: { click: _vm.addToBasket }
                       },
                       [
@@ -45402,17 +45440,15 @@ var render = function() {
                 ),
                 _vm._v(" "),
                 _vm.selected == "Popis"
-                  ? _c("div", { staticClass: "description-area " }, [
-                      _c("small", [
-                        _vm._v(
-                          "\n                            Stay connected either on the phone or the Web with the Galaxy S4 I337 from Samsung. With 16 GB of memory and a 4G connection, this phone stores precious photos and video and lets you upload them to a cloud or social network at blinding-fast speed. With a 17-hour operating life from one charge, this phone allows you keep in touch even on the go. \n        \n                            With its built-in photo editor, the Galaxy S4 allows you to edit photos with the touch of a finger, eliminating extraneous background items. Usable with most carriers, this smartphone is the perfect companion for work or entertainment.\n                            "
-                        )
-                      ])
+                  ? _c("div", { staticClass: "description-area text-center" }, [
+                      _vm._v(
+                        "\n                        \n                            \n                            Stay connected either on the phone or the Web with the Galaxy S4 I337 from Samsung. With 16 GB of memory and a 4G connection, this phone stores precious photos and video and lets you upload them to a cloud or social network at blinding-fast speed. With a 17-hour operating life from one charge, this phone allows you keep in touch even on the go. \n        \n                            With its built-in photo editor, the Galaxy S4 allows you to edit photos with the touch of a finger, eliminating extraneous background items. Usable with most carriers, this smartphone is the perfect companion for work or entertainment.\n                            \n                      \n                        "
+                      )
                     ])
                   : _vm._e(),
                 _vm._v(" "),
                 _vm.selected == "Podrobnosti"
-                  ? _c("div", { staticClass: "description-area " }, [
+                  ? _c("div", { staticClass: "description-area text-center" }, [
                       _c("table", { staticClass: "table" }, [
                         _c("tbody", [
                           _c("tr", [
@@ -45495,7 +45531,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "shop-section" }, [
+  return _c("div", { staticClass: "container-fluid shop-section" }, [
     _vm.loading
       ? _c(
           "div",
@@ -45509,7 +45545,12 @@ var render = function() {
         )
       : _c("div", [
           _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-md-2 sm-12" }, [_c("side-bar")], 1),
+            _c(
+              "div",
+              { staticClass: "col-md-2 sm-12 sidebar" },
+              [_c("side-bar")],
+              1
+            ),
             _vm._v(" "),
             _c(
               "div",
@@ -45741,7 +45782,8 @@ var render = function() {
         _c(
           "router-link",
           {
-            staticClass: "button button__rounded button--teal-dark mt-2",
+            staticClass:
+              "button button--rounded button--shadowed button--teal-dark mt-2",
             attrs: { to: { name: "obchod" } }
           },
           [_vm._v("Do obchodu")]

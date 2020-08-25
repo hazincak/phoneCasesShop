@@ -1,5 +1,5 @@
 <template>
-    <div class="shop-section">
+    <div class="container-fluid shop-section">
             <div v-if="loading" >
            <atom-spinner class="my-center"
           :animation-duration="1000"
@@ -10,7 +10,7 @@
             </div>
             <div v-else>
                 <div class="row">
-                    <div class="col-md-2 sm-12">
+                    <div class="col-md-2 sm-12 sidebar">
                         <side-bar></side-bar>
                     </div>
                     <div class="col-md-10 sm-12">

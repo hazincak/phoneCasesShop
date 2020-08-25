@@ -4,7 +4,7 @@
            
                 <div class="col-lg-6 text-center my-center ">
                     <h1 class="heading-primary">Nieco v zmysle: oblec svoj mobil</h1>
-                    <router-link :to="{name: 'obchod'}" class="button button__rounded button--teal-dark mt-2">Do obchodu</router-link>
+                    <router-link :to="{name: 'obchod'}" class="button button--rounded button--shadowed button--teal-dark mt-2">Do obchodu</router-link>
                 </div>
            
                 <div class="col-lg-12 text-center my-bottom-center ">

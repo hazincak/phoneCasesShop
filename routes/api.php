@@ -49,6 +49,6 @@ Route::get('obchod/produkt-podla-nazvu/{title}', function(Request $request, $tit
 // });
 
 Route::get('/obaly-na-{model}', function(Request $request, $model){
-    return Product::where('purpose', 'Obal na mobil')->where('model', $model)->paginate(12);
+    return Product::where('purpose', 'Obal na mobil')->where('model', $model)->with('images')->paginate(12);
 });
 

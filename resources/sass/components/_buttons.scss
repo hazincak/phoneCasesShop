@@ -1,8 +1,10 @@
 .button{
     &,
     &:link,
-    &:visited{
+    &:visited,
+    &:focus{
     text-transform: uppercase;
+    border-radius: 0.7rem;
     text-decoration: none;
     outline: none;
     padding: 1.2% 3.0%;
@@ -15,7 +17,12 @@
     -o-transition: all .2s;
     }
 
-    &__rounded{
+    &__block{
+        display: block;
+        width: 100%;
+    }
+
+    &--rounded{
     border-radius: 10rem;
     -webkit-border-radius: 10rem;
     -moz-border-radius: 10rem;
@@ -23,7 +30,7 @@
     -o-border-radius: 10rem;
     }
 
-    &--shadowed{
+    --shadowed{
         &:hover{
             transform: translateY(-3px);
             -webkit-transform: translateY(-3px);
@@ -35,15 +42,6 @@
         }
     }
 
-   
-    &--teal-light{
-        background-color: $color-teal-light;
-        color: $color-white;
-        &:hover{
-            background-color: $color-yellow-light;
-            color: $color-teal-dark;
-        }
-    }
 
     &--teal{
         background-color: $color-teal;
