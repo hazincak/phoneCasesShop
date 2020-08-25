@@ -17139,26 +17139,26 @@ a {
   filter: grayscale(0) !important;
 }
 
-.card {
+.card-product {
   border: none;
   font-size: inherit;
   width: 16rem;
   transition: all 0.3s;
 }
 
-.card a {
+.card-product a {
   color: #777;
 }
 
-.card:hover a {
+.card-product:hover a {
   color: #01a9b4;
 }
 
-.card:hover .card-product .bottom-wrap {
+.card-product:hover .card-product .bottom-wrap {
   border-top: 1px solid #01a9b4;
 }
 
-.card:hover .card-product .price-wrap {
+.card-product:hover .card-product .price-wrap {
   border-bottom: 1px solid #01a9b4;
 }
 
@@ -17347,6 +17347,7 @@ ul ul ul li {
 }
 
 .description-area {
+  min-width: 100%;
   border-top: 1px solid silver;
   padding: 15px;
 }

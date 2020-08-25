@@ -8,7 +8,7 @@
             <breadcrumb></breadcrumb>
             <div class="row">
                 <div class="col-mb-6">
-                    <img src="./../../../images/samples/Product3.jpg" alt="">
+                    <product-gallery></product-gallery>
                 </div>
                 <div class="col-mb-6">
                       <h3>{{product.title}}</h3>
@@ -25,7 +25,8 @@
 			    		class="button button--teal-outline float-right"
 			    		@click="addToBasket">do košíka <i class="fas fa-cart-arrow-down"></i></button>	
                 </div>
-                <div class="row">
+            </div>
+            <div class="row">
                 <div class="col-md-12">
                     <ul class="menu-items">
                         <li v-for="option in options" :key="option.title" :class="{active:option.title == selected}" :title="option.title" @click="selected = option.title" >{{option.title}}</li>
@@ -43,27 +44,44 @@
                         </div>
                     
                         <div class="description-area " v-if="selected == 'Podrobnosti'">
-                                <ul class="list-group list-group-flush">
-  <li class="list-group-item w-100">Cras justo odio</li>
-  <li class="list-group-item">Dapibus ac facilisis in</li>
-  <li class="list-group-item">Morbi leo risus</li>
-  <li class="list-group-item">Porta ac consectetur ac</li>
-  <li class="list-group-item">Vestibulum at eros</li>
-</ul>
-                        </div>
-                    
-                        
-                </div>		
-                
-                </div>     
+                            
+                                <table class="table">
+                                    <tbody>
+                                      <tr>
+                                        <th scope="row">Farba</th>
+                                        <td>Cierna</td>
+                                      </tr>
+                                      <tr>
+                                        <th scope="row">Material</th>
+                                        <td>Jacob</td>
+                                      </tr>
+                                      <tr>
+                                        <th scope="row">Model</th>
+                                        <td>{{product.model}}</td>
+                                      </tr>
+                                    </tbody>
+                                </table>
+                            
+                        </div> 
+                        <!-- Podrobnosti -->   
+                </div>
+                <!-- col.md-12 -->
             </div>
+            <!-- row -->
         </div>
+        <!-- v-else  -->
     </div>
+    <!-- container  -->
 </template>
 
 <script>
 import { mapState, mapGetters } from "vuex";
+import ProductGallery from "./ProductGallery";
 export default {
+    components:{
+        ProductGallery
+    },
+
     data(){
         return{
             product: null,

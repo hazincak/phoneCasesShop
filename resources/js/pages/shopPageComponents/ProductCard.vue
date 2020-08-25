@@ -1,6 +1,6 @@
 <template>
-	<div class="card mr-2 mb-4"> 
-     	<div class="card-product">
+	<div class="card card-product mr-2 mb-4"> 
+     	
 			<router-link :to="{name: 'produkt', params: { id: product.id }}">
 				<div class="img-wrap"><img src="../../../images/samples/Product1.jpg"></div>
 			</router-link>	
@@ -27,7 +27,7 @@
 					<span class="price-new">€{{product.price.toFixed(2)}} <p class="text-muted">s DPH.</p></span> 
 				</div> 
 			</div> 
-    	</div> 
+    	
 	</div>
 </template>
 <script>
