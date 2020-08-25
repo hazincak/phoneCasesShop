@@ -8,7 +8,7 @@
             <breadcrumb></breadcrumb>
             <div class="row">
                 <div class="col-mb-6">
-                    <product-gallery></product-gallery>
+                    <product-gallery :product="product"></product-gallery>
                 </div>
                 <div class="col-mb-6">
                       <h3>{{product.title}}</h3>

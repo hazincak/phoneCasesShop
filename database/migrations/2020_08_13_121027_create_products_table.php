@@ -23,6 +23,9 @@ class CreateProductsTable extends Migration
             $table->string('purpose');
 
             $table->float('price', 8, 2);
+            $table->string('color', 30);
+            $table->string('material', 30);
+
             $table->timestamps();
         });
     }

@@ -45649,7 +45649,7 @@ var render = function() {
               _c(
                 "div",
                 { staticClass: "col-mb-6" },
-                [_c("product-gallery")],
+                [_c("product-gallery", { attrs: { product: _vm.product } })],
                 1
               ),
               _vm._v(" "),
