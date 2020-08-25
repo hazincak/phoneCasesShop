@@ -2,7 +2,7 @@
 	<div class="card card-product mr-2 mb-4"> 
      	
 			<router-link :to="{name: 'produkt', params: { id: product.id }}">
-				<div class="img-wrap"><img src="../../../images/samples/Product1.jpg"></div>
+				<div class="img-wrap"><img :src='product.images[0].path'></div>
 			</router-link>	
 			<div>
 					<router-link :to="{name: 'produkt', params: { id: product.id }}">

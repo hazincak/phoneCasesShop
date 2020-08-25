@@ -21,11 +21,17 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('obchod', function (Request $request){
     
-    return Product::with('images')->paginate(12);
+    // return Product::with(['images' => function ($query)
+    // {
+    //     $query->limit(1);
+    // }
+    // ])->paginate(12);
+        return Product::with('images')->paginate(12);
+    
 });
 
 Route::get('obchod/produkt-podla-id/{id}', function(Request $request, $id){
-    return Product::findOrFail($id);
+    return Product::with('images')->findOrFail($id);
 });
 
 // Route::get('obchod/produkty/{brand}', function(Request $request, $brand){
@@ -43,6 +49,6 @@ Route::get('obchod/produkt-podla-nazvu/{title}', function(Request $request, $tit
 // });
 
 Route::get('/obaly-na-{model}', function(Request $request, $model){
-    return Product::where('purpose', 'Phone cover')->where('model', $model)->paginate(12);
+    return Product::where('purpose', 'Obal na mobil')->where('model', $model)->paginate(12);
 });
 

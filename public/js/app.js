@@ -2440,22 +2440,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    "product": Object
+  },
   data: function data() {
     return {
-      products: [{
-        image: 'https://i.imgur.com/wL1uRBk.jpg'
-      }, {
-        image: 'https://i.imgur.com/3NusNP2.jpg'
-      }, {
-        image: 'https://i.imgur.com/pXUPOVR.jpg'
-      }, {
-        image: 'https://i.imgur.com/xX5Qmsa.jpg'
-      }],
       selected: ""
     };
   },
   mounted: function mounted() {
-    this.selected = this.products[0].image;
+    this.selected = this.product.images[0].path;
   }
 });
 
@@ -45579,23 +45573,23 @@ var render = function() {
       _c(
         "div",
         { staticClass: "d-flex flex-column thumbnails" },
-        _vm._l(_vm.products, function(product) {
+        _vm._l(_vm.product.images, function(image) {
           return _c(
             "div",
             {
-              key: product.image,
+              key: _vm.product.images[image],
               staticClass: "tb",
-              class: { tbActive: product.image == _vm.selected },
+              class: { tbActive: image.path == _vm.selected },
               on: {
                 click: function($event) {
-                  _vm.selected = product.image
+                  _vm.selected = image.path
                 }
               }
             },
             [
               _c("img", {
                 staticClass: "thumbnail-img fit-image",
-                attrs: { src: product.image }
+                attrs: { src: image.path }
               })
             ]
           )
@@ -45603,23 +45597,23 @@ var render = function() {
         0
       ),
       _vm._v(" "),
-      _vm._l(_vm.products, function(product) {
+      _vm._l(_vm.product.images, function(image) {
         return _c(
           "div",
           {
-            key: product.image,
+            key: _vm.product.images[image],
             staticClass: "product-img-field",
-            class: { active: product.image == _vm.selected },
+            class: { active: image.path == _vm.selected },
             on: {
               click: function($event) {
-                _vm.selected = product.image
+                _vm.selected = image.path
               }
             }
           },
           [
             _c("img", {
               staticClass: "gallery-img",
-              attrs: { src: product.image }
+              attrs: { src: image.path }
             })
           ]
         )
@@ -45867,9 +45861,7 @@ var render = function() {
         { attrs: { to: { name: "produkt", params: { id: _vm.product.id } } } },
         [
           _c("div", { staticClass: "img-wrap" }, [
-            _c("img", {
-              attrs: { src: __webpack_require__(/*! ../../../images/samples/Product1.jpg */ "./resources/images/samples/Product1.jpg") }
-            })
+            _c("img", { attrs: { src: _vm.product.images[0].path } })
           ])
         ]
       ),
@@ -62808,17 +62800,6 @@ module.exports = "/images/Oneplus-logo.png?6b8baf275a2c6fa9654c02a94ed4a918";
 /***/ (function(module, exports) {
 
 module.exports = "/images/Samsung-logo.png?a376ca14b66ba1c4bf4f7f0463f37303";
-
-/***/ }),
-
-/***/ "./resources/images/samples/Product1.jpg":
-/*!***********************************************!*\
-  !*** ./resources/images/samples/Product1.jpg ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/Product1.jpg?ec324767f7aec0f1e1455e6531312ef4";
 
 /***/ }),
 

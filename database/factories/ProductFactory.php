@@ -19,9 +19,9 @@ $brands = [
 $purpose = [
     'Obal na mobil',
     'Obal na tablet',
-    'Sklo na mobil',
-    'Nabíjačka',
-    'Puzdrá na slúchadlá',
+    // 'Sklo na mobil',
+    // 'Nabíjačka',
+    // 'Puzdrá na slúchadlá',
 
 ];
 

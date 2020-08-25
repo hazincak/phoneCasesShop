@@ -1,33 +1,31 @@
 <template>
         <div class="card card-image-gallery mb-2 mr-2">
                 <div class="d-flex flex-column thumbnails">
-                    <div v-for="product in products" :key="product.image" class="tb" :class="{tbActive:product.image == selected }" @click="selected = product.image">  <img class="thumbnail-img fit-image" :src='product.image'> </div>
+                    <div v-for="image in product.images" :key="product.images[image]"  class="tb" :class="{tbActive:image.path == selected }" @click="selected = image.path">  <img class="thumbnail-img fit-image" :src='image.path'> </div>
                     <!-- <div id="f2" class="tb"> <img class="thumbnail-img fit-image" src="https://i.imgur.com/3NusNP2.jpg"> </div>
                     <div id="f3" class="tb"> <img class="thumbnail-img fit-image" src="https://i.imgur.com/pXUPOVR.jpg"> </div>
                     <div id="f4" class="tb"> <img class="thumbnail-img fit-image" src="https://i.imgur.com/xX5Qmsa.jpg"> </div> -->
                 </div>
                 
-                    <div v-for="product in products" :key="product.image" class="product-img-field" :class="{active:product.image == selected }" @click="selected = product.image"> <img class="gallery-img" :src='product.image'> </div>
+                    <div v-for="image in product.images" :key="product.images[image]" class="product-img-field" :class="{active:image.path == selected }" @click="selected = image.path"> <img class="gallery-img" :src='image.path'> </div>
               
         </div>
 </template>
 <script>
 export default {
+
+    props:{
+        "product": Object
+    },
+
     data(){
         return{
-            products:[
-                {image: 'https://i.imgur.com/wL1uRBk.jpg'},
-                {image: 'https://i.imgur.com/3NusNP2.jpg'},
-                {image: 'https://i.imgur.com/pXUPOVR.jpg'},
-                {image: 'https://i.imgur.com/xX5Qmsa.jpg'},
-            ],
-
             selected: ""
         }
     },
 
     mounted() {
-       this.selected = this.products[0].image
+       this.selected = this.product.images[0].path
     }
 }
 </script>
