@@ -2441,6 +2441,9 @@ __webpack_require__.r(__webpack_exports__);
         _this.products = response.data;
         _this.loading = false;
       });
+    },
+    changeSideBarStatus: function changeSideBarStatus(status) {
+      this.isActive = status;
     }
   }
 });
@@ -2635,11 +2638,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     isActive: Boolean
-  },
-  methods: {
-    changeSidebar: function changeSidebar() {
-      this.isActive = !this.isActive;
-    }
   }
 });
 
@@ -45702,7 +45700,14 @@ var render = function() {
           "div",
           { staticClass: "row" },
           [
-            _c("side-bar", { attrs: { isActive: _vm.isActive } }),
+            _c("side-bar", {
+              attrs: { isActive: _vm.isActive },
+              on: {
+                "sidebar-change": function($event) {
+                  return _vm.changeSideBarStatus($event)
+                }
+              }
+            }),
             _vm._v(" "),
             _c(
               "div",
@@ -46195,7 +46200,7 @@ var render = function() {
               staticClass: "closebtn",
               on: {
                 click: function($event) {
-                  return _vm.changeSidebar()
+                  return _vm.$emit("sidebar-change", !_vm.isActive)
                 }
               }
             },

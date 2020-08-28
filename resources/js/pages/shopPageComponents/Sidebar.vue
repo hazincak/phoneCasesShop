@@ -2,7 +2,7 @@
 <div class="sidebar__wrapper" :class="{active: isActive}">
    
    
-   <div v-if="isActive" class="closebtn" @click="changeSidebar()"><i class="far fa-times-circle"></i></div>
+   <div v-if="isActive" class="closebtn" @click="$emit('sidebar-change', !isActive)"><i class="far fa-times-circle"></i></div>
     <nav id="sidebar">
         
         <div class="sidebar-header">
@@ -70,12 +70,6 @@ export default {
     props:{
         isActive: Boolean
     },
-
-    methods:{
-        changeSidebar(){
-            this.isActive = !this.isActive
-        }
-    }
 }
 </script>
 

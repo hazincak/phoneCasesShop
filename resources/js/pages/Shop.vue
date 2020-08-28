@@ -9,7 +9,7 @@
             </div>
             <div class="row" v-else>
                 
-                        <side-bar :isActive = "isActive"></side-bar>
+                        <side-bar :isActive = "isActive" v-on:sidebar-change = "changeSideBarStatus($event)"></side-bar>
                     
                     <div class="col">
                         <div class="row">
@@ -66,7 +66,9 @@ export default {
                 });
 
         },
-
+        changeSideBarStatus(status){
+            this.isActive =  status
+        }
        
     }
 
