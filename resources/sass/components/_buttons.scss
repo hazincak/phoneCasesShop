@@ -4,7 +4,7 @@
     &:visited,
     &:focus{
     text-transform: uppercase;
-    border-radius: 0.7rem;
+    border-radius: 10rem;
     text-decoration: none;
     outline: none;
     padding: 1.2% 3.0%;
@@ -22,15 +22,15 @@
         width: 100%;
     }
 
-    &--rounded{
-    border-radius: 10rem;
-    -webkit-border-radius: 10rem;
-    -moz-border-radius: 10rem;
-    -ms-border-radius: 10rem;
-    -o-border-radius: 10rem;
-    }
+    // &--rounded{
+    // border-radius: 10rem;
+    // -webkit-border-radius: 10rem;
+    // -moz-border-radius: 10rem;
+    // -ms-border-radius: 10rem;
+    // -o-border-radius: 10rem;
+    // }
 
-    --shadowed{
+    &--shadowed{
         &:hover{
             transform: translateY(-3px);
             -webkit-transform: translateY(-3px);

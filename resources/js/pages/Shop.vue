@@ -10,12 +10,14 @@
             </div>
             <div v-else>
                 <div class="row">
-                    <div class="col-md-2 sm-12 sidebar">
+                    <div class="col-md-2">
                         <side-bar></side-bar>
                     </div>
-                    <div class="col-md-10 sm-12">
+                    <div class="col-md-10">
+                        <div class="row">
                         <breadcrumb></breadcrumb>
-                        <div class="row mb-4">
+                        </div>
+                        <div class="row">
                             <div v-for="product in products.data" :key="product.id" class="col-md-3 xs-12"><product-item-card v-bind:product="product"></product-item-card></div>
                         </div>
                         <pagination :data="products" align='center' @pagination-change-page="getResults">

@@ -12,7 +12,7 @@
                 </div>
                 <div class="col-mb-6">
                       <h3>{{product.title}}</h3>
-                    <h4>€{{product.price}} s DPH</h4>
+                    <h4>€{{product.price}} <span class="price"> s DPH</span> {{product.model}}</h4
                     <p>{{product.description}}</p>
                     <button 
 			    		v-if="inBasketAlready" 
@@ -73,6 +73,15 @@
     </div>
     <!-- container  -->
 </template>
+
+<style scoped>
+.price{
+    color: grey;
+    
+}
+</style>>
+
+</style>
 
 <script>
 import { mapState, mapGetters } from "vuex";

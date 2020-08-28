@@ -17000,6 +17000,32 @@ a.text-dark:focus {
   transform: translate(-50%, -50%);
 }
 
+html {
+  font-size: 62.5%;
+}
+
+@media only screen and (max-width: 75em) {
+  html {
+    font-size: 56.25%;
+  }
+}
+
+@media only screen and (max-width: 56.25em) {
+  html {
+    font-size: 50%;
+  }
+}
+
+@media only screen and (min-width: 112.5em) {
+  html {
+    font-size: 75%;
+  }
+}
+
+body {
+  font-size: 1.6rem;
+}
+
 a {
   text-decoration: none;
   transition: all 0.3s;
@@ -17019,7 +17045,7 @@ a {
 .button:visited,
 .button:focus {
   text-transform: uppercase;
-  border-radius: 0.7rem;
+  border-radius: 10rem;
   text-decoration: none;
   outline: none;
   padding: 1.2% 3%;
@@ -17037,15 +17063,7 @@ a {
   width: 100%;
 }
 
-.button--rounded {
-  border-radius: 10rem;
-  -webkit-border-radius: 10rem;
-  -moz-border-radius: 10rem;
-  -ms-border-radius: 10rem;
-  -o-border-radius: 10rem;
-}
-
-.button \--shadowed:hover {
+.button--shadowed:hover {
   transform: translateY(-3px);
   -webkit-transform: translateY(-3px);
   -moz-transform: translateY(-3px);
@@ -17107,7 +17125,7 @@ a {
 }
 
 .title-card__icon {
-  font-size: 300%;
+  font-size: 3rem;
   color: #01a9b4;
   margin-bottom: 1rem;
 }
@@ -17149,14 +17167,6 @@ a {
 
 .card-product:hover a {
   color: #01a9b4;
-}
-
-.card-product:hover .card-product .bottom-wrap {
-  border-top: 1px solid #01a9b4;
-}
-
-.card-product:hover .card-product .price-wrap {
-  border-bottom: 1px solid #01a9b4;
 }
 
 .card-product .img-wrap {
@@ -17217,10 +17227,11 @@ a {
 }
 
 .navbar-brand {
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 nav .navbar-nav li a {
+  font-size: 2rem;
   color: white !important;
   transition: all 0.3s;
 }
@@ -17231,6 +17242,7 @@ nav .navbar-nav li a:hover {
 }
 
 .nav-item {
+  font-size: 2rem;
   padding: 0 6px;
 }
 
@@ -17238,12 +17250,20 @@ nav .navbar-nav li a:hover {
   color: #fbfd8a;
 }
 
-.nav-link {
-  font-size: 1.2rem;
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler:focus {
+  outline: none;
+  box-shadow: none;
 }
 
-.nav-link:hover {
-  color: #fbfd8a;
+.navbar-toggler {
+  border: none;
+}
+
+.collapse-icon {
+  font-size: 2rem;
+  color: #fff;
 }
 
 .sidebar__wrapper {

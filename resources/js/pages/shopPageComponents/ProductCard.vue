@@ -1,5 +1,5 @@
 <template>
-	<div class="card card-product mr-2 mb-4"> 
+	<div class="card-product mr-2 mb-4"> 
      	
 			<router-link :to="{name: 'produkt', params: { id: product.id }}">
 				<div class="img-wrap"><img :src='product.images[0].path'></div>
