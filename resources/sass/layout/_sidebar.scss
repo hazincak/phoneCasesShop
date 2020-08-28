@@ -1,19 +1,20 @@
 .sidebar__wrapper {
     
     height: 100%;
+    min-width: 150px;
     align-items: stretch;
     border-right: 1px solid transparent;
     background-color: $color-grey-light;
     
-    // @include respond(1200) {
-    //     display: none;
-    // }
+    @include respond(1000) {
+        display: none;
+    }
 }
 
 
 #sidebar {
     min-height: 100vh;
-    margin-left: -800px;
+    
     background-color: $color-grey-light;
     color: $color-teal-dark;
     transition: all 0.3s;
@@ -29,13 +30,10 @@
 
 }
 
-#sidebar ul.components {
-    padding: 20px;
-}
 
-#sidebar ul li a {
-    padding: 10px;
-    font-size: 1.1em;
+#sidebar .main-category{
+    padding: 1rem;
+    font-size: 2rem;
     display: block;
     color: $color-teal;
     transition: all .3s;
@@ -43,22 +41,22 @@
 #sidebar ul li a:hover {
     color:$color-teal-dark;
     text-decoration:none;
-    transform: scale(1.1);
+    // transform: scale(1.1);
 }
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
     color: $color-teal;
     background-color: $color-grey-light;
 }
-ul ul a {
-    font-size: 0.9em !important;
-    padding-left: 30px !important;
+#sidebar .brand-category {
+    font-size: 1.7rem;
+    padding-left: 10%;
     background-color: $color-grey-light;
     color: $color-teal;
 }
-ul ul ul li {
-    font-size: 0.9em !important;
-    padding-left:40px !important;
+#sidebar a {
+    font-size: 1.4rem;
+    padding-left:15%;
     background-color: $color-grey-light;
     color: $color-teal;
 }

@@ -13,9 +13,10 @@
                     </div>
                     <div class="col-md-10 ">
                         <div class="row">
+                        <div class="sidebar-toggler">Menu <i class="fas fa-bars"></i></div>
                         <breadcrumb></breadcrumb>
                         </div>
-                        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+                        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
                             <div v-for="product in products.data" :key="product.id"><product-item-card v-bind:product="product"></product-item-card></div>
                         </div>
                         <pagination :data="products" align='center' @pagination-change-page="getResults">

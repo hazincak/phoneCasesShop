@@ -2411,6 +2411,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -45614,11 +45615,19 @@ var render = function() {
             "div",
             { staticClass: "col-md-10 " },
             [
-              _c("div", { staticClass: "row" }, [_c("breadcrumb")], 1),
+              _c(
+                "div",
+                { staticClass: "row" },
+                [_vm._m(0), _vm._v(" "), _c("breadcrumb")],
+                1
+              ),
               _vm._v(" "),
               _c(
                 "div",
-                { staticClass: "row row-cols-1 row-cols-sm-2 row-cols-md-4" },
+                {
+                  staticClass:
+                    "row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4"
+                },
                 _vm._l(_vm.products.data, function(product) {
                   return _c(
                     "div",
@@ -45640,7 +45649,17 @@ var render = function() {
         ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "sidebar-toggler" }, [
+      _vm._v("Menu "),
+      _c("i", { staticClass: "fas fa-bars" })
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -46067,7 +46086,7 @@ var render = function() {
     _c("nav", { staticClass: "active", attrs: { id: "sidebar" } }, [
       _vm._m(0),
       _vm._v(" "),
-      _c("ul", { staticClass: "list-unstyled components" }, [
+      _c("ul", { staticClass: "list-unstyled" }, [
         _c("h3", { staticClass: "text-center" }, [
           _vm._v("KATEGÓRIE PRODUKTOV")
         ]),
@@ -46076,7 +46095,7 @@ var render = function() {
           _c(
             "a",
             {
-              staticClass: "dropdown-toggle",
+              staticClass: "dropdown-toggle main-category",
               attrs: {
                 href: "#phoneCovers",
                 "data-toggle": "collapse",
@@ -46097,7 +46116,7 @@ var render = function() {
                 _c(
                   "a",
                   {
-                    staticClass: "dropdown-toggle",
+                    staticClass: "dropdown-toggle brand-category",
                     attrs: {
                       href: "#phoneBrandApple",
                       "data-toggle": "collapse",
@@ -46178,7 +46197,7 @@ var render = function() {
                 _c(
                   "a",
                   {
-                    staticClass: "dropdown-toggle",
+                    staticClass: "dropdown-toggle brand-category",
                     attrs: {
                       href: "#phoneBrandSamsung",
                       "data-toggle": "collapse",
@@ -46253,7 +46272,7 @@ var staticRenderFns = [
       _c(
         "a",
         {
-          staticClass: "dropdown-toggle",
+          staticClass: "dropdown-toggle main-category",
           attrs: {
             href: "#phoneBrandMotorola",
             "data-toggle": "collapse",
@@ -46281,7 +46300,7 @@ var staticRenderFns = [
       _c(
         "a",
         {
-          staticClass: "dropdown-toggle",
+          staticClass: "dropdown-toggle main-category",
           attrs: {
             href: "#tabletCovers",
             "data-toggle": "collapse",
@@ -46362,7 +46381,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("li", [
-      _c("a", { attrs: { href: "#" } }, [_vm._v("Ochranné sklá")])
+      _c("a", { staticClass: "main-category", attrs: { href: "#" } }, [
+        _vm._v("Ochranné sklá")
+      ])
     ])
   },
   function() {
@@ -46370,7 +46391,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("li", [
-      _c("a", { attrs: { href: "#" } }, [_vm._v("Príslušenstvo")])
+      _c("a", { staticClass: "main-category", attrs: { href: "#" } }, [
+        _vm._v("Príslušenstvo")
+      ])
     ])
   }
 ]
