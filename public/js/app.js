@@ -2422,6 +2422,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      isActive: false,
       products: {},
       loading: false
     };
@@ -2549,6 +2550,95 @@ __webpack_require__.r(__webpack_exports__);
     },
     removeFromBasket: function removeFromBasket() {
       this.$store.dispatch("removeFromBasket", this.product.id);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/shopPageComponents/Sidebar.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/shopPageComponents/Sidebar.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    isActive: Boolean
+  },
+  methods: {
+    changeSidebar: function changeSidebar() {
+      this.isActive = !this.isActive;
     }
   }
 });
@@ -45608,58 +45698,70 @@ var render = function() {
           ],
           1
         )
-      : _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-md-2 " }, [_c("side-bar")], 1),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "col-md-10 " },
-            [
-              _c(
-                "div",
-                { staticClass: "row" },
-                [_vm._m(0), _vm._v(" "), _c("breadcrumb")],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4"
-                },
-                _vm._l(_vm.products.data, function(product) {
-                  return _c(
-                    "div",
-                    { key: product.id },
-                    [_c("product-item-card", { attrs: { product: product } })],
-                    1
-                  )
-                }),
-                0
-              ),
-              _vm._v(" "),
-              _c("pagination", {
-                attrs: { data: _vm.products, align: "center" },
-                on: { "pagination-change-page": _vm.getResults }
-              })
-            ],
-            1
-          )
-        ])
+      : _c(
+          "div",
+          { staticClass: "row" },
+          [
+            _c("side-bar", { attrs: { isActive: _vm.isActive } }),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "col" },
+              [
+                _c(
+                  "div",
+                  { staticClass: "row" },
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "sidebar-toggler",
+                        on: {
+                          click: function($event) {
+                            _vm.isActive = !_vm.isActive
+                          }
+                        }
+                      },
+                      [_vm._v("Menu "), _c("i", { staticClass: "fas fa-bars" })]
+                    ),
+                    _vm._v(" "),
+                    _c("breadcrumb")
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4"
+                  },
+                  _vm._l(_vm.products.data, function(product) {
+                    return _c(
+                      "div",
+                      { key: product.id },
+                      [
+                        _c("product-item-card", { attrs: { product: product } })
+                      ],
+                      1
+                    )
+                  }),
+                  0
+                ),
+                _vm._v(" "),
+                _c("pagination", {
+                  attrs: { data: _vm.products, align: "center" },
+                  on: { "pagination-change-page": _vm.getResults }
+                })
+              ],
+              1
+            )
+          ],
+          1
+        )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "sidebar-toggler" }, [
-      _vm._v("Menu "),
-      _c("i", { staticClass: "fas fa-bars" })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -46082,178 +46184,197 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "sidebar__wrapper" }, [
-    _c("nav", { staticClass: "active", attrs: { id: "sidebar" } }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c("ul", { staticClass: "list-unstyled" }, [
-        _c("h3", { staticClass: "text-center" }, [
-          _vm._v("KATEGÓRIE PRODUKTOV")
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c(
-            "a",
+  return _c(
+    "div",
+    { staticClass: "sidebar__wrapper", class: { active: _vm.isActive } },
+    [
+      _vm.isActive
+        ? _c(
+            "div",
             {
-              staticClass: "dropdown-toggle main-category",
-              attrs: {
-                href: "#phoneCovers",
-                "data-toggle": "collapse",
-                "aria-expanded": "false"
+              staticClass: "closebtn",
+              on: {
+                click: function($event) {
+                  return _vm.changeSidebar()
+                }
               }
             },
-            [_vm._v("Obaly na mobil")]
-          ),
-          _vm._v(" "),
-          _c(
-            "ul",
-            {
-              staticClass: "collapse list-unstyled",
-              attrs: { id: "phoneCovers" }
-            },
-            [
-              _c("li", [
-                _c(
-                  "a",
-                  {
-                    staticClass: "dropdown-toggle brand-category",
-                    attrs: {
-                      href: "#phoneBrandApple",
-                      "data-toggle": "collapse",
-                      "aria-expanded": "false"
-                    }
-                  },
-                  [_vm._v("Apple")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "ul",
-                  {
-                    staticClass: "collapse list-unstyled",
-                    attrs: { id: "phoneBrandApple" }
-                  },
-                  [
-                    _c(
-                      "li",
-                      [
-                        _c(
-                          "router-link",
-                          {
-                            attrs: {
-                              to: {
-                                name: "obchod-model-obaly",
-                                params: { model: "Iphone 10" }
-                              }
-                            }
-                          },
-                          [_vm._v("Iphone 10")]
-                        )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "li",
-                      [
-                        _c(
-                          "router-link",
-                          {
-                            attrs: {
-                              to: {
-                                name: "obchod-model-obaly",
-                                params: { model: "Iphone 9" }
-                              }
-                            }
-                          },
-                          [_vm._v("Iphone 9")]
-                        )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "li",
-                      [
-                        _c(
-                          "router-link",
-                          {
-                            attrs: {
-                              to: {
-                                name: "obchod-model-obaly",
-                                params: { model: "Iphone 8" }
-                              }
-                            }
-                          },
-                          [_vm._v("Iphone 8")]
-                        )
-                      ],
-                      1
-                    )
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c(
-                  "a",
-                  {
-                    staticClass: "dropdown-toggle brand-category",
-                    attrs: {
-                      href: "#phoneBrandSamsung",
-                      "data-toggle": "collapse",
-                      "aria-expanded": "false"
-                    }
-                  },
-                  [_vm._v("Samsung")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "ul",
-                  {
-                    staticClass: "collapse list-unstyled",
-                    attrs: { id: "phoneBrandSamsung" }
-                  },
-                  [
-                    _c(
-                      "li",
-                      {
-                        on: {
-                          click: function($event) {
-                            return _vm.sendOption("Galaxy 5")
-                          }
-                        }
-                      },
-                      [_vm._v("Galaxy 5")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "li",
-                      {
-                        on: {
-                          click: function($event) {
-                            return _vm.sendOption("Galaxy 7")
-                          }
-                        }
-                      },
-                      [_vm._v("Galaxy 7")]
-                    )
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _vm._m(1)
-            ]
+            [_c("i", { staticClass: "far fa-times-circle" })]
           )
-        ]),
+        : _vm._e(),
+      _vm._v(" "),
+      _c("nav", { attrs: { id: "sidebar" } }, [
+        _vm._m(0),
         _vm._v(" "),
-        _vm._m(2),
-        _vm._v(" "),
-        _vm._m(3),
-        _vm._v(" "),
-        _vm._m(4)
+        _c("ul", { staticClass: "list-unstyled" }, [
+          _c("h3", { staticClass: "text-center" }, [
+            _vm._v("KATEGÓRIE PRODUKTOV")
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c(
+              "a",
+              {
+                staticClass: "dropdown-toggle main-category",
+                attrs: {
+                  href: "#phoneCovers",
+                  "data-toggle": "collapse",
+                  "aria-expanded": "false"
+                }
+              },
+              [_vm._v("Obaly na mobil")]
+            ),
+            _vm._v(" "),
+            _c(
+              "ul",
+              {
+                staticClass: "collapse list-unstyled",
+                attrs: { id: "phoneCovers" }
+              },
+              [
+                _c("li", [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "dropdown-toggle brand-category",
+                      attrs: {
+                        href: "#phoneBrandApple",
+                        "data-toggle": "collapse",
+                        "aria-expanded": "false"
+                      }
+                    },
+                    [_vm._v("Apple")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "ul",
+                    {
+                      staticClass: "collapse list-unstyled",
+                      attrs: { id: "phoneBrandApple" }
+                    },
+                    [
+                      _c(
+                        "li",
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              attrs: {
+                                to: {
+                                  name: "obchod-model-obaly",
+                                  params: { model: "Iphone 10" }
+                                }
+                              }
+                            },
+                            [_vm._v("Iphone 10")]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "li",
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              attrs: {
+                                to: {
+                                  name: "obchod-model-obaly",
+                                  params: { model: "Iphone 9" }
+                                }
+                              }
+                            },
+                            [_vm._v("Iphone 9")]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "li",
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              attrs: {
+                                to: {
+                                  name: "obchod-model-obaly",
+                                  params: { model: "Iphone 8" }
+                                }
+                              }
+                            },
+                            [_vm._v("Iphone 8")]
+                          )
+                        ],
+                        1
+                      )
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "dropdown-toggle brand-category",
+                      attrs: {
+                        href: "#phoneBrandSamsung",
+                        "data-toggle": "collapse",
+                        "aria-expanded": "false"
+                      }
+                    },
+                    [_vm._v("Samsung")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "ul",
+                    {
+                      staticClass: "collapse list-unstyled",
+                      attrs: { id: "phoneBrandSamsung" }
+                    },
+                    [
+                      _c(
+                        "li",
+                        {
+                          on: {
+                            click: function($event) {
+                              return _vm.sendOption("Galaxy 5")
+                            }
+                          }
+                        },
+                        [_vm._v("Galaxy 5")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "li",
+                        {
+                          on: {
+                            click: function($event) {
+                              return _vm.sendOption("Galaxy 7")
+                            }
+                          }
+                        },
+                        [_vm._v("Galaxy 7")]
+                      )
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _vm._m(1)
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _vm._m(2),
+          _vm._v(" "),
+          _vm._m(3),
+          _vm._v(" "),
+          _vm._m(4)
+        ])
       ])
-    ])
-  ])
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
@@ -63891,15 +64012,17 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Sidebar_vue_vue_type_template_id_364f90f1___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Sidebar.vue?vue&type=template&id=364f90f1& */ "./resources/js/pages/shopPageComponents/Sidebar.vue?vue&type=template&id=364f90f1&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _Sidebar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Sidebar.vue?vue&type=script&lang=js& */ "./resources/js/pages/shopPageComponents/Sidebar.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-var script = {}
+
+
 
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
-  script,
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Sidebar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _Sidebar_vue_vue_type_template_id_364f90f1___WEBPACK_IMPORTED_MODULE_0__["render"],
   _Sidebar_vue_vue_type_template_id_364f90f1___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
@@ -63913,6 +64036,20 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 if (false) { var api; }
 component.options.__file = "resources/js/pages/shopPageComponents/Sidebar.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/pages/shopPageComponents/Sidebar.vue?vue&type=script&lang=js&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/pages/shopPageComponents/Sidebar.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Sidebar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Sidebar.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/shopPageComponents/Sidebar.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Sidebar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 

@@ -17437,10 +17437,11 @@ nav .navbar-nav li a:hover {
 
 .sidebar__wrapper {
   height: 100%;
-  min-width: 150px;
+  padding: 0.5rem;
   align-items: stretch;
   border-right: 1px solid transparent;
   background-color: #f5f5fa;
+  transition: all 0.3s;
 }
 
 @media only screen and (max-width: 62.5em) {
@@ -17449,15 +17450,25 @@ nav .navbar-nav li a:hover {
   }
 }
 
+.sidebar__wrapper.active {
+  display: block;
+  height: 100%;
+  width: 85%;
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  overflow-x: hidden;
+  /* Disable horizontal scroll */
+  transition: 0.5s;
+}
+
 #sidebar {
   min-height: 100vh;
   background-color: #f5f5fa;
   color: #086972;
-  transition: all 0.3s;
-}
-
-#sidebar.active {
-  margin-left: 0px;
 }
 
 #sidebar .sidebar-header {
@@ -17497,6 +17508,14 @@ a[aria-expanded=true] {
   padding-left: 15%;
   background-color: #f5f5fa;
   color: #01a9b4;
+}
+
+.closebtn {
+  position: absolute;
+  top: 10px;
+  right: 30px;
+  font-size: 30px;
+  cursor: pointer;
 }
 
 .section-footer {

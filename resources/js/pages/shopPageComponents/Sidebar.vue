@@ -1,7 +1,10 @@
 <template>
-<div class="sidebar__wrapper">
+<div class="sidebar__wrapper" :class="{active: isActive}">
    
-    <nav id="sidebar" class="active">
+   
+   <div v-if="isActive" class="closebtn" @click="changeSidebar()"><i class="far fa-times-circle"></i></div>
+    <nav id="sidebar">
+        
         <div class="sidebar-header">
             <h2 class="text-center">Menu</h2>
         </div>
@@ -62,6 +65,20 @@
 
 </div>
 </template>
+<script>
+export default {
+    props:{
+        isActive: Boolean
+    },
+
+    methods:{
+        changeSidebar(){
+            this.isActive = !this.isActive
+        }
+    }
+}
+</script>
+
 
 
 
