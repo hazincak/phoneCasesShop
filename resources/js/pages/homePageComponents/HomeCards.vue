@@ -1,5 +1,5 @@
 <template>
-    <div class="section-cards">
+    <div class="cards-section">
         <div class="container">
             <div class="row">
                 <div class="title-card col-lg-3 text-center">
@@ -23,7 +23,6 @@
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum, eligendi nisi repellendus error cumque esse soluta.</p>
                 </div>
             </div>
-
         </div>
     </div>
 </template>

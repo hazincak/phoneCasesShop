@@ -3,11 +3,11 @@
    
     <nav id="sidebar" class="active">
         <div class="sidebar-header">
-            <h3 class="text-center">Menu</h3>
+            <h2 class="text-center">Menu</h2>
         </div>
 
         <ul class="list-unstyled components">
-            <h6 class="text-center">KATEGÓRIE PRODUKTOV</h6>
+            <h3 class="text-center">KATEGÓRIE PRODUKTOV</h3>
             <li>
                 <a href="#phoneCovers" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Obaly na mobil</a>
                   <ul class="collapse list-unstyled" id="phoneCovers">

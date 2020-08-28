@@ -6,27 +6,25 @@
           :size="80"
           :color="'#086972'"
      />
-  
             </div>
-            <div v-else>
-                <div class="row">
-                    <div class="col-md-2">
+            <div class="row" v-else>
+                    <div class="col-md-2 ">
                         <side-bar></side-bar>
                     </div>
-                    <div class="col-md-10">
+                    <div class="col-md-10 ">
                         <div class="row">
                         <breadcrumb></breadcrumb>
                         </div>
-                        <div class="row">
-                            <div v-for="product in products.data" :key="product.id" class="col-md-3 xs-12"><product-item-card v-bind:product="product"></product-item-card></div>
+                        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+                            <div v-for="product in products.data" :key="product.id"><product-item-card v-bind:product="product"></product-item-card></div>
                         </div>
                         <pagination :data="products" align='center' @pagination-change-page="getResults">
  
                         </pagination>
                         
-                    </div>
                 </div>
             </div>
+            
     </div>
 </template>
 

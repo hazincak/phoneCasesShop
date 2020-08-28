@@ -5,12 +5,13 @@
     border-right: 1px solid transparent;
     background-color: $color-grey-light;
     
+    // @include respond(1200) {
+    //     display: none;
+    // }
 }
 
 
 #sidebar {
-    min-width: 250px;
-    max-width: 255px;
     min-height: 100vh;
     margin-left: -800px;
     background-color: $color-grey-light;

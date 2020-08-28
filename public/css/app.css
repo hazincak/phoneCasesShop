@@ -17160,6 +17160,10 @@ a {
   text-transform: uppercase;
 }
 
+p {
+  font-size: inherit;
+}
+
 .button,
 .button:link,
 .button:visited,
@@ -17302,7 +17306,6 @@ a {
 .card-product {
   border: none;
   font-size: inherit;
-  width: 16rem;
   transition: all 0.3s;
 }
 
@@ -17419,8 +17422,6 @@ nav .navbar-nav li a:hover {
 }
 
 #sidebar {
-  min-width: 250px;
-  max-width: 255px;
   min-height: 100vh;
   margin-left: -800px;
   background-color: #f5f5fa;
@@ -17523,8 +17524,7 @@ ul ul ul li {
   height: 100vh;
 }
 
-.section-cards {
-  position: relative;
+.cards-section {
   background-color: #f5f5fa;
 }
 

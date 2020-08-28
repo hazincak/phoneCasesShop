@@ -2411,8 +2411,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 
 
@@ -45451,8 +45449,8 @@ var render = function() {
                   _c("span", { staticClass: "price" }, [_vm._v(" s DPH")]),
                   _vm._v(" " + _vm._s(_vm.product.model))
                 ]),
-                _vm._v(_vm._s(_vm.product.description)),
-                _c("p"),
+                _vm._v(" "),
+                _c("p", [_vm._v(_vm._s(_vm.product.description))]),
                 _vm._v(" "),
                 _vm.inBasketAlready
                   ? _c(
@@ -45609,40 +45607,36 @@ var render = function() {
           ],
           1
         )
-      : _c("div", [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-md-2" }, [_c("side-bar")], 1),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "col-md-10" },
-              [
-                _c("div", { staticClass: "row" }, [_c("breadcrumb")], 1),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "row" },
-                  _vm._l(_vm.products.data, function(product) {
-                    return _c(
-                      "div",
-                      { key: product.id, staticClass: "col-md-3 xs-12" },
-                      [
-                        _c("product-item-card", { attrs: { product: product } })
-                      ],
-                      1
-                    )
-                  }),
-                  0
-                ),
-                _vm._v(" "),
-                _c("pagination", {
-                  attrs: { data: _vm.products, align: "center" },
-                  on: { "pagination-change-page": _vm.getResults }
-                })
-              ],
-              1
-            )
-          ])
+      : _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-2 " }, [_c("side-bar")], 1),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "col-md-10 " },
+            [
+              _c("div", { staticClass: "row" }, [_c("breadcrumb")], 1),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "row row-cols-1 row-cols-sm-2 row-cols-md-4" },
+                _vm._l(_vm.products.data, function(product) {
+                  return _c(
+                    "div",
+                    { key: product.id },
+                    [_c("product-item-card", { attrs: { product: product } })],
+                    1
+                  )
+                }),
+                0
+              ),
+              _vm._v(" "),
+              _c("pagination", {
+                attrs: { data: _vm.products, align: "center" },
+                on: { "pagination-change-page": _vm.getResults }
+              })
+            ],
+            1
+          )
         ])
   ])
 }
@@ -45753,7 +45747,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "section-cards" }, [
+    return _c("div", { staticClass: "cards-section" }, [
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "title-card col-lg-3 text-center" }, [
@@ -46074,7 +46068,7 @@ var render = function() {
       _vm._m(0),
       _vm._v(" "),
       _c("ul", { staticClass: "list-unstyled components" }, [
-        _c("h6", { staticClass: "text-center" }, [
+        _c("h3", { staticClass: "text-center" }, [
           _vm._v("KATEGÓRIE PRODUKTOV")
         ]),
         _vm._v(" "),
@@ -46248,7 +46242,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "sidebar-header" }, [
-      _c("h3", { staticClass: "text-center" }, [_vm._v("Menu")])
+      _c("h2", { staticClass: "text-center" }, [_vm._v("Menu")])
     ])
   },
   function() {
