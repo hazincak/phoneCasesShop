@@ -1,12 +1,12 @@
 <template>
-	<div class="card-product mr-2 mb-4"> 
+	<div class="card-product mr-2 mb-4 p-2"> 
      	
 			<router-link :to="{name: 'produkt', params: { id: product.id }}">
 				<div class="img-wrap"><img :src='product.images[0].path'></div>
 			</router-link>	
 			<div>
 					<router-link :to="{name: 'produkt', params: { id: product.id }}">
-						<h6 class="card-title">{{product.title}}</h6>
+						<p class="card-title">{{product.title}}</p>
 					</router-link>
 						
 					
@@ -23,7 +23,7 @@
 					v-else
 					class="button button--teal-outline float-right"
 					@click="addToBasket">do košíka <i class="fas fa-cart-arrow-down"></i></button>	
-				<div class="price-wrap h6">
+				<div class="price-wrap">
 					<span class="price-new">€{{product.price.toFixed(2)}} <p class="text-muted">s DPH.</p></span> 
 				</div> 
 			</div> 

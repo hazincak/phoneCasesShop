@@ -45990,7 +45990,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "card-product mr-2 mb-4" },
+    { staticClass: "card-product mr-2 mb-4 p-2" },
     [
       _c(
         "router-link",
@@ -46011,7 +46011,7 @@ var render = function() {
               attrs: { to: { name: "produkt", params: { id: _vm.product.id } } }
             },
             [
-              _c("h6", { staticClass: "card-title" }, [
+              _c("p", { staticClass: "card-title" }, [
                 _vm._v(_vm._s(_vm.product.title))
               ])
             ]
@@ -46049,7 +46049,7 @@ var render = function() {
               ]
             ),
         _vm._v(" "),
-        _c("div", { staticClass: "price-wrap h6" }, [
+        _c("div", { staticClass: "price-wrap" }, [
           _c("span", { staticClass: "price-new" }, [
             _vm._v("€" + _vm._s(_vm.product.price.toFixed(2)) + " "),
             _c("p", { staticClass: "text-muted" }, [_vm._v("s DPH.")])

@@ -17164,6 +17164,15 @@ p {
   font-size: inherit;
 }
 
+.card-title {
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.card-model {
+  font-size: 1.5rem;
+}
+
 .button,
 .button:link,
 .button:visited,
