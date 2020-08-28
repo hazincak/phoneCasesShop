@@ -1,12 +1,7 @@
-.press{
-    background-color: transparent;
-    text-align: center;
-    padding-bottom: 3%;
-    position: absolute
-}
+
 .press-logo{
-    width: 5%;
-    margin: 20px 20px 50px;
+    width: 6rem;
+    margin-right: 2rem;
     -webkit-filter: opacity(60%) grayscale(100%) !important;
     filter: opacity(60%) grayscale(100%) !important;
     transition: all .2s;
@@ -15,10 +10,39 @@
     -o-transition: all .2s; 
     -ms-transition: all .2s;
     
+    animation-name: moveFromBottom;
+    animation-duration: 1s;
     
     &:hover{
         -webkit-filter: grayscale(0) !important;
 	filter: grayscale(0) !important;
     }
+
+   
+
+    @include respond(1200){
+        width: 5.5rem;
+        margin-right: 1.8rem;
+    }
+
+    @include respond(1000) { 
+        width: 5.0rem;
+        margin-right: 1.1rem;
+    }
+
+    @include respond(900) { 
+        width: 4.5rem;
+        margin-right: 1.1rem;
+    }
+
+    @include respond(600) { 
+        width: 4.0rem;
+        margin-right: 0.9rem;
+    }
+
+    
+
+   
+
 }
 

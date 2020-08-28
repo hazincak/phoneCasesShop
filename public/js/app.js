@@ -45834,10 +45834,16 @@ var render = function() {
   return _c("div", { staticClass: "container-fluid section-title" }, [
     _c(
       "div",
-      { staticClass: "col-lg-6 text-center my-center " },
+      { staticClass: " text-center my-center " },
       [
-        _c("h1", { staticClass: "heading-primary" }, [
-          _vm._v("Nieco v zmysle: oblec svoj mobil")
+        _c(
+          "h1",
+          { staticClass: "heading-primary heading-primary--main mb-3" },
+          [_vm._v("Najlacnejšie obaly")]
+        ),
+        _vm._v(" "),
+        _c("h1", { staticClass: "heading-primary heading-primary--sub mb-3" }, [
+          _vm._v("Ochráňte vášho spoločníka")
         ]),
         _vm._v(" "),
         _c(
@@ -45863,65 +45869,79 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      { staticClass: "col-lg-12 text-center my-bottom-center " },
+      { staticClass: "d-flex flex-row bd-highlight mb-3 my-bottom-center" },
       [
-        _c("div", { staticClass: "press" }, [
+        _c("div", { staticClass: "p-2 bd-highlight" }, [
           _c("img", {
             staticClass: "press-logo",
             attrs: {
               src: __webpack_require__(/*! ../../../images/logos/Apple-logo.png */ "./resources/images/logos/Apple-logo.png"),
               alt: "apple-logo"
             }
-          }),
-          _vm._v(" "),
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "p-2 bd-highlight" }, [
           _c("img", {
             staticClass: "press-logo",
             attrs: {
               src: __webpack_require__(/*! ../../../images/logos/Huawei-logo.png */ "./resources/images/logos/Huawei-logo.png"),
               alt: "huawei-logo"
             }
-          }),
-          _vm._v(" "),
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "p-2 bd-highlight" }, [
           _c("img", {
             staticClass: "press-logo",
             attrs: {
               src: __webpack_require__(/*! ../../../images/logos/Motorola-logo.png */ "./resources/images/logos/Motorola-logo.png"),
               alt: "motorola-logo"
             }
-          }),
-          _vm._v(" "),
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "p-2 bd-highlight" }, [
           _c("img", {
             staticClass: "press-logo",
             attrs: {
               src: __webpack_require__(/*! ../../../images/logos/Samsung-logo.png */ "./resources/images/logos/Samsung-logo.png"),
               alt: "samsung-logo"
             }
-          }),
-          _vm._v(" "),
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "p-2 bd-highlight" }, [
           _c("img", {
             staticClass: "press-logo",
             attrs: {
               src: __webpack_require__(/*! ../../../images/logos/Lg-logo.png */ "./resources/images/logos/Lg-logo.png"),
               alt: "lg-logo"
             }
-          }),
-          _vm._v(" "),
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "p-2 bd-highlight" }, [
           _c("img", {
             staticClass: "press-logo",
             attrs: {
               src: __webpack_require__(/*! ../../../images/logos/Nokia-logo.png */ "./resources/images/logos/Nokia-logo.png"),
               alt: "nokia-logo"
             }
-          }),
-          _vm._v(" "),
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "p-2 bd-highlight" }, [
           _c("img", {
             staticClass: "press-logo",
             attrs: {
               src: __webpack_require__(/*! ../../../images/logos/Mi-logo.png */ "./resources/images/logos/Mi-logo.png"),
               alt: "mi-logo"
             }
-          }),
-          _vm._v(" "),
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "p-2 bd-highlight" }, [
           _c("img", {
             staticClass: "press-logo",
             attrs: {
