@@ -6,7 +6,7 @@
         </div>
         <div v-else>
             <breadcrumb></breadcrumb>
-            <div class="row">
+            <div class="row justify-content-around">
                 <div class="col-mb-6">
                     <product-gallery :product="product"></product-gallery>
                 </div>
@@ -16,13 +16,13 @@
                     <p>{{product.description}}</p>
                     <button 
 			    		v-if="inBasketAlready" 
-			    		class=" button button--teal float-right"
+			    		class=" button button--block button--teal float-right"
 			    		@click="removeFromBasket"
 			    		>odstrániť <i class="fas fa-trash-restore"></i></button>
     
 			    	<button 
 			    		v-else
-			    		class="button button__block button--teal-outline"
+			    		class="button button--block button--teal-outline"
 			    		@click="addToBasket">do košíka <i class="fas fa-cart-arrow-down"></i></button>	
                 </div>
             </div>

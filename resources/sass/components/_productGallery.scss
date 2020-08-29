@@ -1,0 +1,39 @@
+
+
+.gallery-img {
+    // width: 80%;
+}
+
+.product-img-field.active {
+ 
+    display: block
+}
+.product-img-field {
+    display: none;
+}
+
+.fit-image {
+    width: 100%;
+    object-fit: cover
+}
+
+.tb {
+    width: 62px;
+    height: 62px;
+    border: 1px solid $color-teal;
+    margin-top: .5rem;
+    margin-right: .5rem;
+    opacity: 0.4;
+    cursor: pointer
+}
+
+.tbActive {
+    opacity: 1
+}
+
+.thumbnail-img {
+    width: 60px;
+    height: 60px
+}
+
+

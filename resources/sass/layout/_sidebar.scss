@@ -1,6 +1,6 @@
 .sidebar__wrapper {
     
-    height: 100%;
+    max-height: max-content;
     padding: 0.5rem;
     align-items: stretch;
     border-right: 1px solid transparent;
@@ -26,6 +26,7 @@
 
 #sidebar {
     min-height: 100vh;
+    
     background-color: $color-grey-light;
     color: $color-teal-dark;
    
@@ -41,41 +42,76 @@
 
 
 
-
-#sidebar .main-category{
-    padding: 1rem;
+#sidebar .sidebar__itemMainCategory{
+   
     font-size: 2rem;
     display: block;
     color: $color-teal;
     transition: all .3s;
-}
-#sidebar ul li a:hover {
-    color:$color-teal-dark;
+    padding-bottom: 1rem;
+    
+
+    &:hover{
+        color:$color-teal-dark;
     text-decoration:none;
-    // transform: scale(1.1);
+    transform: scale(1.1);
+    }
 }
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
     color: $color-teal;
     background-color: $color-grey-light;
 }
-#sidebar .brand-category {
+#sidebar .sidebar__itemBrandCategory {
     font-size: 1.7rem;
-    padding-left: 10%;
+    padding-bottom: 1rem;
+    
     background-color: $color-grey-light;
     color: $color-teal;
-}
-#sidebar a {
-    font-size: 1.4rem;
-    padding-left:15%;
-    background-color: $color-grey-light;
-    color: $color-teal;
+
+    &:hover{
+        color:$color-teal-dark;
+    text-decoration:none;
+    transform: scale(1.1);
+    }
 }
 
-.closebtn{
+#sidebar .sidebar__itemModelCategory{
+    font-size: 1.4rem;
+    
+    background-color: $color-grey-light;
+    color: $color-teal;
+    
+    &:hover{
+        color:$color-teal-dark;
+    text-decoration:none;
+    transform: scale(1.1);
+    }
+} 
+
+// #sidebar a {
+//     font-size: 1.4rem;
+//     background-color: $color-grey-light;
+//     color: $color-teal;
+// }
+
+.sidebar__closeButton{
     position: absolute;
-  top: 10px;
-  right: 30px;
-  font-size: 30px;
-  cursor: pointer;
+    top: 10px;
+    right: 30px;
+    font-size: 30px;
+    cursor: pointer;
+}
+//shop component
+.sidebar__toggler{
+    
+        padding: 0.75rem 1rem;
+        margin-bottom: 1rem;
+        display: none;
+        color: $color-teal-dark;
+        cursor: pointer;
+    
+        @include respond(1000) {
+            display: block;
+        }    
 }

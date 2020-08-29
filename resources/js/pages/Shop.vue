@@ -13,7 +13,7 @@
                     
                     <div class="col">
                         <div class="row">
-                        <div class="sidebar-toggler" @click="isActive = !isActive">Menu <i class="fas fa-bars"></i></div>
+                        <div class="sidebar__toggler" @click="isActive = !isActive">Menu <i class="fas fa-bars"></i></div>
                         <breadcrumb></breadcrumb>
                         </div>
                         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">

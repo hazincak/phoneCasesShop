@@ -17022,6 +17022,14 @@ html {
   }
 }
 
+.form-control {
+  font-size: 1.6rem;
+}
+
+.custom-select {
+  font-size: 1.6rem;
+}
+
 @-webkit-keyframes moveInLeft {
   0% {
     opacity: 0;
@@ -17191,7 +17199,7 @@ p {
   -o-transition: all 0.2s;
 }
 
-.button__block {
+.button--block {
   display: block;
   width: 100%;
 }
@@ -17352,18 +17360,6 @@ p {
   color: #999;
 }
 
-.sidebar-toggler {
-  padding: 0.75rem 1rem;
-  margin-bottom: 1rem;
-  display: none;
-}
-
-@media only screen and (max-width: 62.5em) {
-  .sidebar-toggler {
-    display: block;
-  }
-}
-
 .breadcrumb {
   background-color: #fff;
 }
@@ -17389,6 +17385,43 @@ p {
 .page-item.active .page-link {
   background-color: #01a9b4;
   border-color: #01a9b4;
+}
+
+.product-img-field.active {
+  display: block;
+}
+
+.product-img-field {
+  display: none;
+}
+
+.fit-image {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.tb {
+  width: 62px;
+  height: 62px;
+  border: 1px solid #01a9b4;
+  margin-top: 0.5rem;
+  margin-right: 0.5rem;
+  opacity: 0.4;
+  cursor: pointer;
+}
+
+.tbActive {
+  opacity: 1;
+}
+
+.thumbnail-img {
+  width: 60px;
+  height: 60px;
+}
+
+.basket__img {
+  max-width: 10rem;
 }
 
 .navbar {
@@ -17436,7 +17469,9 @@ nav .navbar-nav li a:hover {
 }
 
 .sidebar__wrapper {
-  height: 100%;
+  max-height: -webkit-max-content;
+  max-height: -moz-max-content;
+  max-height: max-content;
   padding: 0.5rem;
   align-items: stretch;
   border-right: 1px solid transparent;
@@ -17477,17 +17512,18 @@ nav .navbar-nav li a:hover {
   color: #000;
 }
 
-#sidebar .main-category {
-  padding: 1rem;
+#sidebar .sidebar__itemMainCategory {
   font-size: 2rem;
   display: block;
   color: #01a9b4;
   transition: all 0.3s;
+  padding-bottom: 1rem;
 }
 
-#sidebar ul li a:hover {
+#sidebar .sidebar__itemMainCategory:hover {
   color: #086972;
   text-decoration: none;
+  transform: scale(1.1);
 }
 
 #sidebar ul li.active > a,
@@ -17496,26 +17532,51 @@ a[aria-expanded=true] {
   background-color: #f5f5fa;
 }
 
-#sidebar .brand-category {
+#sidebar .sidebar__itemBrandCategory {
   font-size: 1.7rem;
-  padding-left: 10%;
+  padding-bottom: 1rem;
   background-color: #f5f5fa;
   color: #01a9b4;
 }
 
-#sidebar a {
+#sidebar .sidebar__itemBrandCategory:hover {
+  color: #086972;
+  text-decoration: none;
+  transform: scale(1.1);
+}
+
+#sidebar .sidebar__itemModelCategory {
   font-size: 1.4rem;
-  padding-left: 15%;
   background-color: #f5f5fa;
   color: #01a9b4;
 }
 
-.closebtn {
+#sidebar .sidebar__itemModelCategory:hover {
+  color: #086972;
+  text-decoration: none;
+  transform: scale(1.1);
+}
+
+.sidebar__closeButton {
   position: absolute;
   top: 10px;
   right: 30px;
   font-size: 30px;
   cursor: pointer;
+}
+
+.sidebar__toggler {
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  display: none;
+  color: #086972;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 62.5em) {
+  .sidebar__toggler {
+    display: block;
+  }
 }
 
 .section-footer {

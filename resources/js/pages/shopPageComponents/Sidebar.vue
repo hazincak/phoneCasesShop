@@ -2,7 +2,7 @@
 <div class="sidebar__wrapper" :class="{active: isActive}">
    
    
-   <div v-if="isActive" class="closebtn" @click="$emit('sidebar-change', !isActive)"><i class="far fa-times-circle"></i></div>
+   <div v-if="isActive" class="sidebar__closeButton" @click="$emit('sidebar-change', !isActive)"><i class="far fa-times-circle"></i></div>
     <nav id="sidebar">
         
         <div class="sidebar-header">
@@ -11,34 +11,27 @@
 
         <ul class="list-unstyled">
             <h3 class="text-center">KATEGÓRIE PRODUKTOV</h3>
-            <li>
-                <a href="#phoneCovers" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle main-category">Obaly na mobil</a>
+            <li class="text-center">
+                <a href="#phoneCovers" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle sidebar__itemMainCategory">Obaly na mobil</a>
                   <ul class="collapse list-unstyled" id="phoneCovers">
                       <li>
-                          <a href="#phoneBrandApple" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle brand-category">Apple</a>
+                          <a href="#phoneBrandApple" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle sidebar__itemBrandCategory">Apple</a>
                             <ul class="collapse list-unstyled" id="phoneBrandApple">
-                                <li><router-link :to="{name:'obchod-model-obaly', params: {model: 'Iphone 10'}}">Iphone 10</router-link></li>
-                                <li><router-link :to="{name:'obchod-model-obaly', params: {model: 'Iphone 9'}}">Iphone 9</router-link></li>
-                                <li><router-link :to="{name:'obchod-model-obaly', params: {model: 'Iphone 8'}}">Iphone 8</router-link></li>
+                                <li class="mb-2"><router-link class="sidebar__itemModelCategory" :to="{name:'obchod-model-obaly', params: {model: 'Iphone 10'}}">Iphone 10</router-link></li>
+                                <li class="mb-2"><router-link class="sidebar__itemModelCategory"  :to="{name:'obchod-model-obaly', params: {model: 'Iphone 9'}}">Iphone 9</router-link></li>
+                                <li class="mb-2"><router-link class="sidebar__itemModelCategory"  :to="{name:'obchod-model-obaly', params: {model: 'Iphone 8'}}">Iphone 8</router-link></li>
                             </ul>
                       </li>
                       <li>
-                          <a href="#phoneBrandSamsung" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle brand-category">Samsung</a>
-                            <ul class="collapse list-unstyled" id="phoneBrandSamsung">
-                              <li @click="sendOption('Galaxy 5')">Galaxy 5</li>
-                              <li @click="sendOption('Galaxy 7')">Galaxy 7</li>
-                            </ul>
-                      </li>
-                      <li>
-                          <a href="#phoneBrandMotorola" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle main-category">Motorola</a>
+                          <a href="#phoneBrandMotorola" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle sidebar__itemBrandCategory">Motorola</a>
                             <ul class="collapse list-unstyled" id="phoneBrandMotorola">
                               <li><a href="#">Razr</a></li>
                             </ul>
                       </li>
                   </ul>
             </li>
-            <li>
-                <a href="#tabletCovers" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle main-category">Obaly na tablet</a>
+            <li class="text-center">
+                <a href="#tabletCovers" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle sidebar__itemMainCategory">Obaly na tablet</a>
                 <ul class="collapse list-unstyled" id="tabletCovers">
                     <li>
                           <a href="#tabletBrandApple" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Apple</a>
@@ -54,11 +47,11 @@
                       </li>
                 </ul>
             </li>
-            <li>
-                <a href="#" class="main-category">Ochranné sklá</a>
+            <li class="text-center">
+                <a href="#" class="sidebar__itemMainCategory">Ochranné sklá</a>
             </li>
-            <li>
-                <a href="#" class="main-category">Príslušenstvo</a>
+            <li class="text-center">
+                <a href="#" class="sidebar__itemMainCategory">Príslušenstvo</a>
             </li>
         </ul>
     </nav>
