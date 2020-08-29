@@ -2166,6 +2166,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(['itemsInBasket'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])({
@@ -45172,22 +45174,30 @@ var render = function() {
             _vm._m(0),
             _vm._v(" "),
             _c("div", { staticClass: "col-md-5" }, [
-              _c("div", { staticClass: "d-flex justify-content-between" }, [
-                _c(
-                  "h6",
-                  {
-                    staticClass:
-                      "text-uppercase text-secondary font-weight-bolder"
-                  },
-                  [_vm._v("nákupný košík")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "h6",
-                  { staticClass: "badge badge-secondary text-uppercase" },
-                  [_c("span", [_vm._v("Počet: " + _vm._s(_vm.itemsInBasket))])]
-                )
-              ]),
+              _c(
+                "div",
+                { staticClass: "d-flex border-top justify-content-between" },
+                [
+                  _c(
+                    "h6",
+                    {
+                      staticClass:
+                        "text-uppercase text-secondary font-weight-bolder"
+                    },
+                    [_vm._v("nákupný košík")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "h6",
+                    { staticClass: "badge badge-secondary text-uppercase" },
+                    [
+                      _c("span", [
+                        _vm._v("Počet: " + _vm._s(_vm.itemsInBasket))
+                      ])
+                    ]
+                  )
+                ]
+              ),
               _vm._v(" "),
               _c(
                 "div",
@@ -45201,7 +45211,7 @@ var render = function() {
                         {
                           key: item.product.id,
                           staticClass:
-                            "pt-2 pb-2 border-top d-flex justify-content-between"
+                            "basket pt-2 pb-2 border-top d-flex justify-content-between"
                         },
                         [
                           _c("div", { staticClass: "p-2 " }, [
@@ -45252,7 +45262,7 @@ var render = function() {
                                 "button",
                                 {
                                   staticClass:
-                                    "btn btn-sm btn-outline-secondary",
+                                    "btn btn-lg btn-outline-secondary",
                                   on: {
                                     click: function($event) {
                                       return _vm.$store.dispatch(
@@ -45262,7 +45272,11 @@ var render = function() {
                                     }
                                   }
                                 },
-                                [_c("i", { staticClass: "fas fa-trash-alt" })]
+                                [
+                                  _c("i", {
+                                    staticClass: "fas fa-trash-alt basket__icon"
+                                  })
+                                ]
                               )
                             ]
                           )
@@ -45270,7 +45284,9 @@ var render = function() {
                       )
                     }),
                     0
-                  )
+                  ),
+                  _vm._v(" "),
+                  _vm._m(1)
                 ],
                 1
               )
@@ -45283,7 +45299,7 @@ var render = function() {
               [
                 _c("i", { staticClass: "fas fa-cart-plus icon" }),
                 _vm._v(" "),
-                _vm._m(1),
+                _vm._m(2),
                 _vm._v(" "),
                 _c("h4", [_vm._v("Pridajte tovar a dokončite nákup :)")]),
                 _vm._v(" "),
@@ -45427,6 +45443,22 @@ var staticRenderFns = [
         ])
       ])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "d-flex border-top justify-content between" },
+      [
+        _c(
+          "h6",
+          { staticClass: "text-uppercase text-secondary font-weight-bolder" },
+          [_vm._v("výpočet ceny")]
+        )
+      ]
+    )
   },
   function() {
     var _vm = this
@@ -46062,11 +46094,7 @@ var render = function() {
             {
               attrs: { to: { name: "produkt", params: { id: _vm.product.id } } }
             },
-            [
-              _c("p", { staticClass: "card-title" }, [
-                _vm._v(_vm._s(_vm.product.title))
-              ])
-            ]
+            [_vm._v("\n\t\t\t\t\t" + _vm._s(_vm.product.title) + "\n\t\t\t\t")]
           ),
           _vm._v(" "),
           _c("p", { staticClass: "card-text" }, [
@@ -64139,6 +64167,11 @@ __webpack_require__.r(__webpack_exports__);
   getters: {
     itemsInBasket: function itemsInBasket(state) {
       return state.basket.items.length;
+    },
+    totalPrice: function totalPrice(state) {
+      return state.basket.items.reduce(function (prev, cur) {
+        return prev + cur.product.price;
+      }, 0);
     },
     inBasketAlready: function inBasketAlready(state) {
       return function (id) {

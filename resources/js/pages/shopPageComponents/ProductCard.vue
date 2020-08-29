@@ -6,7 +6,7 @@
 			</router-link>	
 			<div>
 					<router-link :to="{name: 'produkt', params: { id: product.id }}">
-						<p class="card-title">{{product.title}}</p>
+						{{product.title}}
 					</router-link>
 						
 					

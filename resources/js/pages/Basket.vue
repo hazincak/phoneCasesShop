@@ -87,7 +87,7 @@
                 </div>
             </div>
             <div class="col-md-5">
-                <div class="d-flex justify-content-between">
+                <div class="d-flex border-top justify-content-between">
                     <h6 class="text-uppercase text-secondary font-weight-bolder">nákupný košík</h6>
                     <h6 class="badge badge-secondary text-uppercase">
                         <span>Počet: {{itemsInBasket}}</span>
@@ -95,7 +95,7 @@
                 </div>
                 <div>
                     <transition-group name="fade">
-                    <div v-for="item in basket" :key="item.product.id" class="pt-2 pb-2 border-top d-flex justify-content-between">
+                    <div v-for="item in basket" :key="item.product.id" class="basket pt-2 pb-2 border-top d-flex justify-content-between">
                            <div class="p-2 "><img class="img-fluid basket__img" :src='item.product.images[0].path' alt=""></div>
                            <div class="d-flex align-items-center">
                                <router-link :to="{name: 'produkt', params: {id: item.product.id}}">{{item.product.title}}</router-link>
@@ -106,16 +106,18 @@
                             <span class="font-weight-bold">€{{item.product.price}}</span>
                         </div>
                         <div class="d-flex align-items-center">   
-                                <button class="btn btn-sm btn-outline-secondary" @click="$store.dispatch('removeFromBasket', item.product.id)">
-                                <i class="fas fa-trash-alt"></i>
+                                <button class="btn btn-lg btn-outline-secondary" @click="$store.dispatch('removeFromBasket', item.product.id)">
+                                <i class="fas fa-trash-alt basket__icon"></i>
                                 </button>
-                        
-                            
                         </div> 
-                        <!-- </div> -->
                     </div>
                     </transition-group>
+                    <div class="d-flex border-top justify-content between">    
+                        <h6 class="text-uppercase text-secondary font-weight-bolder">výpočet ceny</h6>
+                        
+                    </div>
                 </div>
+
             </div>
         </div>
     

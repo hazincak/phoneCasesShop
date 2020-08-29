@@ -17328,6 +17328,7 @@ p {
 
 .card-product a {
   color: #777;
+  font-size: 2rem;
 }
 
 .card-product:hover a {
@@ -17418,6 +17419,19 @@ p {
 .thumbnail-img {
   width: 60px;
   height: 60px;
+}
+
+.basket a {
+  color: #777;
+  font-size: 2rem;
+}
+
+.basket__icon {
+  font-size: 2rem;
+}
+
+.basket:hover a {
+  color: #01a9b4;
 }
 
 .basket__img {

@@ -37,6 +37,11 @@ export default{
 
     getters: {
         itemsInBasket: (state) => state.basket.items.length,
+        totalPrice (state) {
+                return state.basket.items.reduce(function(prev, cur){
+                    return prev + cur.product.price;
+                },0)
+        },
         inBasketAlready(state) {
             return function (id) {
                 return state.basket.items.reduce(
