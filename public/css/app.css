@@ -17457,6 +17457,12 @@ nav .navbar-nav li a:hover {
   transform: scale(1.1);
 }
 
+@media only screen and (max-width: 37.5em) {
+  nav .navbar-nav li a:hover {
+    transform: none;
+  }
+}
+
 .nav-item {
   font-size: 2rem;
   padding: 0 6px;
@@ -17486,7 +17492,7 @@ nav .navbar-nav li a:hover {
   max-height: -webkit-max-content;
   max-height: -moz-max-content;
   max-height: max-content;
-  padding: 0.5rem;
+  padding: 1rem;
   align-items: stretch;
   border-right: 1px solid transparent;
   background-color: #f5f5fa;
@@ -17521,7 +17527,13 @@ nav .navbar-nav li a:hover {
 }
 
 #sidebar .sidebar-header {
-  padding: 20px;
+  padding: 2rem;
+  background-color: #f5f5fa;
+  color: #000;
+}
+
+#sidebar .sidebar-subheader {
+  padding: 2rem;
   background-color: #f5f5fa;
   color: #000;
 }
@@ -17531,7 +17543,7 @@ nav .navbar-nav li a:hover {
   display: block;
   color: #01a9b4;
   transition: all 0.3s;
-  padding-bottom: 1rem;
+  margin: 0.8rem;
 }
 
 #sidebar .sidebar__itemMainCategory:hover {
@@ -17548,7 +17560,7 @@ a[aria-expanded=true] {
 
 #sidebar .sidebar__itemBrandCategory {
   font-size: 1.7rem;
-  padding-bottom: 1rem;
+  margin: 0.3rem;
   background-color: #f5f5fa;
   color: #01a9b4;
 }
@@ -17561,6 +17573,7 @@ a[aria-expanded=true] {
 
 #sidebar .sidebar__itemModelCategory {
   font-size: 1.4rem;
+  margin: 1rem;
   background-color: #f5f5fa;
   color: #01a9b4;
 }

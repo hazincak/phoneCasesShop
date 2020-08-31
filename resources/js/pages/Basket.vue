@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <breadcrumb></breadcrumb>
-        <div class="row" v-if="itemsInBasket">
+        <div class="row mt-5" v-if="itemsInBasket">
             <div class="col-md-7">
                 <div class="row">
                     <div class="col-md-6 form-group">
@@ -76,22 +76,13 @@
                         >
                     </div>
                 </div>
-                <hr>
-                <div class="row">
-                    <div class="col-md-12 form-group">
-                        <button 
-                        type="submit" 
-                        class="button button--block button--teal" 
-                        >Dokončite objednávku <i class="fas fa-check"></i></button>
-                    </div>
-                </div>
             </div>
             <div class="col-md-5">
-                <div class="d-flex border-top justify-content-between">
-                    <h6 class="text-uppercase text-secondary font-weight-bolder">nákupný košík</h6>
-                    <h6 class="badge badge-secondary text-uppercase">
+                <div class="d-flex justify-content-between">
+                    <h3 class="text-uppercase text-secondary font-weight-bolder">nákupný košík</h3>
+                    <h3 class="badge badge-secondary text-uppercase">
                         <span>Počet: {{itemsInBasket}}</span>
-                    </h6>
+                    </h3>
                 </div>
                 <div>
                     <transition-group name="fade">
@@ -112,12 +103,31 @@
                         </div> 
                     </div>
                     </transition-group>
-                    <div class="d-flex border-top justify-content between">    
-                        <h6 class="text-uppercase text-secondary font-weight-bolder">výpočet ceny</h6>
-                        
+                    <div class="d-flex mt-2 justify-content between">    
+                        <h3 class="text-uppercase font-weight-bolder">výpočet ceny</h3>
+                    </div>
+                        <div class="d-flex border-top p-2 justify-content-between">
+                            <h4>Medzisúčet</h4> 
+                            <h4>€{{totalPrice.toFixed(2)}}</h4> 
+                        </div>
+                        <div class="d-flex border-top p-2 justify-content-between">
+                            <h4>Doprava</h4> 
+                            <h4>€{{doprava}}</h4> 
+                        </div>
+                        <div class="d-flex border-top p-2 justify-content-between">
+                            <h4>Cena spolu</h4> 
+                            <h4>€{{calculateTotalPrice(totalPrice, doprava)}}</h4> 
+                        </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-12 form-group">
+                        <button 
+                        type="submit" 
+                        class="button button--block button--teal" 
+                        >Dokončite objednávku <i class="fas fa-check"></i></button>
                     </div>
                 </div>
-
             </div>
         </div>
     
@@ -140,18 +150,30 @@
 <script>
 import { mapGetters, mapState } from 'vuex'
 export default {
+    data(){
+        return{
+            doprava: 2.99
+        }
+    },
+
     computed:{
-    ...mapGetters(['itemsInBasket']),
+    ...mapGetters(['itemsInBasket', 'totalPrice']),
     ...mapState({
         basket:state => state.basket.items
         })
+    },
+
+    methods:{
+        calculateTotalPrice(items, transport){
+            return (items+transport).toFixed(2);
+        }
     }
 }
 </script>
 
 <style scoped>
 .container{
-    min-height: 75vh;
+    min-height: 70vh;
 }
 
 </style>

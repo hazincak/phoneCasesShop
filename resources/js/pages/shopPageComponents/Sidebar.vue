@@ -10,22 +10,25 @@
         </div>
 
         <ul class="list-unstyled">
-            <h3 class="text-center">KATEGÓRIE PRODUKTOV</h3>
+            <div class="sidebar-subheader">
+                <h3 class="text-center">Kategorie produktov</h3>
+            </div>
+            
             <li class="text-center">
                 <a href="#phoneCovers" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle sidebar__itemMainCategory">Obaly na mobil</a>
                   <ul class="collapse list-unstyled" id="phoneCovers">
                       <li>
                           <a href="#phoneBrandApple" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle sidebar__itemBrandCategory">Apple</a>
                             <ul class="collapse list-unstyled" id="phoneBrandApple">
-                                <li class="mb-2"><router-link class="sidebar__itemModelCategory" :to="{name:'obchod-model-obaly', params: {model: 'Iphone 10'}}">Iphone 10</router-link></li>
-                                <li class="mb-2"><router-link class="sidebar__itemModelCategory"  :to="{name:'obchod-model-obaly', params: {model: 'Iphone 9'}}">Iphone 9</router-link></li>
-                                <li class="mb-2"><router-link class="sidebar__itemModelCategory"  :to="{name:'obchod-model-obaly', params: {model: 'Iphone 8'}}">Iphone 8</router-link></li>
+                                <li><router-link class="sidebar__itemModelCategory" :to="{name:'obchod-model-obaly', params: {model: 'Iphone 10'}}">Iphone 10</router-link></li>
+                                <li><router-link class="sidebar__itemModelCategory"  :to="{name:'obchod-model-obaly', params: {model: 'Iphone 9'}}">Iphone 9</router-link></li>
+                                <li><router-link class="sidebar__itemModelCategory"  :to="{name:'obchod-model-obaly', params: {model: 'Iphone 8'}}">Iphone 8</router-link></li>
                             </ul>
                       </li>
                       <li>
                           <a href="#phoneBrandMotorola" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle sidebar__itemBrandCategory">Motorola</a>
                             <ul class="collapse list-unstyled" id="phoneBrandMotorola">
-                              <li><a href="#">Razr</a></li>
+                              <li><router-link class="sidebar__itemModelCategory" :to="{name:'obchod-model-obaly', params: {model: 'Iphone 10'}}">Iphone 10</router-link></li>
                             </ul>
                       </li>
                   </ul>

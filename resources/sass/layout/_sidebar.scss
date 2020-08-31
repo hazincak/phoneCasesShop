@@ -1,7 +1,8 @@
 .sidebar__wrapper {
     
     max-height: max-content;
-    padding: 0.5rem;
+    
+    padding: 1rem;
     align-items: stretch;
     border-right: 1px solid transparent;
     background-color: $color-grey-light;
@@ -34,13 +35,18 @@
 
 
 #sidebar .sidebar-header {
-    padding: 20px;
+    padding: 2rem;
     background-color: $color-grey-light;
     color: $color-black;
 
 }
 
+#sidebar .sidebar-subheader {
+    padding: 2rem;
+    background-color: $color-grey-light;
+    color: $color-black;
 
+}
 
 #sidebar .sidebar__itemMainCategory{
    
@@ -48,7 +54,7 @@
     display: block;
     color: $color-teal;
     transition: all .3s;
-    padding-bottom: 1rem;
+    margin: 0.8rem;
     
 
     &:hover{
@@ -64,7 +70,7 @@
 }
 #sidebar .sidebar__itemBrandCategory {
     font-size: 1.7rem;
-    padding-bottom: 1rem;
+    margin: 0.3rem;
     
     background-color: $color-grey-light;
     color: $color-teal;
@@ -78,7 +84,7 @@
 
 #sidebar .sidebar__itemModelCategory{
     font-size: 1.4rem;
-    
+    margin:1rem;
     background-color: $color-grey-light;
     color: $color-teal;
     

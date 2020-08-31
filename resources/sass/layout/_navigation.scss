@@ -12,6 +12,8 @@ nav .navbar-nav li a {
     color: white !important;
     transition: all .3s;
 
+    
+
   }
 
 nav .navbar-nav li 
@@ -19,6 +21,10 @@ a:hover
 {
     color: $color-yellow-light !important;
     transform: scale(1.1);
+
+    @include respond(600) {
+        transform: none;
+    }
 
 }
 

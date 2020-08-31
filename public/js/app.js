@@ -2168,13 +2168,33 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(['itemsInBasket'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])({
+  data: function data() {
+    return {
+      doprava: 2.99
+    };
+  },
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(['itemsInBasket', 'totalPrice'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])({
     basket: function basket(state) {
       return state.basket.items;
     }
-  }))
+  })),
+  methods: {
+    calculateTotalPrice: function calculateTotalPrice(items, transport) {
+      return (items + transport).toFixed(2);
+    }
+  }
 });
 
 /***/ }),
@@ -2555,6 +2575,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
 //
 //
 //
@@ -7454,7 +7477,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.container[data-v-6fe68ce2]{\r\n    min-height: 75vh;\n}\r\n\r\n", ""]);
+exports.push([module.i, "\n.container[data-v-6fe68ce2]{\r\n    min-height: 70vh;\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -45170,34 +45193,26 @@ var render = function() {
       _c("breadcrumb"),
       _vm._v(" "),
       _vm.itemsInBasket
-        ? _c("div", { staticClass: "row" }, [
+        ? _c("div", { staticClass: "row mt-5" }, [
             _vm._m(0),
             _vm._v(" "),
             _c("div", { staticClass: "col-md-5" }, [
-              _c(
-                "div",
-                { staticClass: "d-flex border-top justify-content-between" },
-                [
-                  _c(
-                    "h6",
-                    {
-                      staticClass:
-                        "text-uppercase text-secondary font-weight-bolder"
-                    },
-                    [_vm._v("nákupný košík")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "h6",
-                    { staticClass: "badge badge-secondary text-uppercase" },
-                    [
-                      _c("span", [
-                        _vm._v("Počet: " + _vm._s(_vm.itemsInBasket))
-                      ])
-                    ]
-                  )
-                ]
-              ),
+              _c("div", { staticClass: "d-flex justify-content-between" }, [
+                _c(
+                  "h3",
+                  {
+                    staticClass:
+                      "text-uppercase text-secondary font-weight-bolder"
+                  },
+                  [_vm._v("nákupný košík")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "h3",
+                  { staticClass: "badge badge-secondary text-uppercase" },
+                  [_c("span", [_vm._v("Počet: " + _vm._s(_vm.itemsInBasket))])]
+                )
+              ]),
               _vm._v(" "),
               _c(
                 "div",
@@ -45286,10 +45301,65 @@ var render = function() {
                     0
                   ),
                   _vm._v(" "),
-                  _vm._m(1)
+                  _vm._m(1),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "d-flex border-top p-2 justify-content-between"
+                    },
+                    [
+                      _c("h4", [_vm._v("Medzisúčet")]),
+                      _vm._v(" "),
+                      _c("h4", [
+                        _vm._v("€" + _vm._s(_vm.totalPrice.toFixed(2)))
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "d-flex border-top p-2 justify-content-between"
+                    },
+                    [
+                      _c("h4", [_vm._v("Doprava")]),
+                      _vm._v(" "),
+                      _c("h4", [_vm._v("€" + _vm._s(_vm.doprava))])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "d-flex border-top p-2 justify-content-between"
+                    },
+                    [
+                      _c("h4", [_vm._v("Cena spolu")]),
+                      _vm._v(" "),
+                      _c("h4", [
+                        _vm._v(
+                          "€" +
+                            _vm._s(
+                              _vm.calculateTotalPrice(
+                                _vm.totalPrice,
+                                _vm.doprava
+                              )
+                            )
+                        )
+                      ])
+                    ]
+                  )
                 ],
                 1
-              )
+              ),
+              _vm._v(" "),
+              _c("hr"),
+              _vm._v(" "),
+              _vm._m(2)
             ])
           ])
         : _c("div", { staticClass: "empty-basket-section" }, [
@@ -45299,7 +45369,7 @@ var render = function() {
               [
                 _c("i", { staticClass: "fas fa-cart-plus icon" }),
                 _vm._v(" "),
-                _vm._m(2),
+                _vm._m(3),
                 _vm._v(" "),
                 _c("h4", [_vm._v("Pridajte tovar a dokončite nákup :)")]),
                 _vm._v(" "),
@@ -45423,24 +45493,6 @@ var staticRenderFns = [
             attrs: { type: "text", name: "zip" }
           })
         ])
-      ]),
-      _vm._v(" "),
-      _c("hr"),
-      _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-md-12 form-group" }, [
-          _c(
-            "button",
-            {
-              staticClass: "button button--block button--teal",
-              attrs: { type: "submit" }
-            },
-            [
-              _vm._v("Dokončite objednávku "),
-              _c("i", { staticClass: "fas fa-check" })
-            ]
-          )
-        ])
       ])
     ])
   },
@@ -45448,17 +45500,31 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "d-flex border-top justify-content between" },
-      [
+    return _c("div", { staticClass: "d-flex mt-2 justify-content between" }, [
+      _c("h3", { staticClass: "text-uppercase font-weight-bolder" }, [
+        _vm._v("výpočet ceny")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-12 form-group" }, [
         _c(
-          "h6",
-          { staticClass: "text-uppercase text-secondary font-weight-bolder" },
-          [_vm._v("výpočet ceny")]
+          "button",
+          {
+            staticClass: "button button--block button--teal",
+            attrs: { type: "submit" }
+          },
+          [
+            _vm._v("Dokončite objednávku "),
+            _c("i", { staticClass: "fas fa-check" })
+          ]
         )
-      ]
-    )
+      ])
+    ])
   },
   function() {
     var _vm = this
@@ -46185,9 +46251,7 @@ var render = function() {
         _vm._m(0),
         _vm._v(" "),
         _c("ul", { staticClass: "list-unstyled" }, [
-          _c("h3", { staticClass: "text-center" }, [
-            _vm._v("KATEGÓRIE PRODUKTOV")
-          ]),
+          _vm._m(1),
           _vm._v(" "),
           _c("li", { staticClass: "text-center" }, [
             _c(
@@ -46233,7 +46297,6 @@ var render = function() {
                     [
                       _c(
                         "li",
-                        { staticClass: "mb-2" },
                         [
                           _c(
                             "router-link",
@@ -46254,7 +46317,6 @@ var render = function() {
                       _vm._v(" "),
                       _c(
                         "li",
-                        { staticClass: "mb-2" },
                         [
                           _c(
                             "router-link",
@@ -46275,7 +46337,6 @@ var render = function() {
                       _vm._v(" "),
                       _c(
                         "li",
-                        { staticClass: "mb-2" },
                         [
                           _c(
                             "router-link",
@@ -46297,7 +46358,49 @@ var render = function() {
                   )
                 ]),
                 _vm._v(" "),
-                _vm._m(1)
+                _c("li", [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "dropdown-toggle sidebar__itemBrandCategory",
+                      attrs: {
+                        href: "#phoneBrandMotorola",
+                        "data-toggle": "collapse",
+                        "aria-expanded": "false"
+                      }
+                    },
+                    [_vm._v("Motorola")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "ul",
+                    {
+                      staticClass: "collapse list-unstyled",
+                      attrs: { id: "phoneBrandMotorola" }
+                    },
+                    [
+                      _c(
+                        "li",
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "sidebar__itemModelCategory",
+                              attrs: {
+                                to: {
+                                  name: "obchod-model-obaly",
+                                  params: { model: "Iphone 10" }
+                                }
+                              }
+                            },
+                            [_vm._v("Iphone 10")]
+                          )
+                        ],
+                        1
+                      )
+                    ]
+                  )
+                ])
               ]
             )
           ]),
@@ -46325,28 +46428,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("li", [
-      _c(
-        "a",
-        {
-          staticClass: "dropdown-toggle sidebar__itemBrandCategory",
-          attrs: {
-            href: "#phoneBrandMotorola",
-            "data-toggle": "collapse",
-            "aria-expanded": "false"
-          }
-        },
-        [_vm._v("Motorola")]
-      ),
-      _vm._v(" "),
-      _c(
-        "ul",
-        {
-          staticClass: "collapse list-unstyled",
-          attrs: { id: "phoneBrandMotorola" }
-        },
-        [_c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Razr")])])]
-      )
+    return _c("div", { staticClass: "sidebar-subheader" }, [
+      _c("h3", { staticClass: "text-center" }, [_vm._v("Kategorie produktov")])
     ])
   },
   function() {
