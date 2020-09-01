@@ -17186,7 +17186,6 @@ p {
 .button:visited,
 .button:focus {
   text-transform: uppercase;
-  border-radius: 10rem;
   text-decoration: none;
   outline: none;
   padding: 1.2% 3%;
@@ -17197,6 +17196,14 @@ p {
   -moz-transition: all 0.2s;
   -ms-transition: all 0.2s;
   -o-transition: all 0.2s;
+}
+
+.button--rounded {
+  border-radius: 20rem;
+}
+
+.button--squared {
+  border-radius: 0.5rem;
 }
 
 .button--block {
@@ -17216,13 +17223,12 @@ p {
 .button--teal {
   background-color: #01a9b4;
   color: #fff;
-  border: 1px solid #01a9b4;
+  border: none;
 }
 
 .button--teal:hover {
   background-color: #fbfd8a;
   color: #01a9b4;
-  border: 1px solid #01a9b4;
 }
 
 .button--teal-dark {
@@ -17446,30 +17452,26 @@ p {
   font-size: 2rem;
 }
 
-nav .navbar-nav li a {
+.navbar-dark .nav-item .nav-link {
   font-size: 2rem;
-  color: white !important;
+  color: white;
   transition: all 0.3s;
 }
 
-nav .navbar-nav li a:hover {
-  color: #fbfd8a !important;
-  transform: scale(1.1);
+.navbar-dark .nav-item.active .nav-link,
+.navbar-dark .nav-item .nav-link:active,
+.navbar-dark .nav-item .nav-link:focus,
+.navbar-dark .nav-item:hover .nav-link {
+  color: #fbfd8a;
+  transform: scale(1.2);
 }
 
-@media only screen and (max-width: 37.5em) {
-  nav .navbar-nav li a:hover {
-    transform: none;
-  }
+.nav-item.dropdown a[aria-expanded=true] {
+  background-color: #086972;
 }
 
 .nav-item {
-  font-size: 2rem;
   padding: 0 6px;
-}
-
-.nav-item:hover {
-  color: #fbfd8a;
 }
 
 .navbar-toggler:focus,
@@ -17486,6 +17488,24 @@ nav .navbar-nav li a:hover {
 .collapse-icon {
   font-size: 2rem;
   color: #fff;
+}
+
+.dropdown-menu {
+  min-width: 25rem;
+  min-height: 35rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 1.7rem;
+  background-color: #f5f5fa;
+}
+
+.dropdown-menu a {
+  color: #01a9b4;
+}
+
+.dropdown-menu a:hover {
+  color: #086972;
+  text-decoration: none;
 }
 
 .sidebar__wrapper {
@@ -17658,12 +17678,16 @@ a[aria-expanded=true] {
 }
 
 .shop-section {
-  min-height: 80vh;
+  min-height: 90vh;
 }
 
 .empty-basket-section .icon {
   color: #01a9b4;
   font-size: 10rem;
+}
+
+.login-section {
+  min-height: 90vh;
 }
 
 .fade-enter-active,

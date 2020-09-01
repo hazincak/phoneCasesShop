@@ -18,8 +18,11 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-            <a class="nav-link" href="#">Prihlásiť sa</a>
+         <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle login__toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Prihlásiť sa
+            </a>
+            <login></login>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#">Zaregistrovať sa</a>
@@ -30,8 +33,12 @@
     </div>
 </template>
 <script>
+import Login from "./../pages/authComponents/Login"
 import {mapGetters} from "vuex";
 export default {
+    components:{
+        Login
+    },
     computed: {
         ...mapGetters({
             itemsInBasket: "itemsInBasket"

@@ -5,7 +5,7 @@
                 <div class=" text-center my-center ">
                     <h1 class="heading-primary heading-primary--main mb-3">Najlacnejšie obaly</h1>
                     <h1 class="heading-primary heading-primary--sub mb-3">Ochráňte vášho spoločníka</h1>
-                    <router-link :to="{name: 'obchod'}" class="button button--rounded button--shadowed button--teal-dark mt-2">Do obchodu</router-link>
+                    <router-link :to="{name: 'obchod'}" class="button button--rounded button--shadowed button--rounded button--teal-dark mt-2">Do obchodu</router-link>
                 </div>
             
             <div class="d-flex flex-row bd-highlight mb-3 my-bottom-center">

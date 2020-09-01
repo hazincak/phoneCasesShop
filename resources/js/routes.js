@@ -4,6 +4,8 @@ import Shop from "./pages/Shop";
 import Basket from "./pages/Basket";
 import DisplayProduct from "./pages/DisplayProduct.vue";
 
+import Login from "./pages/authComponents/Login";
+
 
 
 const routes = [

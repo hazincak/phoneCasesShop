@@ -17,10 +17,8 @@ import StoreDefinition from './store';
 
 window.Vue = require('vue');
 
-
 Vue.use(VueRouter);
 Vue.use(Vuex);
-
 
 Vue.component("navbar", Navbar);
 Vue.component("breadcrumb", BreadCrumb);
@@ -46,7 +44,15 @@ const app = new Vue({
         }
     },
 
-    beforeCreate(){
+    async beforeCreate(){
         this.$store.dispatch("loadStoredState");
+
+        // await axios.get('/sanctum/csrf-cookie');
+        // await axios.post("/login", {
+        //     email: 	'jtillman@example.org',
+        //     password: 'password'
+        // });
+
+        // await axios.get('/user');
     }
 });

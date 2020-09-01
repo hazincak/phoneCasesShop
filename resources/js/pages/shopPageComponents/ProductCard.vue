@@ -15,13 +15,13 @@
 			<div class="bottom-wrap pt-3">
 				<button 
 					v-if="inBasketAlready" 
-					class=" button button--teal float-right"
+					class=" button button--teal button--squared float-right"
 					@click="removeFromBasket"
 					>odstrániť <i class="fas fa-trash-restore"></i></button>
 				
 				<button 
 					v-else
-					class="button button--teal-outline float-right"
+					class="button button--teal-outline button--squared float-right"
 					@click="addToBasket">do košíka <i class="fas fa-cart-arrow-down"></i></button>	
 				<div class="price-wrap">
 					<span class="price-new">€{{product.price.toFixed(2)}} <p class="text-muted">s DPH.</p></span> 
