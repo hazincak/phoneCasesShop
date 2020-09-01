@@ -1919,17 +1919,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Breadcrumb',
   data: function data() {
@@ -44955,11 +44944,7 @@ var render = function() {
                 }
               }
             },
-            [
-              _vm._v(
-                "\n            " + _vm._s(breadcrumb.name) + "\n          "
-              )
-            ]
+            [_vm._v("\n        " + _vm._s(breadcrumb.name) + "\n      ")]
           )
         }),
         0
@@ -64113,21 +64098,12 @@ var routes = [{
       name: 'Domov',
       link: '/'
     }, {
-      name: 'Obchod'
+      name: 'Obchod',
+      link: '/obchod'
+    }, {
+      name: 'Všetky produkty'
     }]
   }
-}, {
-  path: "/obchod/produkty/:brand",
-  component: _pages_Shop__WEBPACK_IMPORTED_MODULE_2__["default"],
-  name: 'obchod-znacka'
-}, {
-  path: "/obchod/produkty/na-:model",
-  component: _pages_Shop__WEBPACK_IMPORTED_MODULE_2__["default"],
-  name: 'obchod-model'
-}, {
-  path: "/obchod/produkty/obaly-na-:brand",
-  component: _pages_Shop__WEBPACK_IMPORTED_MODULE_2__["default"],
-  name: 'obchod-znacka-obaly'
 }, {
   path: "/obaly-na-:model",
   component: _pages_Shop__WEBPACK_IMPORTED_MODULE_2__["default"],
@@ -64140,25 +64116,9 @@ var routes = [{
       name: 'Obchod',
       link: '/obchod'
     }, {
-      name: 'Kryty na mobil'
+      name: 'Obaly na mobil'
     }]
   }
-}, {
-  path: "/obchod/produkty/ochranne-skla-na-:brand",
-  component: _pages_Shop__WEBPACK_IMPORTED_MODULE_2__["default"],
-  name: 'obchod-znacka-ochranne-skla'
-}, {
-  path: "/obchod/produkty/ochranne-skla-na-:model",
-  component: _pages_Shop__WEBPACK_IMPORTED_MODULE_2__["default"],
-  name: 'obchod-model-ochranne-skla'
-}, {
-  path: "/obchod/produkty/prislusenstvo-na-:brand",
-  component: _pages_Shop__WEBPACK_IMPORTED_MODULE_2__["default"],
-  name: 'obchod-znacka-prislusenstvo'
-}, {
-  path: "/obchod/produkty/prislusenstvo-na-:model",
-  component: _pages_Shop__WEBPACK_IMPORTED_MODULE_2__["default"],
-  name: 'obchod-model-prislusenstvo'
 }, {
   path: "/produkt/:id",
   component: _pages_DisplayProduct_vue__WEBPACK_IMPORTED_MODULE_4__["default"],

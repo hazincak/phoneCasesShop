@@ -4,6 +4,8 @@ import Shop from "./pages/Shop";
 import Basket from "./pages/Basket";
 import DisplayProduct from "./pages/DisplayProduct.vue";
 
+
+
 const routes = [
     {
         path: "/",
@@ -22,27 +24,10 @@ const routes = [
         meta:{
             breadcrumb: [
                 {name: 'Domov', link: '/'},
-                {name: 'Obchod'}
+                {name: 'Obchod',link: '/obchod'},
+                {name: 'Všetky produkty'}
             ]
         }
-    },
-
-    {
-        path:"/obchod/produkty/:brand",
-        component: Shop,
-        name: 'obchod-znacka'
-    },
-
-    {
-        path:"/obchod/produkty/na-:model",
-        component: Shop,
-        name: 'obchod-model'
-    },
-
-    {
-        path:"/obchod/produkty/obaly-na-:brand",
-        component: Shop,
-        name: 'obchod-znacka-obaly'
     },
 
     {
@@ -53,32 +38,9 @@ const routes = [
             breadcrumb: [
                 {name: 'Domov', link: '/'},
                 {name: 'Obchod', link: '/obchod'},
-                {name: 'Kryty na mobil'}
+                {name:  'Obaly na mobil'}
             ]
         }
-    },
-
-    {
-        path:"/obchod/produkty/ochranne-skla-na-:brand",
-        component: Shop,
-        name: 'obchod-znacka-ochranne-skla'
-    },
-
-    {
-        path:"/obchod/produkty/ochranne-skla-na-:model",
-        component: Shop,
-        name: 'obchod-model-ochranne-skla'
-    },
-    {
-        path:"/obchod/produkty/prislusenstvo-na-:brand",
-        component: Shop,
-        name: 'obchod-znacka-prislusenstvo'
-    },
-
-    {
-        path:"/obchod/produkty/prislusenstvo-na-:model",
-        component: Shop,
-        name: 'obchod-model-prislusenstvo'
     },
 
 
