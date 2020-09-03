@@ -17,7 +17,8 @@
     </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav ml-auto">
+    <ul class="navbar-nav ml-auto" v-if="!isLoggedIn">
+        
          <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle login__toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Prihlásiť sa
@@ -28,18 +29,30 @@
             <a class="nav-link" href="#">Zaregistrovať sa</a>
         </li>
     </ul>
+    <ul class="navbar-nav ml-auto" v-else>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle login__toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{this.$store.state.user.email}}
+            </a>
+            <login></login>
+        </li>
+    </ul>
   </div>
 </nav>
     </div>
 </template>
 <script>
 import Login from "./../pages/authComponents/Login"
-import {mapGetters} from "vuex";
+import {mapState ,mapGetters} from "vuex";
 export default {
     components:{
         Login
     },
     computed: {
+        ...mapState({
+           isLoggedIn: "isLoggedIn" 
+        }),
+
         ...mapGetters({
             itemsInBasket: "itemsInBasket"
         })

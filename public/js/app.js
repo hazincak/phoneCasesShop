@@ -2009,13 +2009,24 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     Login: _pages_authComponents_Login__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])({
+    isLoggedIn: "isLoggedIn"
+  })), Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
     itemsInBasket: "itemsInBasket"
   }))
 });
@@ -2476,8 +2487,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _shared_mixins_validationErrors__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/mixins/validationErrors */ "./resources/js/shared/mixins/validationErrors.js");
-/* harmony import */ var _shared_utils_auth__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../shared/utils/auth */ "./resources/js/shared/utils/auth.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _shared_utils_auth__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../shared/utils/auth */ "./resources/js/shared/utils/auth.js");
 
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
@@ -2528,6 +2546,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2562,7 +2583,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 });
 
               case 7:
-                Object(_shared_utils_auth__WEBPACK_IMPORTED_MODULE_2__["logIn"])();
+                Object(_shared_utils_auth__WEBPACK_IMPORTED_MODULE_3__["logIn"])();
 
                 _this.$store.dispatch("loadUser"); // this.$router.push({name: "domov"});
 
@@ -2585,8 +2606,37 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }, _callee, null, [[2, 11]]);
       }))();
+    },
+    logout: function logout() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                try {
+                  axios.post("/logout");
+
+                  _this2.$store.dispatch("logout");
+                } catch (error) {
+                  _this2.$store.dispatch("logout");
+                }
+
+              case 1:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
     }
-  }
+  },
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapState"])({
+    isLoggedIn: "isLoggedIn"
+  })), Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapGetters"])({
+    itemsInBasket: "itemsInBasket"
+  }))
 });
 
 /***/ }),
@@ -46082,34 +46132,67 @@ var render = function() {
           attrs: { id: "navbarSupportedContent" }
         },
         [
-          _c("ul", { staticClass: "navbar-nav ml-auto" }, [
-            _c(
-              "li",
-              { staticClass: "nav-item dropdown" },
-              [
+          !_vm.isLoggedIn
+            ? _c("ul", { staticClass: "navbar-nav ml-auto" }, [
                 _c(
-                  "a",
-                  {
-                    staticClass: "nav-link dropdown-toggle login__toggle",
-                    attrs: {
-                      href: "#",
-                      id: "navbarDropdown",
-                      role: "button",
-                      "data-toggle": "dropdown",
-                      "aria-haspopup": "true",
-                      "aria-expanded": "false"
-                    }
-                  },
-                  [_vm._v("\n              Prihlásiť sa\n            ")]
+                  "li",
+                  { staticClass: "nav-item dropdown" },
+                  [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "nav-link dropdown-toggle login__toggle",
+                        attrs: {
+                          href: "#",
+                          id: "navbarDropdown",
+                          role: "button",
+                          "data-toggle": "dropdown",
+                          "aria-haspopup": "true",
+                          "aria-expanded": "false"
+                        }
+                      },
+                      [_vm._v("\n              Prihlásiť sa\n            ")]
+                    ),
+                    _vm._v(" "),
+                    _c("login")
+                  ],
+                  1
                 ),
                 _vm._v(" "),
-                _c("login")
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _vm._m(1)
-          ])
+                _vm._m(1)
+              ])
+            : _c("ul", { staticClass: "navbar-nav ml-auto" }, [
+                _c(
+                  "li",
+                  { staticClass: "nav-item dropdown" },
+                  [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "nav-link dropdown-toggle login__toggle",
+                        attrs: {
+                          href: "#",
+                          id: "navbarDropdown",
+                          role: "button",
+                          "data-toggle": "dropdown",
+                          "aria-haspopup": "true",
+                          "aria-expanded": "false"
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n              " +
+                            _vm._s(this.$store.state.user.email) +
+                            "\n            "
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("login")
+                  ],
+                  1
+                )
+              ])
         ]
       )
     ])
@@ -46822,142 +46905,200 @@ var render = function() {
       attrs: { "aria-labelledby": "navbarDropdown" }
     },
     [
-      _c("form", [
-        _c(
-          "div",
-          { staticClass: "form-group" },
-          [
-            _c("label", { attrs: { for: "email" } }, [_vm._v("E-mail")]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.email,
-                  expression: "email"
-                }
-              ],
-              staticClass: "form-control",
-              class: [{ "is-invalid": _vm.errorFor("email") }],
-              attrs: {
-                type: "email",
-                name: "email",
-                placeholder: "E-mailová adresa"
-              },
-              domProps: { value: _vm.email },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.email = $event.target.value
-                }
-              }
-            }),
-            _vm._v(" "),
-            _c("v-errors", { attrs: { errors: _vm.errorFor("email") } })
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "form-group" },
-          [
-            _c("label", { attrs: { for: "password" } }, [_vm._v("Heslo")]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.password,
-                  expression: "password"
-                }
-              ],
-              staticClass: "form-control",
-              class: [{ "is-invalid": _vm.errorFor("password") }],
-              attrs: {
-                type: "password",
-                name: "password",
-                placeholder: "Heslo"
-              },
-              domProps: { value: _vm.password },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.password = $event.target.value
-                }
-              }
-            }),
-            _vm._v(" "),
-            _c("v-errors", { attrs: { errors: _vm.errorFor("password") } })
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "dropdown-divider" }),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "button button--block button--teal button--squared",
-            attrs: { type: "submit", disabled: _vm.loading },
-            on: {
-              click: function($event) {
-                $event.preventDefault()
-                return _vm.login($event)
-              }
-            }
-          },
-          [_vm._v("Prihlásiť sa")]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "dropdown-divider" }),
-        _vm._v(" "),
-        _c("div", { staticClass: "text-center m-5" }, [
-          _vm._v(
-            "\n                            Nemáte účet\n                            "
-          ),
-          _c(
-            "div",
-            [
+      !_vm.isLoggedIn
+        ? _c("div", [
+            _c("form", [
               _c(
-                "router-link",
-                {
-                  staticClass: "login__link",
-                  attrs: { to: { name: "domov" } }
-                },
-                [_vm._v("Zaregistrovať sa")]
-              )
-            ],
-            1
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "text-center m-5" }, [
-          _vm._v(
-            "\n                            Stratili ste heslo?\n                            "
-          ),
-          _c(
-            "div",
-            [
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", { attrs: { for: "email" } }, [_vm._v("E-mail")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.email,
+                        expression: "email"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    class: [{ "is-invalid": _vm.errorFor("email") }],
+                    attrs: {
+                      type: "email",
+                      name: "email",
+                      placeholder: "E-mailová adresa"
+                    },
+                    domProps: { value: _vm.email },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.email = $event.target.value
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("v-errors", { attrs: { errors: _vm.errorFor("email") } })
+                ],
+                1
+              ),
+              _vm._v(" "),
               _c(
-                "router-link",
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", { attrs: { for: "password" } }, [
+                    _vm._v("Heslo")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.password,
+                        expression: "password"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    class: [{ "is-invalid": _vm.errorFor("password") }],
+                    attrs: {
+                      type: "password",
+                      name: "password",
+                      placeholder: "Heslo"
+                    },
+                    domProps: { value: _vm.password },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.password = $event.target.value
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("v-errors", {
+                    attrs: { errors: _vm.errorFor("password") }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "dropdown-divider" }),
+              _vm._v(" "),
+              _c(
+                "button",
                 {
-                  staticClass: "login__link",
-                  attrs: { to: { name: "domov" } }
+                  staticClass:
+                    "button button--block button--teal button--squared",
+                  attrs: { type: "submit", disabled: _vm.loading },
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      return _vm.login($event)
+                    }
+                  }
                 },
-                [_vm._v("Resetovať heslo")]
-              )
-            ],
-            1
-          )
-        ])
-      ])
+                [
+                  _vm._v("Prihlásiť sa "),
+                  _c("i", { staticClass: "fas fa-sign-in-alt" })
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "dropdown-divider" }),
+              _vm._v(" "),
+              _c("div", { staticClass: "text-center m-5" }, [
+                _vm._v(
+                  "\n                    Nemáte účet\n                    "
+                ),
+                _c(
+                  "div",
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "login__link",
+                        attrs: { to: { name: "domov" } }
+                      },
+                      [_vm._v("Zaregistrovať sa")]
+                    )
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "text-center m-5" }, [
+                _vm._v(
+                  "\n                    Stratili ste heslo?\n                    "
+                ),
+                _c(
+                  "div",
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "login__link",
+                        attrs: { to: { name: "domov" } }
+                      },
+                      [_vm._v("Resetovať heslo")]
+                    )
+                  ],
+                  1
+                )
+              ])
+            ])
+          ])
+        : _c("div", [
+            _c(
+              "div",
+              { staticClass: "text-center" },
+              [
+                _c("router-link", { attrs: { to: "" } }, [
+                  _vm._v("Profile "),
+                  _c("i", { staticClass: "far fa-id-card" })
+                ])
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "text-center" },
+              [
+                _c("router-link", { attrs: { to: "" } }, [
+                  _vm._v("História objednávok "),
+                  _c("i", { staticClass: "fas fa-list" })
+                ])
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "dropdown-divider" }),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass:
+                  "button button--block button--teal button--squared",
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    return _vm.logout($event)
+                  }
+                }
+              },
+              [
+                _vm._v("Odhlásiť sa "),
+                _c("i", { staticClass: "fas fa-sign-out-alt" })
+              ]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "dropdown-divider" })
+          ])
     ]
   )
 }
@@ -65659,6 +65800,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       if (basket) {
         context.commit('setBasket', JSON.parse(basket));
       }
+
+      context.commit("setLoggedIn", Object(_shared_utils_auth__WEBPACK_IMPORTED_MODULE_1__["isLoggedIn"])());
     },
     addToBasket: function addToBasket(_ref, payload) {
       var commit = _ref.commit,
