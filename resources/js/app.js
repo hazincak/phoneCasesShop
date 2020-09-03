@@ -3,13 +3,14 @@ require('./bootstrap');
 import VueRouter from "vue-router";
 import Vuex from "vuex";
 
-
 import Index from "./Index";
 import router from "./routes";
 
 import Navbar from "./components/Navbar";
 import BreadCrumb from "./components/BreadCrumbs.vue";
 import Footer from "./components/Footer";
+
+import ValidationErrors from "./shared/components/ValidationErrors";
 
 import {SpringSpinner} from 'epic-spinners'
 
@@ -23,6 +24,8 @@ Vue.use(Vuex);
 Vue.component("navbar", Navbar);
 Vue.component("breadcrumb", BreadCrumb);
 Vue.component("section-footer", Footer);
+
+Vue.component("v-errors", ValidationErrors);
 
 Vue.component('atom-spinner', SpringSpinner);
 Vue.component('pagination', require('laravel-vue-pagination'));
@@ -47,12 +50,6 @@ const app = new Vue({
     async beforeCreate(){
         this.$store.dispatch("loadStoredState");
 
-        // await axios.get('/sanctum/csrf-cookie');
-        // await axios.post("/login", {
-        //     email: 	'jtillman@example.org',
-        //     password: 'password'
-        // });
-
-        // await axios.get('/user');
+   
     }
 });
