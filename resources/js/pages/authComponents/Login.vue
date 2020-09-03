@@ -70,7 +70,10 @@ export default {
             this.$store.dispatch("loadUser");
             // this.$router.push({name: "domov"});
             } catch (error) {
-                this.errors = error.response && error.response.data.errors;
+               
+                    this.errors = error.response && error.response.data.errors;
+                
+                
             }
 
             this.loading = false;
