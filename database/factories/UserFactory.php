@@ -5,6 +5,7 @@
 use App\User;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
+use Illuminate\Support\Arr;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +18,25 @@ use Illuminate\Support\Str;
 |
 */
 
-$factory->define(User::class, function (Faker $faker) {
+$counties = [
+    'Bratislavský kraj',
+    'Trnavský kraj',
+    'Trenčiansky kraj',
+    'Nitriansky kraj',
+    'Žilinský kraj',
+    'Banskobystrický kraj',
+    'Prešovský kraj',
+    'Košický kraj',
+];
+
+$factory->define(User::class, function (Faker $faker) use($counties) {
     return [
-        'name' => $faker->name,
+        'first_name' => $faker->firstName,
+        'last_name' => $faker->lastName,
+        'street' => $faker->streetName,
+        'city' => $faker->city,
+        'county' => Arr::random($counties),
+        'zip' => Str::random(5),
         'email' => $faker->unique()->safeEmail,
         'role' => 'user',
         'email_verified_at' => now(),
