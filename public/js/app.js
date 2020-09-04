@@ -2641,6 +2641,169 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/authComponents/Register.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/authComponents/Register.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _shared_mixins_validationErrors__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../shared/mixins/validationErrors */ "./resources/js/shared/mixins/validationErrors.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _shared_utils_auth__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../shared/utils/auth */ "./resources/js/shared/utils/auth.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mixins: [_shared_mixins_validationErrors__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  data: function data() {
+    return {
+      user: {
+        first_name: null,
+        last_name: null,
+        street: null,
+        city: null,
+        county: '',
+        zip: null,
+        email: null,
+        password: null
+      },
+      loading: false
+    };
+  },
+  methods: {},
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])({
+    isLoggedIn: "isLoggedIn"
+  })), Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
+    itemsInBasket: "itemsInBasket"
+  }))
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/displayProductPageComponents/ProductGallery.vue?vue&type=script&lang=js&":
 /*!*************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/displayProductPageComponents/ProductGallery.vue?vue&type=script&lang=js& ***!
@@ -46159,7 +46322,21 @@ var render = function() {
                   1
                 ),
                 _vm._v(" "),
-                _vm._m(1)
+                _c(
+                  "li",
+                  { staticClass: "nav-item" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-link",
+                        attrs: { to: { name: "register" } }
+                      },
+                      [_vm._v("Zaregistrovať sa")]
+                    )
+                  ],
+                  1
+                )
               ])
             : _c("ul", { staticClass: "navbar-nav ml-auto" }, [
                 _c(
@@ -46222,16 +46399,6 @@ var staticRenderFns = [
         ])
       ]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "nav-item" }, [
-      _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-        _vm._v("Zaregistrovať sa")
-      ])
-    ])
   }
 ]
 render._withStripped = true
@@ -47022,7 +47189,7 @@ var render = function() {
                       "router-link",
                       {
                         staticClass: "login__link",
-                        attrs: { to: { name: "domov" } }
+                        attrs: { to: { name: "register" } }
                       },
                       [_vm._v("Zaregistrovať sa")]
                     )
@@ -47103,6 +47270,448 @@ var render = function() {
   )
 }
 var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/authComponents/Register.vue?vue&type=template&id=54d7eb7b&":
+/*!*********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/authComponents/Register.vue?vue&type=template&id=54d7eb7b& ***!
+  \*********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "container" },
+    [
+      _c("breadcrumb"),
+      _vm._v(" "),
+      _c("div", { staticClass: "row mt-5 mb-5 justify-content-center" }, [
+        _c("div", { staticClass: "col-md-6" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-6" }, [
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", { attrs: { for: "first_name" } }, [
+                    _vm._v("Meno")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.user.first_name,
+                        expression: "user.first_name"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      name: "first_name",
+                      placeholder: "Meno užívateľa"
+                    },
+                    domProps: { value: _vm.user.first_name },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.user, "first_name", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("v-errors", {
+                    attrs: { errors: _vm.errorFor("first_name") }
+                  })
+                ],
+                1
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-6" }, [
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", { attrs: { for: "last_name" } }, [
+                    _vm._v("Priezvisko")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.user.last_name,
+                        expression: "user.last_name"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      name: "last_name",
+                      placeholder: "Priezvisko užívateľa"
+                    },
+                    domProps: { value: _vm.user.last_name },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.user, "last_name", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("v-errors", {
+                    attrs: { errors: _vm.errorFor("last_name") }
+                  })
+                ],
+                1
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "email" } }, [_vm._v("E-mail")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.user.email,
+                    expression: "user.email"
+                  }
+                ],
+                staticClass: "form-control",
+                class: [{ "is-invalid": _vm.errorFor("email") }],
+                attrs: {
+                  type: "email",
+                  name: "email",
+                  placeholder: "E-mailová adresa"
+                },
+                domProps: { value: _vm.user.email },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.user, "email", $event.target.value)
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c("v-errors", { attrs: { errors: _vm.errorFor("email") } })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            _c(
+              "div",
+              { staticClass: "col-md-6 form-group" },
+              [
+                _c("label", { attrs: { for: "street" } }, [_vm._v("Ulica")]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.user.street,
+                      expression: "user.street"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    type: "text",
+                    name: "street",
+                    placeholder: "Názov a číslo ulice"
+                  },
+                  domProps: { value: _vm.user.street },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.user, "street", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("v-errors", { attrs: { errors: _vm.errorFor("street") } })
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "col-md-6 form-group" },
+              [
+                _c("label", { attrs: { for: "city" } }, [_vm._v("Mesto")]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.user.city,
+                      expression: "user.city"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text", name: "city", placeholder: "Mesto" },
+                  domProps: { value: _vm.user.city },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.user, "city", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("v-errors", { attrs: { errors: _vm.errorFor("city") } })
+              ],
+              1
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-7 form-group" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.user.county,
+                      expression: "user.county"
+                    }
+                  ],
+                  staticClass: "custom-select",
+                  on: {
+                    change: function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.$set(
+                        _vm.user,
+                        "county",
+                        $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      )
+                    }
+                  }
+                },
+                [
+                  _c("option", { attrs: { disabled: "", value: "" } }, [
+                    _vm._v("Vyberte kraj")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", [_vm._v("Bratislavský kraj")]),
+                  _vm._v(" "),
+                  _c("option", [_vm._v("Trnavský kraj")]),
+                  _vm._v(" "),
+                  _c("option", [_vm._v("Trenčiansky kraj")]),
+                  _vm._v(" "),
+                  _c("option", [_vm._v("Nitriansky kraj")]),
+                  _vm._v(" "),
+                  _c("option", [_vm._v("Žilinský kraj")]),
+                  _vm._v(" "),
+                  _c("option", [_vm._v("Banskobystrický kraj")]),
+                  _vm._v(" "),
+                  _c("option", [_vm._v("Prešovský kraj")]),
+                  _vm._v(" "),
+                  _c("option", [_vm._v("Košický kraj")])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "col-md-5 form-group" },
+              [
+                _c("label", { attrs: { for: "zip" } }, [_vm._v("PSČ")]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.user.zip,
+                      expression: "user.zip"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    type: "text",
+                    name: "zip",
+                    placeholder: "Poštové smerovacie číslo"
+                  },
+                  domProps: { value: _vm.user.zip },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.user, "zip", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("v-errors", { attrs: { errors: _vm.errorFor("zip") } })
+              ],
+              1
+            )
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "password" } }, [_vm._v("Heslo")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.user.password,
+                    expression: "user.password"
+                  }
+                ],
+                staticClass: "form-control",
+                class: [{ "is-invalid": _vm.errorFor("password") }],
+                attrs: {
+                  type: "password",
+                  name: "password",
+                  placeholder: "Heslo"
+                },
+                domProps: { value: _vm.user.password },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.user, "password", $event.target.value)
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c("v-errors", { attrs: { errors: _vm.errorFor("password") } })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "password" } }, [
+                _vm._v("Potvrdenie hesla")
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.user.password,
+                    expression: "user.password"
+                  }
+                ],
+                staticClass: "form-control",
+                class: [{ "is-invalid": _vm.errorFor("password") }],
+                attrs: {
+                  type: "password",
+                  name: "password_confirmation",
+                  placeholder: "Potvrdte heslo"
+                },
+                domProps: { value: _vm.user.password },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.user, "password", $event.target.value)
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c("v-errors", {
+                attrs: { errors: _vm.errorFor("password_confirmation") }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "dropdown-divider" }),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "button button--block button--teal button--squared",
+              attrs: { type: "submit", disabled: _vm.loading },
+              on: {
+                click: function($event) {
+                  $event.preventDefault()
+                  return _vm.register($event)
+                }
+              }
+            },
+            [
+              _vm._v("Zaregistrovať sa "),
+              _c("i", { staticClass: "fas fa-check-double" })
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "dropdown-divider" })
+        ])
+      ])
+    ],
+    1
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "input-group-prepend" }, [
+      _c("label", { attrs: { for: "county" } }, [_vm._v("Kraj")])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -65200,6 +65809,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/pages/authComponents/Register.vue":
+/*!********************************************************!*\
+  !*** ./resources/js/pages/authComponents/Register.vue ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Register_vue_vue_type_template_id_54d7eb7b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Register.vue?vue&type=template&id=54d7eb7b& */ "./resources/js/pages/authComponents/Register.vue?vue&type=template&id=54d7eb7b&");
+/* harmony import */ var _Register_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Register.vue?vue&type=script&lang=js& */ "./resources/js/pages/authComponents/Register.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Register_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Register_vue_vue_type_template_id_54d7eb7b___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Register_vue_vue_type_template_id_54d7eb7b___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/pages/authComponents/Register.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/pages/authComponents/Register.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/pages/authComponents/Register.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Register_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Register.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/authComponents/Register.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Register_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/pages/authComponents/Register.vue?vue&type=template&id=54d7eb7b&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/pages/authComponents/Register.vue?vue&type=template&id=54d7eb7b& ***!
+  \***************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Register_vue_vue_type_template_id_54d7eb7b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Register.vue?vue&type=template&id=54d7eb7b& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/authComponents/Register.vue?vue&type=template&id=54d7eb7b&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Register_vue_vue_type_template_id_54d7eb7b___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Register_vue_vue_type_template_id_54d7eb7b___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/pages/displayProductPageComponents/ProductGallery.vue":
 /*!****************************************************************************!*\
   !*** ./resources/js/pages/displayProductPageComponents/ProductGallery.vue ***!
@@ -65526,8 +66204,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_Home__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pages/Home */ "./resources/js/pages/Home.vue");
 /* harmony import */ var _pages_Shop__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/Shop */ "./resources/js/pages/Shop.vue");
 /* harmony import */ var _pages_Basket__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/Basket */ "./resources/js/pages/Basket.vue");
-/* harmony import */ var _pages_DisplayProduct_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/DisplayProduct.vue */ "./resources/js/pages/DisplayProduct.vue");
-/* harmony import */ var _pages_authComponents_Login__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/authComponents/Login */ "./resources/js/pages/authComponents/Login.vue");
+/* harmony import */ var _pages_DisplayProduct__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/DisplayProduct */ "./resources/js/pages/DisplayProduct.vue");
+/* harmony import */ var _pages_authComponents_Register__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/authComponents/Register */ "./resources/js/pages/authComponents/Register.vue");
 
 
 
@@ -65575,7 +66253,7 @@ var routes = [{
   }
 }, {
   path: "/produkt/:id",
-  component: _pages_DisplayProduct_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
+  component: _pages_DisplayProduct__WEBPACK_IMPORTED_MODULE_4__["default"],
   name: "produkt",
   meta: {
     breadcrumb: [{
@@ -65601,6 +66279,18 @@ var routes = [{
       link: 'obchod'
     }, {
       name: 'Košík'
+    }]
+  }
+}, {
+  path: "/registracia",
+  component: _pages_authComponents_Register__WEBPACK_IMPORTED_MODULE_5__["default"],
+  name: "register",
+  meta: {
+    breadcrumb: [{
+      name: 'Domov',
+      link: '/'
+    }, {
+      name: 'Registrácia'
     }]
   }
 }];

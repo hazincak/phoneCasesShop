@@ -2,9 +2,9 @@ import VueRouter from "vue-router";
 import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 import Basket from "./pages/Basket";
-import DisplayProduct from "./pages/DisplayProduct.vue";
+import DisplayProduct from "./pages/DisplayProduct";
 
-import Login from "./pages/authComponents/Login";
+import Register from "./pages/authComponents/Register";
 
 
 
@@ -68,6 +68,18 @@ const routes = [
                 {name: 'Domov', link: '/'},
                 {name: 'Obchod', link: 'obchod'},
                 {name: 'Košík'}
+            ]
+        }
+    },
+
+    {
+        path: "/registracia",
+        component: Register,
+        name: "register",
+        meta:{
+            breadcrumb: [
+                {name: 'Domov', link: '/'},
+                {name: 'Registrácia'}
             ]
         }
     },

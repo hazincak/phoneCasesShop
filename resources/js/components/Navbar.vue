@@ -26,7 +26,7 @@
             <login></login>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Zaregistrovať sa</a>
+            <router-link class="nav-link" :to="{name: 'register'}">Zaregistrovať sa</router-link>
         </li>
     </ul>
     <ul class="navbar-nav ml-auto" v-else>

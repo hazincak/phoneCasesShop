@@ -20,7 +20,7 @@
                             <div class="text-center m-5">
                                 Nemáte účet
                                 <div>
-                                    <router-link :to="{name: 'domov'}" class="login__link">Zaregistrovať sa</router-link>
+                                    <router-link :to="{name: 'register'}" class="login__link">Zaregistrovať sa</router-link>
                                 </div>
                             </div>
                             <div class="text-center m-5">
