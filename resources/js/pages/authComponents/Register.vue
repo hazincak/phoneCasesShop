@@ -13,6 +13,7 @@
                             v-model="user.first_name"
                             name="first_name"
                             placeholder="Meno užívateľa"
+                            :class="[{'is-invalid': errorFor('first_name')}]"
                              >
                              <v-errors :errors="errorFor('first_name')"></v-errors>
                         </div>
@@ -25,7 +26,8 @@
                             class="form-control" 
                             v-model="user.last_name"
                             name="last_name"
-                            placeholder="Priezvisko užívateľa" 
+                            placeholder="Priezvisko užívateľa"
+                            :class="[{'is-invalid': errorFor('last_name')}]" 
                             >
                             <v-errors :errors="errorFor('last_name')"></v-errors>
                         </div>    
@@ -44,7 +46,8 @@
                         class="form-control"
                         v-model="user.street" 
                         name="street"
-                        placeholder="Názov a číslo ulice" 
+                        placeholder="Názov a číslo ulice"
+                        :class="[{'is-invalid': errorFor('street')}]" 
                         >
                         <v-errors :errors="errorFor('street')"></v-errors>
                     </div>
@@ -55,7 +58,8 @@
                         class="form-control" 
                         v-model="user.city"
                         name="city"
-                        placeholder="Mesto" 
+                        placeholder="Mesto"
+                        :class="[{'is-invalid': errorFor('city')}]" 
                         >
                         <v-errors :errors="errorFor('city')"></v-errors>
                     </div>
@@ -65,8 +69,8 @@
                   <div class="input-group-prepend">
                     <label for="county">Kraj</label>
                   </div>
-                  <select class="custom-select"  v-model="user.county">
-                     <option disabled value="">Vyberte kraj</option>
+                  <select class="custom-select"  v-model="user.county" :class="[{'is-invalid': errorFor('county')}]" >
+                    <option disabled value="">Vyberte kraj</option>
                     <option>Bratislavský kraj</option>
                     <option>Trnavský kraj</option>
                     <option>Trenčiansky kraj</option>
@@ -76,6 +80,7 @@
                     <option>Prešovský kraj</option>
                     <option>Košický kraj</option>
                   </select>
+                  <v-errors :errors="errorFor('county')"></v-errors>
                 </div>
                 <div class="col-md-5 form-group" >
                         <label for="zip">PSČ</label>
@@ -84,7 +89,8 @@
                         class="form-control" 
                         v-model="user.zip"
                         name="zip"
-                        placeholder="Poštové smerovacie číslo" 
+                        placeholder="Poštové smerovacie číslo"
+                        :class="[{'is-invalid': errorFor('zip')}]" 
                         >
                         <v-errors :errors="errorFor('zip')"></v-errors>
                     </div>
@@ -98,7 +104,7 @@
 
                 <div class="form-group">
                     <label for="password">Potvrdenie hesla</label>
-                    <input type="password" name="password_confirmation" placeholder="Potvrdte heslo" class="form-control" v-model="user.password" :class="[{'is-invalid': errorFor('password')}]">
+                    <input type="password" name="password_confirmation" placeholder="Potvrdte heslo" class="form-control" v-model="user.password_confirmation" :class="[{'is-invalid': errorFor('password_confirmation')}]">
                         <v-errors :errors="errorFor('password_confirmation')"></v-errors>
                 </div>
                 <div class="dropdown-divider"></div>
@@ -130,6 +136,7 @@ export default {
             zip: null,
             email: null,
             password: null,
+            password_confirmation: null
             
             },
             loading: false
@@ -137,7 +144,23 @@ export default {
     },
 
     methods: {
-    
+        async register(){
+            this.loading = true;
+            this.errors = null;
+
+            try {
+               const response = await axios.post("/register", this.user);
+
+               if(201 == response.status){
+                   logIn();
+                   this.$store.dispatch("loadUser");
+                    this.$router.push({ name: "domov" });
+               }
+            } catch (error) {
+                this.errors = error.response && error.response.data.errors;
+            }
+            this.loading = false;
+        }
     },
 
     computed: {

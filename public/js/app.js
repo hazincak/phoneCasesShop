@@ -2650,15 +2650,29 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _shared_mixins_validationErrors__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../shared/mixins/validationErrors */ "./resources/js/shared/mixins/validationErrors.js");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var _shared_utils_auth__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../shared/utils/auth */ "./resources/js/shared/utils/auth.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _shared_mixins_validationErrors__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/mixins/validationErrors */ "./resources/js/shared/mixins/validationErrors.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _shared_utils_auth__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../shared/utils/auth */ "./resources/js/shared/utils/auth.js");
+
+
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2778,7 +2792,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mixins: [_shared_mixins_validationErrors__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  mixins: [_shared_mixins_validationErrors__WEBPACK_IMPORTED_MODULE_1__["default"]],
   data: function data() {
     return {
       user: {
@@ -2789,15 +2803,64 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         county: '',
         zip: null,
         email: null,
-        password: null
+        password: null,
+        password_confirmation: null
       },
       loading: false
     };
   },
-  methods: {},
-  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])({
+  methods: {
+    register: function register() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _this.loading = true;
+                _this.errors = null;
+                _context.prev = 2;
+                _context.next = 5;
+                return axios.post("/register", _this.user);
+
+              case 5:
+                response = _context.sent;
+
+                if (201 == response.status) {
+                  Object(_shared_utils_auth__WEBPACK_IMPORTED_MODULE_3__["logIn"])();
+
+                  _this.$store.dispatch("loadUser");
+
+                  _this.$router.push({
+                    name: "domov"
+                  });
+                }
+
+                _context.next = 12;
+                break;
+
+              case 9:
+                _context.prev = 9;
+                _context.t0 = _context["catch"](2);
+                _this.errors = _context.t0.response && _context.t0.response.data.errors;
+
+              case 12:
+                _this.loading = false;
+
+              case 13:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[2, 9]]);
+      }))();
+    }
+  },
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapState"])({
     isLoggedIn: "isLoggedIn"
-  })), Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
+  })), Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapGetters"])({
     itemsInBasket: "itemsInBasket"
   }))
 });
@@ -47319,6 +47382,7 @@ var render = function() {
                       }
                     ],
                     staticClass: "form-control",
+                    class: [{ "is-invalid": _vm.errorFor("first_name") }],
                     attrs: {
                       type: "text",
                       name: "first_name",
@@ -47362,6 +47426,7 @@ var render = function() {
                       }
                     ],
                     staticClass: "form-control",
+                    class: [{ "is-invalid": _vm.errorFor("last_name") }],
                     attrs: {
                       type: "text",
                       name: "last_name",
@@ -47442,6 +47507,7 @@ var render = function() {
                     }
                   ],
                   staticClass: "form-control",
+                  class: [{ "is-invalid": _vm.errorFor("street") }],
                   attrs: {
                     type: "text",
                     name: "street",
@@ -47479,6 +47545,7 @@ var render = function() {
                     }
                   ],
                   staticClass: "form-control",
+                  class: [{ "is-invalid": _vm.errorFor("city") }],
                   attrs: { type: "text", name: "city", placeholder: "Mesto" },
                   domProps: { value: _vm.user.city },
                   on: {
@@ -47498,64 +47565,72 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-md-7 form-group" }, [
-              _vm._m(0),
-              _vm._v(" "),
-              _c(
-                "select",
-                {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.user.county,
-                      expression: "user.county"
+            _c(
+              "div",
+              { staticClass: "col-md-7 form-group" },
+              [
+                _vm._m(0),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.user.county,
+                        expression: "user.county"
+                      }
+                    ],
+                    staticClass: "custom-select",
+                    class: [{ "is-invalid": _vm.errorFor("county") }],
+                    on: {
+                      change: function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.user,
+                          "county",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      }
                     }
-                  ],
-                  staticClass: "custom-select",
-                  on: {
-                    change: function($event) {
-                      var $$selectedVal = Array.prototype.filter
-                        .call($event.target.options, function(o) {
-                          return o.selected
-                        })
-                        .map(function(o) {
-                          var val = "_value" in o ? o._value : o.value
-                          return val
-                        })
-                      _vm.$set(
-                        _vm.user,
-                        "county",
-                        $event.target.multiple
-                          ? $$selectedVal
-                          : $$selectedVal[0]
-                      )
-                    }
-                  }
-                },
-                [
-                  _c("option", { attrs: { disabled: "", value: "" } }, [
-                    _vm._v("Vyberte kraj")
-                  ]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Bratislavský kraj")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Trnavský kraj")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Trenčiansky kraj")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Nitriansky kraj")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Žilinský kraj")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Banskobystrický kraj")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Prešovský kraj")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("Košický kraj")])
-                ]
-              )
-            ]),
+                  },
+                  [
+                    _c("option", { attrs: { disabled: "", value: "" } }, [
+                      _vm._v("Vyberte kraj")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("Bratislavský kraj")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("Trnavský kraj")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("Trenčiansky kraj")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("Nitriansky kraj")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("Žilinský kraj")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("Banskobystrický kraj")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("Prešovský kraj")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("Košický kraj")])
+                  ]
+                ),
+                _vm._v(" "),
+                _c("v-errors", { attrs: { errors: _vm.errorFor("county") } })
+              ],
+              1
+            ),
             _vm._v(" "),
             _c(
               "div",
@@ -47573,6 +47648,7 @@ var render = function() {
                     }
                   ],
                   staticClass: "form-control",
+                  class: [{ "is-invalid": _vm.errorFor("zip") }],
                   attrs: {
                     type: "text",
                     name: "zip",
@@ -47646,24 +47722,30 @@ var render = function() {
                   {
                     name: "model",
                     rawName: "v-model",
-                    value: _vm.user.password,
-                    expression: "user.password"
+                    value: _vm.user.password_confirmation,
+                    expression: "user.password_confirmation"
                   }
                 ],
                 staticClass: "form-control",
-                class: [{ "is-invalid": _vm.errorFor("password") }],
+                class: [
+                  { "is-invalid": _vm.errorFor("password_confirmation") }
+                ],
                 attrs: {
                   type: "password",
                   name: "password_confirmation",
                   placeholder: "Potvrdte heslo"
                 },
-                domProps: { value: _vm.user.password },
+                domProps: { value: _vm.user.password_confirmation },
                 on: {
                   input: function($event) {
                     if ($event.target.composing) {
                       return
                     }
-                    _vm.$set(_vm.user, "password", $event.target.value)
+                    _vm.$set(
+                      _vm.user,
+                      "password_confirmation",
+                      $event.target.value
+                    )
                   }
                 }
               }),
