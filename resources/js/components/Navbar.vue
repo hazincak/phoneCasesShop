@@ -42,7 +42,7 @@
     </div>
 </template>
 <script>
-import Login from "./../pages/authComponents/Login"
+import Login from "./../pages/authComponents/Login";
 import {mapState ,mapGetters} from "vuex";
 export default {
     components:{

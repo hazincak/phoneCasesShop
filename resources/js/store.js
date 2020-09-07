@@ -85,6 +85,10 @@ export default{
                     false
                 );
             }
+        },
+        isUserAdmin(state){
+            return state.user.role ==='admin' ? true : false;
         }
+
     }   
 }

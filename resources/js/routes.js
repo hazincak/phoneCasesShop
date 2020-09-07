@@ -6,6 +6,8 @@ import DisplayProduct from "./pages/DisplayProduct";
 
 import Register from "./pages/authComponents/Register";
 
+import Admin from "./pages/Admin";
+
 
 
 const routes = [
@@ -84,12 +86,46 @@ const routes = [
         }
     },
 
+    {
+        path: "/admin",
+        component: Admin,
+        name: "admin",
+        meta:{
+            breadcrumb: [
+                {name: 'Domov', link: '/'},
+                {name: 'Admin'}
+            ],
+            requiresAuth: true,
+            requiresAdmin: true,
+        }
+    },
+
 
 ];
 
 const router = new VueRouter({
     routes,
     mode: "history",
+
+    
 });
+
+
+// router.beforeEach((to, from, next) => {
+//     if (to.matched.some(record => record.meta.requiresAuth && record.meta.requiresAdmin)) {
+//       if (isUserAdmin) {
+//         next({
+//           path: '/admin',
+//           query: { redirect: to.fullPath }
+//         })
+//       } else {
+//         next({
+//             path: 'home',
+//         })
+//       }
+//     } else {
+//       next() // make sure to always call next()!
+//     }
+//   })
 
 export default router;
