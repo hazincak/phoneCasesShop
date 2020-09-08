@@ -17690,6 +17690,10 @@ a[aria-expanded=true] {
   min-height: 90vh;
 }
 
+.admin-section {
+  min-height: 90vh;
+}
+
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s;

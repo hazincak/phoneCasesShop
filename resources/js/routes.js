@@ -7,6 +7,11 @@ import DisplayProduct from "./pages/DisplayProduct";
 import Register from "./pages/authComponents/Register";
 
 import Admin from "./pages/Admin";
+import Products from "./pages/adminComponents/adminPages/Products";
+import AddProduct from "./pages/adminComponents/adminPages/AddProduct";
+import UpdateProduct from "./pages/adminComponents/adminPages/UpdateProduct";
+import Users from "./pages/adminComponents/adminPages/Users";
+
 
 
 
@@ -95,9 +100,34 @@ const routes = [
                 {name: 'Domov', link: '/'},
                 {name: 'Admin'}
             ],
-            requiresAuth: true,
-            requiresAdmin: true,
-        }
+        },
+        children: [
+            {
+              path: "produkty",
+              name: "products",
+              component: Products,
+
+                children:[
+                    {
+                    path: "pridat",
+                    name: "addProduct",
+                    component: AddProduct,
+                    },
+                    {
+                    path: "pridat",
+                    name: "updateProduct",
+                    component: UpdateProduct,
+                    }
+                ]
+            },
+            {
+                path: "uzivatelia",
+                name: "users",
+                component: Users
+              },
+          ]
+
+    
     },
 
 
