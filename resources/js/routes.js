@@ -12,6 +12,9 @@ import AddProduct from "./pages/adminComponents/adminPages/AddProduct";
 import UpdateProduct from "./pages/adminComponents/adminPages/UpdateProduct";
 import Users from "./pages/adminComponents/adminPages/Users";
 
+import Categories from "./pages/adminComponents/adminPages/Categories";
+import UpdateCategory from "./pages/adminComponents/adminPages/UpdateCategory";
+
 
 
 
@@ -102,6 +105,19 @@ const routes = [
             ],
         },
         children: [
+            {
+                path: "kategorie",
+                name: "categories",
+                component: Categories,
+  
+                  children:[
+                      {
+                      path: "aktualizovat",
+                      name: "updateCategory",
+                      component: UpdateCategory,
+                      },
+                  ]
+              },
             {
               path: "produkty",
               name: "products",

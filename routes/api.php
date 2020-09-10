@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\ProductController;
+// use App\Http\Controllers\Api\CategoryController;
 use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -24,4 +25,6 @@ Route::get('obchod/produkt-podla-id/{id}', 'Api\ProductController@productById');
 Route::get('/obaly-na-{model}', 'Api\ProductController@productsByModel');
 
 Route::apiResource('produkt', 'api\ProductController');
+
+Route::apiResource('kategorie', 'api\CategoryController');
 

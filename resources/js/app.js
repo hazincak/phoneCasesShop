@@ -6,6 +6,8 @@ import Vuex from "vuex";
 import Index from "./Index";
 import router from "./routes";
 
+import moment from "moment";
+
 import Navbar from "./components/Navbar";
 import BreadCrumb from "./components/BreadCrumbs.vue";
 import Footer from "./components/Footer";
@@ -29,6 +31,8 @@ Vue.component("v-errors", ValidationErrors);
 
 Vue.component('atom-spinner', SpringSpinner);
 Vue.component('pagination', require('laravel-vue-pagination'));
+
+Vue.filter("fromNow", value => moment(value).fromNow());
 
 const store = new Vuex.Store(StoreDefinition);
 

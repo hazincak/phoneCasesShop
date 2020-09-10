@@ -5,7 +5,7 @@
           :animation-duration="1000"
           :size="80"
           :color="'#086972'"
-     />
+            />
             </div>
             <div class="row" v-else>
                 
