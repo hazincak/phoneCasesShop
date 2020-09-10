@@ -5,8 +5,14 @@
 use App\Category;
 use Faker\Generator as Faker;
 
-$factory->define(Category::class, function (Faker $faker) {
-    return [
-        //
-    ];
+
+
+
+$factory->define(Category::class, function (Faker $faker)  {
+        return [
+
+        "category_name" => '',
+
+        ];
+    
 });

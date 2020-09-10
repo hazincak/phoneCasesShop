@@ -15,6 +15,8 @@ class CreateDeviceModelsTable extends Migration
     {
         Schema::create('device_models', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('brand_id');
+            $table->foreign('brand_id')->references('id')->on('brands');
             $table->timestamps();
         });
     }

@@ -72,10 +72,5 @@ $factory->define(Product::class, function (Faker $faker) use($brands, $purpose, 
 
         'color' => Arr::random($color),
         'material' => Arr::random($material),
-
-
-        
-
-
     ];
 });
