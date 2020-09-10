@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             BrandSeeder::class,
             BrandCategorySeeder::class,
+            ModelSeeder::class,
             
         ]);
 

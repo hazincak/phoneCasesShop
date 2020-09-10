@@ -13,7 +13,7 @@ class BrandCategorySeeder extends Seeder
     public function run()
     {
         $brands = App\Brand::all();
-
+        
         App\Category::all()->each(function ($category) use ($brands){
             $category->brands()->attach(
                 $brands->random(rand(1,7))->pluck('id')->toArray()
