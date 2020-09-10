@@ -17,6 +17,8 @@ class DatabaseSeeder extends Seeder
             ProductSeeder::class,
             ImagesTableSeeder::class,
             CategorySeeder::class,
+            BrandSeeder::class,
+            BrandCategorySeeder::class,
             
         ]);
 
