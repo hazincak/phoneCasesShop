@@ -25,7 +25,7 @@
                 <router-link :to="{name: 'users'}" class="sidebar__itemMainCategory">Užívatelia</router-link>
             </li>
             <li class="text-center">
-                <router-link :to="{name: 'categories'}" class="sidebar__itemMainCategory">Kategorie</router-link>
+                <router-link :to="{name: 'allCategories'}" class="sidebar__itemMainCategory">Kategorie</router-link>
             </li>
         </ul>
     </nav>

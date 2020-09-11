@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('obchod', 'Api\ProductController@allProducts');
+Route::get('obchod', 'Api\ProductController@index');
 
 Route::get('obchod/produkt-podla-id/{id}', 'Api\ProductController@productById');
 
