@@ -24,7 +24,11 @@ Route::get('obchod/produkt-podla-id/{id}', 'Api\ProductController@productById');
 
 Route::get('/obaly-na-{model}', 'Api\ProductController@productsByModel');
 
+Route::get('/modely-podla-znacky/{znacka}', 'Api\BrandController@getModels');
+
 Route::apiResource('produkt', 'api\ProductController');
 
 Route::apiResource('kategorie', 'api\CategoryController');
+
+Route::apiResource('znacky', 'api\BrandController');
 

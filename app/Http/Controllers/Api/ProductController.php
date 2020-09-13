@@ -20,6 +20,8 @@ class ProductController extends Controller
         return Product::where('purpose', 'Obal na mobil')->where('model', $model)->with('images')->paginate(12);
     }
 
+    
+
 
     /**
      * Display a listing of the resource.

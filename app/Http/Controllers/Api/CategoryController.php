@@ -36,7 +36,19 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $data = $request->validate([
+        //     'category_name' => 'required|min:2|unique:category',
+        // ]);
+
+        // $category = Category::create($data);
+        
+
+        // if($category->save()){
+        //     return response()->json($category, 200);
+        // }else{
+        //     return response()->json($category, 500);
+        // }
+        // // return response()->json(['category'=> $category]);
     }
 
     /**

@@ -16,7 +16,7 @@ $brands = [
     'Xiaomi',
 ];
 
-$purpose = [
+$category = [
     'Obal na mobil',
     'Obal na tablet',
     // 'Sklo na mobil',
@@ -41,7 +41,7 @@ $material = [
     'Syntetická koža',
     'Viacfarebná',
 ];
-$factory->define(Product::class, function (Faker $faker) use($brands, $purpose, $color, $material) {
+$factory->define(Product::class, function (Faker $faker) use($brands, $category, $color, $material) {
     
     $randomBrand = Arr::random($brands);
     $randomModel = '';
@@ -64,10 +64,11 @@ $factory->define(Product::class, function (Faker $faker) use($brands, $purpose, 
 
     return [
         'title' => $faker->firstNameFemale,
-        'description' => $faker->text(80),
+        'description_short' => $faker->text(80),
+        'description_long' => $faker->text(200),
         'brand' => $randomBrand,
         'model' => $randomModel,
-        'purpose' => Arr::random($purpose),
+        'category' => Arr::random($category),
         'price' => mt_rand (4.50*10, 25.99*10) / 10,
 
         'color' => Arr::random($color),

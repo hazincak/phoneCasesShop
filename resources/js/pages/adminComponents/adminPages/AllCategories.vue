@@ -6,8 +6,8 @@
           :color="'#086972'"
         />
     </div>
-
-    <div class="row" v-else>
+<div v-else>
+    <div class="row">
         <div class="col-12">
          <div class="card shadow mb-4">
                 <div class="card-header py-3">
@@ -49,14 +49,42 @@
             </div>
         </div>
     </div>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="form-group mt-5">
+                <label for="category_name">Pridať kategoriu</label>
+                <input 
+                type="text" 
+                class="form-control" 
+                v-model="category.category_name"
+                name="category_name"
+                placeholder="Pomenujte novu kategoriu"
+                :class="[{'is-invalid': errorFor('category_name')}]"
+                 >
+                 <v-errors :errors="errorFor('category_name')"></v-errors>
+            </div>
+            <button 
+            @click="addCategory"
+            class="btn btn-lg btn-primary btn-block" 
+            >Pridať kategoriu</button>
+        </div>
+        
+</div>
+</div>
 </template>
 
 <script>
+import validationErrors from "../../../shared/mixins/validationErrors";
 export default {
+  mixins:[validationErrors],
     data(){
         return{
             loading: false,
+            
             categories: {},
+            category:{
+                category_name:null
+            }
         }
     },
 
@@ -78,8 +106,17 @@ export default {
                 let index = this.categories.indexOf(item);
                 this.categories.splice(index,1);
             });
-        
+      },
+      addCategory(){
+        this.loading = true;
+        this.errors = null;
+        axios.post('/api/kategorie', this.category)
+          .then(response =>{
+            // this.category = response.data.category;
+            this.loading = false;
+          })
       }
+
     }
 }
 </script>

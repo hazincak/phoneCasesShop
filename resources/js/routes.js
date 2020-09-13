@@ -7,9 +7,13 @@ import DisplayProduct from "./pages/DisplayProduct";
 import Register from "./pages/authComponents/Register";
 
 import Admin from "./pages/Admin";
+
 import Products from "./pages/adminComponents/adminPages/Products";
+import AllProducts from "./pages/adminComponents/adminPages/AllProducts";
 import AddProduct from "./pages/adminComponents/adminPages/AddProduct";
 import UpdateProduct from "./pages/adminComponents/adminPages/UpdateProduct";
+
+
 import Users from "./pages/adminComponents/adminPages/Users";
 
 import Categories from "./pages/adminComponents/adminPages/Categories";
@@ -131,14 +135,19 @@ const routes = [
 
                 children:[
                     {
-                    path: "pridat",
-                    name: "addProduct",
-                    component: AddProduct,
+                        path: "vsetky-produkty",
+                        name: "allProducts",
+                        component: AllProducts,
                     },
                     {
-                    path: "pridat",
-                    name: "updateProduct",
-                    component: UpdateProduct,
+                        path: "pridat",
+                        name: "addProduct",
+                        component: AddProduct,
+                    },
+                    {
+                        path: "pridat",
+                        name: "updateProduct",
+                        component: UpdateProduct,
                     }
                 ]
             },
