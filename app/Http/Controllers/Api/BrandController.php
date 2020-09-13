@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Database\Eloquent\Collection;
+use App\Http\Resources\BrandGetModelResource;
 
 use App\Brand;
 use Illuminate\Http\Request;
@@ -15,8 +16,11 @@ class BrandController extends Controller
         // $models = Brand::where('brand_name', $brand)->with('deviceModels')->get();
         // return $models;
 
-        $brandsWithModels = Brand::where('brand_name', $brand)->with('deviceModels')->get();
-        return $brandsWithModels;
+        return BrandGetModelResource::collection(
+            Brand::where('brand_name', $brand)->with('deviceModels')->get()
+        );
+      
+        
     }
 
 
