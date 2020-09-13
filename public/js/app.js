@@ -2759,8 +2759,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2797,7 +2795,15 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     getModels: function getModels(brand) {
-      alert("fetching models for ".concat(this.product.brand));
+      var _this2 = this;
+
+      this.loading = true;
+      axios.get("/api/modely-podla-znacky/".concat(this.product.brand)).then(function (response) {
+        return _this2.models = response.data;
+      }).then(function () {
+        _this2.loading = false;
+        _this2.disabled = false;
+      });
     }
   }
 });
@@ -69224,7 +69230,7 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
+          _c("div", { staticClass: "form-group ml-5" }, [
             _c("label", { attrs: { for: "model" } }, [
               _vm._v("Model produktu")
             ]),
@@ -69265,12 +69271,13 @@ var render = function() {
                   _vm._v("Vyberte model")
                 ]),
                 _vm._v(" "),
-                _c("option", [_vm._v("1")]),
-                _vm._v(" "),
-                _c("option", [_vm._v("2")]),
-                _vm._v(" "),
-                _c("option", [_vm._v("3")])
-              ]
+                _vm._l(_vm.models, function(model, index) {
+                  return _c("option", { key: index }, [
+                    _vm._v(_vm._s(model.model_name))
+                  ])
+                })
+              ],
+              2
             )
           ]),
           _vm._v(" "),

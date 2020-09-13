@@ -13,13 +13,20 @@ class BrandController extends Controller
 {
 
     public function getModels($brand){
-        // $models = Brand::where('brand_name', $brand)->with('deviceModels')->get();
-        // return $models;
+    //    $brand = Brand::where('brand_name', $brand)->first();
+    //     return $brand->deviceModels()->get();
 
+
+
+        // return BrandGetModelResource::collection(
+        //     Brand::where('brand_name', $brand)->with('deviceModels')->get()
+        // );
+        $brand = Brand::where('brand_name', $brand)->first();
         return BrandGetModelResource::collection(
-            Brand::where('brand_name', $brand)->with('deviceModels')->get()
+           
+             $brand->deviceModels()->get()
+
         );
-      
         
     }
 

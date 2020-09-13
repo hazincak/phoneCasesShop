@@ -77,7 +77,7 @@
             </div>
       
         
-            <div class="form-group">
+            <div class="form-group ml-5">
                 <label for="model">Model produktu</label>
                 <select 
                     class="form-control"
@@ -86,9 +86,7 @@
                     :disabled="disabled"
                     >
                         <option disabled value="">Vyberte model</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
+                        <option v-for="(model, index) in models" :key="index">{{model.model_name}}</option>
                 </select>
             </div>
             <div class="form-group">
@@ -217,7 +215,14 @@ export default {
 
     methods:{
         getModels(brand){
-            alert(`fetching models for ${this.product.brand}`)
+            this.loading = true;
+            axios.get(`/api/modely-podla-znacky/${this.product.brand}`)
+                .then(response => (this.models = response.data))
+                .then(()=>{
+                     this.loading = false;
+                    this.disabled = false;
+                });
+            
         }
     }
 }

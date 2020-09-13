@@ -15,8 +15,8 @@ class BrandGetModelResource extends JsonResource
     public function toArray($request)
     {
         return [
-            
-            'models' => $this->deviceModels,
+            'id' => $this->id,
+            'model_name' => $this->model_name,
         ];
     }
 }
