@@ -9,7 +9,7 @@
 <div v-else>
     <div class="row">
         <div class="col-12">
-         <div class="card shadow mb-4">
+         <div class="card shadow mb-4 mt-5">
                 <div class="card-header py-3">
                   <h6 class="m-0 font-weight-bold text-primary">Kategórie produktov</h6>
                 </div>
@@ -49,7 +49,7 @@
             </div>
         </div>
     </div>
-    <div class="row justify-content-center">
+    <div class="row justify-content-left">
         <div class="col-md-6">
             <div class="form-group mt-5">
                 <label for="category_name">Pridať kategoriu</label>
@@ -74,13 +74,15 @@
 </template>
 
 <script>
+import {is404, is422} from "./../../../shared/utils/response";
 import validationErrors from "../../../shared/mixins/validationErrors";
 export default {
   mixins:[validationErrors],
     data(){
         return{
             loading: false,
-            
+            error: false,
+            success: null,
             categories: {},
             category:{
                 category_name:null
@@ -107,14 +109,35 @@ export default {
                 this.categories.splice(index,1);
             });
       },
-      addCategory(){
+     async addCategory(){
+        this.success = null,
         this.loading = true;
         this.errors = null;
-        axios.post('/api/kategorie', this.category)
-          .then(response =>{
-            // this.category = response.data.category;
-            this.loading = false;
+
+       
+        await axios.post('/api/kategorie', this.category)
+          .then(response=>{
+            this.success = 201 === response.status;
+            const fetchedData = response.data;
+            this.categories.push(fetchedData);
           })
+          .catch(err =>{
+            if(is422(err)){
+              const errors = err.response.data.errors;
+              if (errors["category_name"] && 1 === _.size(errors)) {
+              this.errors = errors;
+              return;
+            }
+            }
+            this.error = true;
+            
+          })
+          .then(() => this.loading = false)
+          
+          
+    
+        
+  
       }
 
     }
