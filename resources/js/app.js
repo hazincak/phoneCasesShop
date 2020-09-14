@@ -14,6 +14,7 @@ import Footer from "./components/Footer";
 
 import ValidationErrors from "./shared/components/ValidationErrors";
 
+import FlashMessage from '@smartweb/vue-flash-message';
 import {SpringSpinner} from 'epic-spinners'
 
 import StoreDefinition from './store';
@@ -29,6 +30,7 @@ Vue.component("section-footer", Footer);
 
 Vue.component("v-errors", ValidationErrors);
 
+Vue.use(FlashMessage);
 Vue.component('atom-spinner', SpringSpinner);
 Vue.component('pagination', require('laravel-vue-pagination'));
 

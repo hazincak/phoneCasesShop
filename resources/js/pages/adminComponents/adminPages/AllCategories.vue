@@ -107,6 +107,11 @@ export default {
                 this.loading = false;
                 let index = this.categories.indexOf(item);
                 this.categories.splice(index,1);
+                this.flashMessage.error({
+                  title: 'Kategória úspěšné vymazaná',
+                  icon: false,
+                  message: `Kategória s názvom "${item.category_name}" vymazaná`
+                  });
             });
       },
      async addCategory(){
@@ -120,17 +125,24 @@ export default {
             this.success = 201 === response.status;
             const fetchedData = response.data;
             this.categories.push(fetchedData);
+            this.flashMessage.info({
+               title: `Kategória úspěšné vytvorená`,
+               icon: false,
+               message: `Kategória s názvom "${fetchedData.category_name}" vytvorená`
+            });
           })
           .catch(err =>{
             if(is422(err)){
               const errors = err.response.data.errors;
               if (errors["category_name"] && 1 === _.size(errors)) {
               this.errors = errors;
+
               return;
+
+             
             }
             }
-            this.error = true;
-            
+            this.error = true;            
           })
           .then(() => this.loading = false)
           
