@@ -19,7 +19,7 @@ class CreateImagesTable extends Migration
 
             $table->string('path', 150);
             $table->unsignedBigInteger('product_id')->index();
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
 
         });
     }

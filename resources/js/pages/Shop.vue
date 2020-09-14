@@ -64,7 +64,6 @@ export default {
                     this.products = response.data;
                     this.loading=false;
                 });
-
         },
         changeSideBarStatus(status){
             this.isActive =  status

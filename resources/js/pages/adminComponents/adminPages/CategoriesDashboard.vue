@@ -20,8 +20,8 @@
                         <tr>
                           <th>Id</th>
                           <th>Názov kategórie</th>
-                          <th>Vytvorená</th>
-                          <th>Aktualizovaná</th>
+                          <th>Vytvorené</th>
+                          <th>Aktualizované</th>
                           <th>Odstrániť</th>
                         </tr>
                       </thead>
@@ -29,8 +29,8 @@
                         <tr>
                           <th>Id</th>
                           <th>Názov kategórie</th>
-                          <th>Vytvorená</th>
-                          <th>Aktualizovaná</th>
+                          <th>Vytvorené</th>
+                          <th>Aktualizované</th>
                           <th>Odstrániť</th>
                         </tr>
                       </tfoot>

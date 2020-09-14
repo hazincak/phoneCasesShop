@@ -18,7 +18,7 @@
                 <a href="#products" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle sidebar__itemMainCategory">Produkty</a>
                   <ul class="collapse list-unstyled" id="products">
                       <li class="text-center">
-                        <router-link :to="{name: 'allProducts'}" class="sidebar__itemMainCategory">Vsetky produkty</router-link>
+                        <router-link :to="{name: 'ProductsDashboard'}" class="sidebar__itemMainCategory">Vsetky produkty</router-link>
                       </li>
                        <li class="text-center">
                             <router-link :to="{name: 'addProduct'}" class="sidebar__itemMainCategory">Pridať produkt</router-link>

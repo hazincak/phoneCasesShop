@@ -9,7 +9,7 @@ import Register from "./pages/authComponents/Register";
 import Admin from "./pages/Admin";
 
 import Products from "./pages/adminComponents/adminPages/Products";
-import AllProducts from "./pages/adminComponents/adminPages/AllProducts";
+import ProductsDashboard from "./pages/adminComponents/adminPages/ProductsDashboard";
 import AddProduct from "./pages/adminComponents/adminPages/AddProduct";
 import UpdateProduct from "./pages/adminComponents/adminPages/UpdateProduct";
 
@@ -158,8 +158,8 @@ const routes = [
                 children:[
                     {
                         path: "vsetky-produkty",
-                        name: "allProducts",
-                        component: AllProducts,
+                        name: "ProductsDashboard",
+                        component:ProductsDashboard,
                     },
                     {
                         path: "pridat",
