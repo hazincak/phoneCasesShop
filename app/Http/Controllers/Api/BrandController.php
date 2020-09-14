@@ -59,7 +59,17 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'brand_name' => 'required|min:2|unique:brands',
+        ]);
+
+        $brand = Brand::create([
+            
+            'brand_name'=>$request->brand_name
+        
+        ]);
+       
+        return response()->json($brand);
     }
 
     /**
@@ -102,8 +112,10 @@ class BrandController extends Controller
      * @param  \App\Brand  $brand
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Brand $brand)
+    public function destroy(Brand $brand, $id)
     {
-        //
+        $brand = Brand::findOrFail($id);
+   
+        $brand->delete();
     }
 }

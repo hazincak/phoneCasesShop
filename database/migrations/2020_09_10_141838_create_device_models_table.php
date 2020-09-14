@@ -17,7 +17,7 @@ class CreateDeviceModelsTable extends Migration
             $table->id();
             $table->string('model_name')->nullable();
             $table->unsignedBigInteger('brand_id');
-            $table->foreign('brand_id')->references('id')->on('brands');
+            $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade');
             $table->timestamps();
         });
     }

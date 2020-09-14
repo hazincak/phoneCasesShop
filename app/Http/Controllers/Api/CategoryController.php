@@ -36,7 +36,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->validate([
+        $request->validate([
             'category_name' => 'required|min:2|unique:categories',
         ]);
 
@@ -101,6 +101,5 @@ class CategoryController extends Controller
     {
         $category = Category::findOrFail($id);
         $category->delete();
-        return response()->json(['message'=>'Kategória vymazána']);
     }
 }

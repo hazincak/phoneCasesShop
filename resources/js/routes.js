@@ -16,9 +16,13 @@ import UpdateProduct from "./pages/adminComponents/adminPages/UpdateProduct";
 
 import Users from "./pages/adminComponents/adminPages/Users";
 
+import Brands from "./pages/adminComponents/adminPages/Brands";
+import BrandsDashboard from "./pages/adminComponents/adminPages/BrandsDashboard";
+import BrandUpdate from "./pages/adminComponents/adminPages/BrandUpdate";
+
 import Categories from "./pages/adminComponents/adminPages/Categories";
-import AllCategories from "./pages/adminComponents/adminPages/AllCategories";
-import UpdateCategory from "./pages/adminComponents/adminPages/UpdateCategory";
+import CategoriesDashboard from "./pages/adminComponents/adminPages/CategoriesDashboard";
+import UpdateCategory from "./pages/adminComponents/adminPages/CategoryUpdate";
 
 
 
@@ -117,17 +121,35 @@ const routes = [
                 
                   children:[
                     {
-                        path: "vsetky-kategorie",
-                        name: "allCategories",
-                        component: AllCategories,
+                        path: "kategorie-nahlad",
+                        name: "CategoriesDashboard",
+                        component: CategoriesDashboard,
                     },
                     {
                         path: "aktualizovat-kategorie/:id",
-                        name: "updateCategory",
+                        name: "categoryUpdate",
                         component: UpdateCategory,
                     },
                   ]
               },
+            {
+                path: "znacky",
+                name: "brands",
+                component: Brands,
+
+                children:[
+                    {
+                        path: "znacky-nahlad",
+                        name: "BrandsDashboard",
+                        component: BrandsDashboard,
+                    },
+                    {
+                        path: "aktualizovat-znacku/:id",
+                        name: "brandUpdate",
+                        component: BrandUpdate,
+                    }
+                ]
+            },
             {
               path: "produkty",
               name: "products",

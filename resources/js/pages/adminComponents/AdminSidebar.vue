@@ -14,7 +14,7 @@
                 <h3 class="text-center">Options</h3>
             </div>
             
-            <li class="text-center">
+            <li class="text-left">
                 <a href="#products" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle sidebar__itemMainCategory">Produkty</a>
                   <ul class="collapse list-unstyled" id="products">
                       <li class="text-center">
@@ -28,11 +28,14 @@
 
 
            
-            <li class="text-center">
+            <li class="text-left">
                 <router-link :to="{name: 'users'}" class="sidebar__itemMainCategory">Užívatelia</router-link>
             </li>
-            <li class="text-center">
-                <router-link :to="{name: 'allCategories'}" class="sidebar__itemMainCategory">Vsetky Kategorie</router-link>
+            <li class="text-left">
+                <router-link :to="{name: 'CategoriesDashboard'}" class="sidebar__itemMainCategory">Kategorie</router-link>
+            </li>
+            <li class="text-left">
+                <router-link :to="{name: 'BrandsDashboard'}" class="sidebar__itemMainCategory">Značky</router-link>
             </li>
         </ul>
     </nav>
