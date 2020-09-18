@@ -63,9 +63,9 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show(Category $category, $id)
     {
-        //
+        return Category::with('brands')->findOrFail($id);
     }
 
     /**
@@ -86,9 +86,15 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+           'category_name' => 'required|min:2|unique:categories',
+        ]);
+
+        $category = Category::findOrFail($id);
+
+        $category->update($request->all());
     }
 
     /**

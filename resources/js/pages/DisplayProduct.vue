@@ -2,7 +2,11 @@
     <div class="container">
         
         <div v-if="loading">
-                Data is loading...
+                <atom-spinner class="my-center"
+                :animation-duration="1000"
+                :size="80"
+                :color="'#086972'"
+            />
         </div>
         <div v-else>
             <breadcrumb></breadcrumb>

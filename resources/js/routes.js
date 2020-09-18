@@ -22,7 +22,7 @@ import BrandUpdate from "./pages/adminComponents/adminPages/BrandUpdate";
 
 import Categories from "./pages/adminComponents/adminPages/Categories";
 import CategoriesDashboard from "./pages/adminComponents/adminPages/CategoriesDashboard";
-import UpdateCategory from "./pages/adminComponents/adminPages/CategoryUpdate";
+import CategoryUpdate from "./pages/adminComponents/adminPages/CategoryUpdate";
 
 
 
@@ -128,7 +128,7 @@ const routes = [
                     {
                         path: "aktualizovat-kategorie/:id",
                         name: "categoryUpdate",
-                        component: UpdateCategory,
+                        component: CategoryUpdate,
                     },
                   ]
               },

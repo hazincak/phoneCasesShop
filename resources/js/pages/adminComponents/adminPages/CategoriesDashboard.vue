@@ -49,7 +49,7 @@
             </div>
         </div>
     </div>
-    <div class="row justify-content-center mt-5">
+    <div class="row justify-content-left mt-5">
         <div class="col-md-5">
           <div class="form-group">
               <label for="category_name">Pridať kategoriu</label>
@@ -71,7 +71,7 @@
           
         </div>
         
-</div>
+    </div>
 </div>
 </template>
 
@@ -115,7 +115,6 @@ export default {
             });
       },
      async addCategory(){
-        this.success = null,
         this.loading = true;
         this.errors = null;
 
