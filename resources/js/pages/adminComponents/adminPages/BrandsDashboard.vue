@@ -7,13 +7,14 @@
         />
     </div>
 <div v-else>
-    <div class="row">
-        <div class="col-12">
-         <div class="card shadow mb-4 mt-5">
+  <div class="m-5"><h3>Správca značiek</h3></div>
+    <div class="row m-5">
+        <div class="col-md-8">
+         <div class="card shadow">
                 <div class="card-header py-3">
                   <h3 class="m-0 font-weight-bold text-secondary">Značky produktov</h3>
                 </div>
-                <div class="card-body mt-5">
+                <div class="card-body">
                   <div class="table-responsive table-hover">
                     <table class="table table-bordered" id="users-table" width="100%" cellspacing="0">
                       <thead>
@@ -48,9 +49,7 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row justify-content-center mt-5">
-        <div class="col-md-5">
+        <div class="col-md-4">
             <div class="form-group">
             <label for="brand_name">Pridať značku produktu</label>
                 <input 
@@ -69,8 +68,11 @@
             >Pridať značku</button>
            
         </div>
+    </div>
+    
         
-</div>
+        
+
 </div>
 </template>
 

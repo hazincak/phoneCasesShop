@@ -8,8 +8,8 @@
             />
         </div>
         <div v-else>
-            <div class="mt-5"><h3>Správa kategorií</h3></div>
-            <div class="row justify-content-left mt-5">
+            <div class="m-5"><h3>Správa kategorií</h3></div>
+            <div class="row justify-content-left m-5">
                 <div class="col-md-5">
                     <div class="form-group">
                         <label for="category_name">Premenovat názov kategórie</label>
@@ -30,8 +30,8 @@
                 </div>
             </div>
             <hr>
-            <div class="row justify-content-left mt-5 ml-2">
-                <div class="col md-6">
+            <div class="row justify-content-left m-5">
+                <div class="col-md-8">
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                           <h3 class="m-0 font-weight-bold text-secondary">Značky priradené ku kategorií "{{category.category_name}}"</h3>
@@ -71,7 +71,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col md-6">
+                <div class="col-md-4">
                     
                             <label for="select_brand">Pridat značku ku kategorií "{{category.category_name}}"</label>
                                 <div class="input-group">
@@ -79,9 +79,9 @@
                                         class="custom-select" 
                                         id="inputGroupSelect04" 
                                         name="select_brand"
-                                        v-model="selectedBrand">
+                                        v-model="selectedBrandId">
                                        <option disabled value="">Vyberte značku</option>
-                                       <option v-for="(brand, index) in brands" :key="index">{{brand.brand_name}}</option>
+                                       <option v-for="(brand, index) in brands" :key="index" :value="brand.id">{{brand.brand_name}}</option>
                                      </select>
                                 <div class="input-group-append">
                                   <button class="btn btn-lg btn-success" @click="attachBrandToCategory()">Pridat značku</button>
@@ -103,10 +103,8 @@ export default {
             loading: false,
             category: {},
             brands: {},
-            selectedBrand : '',
-            editCategoryData: {
-                
-            },
+            selectedBrandId: null,
+            editCategoryData: {},
 
         }
     },
@@ -151,13 +149,37 @@ export default {
                 .then(() => this.loading = false)
         },
 
-        unattachBrandFromCategory(){
 
-        },
+
+        
 
         attachBrandToCategory(){
+            this.loading = true;
+            axios.get(`/api/kategorie/${this.category.id}/pridat-znacku/${this.selectedBrandId}`)
+            .then(response => {
+              const fetchedData = response.data;
+              this.category.brands.push(fetchedData);  
+              this.flashMessage.info({
+               title: `Značka úspěšné pridaná ku kategorii`,
+               icon: false,
+               message: `Značka s názvom "${fetchedData.brand_name}" pridaná ku kategorii ${this.category.category_name} `
+            });
+            }).then(() => this.loading = false)
+            },
 
-        }
+        unattachBrandFromCategory(brand){
+            this.loading = true;
+            axios.get(`/api/kategorie/${this.category.id}/odobrat-znacku/${brand.id}`)
+            .then(response => {
+                let index = this.category.brands.indexOf(brand);
+                this.category.brands.splice(index,1);
+                this.flashMessage.error({
+                  title: `Značka úspěšné odobrata z tejto kategorie`,
+                  icon: false,
+                  message: `Značka s názvom "${brand.brand_name}" odobrata z kategorie "${this.category.category_name}"`
+                  });
+            }).then(() => this.loading = false)
+        },
     }
 }
 </script>

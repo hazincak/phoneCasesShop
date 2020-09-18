@@ -2828,6 +2828,196 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/adminComponents/adminPages/BrandUpdate.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/adminComponents/adminPages/BrandUpdate.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _shared_utils_response__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../../shared/utils/response */ "./resources/js/shared/utils/response.js");
+/* harmony import */ var _shared_mixins_validationErrors__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../shared/mixins/validationErrors */ "./resources/js/shared/mixins/validationErrors.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mixins: [_shared_mixins_validationErrors__WEBPACK_IMPORTED_MODULE_1__["default"]],
+  data: function data() {
+    return {
+      loading: false,
+      brand: {},
+      models: {},
+      selectedModelId: null,
+      editBrandData: {}
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    this.loading = true;
+    axios.get("/api/znacky/".concat(this.$route.params.id)).then(function (response) {
+      _this.brand = response.data;
+      _this.loading = false;
+    }); // axios.get('/api/znacky')
+    // .then(response => {
+    //     this.brands = response.data
+    //      this.loading = false
+    // });
+  },
+  methods: {
+    updateBrand: function updateBrand() {
+      var _this2 = this;
+
+      this.loading = true;
+      this.errors = null;
+      axios.put("/api/kategorie/".concat(this.category.id), this.editCategoryData).then(function (response) {
+        _this2.loading = false;
+
+        _this2.flashMessage.info({
+          title: "Kateg\xF3ria \xFAsp\u011B\u0161n\xE9 premenovan\xE1",
+          icon: false,
+          message: "Kateg\xF3ria s n\xE1zvom \"".concat(_this2.category.category_name, "\" bola premenovan\xE1 na kateg\xF3riu s n\xE1zvom \"").concat(_this2.editCategoryData.category_name, "\"")
+        });
+      })["catch"](function (err) {
+        if (Object(_shared_utils_response__WEBPACK_IMPORTED_MODULE_0__["is422"])(err)) {
+          var errors = err.response.data.errors;
+
+          if (errors["category_name"] && 1 === _.size(errors)) {
+            _this2.errors = errors;
+            return;
+          }
+        }
+      }).then(function () {
+        return _this2.loading = false;
+      });
+    } // attachBrandToCategory(){
+    //     this.loading = true;
+    //     axios.get(`/api/kategorie/${this.category.id}/pridat-znacku/${this.selectedBrandId}`)
+    //     .then(response => {
+    //       const fetchedData = response.data;
+    //       this.category.brands.push(fetchedData);  
+    //       this.flashMessage.info({
+    //        title: `Značka úspěšné pridaná ku kategorii`,
+    //        icon: false,
+    //        message: `Značka s názvom "${fetchedData.brand_name}" pridaná ku kategorii ${this.category.category_name} `
+    //     });
+    //     }).then(() => this.loading = false)
+    //     },
+    // unattachBrandFromCategory(brand){
+    //     this.loading = true;
+    //     axios.get(`/api/kategorie/${this.category.id}/odobrat-znacku/${brand.id}`)
+    //     .then(response => {
+    //         let index = this.category.brands.indexOf(brand);
+    //         this.category.brands.splice(index,1);
+    //         this.flashMessage.error({
+    //           title: `Značka úspěšné odobrata z tejto kategorie`,
+    //           icon: false,
+    //           message: `Značka s názvom "${brand.brand_name}" odobrata z kategorie "${this.category.category_name}"`
+    //           });
+    //     }).then(() => this.loading = false)
+    // },
+
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/adminComponents/adminPages/BrandsDashboard.vue?vue&type=script&lang=js&":
 /*!************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/adminComponents/adminPages/BrandsDashboard.vue?vue&type=script&lang=js& ***!
@@ -2847,6 +3037,8 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
 //
 //
 //
@@ -3032,6 +3224,8 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
 //
 //
 //
@@ -3313,7 +3507,7 @@ __webpack_require__.r(__webpack_exports__);
       loading: false,
       category: {},
       brands: {},
-      selectedBrand: '',
+      selectedBrandId: null,
       editCategoryData: {}
     };
   },
@@ -3357,8 +3551,42 @@ __webpack_require__.r(__webpack_exports__);
         return _this2.loading = false;
       });
     },
-    unattachBrandFromCategory: function unattachBrandFromCategory() {},
-    attachBrandToCategory: function attachBrandToCategory() {}
+    attachBrandToCategory: function attachBrandToCategory() {
+      var _this3 = this;
+
+      this.loading = true;
+      axios.get("/api/kategorie/".concat(this.category.id, "/pridat-znacku/").concat(this.selectedBrandId)).then(function (response) {
+        var fetchedData = response.data;
+
+        _this3.category.brands.push(fetchedData);
+
+        _this3.flashMessage.info({
+          title: "Zna\u010Dka \xFAsp\u011B\u0161n\xE9 pridan\xE1 ku kategorii",
+          icon: false,
+          message: "Zna\u010Dka s n\xE1zvom \"".concat(fetchedData.brand_name, "\" pridan\xE1 ku kategorii ").concat(_this3.category.category_name, " ")
+        });
+      }).then(function () {
+        return _this3.loading = false;
+      });
+    },
+    unattachBrandFromCategory: function unattachBrandFromCategory(brand) {
+      var _this4 = this;
+
+      this.loading = true;
+      axios.get("/api/kategorie/".concat(this.category.id, "/odobrat-znacku/").concat(brand.id)).then(function (response) {
+        var index = _this4.category.brands.indexOf(brand);
+
+        _this4.category.brands.splice(index, 1);
+
+        _this4.flashMessage.error({
+          title: "Zna\u010Dka \xFAsp\u011B\u0161n\xE9 odobrata z tejto kategorie",
+          icon: false,
+          message: "Zna\u010Dka s n\xE1zvom \"".concat(brand.brand_name, "\" odobrata z kategorie \"").concat(_this4.category.category_name, "\"")
+        });
+      }).then(function () {
+        return _this4.loading = false;
+      });
+    }
   }
 });
 
@@ -70160,9 +70388,280 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c("div", [
+    _vm.loading
+      ? _c(
+          "div",
+          [
+            _c("atom-spinner", {
+              staticClass: "my-center",
+              attrs: { "animation-duration": 1000, size: 80, color: "#086972" }
+            })
+          ],
+          1
+        )
+      : _c("div", [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("div", { staticClass: "row justify-content-left m-5" }, [
+            _c("div", { staticClass: "col-md-5" }, [
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", { attrs: { for: "brand_name" } }, [
+                    _vm._v("Premenovat názov značky")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.editBrandData.brand_name,
+                        expression: "editBrandData.brand_name"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    class: [{ "is-invalid": _vm.errorFor("brand_name") }],
+                    attrs: {
+                      type: "text",
+                      name: "brand_name",
+                      placeholder: _vm.brand.brand_name
+                    },
+                    domProps: { value: _vm.editBrandData.brand_name },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.editBrandData,
+                          "brand_name",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("v-errors", {
+                    attrs: { errors: _vm.errorFor("brand_name") }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-lg btn-success",
+                  on: {
+                    click: function($event) {
+                      return _vm.updatebrand()
+                    }
+                  }
+                },
+                [_vm._v("Aktualizovať značku")]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("hr"),
+          _vm._v(" "),
+          _c("div", { staticClass: "row justify-content-left m-5" }, [
+            _c("div", { staticClass: "col-md-8" }, [
+              _c("div", { staticClass: "card shadow mb-4" }, [
+                _c("div", { staticClass: "card-header py-3" }, [
+                  _c(
+                    "h3",
+                    { staticClass: "m-0 font-weight-bold text-secondary" },
+                    [
+                      _vm._v(
+                        'Modely priradené ku značke "' +
+                          _vm._s(_vm.brand.brand_name) +
+                          '"'
+                      )
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-body mt-5" }, [
+                  _c("div", { staticClass: "table-responsive table-hover" }, [
+                    _c(
+                      "table",
+                      {
+                        staticClass: "table table-bordered",
+                        attrs: {
+                          id: "users-table",
+                          width: "100%",
+                          cellspacing: "0"
+                        }
+                      },
+                      [
+                        _vm._m(1),
+                        _vm._v(" "),
+                        _vm._m(2),
+                        _vm._v(" "),
+                        _vm._l(_vm.brand.device_models, function(model) {
+                          return _c("tbody", { key: model.id }, [
+                            _c("tr", [
+                              _c("td", [_vm._v(_vm._s(model.id))]),
+                              _vm._v(" "),
+                              _c("td", [_vm._v(_vm._s(model.model_name))]),
+                              _vm._v(" "),
+                              _c("td", [
+                                _vm._v(
+                                  _vm._s(_vm._f("fromNow")(model.created_at))
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("td", [
+                                _vm._v(
+                                  _vm._s(_vm._f("fromNow")(model.updated_at))
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _vm._m(3, true)
+                            ])
+                          ])
+                        })
+                      ],
+                      2
+                    )
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-4" }, [
+              _c("label", { attrs: { for: "select_brand" } }, [
+                _vm._v(
+                  'Pridat model ku značke "' +
+                    _vm._s(_vm.brand.brand_name) +
+                    '"'
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "input-group" }, [
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.selectedModelId,
+                        expression: "selectedModelId"
+                      }
+                    ],
+                    staticClass: "custom-select",
+                    attrs: { id: "inputGroupSelect04", name: "select_brand" },
+                    on: {
+                      change: function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.selectedModelId = $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      }
+                    }
+                  },
+                  [
+                    _c("option", { attrs: { disabled: "", value: "" } }, [
+                      _vm._v("Vyberte model")
+                    ]),
+                    _vm._v(" "),
+                    _vm._l(_vm.brands, function(brand, index) {
+                      return _c(
+                        "option",
+                        { key: index, domProps: { value: brand.id } },
+                        [_vm._v(_vm._s(brand.brand_name))]
+                      )
+                    })
+                  ],
+                  2
+                ),
+                _vm._v(" "),
+                _vm._m(4)
+              ])
+            ])
+          ])
+        ])
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "m-5" }, [
+      _c("h3", [_vm._v("Správca značiek")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Id")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Názov modelu")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Vytvorené")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Aktualizované")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Odstrániť")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tfoot", [
+      _c("tr", [
+        _c("th", [_vm._v("Id")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Názov modelu")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Vytvorené")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Aktualizované")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Odstrániť")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", [
+      _c("button", { staticClass: "btn btn-danger" }, [
+        _c("i", { staticClass: "fas fa-trash-alt" }),
+        _vm._v(" Odstrániť")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "input-group-append" }, [
+      _c("button", { staticClass: "btn btn-lg btn-success" }, [
+        _vm._v("Pridat model")
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -70220,12 +70719,14 @@ var render = function() {
         1
       )
     : _c("div", [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-12" }, [
-            _c("div", { staticClass: "card shadow mb-4 mt-5" }, [
-              _vm._m(0),
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "row m-5" }, [
+          _c("div", { staticClass: "col-md-8" }, [
+            _c("div", { staticClass: "card shadow" }, [
+              _vm._m(1),
               _vm._v(" "),
-              _c("div", { staticClass: "card-body mt-5" }, [
+              _c("div", { staticClass: "card-body" }, [
                 _c("div", { staticClass: "table-responsive table-hover" }, [
                   _c(
                     "table",
@@ -70238,9 +70739,9 @@ var render = function() {
                       }
                     },
                     [
-                      _vm._m(1),
-                      _vm._v(" "),
                       _vm._m(2),
+                      _vm._v(" "),
+                      _vm._m(3),
                       _vm._v(" "),
                       _vm._l(_vm.brands, function(item) {
                         return _c("tbody", { key: item.id }, [
@@ -70300,11 +70801,9 @@ var render = function() {
                 ])
               ])
             ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row justify-content-center mt-5" }, [
-          _c("div", { staticClass: "col-md-5" }, [
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-4" }, [
             _c(
               "div",
               { staticClass: "form-group" },
@@ -70360,6 +70859,14 @@ var render = function() {
       ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "m-5" }, [
+      _c("h3", [_vm._v("Správca značiek")])
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -70464,12 +70971,14 @@ var render = function() {
         1
       )
     : _c("div", [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-12" }, [
-            _c("div", { staticClass: "card shadow mb-4 mt-5" }, [
-              _vm._m(0),
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "row m-5" }, [
+          _c("div", { staticClass: "col-md-8" }, [
+            _c("div", { staticClass: "card shadow" }, [
+              _vm._m(1),
               _vm._v(" "),
-              _c("div", { staticClass: "card-body mt-5" }, [
+              _c("div", { staticClass: "card-body" }, [
                 _c("div", { staticClass: "table-responsive table-hover" }, [
                   _c(
                     "table",
@@ -70482,9 +70991,9 @@ var render = function() {
                       }
                     },
                     [
-                      _vm._m(1),
-                      _vm._v(" "),
                       _vm._m(2),
+                      _vm._v(" "),
+                      _vm._m(3),
                       _vm._v(" "),
                       _vm._l(_vm.categories, function(item) {
                         return _c("tbody", { key: item.id }, [
@@ -70544,11 +71053,9 @@ var render = function() {
                 ])
               ])
             ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row justify-content-left mt-5" }, [
-          _c("div", { staticClass: "col-md-5" }, [
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-4" }, [
             _c(
               "div",
               { staticClass: "form-group" },
@@ -70608,6 +71115,14 @@ var render = function() {
       ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "m-5" }, [
+      _c("h3", [_vm._v("Správca kategorií")])
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -70691,7 +71206,7 @@ var render = function() {
       : _c("div", [
           _vm._m(0),
           _vm._v(" "),
-          _c("div", { staticClass: "row justify-content-left mt-5" }, [
+          _c("div", { staticClass: "row justify-content-left m-5" }, [
             _c("div", { staticClass: "col-md-5" }, [
               _c(
                 "div",
@@ -70756,8 +71271,8 @@ var render = function() {
           _vm._v(" "),
           _c("hr"),
           _vm._v(" "),
-          _c("div", { staticClass: "row justify-content-left mt-5 ml-2" }, [
-            _c("div", { staticClass: "col md-6" }, [
+          _c("div", { staticClass: "row justify-content-left m-5" }, [
+            _c("div", { staticClass: "col-md-8" }, [
               _c("div", { staticClass: "card shadow mb-4" }, [
                 _c("div", { staticClass: "card-header py-3" }, [
                   _c(
@@ -70841,7 +71356,7 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "col md-6" }, [
+            _c("div", { staticClass: "col-md-4" }, [
               _c("label", { attrs: { for: "select_brand" } }, [
                 _vm._v(
                   'Pridat značku ku kategorií "' +
@@ -70858,8 +71373,8 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.selectedBrand,
-                        expression: "selectedBrand"
+                        value: _vm.selectedBrandId,
+                        expression: "selectedBrandId"
                       }
                     ],
                     staticClass: "custom-select",
@@ -70874,7 +71389,7 @@ var render = function() {
                             var val = "_value" in o ? o._value : o.value
                             return val
                           })
-                        _vm.selectedBrand = $event.target.multiple
+                        _vm.selectedBrandId = $event.target.multiple
                           ? $$selectedVal
                           : $$selectedVal[0]
                       }
@@ -70886,9 +71401,11 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _vm._l(_vm.brands, function(brand, index) {
-                      return _c("option", { key: index }, [
-                        _vm._v(_vm._s(brand.brand_name))
-                      ])
+                      return _c(
+                        "option",
+                        { key: index, domProps: { value: brand.id } },
+                        [_vm._v(_vm._s(brand.brand_name))]
+                      )
                     })
                   ],
                   2
@@ -70919,7 +71436,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mt-5" }, [
+    return _c("div", { staticClass: "m-5" }, [
       _c("h3", [_vm._v("Správa kategorií")])
     ])
   },
@@ -90289,15 +90806,17 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _BrandUpdate_vue_vue_type_template_id_0543042e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./BrandUpdate.vue?vue&type=template&id=0543042e& */ "./resources/js/pages/adminComponents/adminPages/BrandUpdate.vue?vue&type=template&id=0543042e&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _BrandUpdate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./BrandUpdate.vue?vue&type=script&lang=js& */ "./resources/js/pages/adminComponents/adminPages/BrandUpdate.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-var script = {}
+
+
 
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
-  script,
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _BrandUpdate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _BrandUpdate_vue_vue_type_template_id_0543042e___WEBPACK_IMPORTED_MODULE_0__["render"],
   _BrandUpdate_vue_vue_type_template_id_0543042e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
@@ -90311,6 +90830,20 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 if (false) { var api; }
 component.options.__file = "resources/js/pages/adminComponents/adminPages/BrandUpdate.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/pages/adminComponents/adminPages/BrandUpdate.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************!*\
+  !*** ./resources/js/pages/adminComponents/adminPages/BrandUpdate.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_BrandUpdate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./BrandUpdate.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/adminComponents/adminPages/BrandUpdate.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_BrandUpdate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 

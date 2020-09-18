@@ -78,9 +78,9 @@ class BrandController extends Controller
      * @param  \App\Brand  $brand
      * @return \Illuminate\Http\Response
      */
-    public function show(Brand $brand)
+    public function show(Brand $brand, $id)
     {
-        //
+        return Brand::with('deviceModels')->findOrFail($id);
     }
 
     /**

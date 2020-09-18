@@ -30,5 +30,9 @@ Route::apiResource('produkt', 'api\ProductController');
 
 Route::apiResource('kategorie', 'api\CategoryController');
 
+Route::get('kategorie/{category}/pridat-znacku/{brand}', 'api\CategoryBrandsController@attachBrandToCategory');
+
+Route::get('kategorie/{category}/odobrat-znacku/{brand}', 'api\CategoryBrandsController@unAttachBrandFromCategory');
+
 Route::apiResource('znacky', 'api\BrandController');
 
