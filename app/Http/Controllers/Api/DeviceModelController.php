@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Brand;
 use App\Http\Controllers\Controller;
 
 use App\DeviceModel;
@@ -20,16 +21,6 @@ class DeviceModelController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -37,7 +28,20 @@ class DeviceModelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'model_name' => 'required|unique:device_models',
+        ]);
+
+        $model = DeviceModel::create([
+            'model_name' => $request->model_name,
+            'brand_id' => $request->brand_id
+        ]);
+        
+        $brand_id = $request->brand_id;
+        $brand = Brand::findOrFail($brand_id);
+        $brand->deviceModels()->save($model);
+        return response()->json($model);
+
     }
 
     /**
@@ -80,8 +84,10 @@ class DeviceModelController extends Controller
      * @param  \App\DeviceModel  $deviceModel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DeviceModel $deviceModel)
+    public function destroy($id)
     {
-        //
+        $model = DeviceModel::findOrFail($id);
+   
+        $model->delete();
     }
 }

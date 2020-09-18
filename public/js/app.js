@@ -2934,6 +2934,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2944,7 +2948,11 @@ __webpack_require__.r(__webpack_exports__);
       brand: {},
       models: {},
       selectedModelId: null,
-      editBrandData: {}
+      editBrandData: {},
+      model: {
+        model_name: null,
+        brand_id: null
+      }
     };
   },
   created: function created() {
@@ -2954,11 +2962,7 @@ __webpack_require__.r(__webpack_exports__);
     axios.get("/api/znacky/".concat(this.$route.params.id)).then(function (response) {
       _this.brand = response.data;
       _this.loading = false;
-    }); // axios.get('/api/znacky')
-    // .then(response => {
-    //     this.brands = response.data
-    //      this.loading = false
-    // });
+    });
   },
   methods: {
     updateBrand: function updateBrand() {
@@ -2966,25 +2970,71 @@ __webpack_require__.r(__webpack_exports__);
 
       this.loading = true;
       this.errors = null;
-      axios.put("/api/kategorie/".concat(this.category.id), this.editCategoryData).then(function (response) {
+      axios.put("/api/znacky/".concat(this.brand.id), this.editBrandData).then(function (response) {
         _this2.loading = false;
 
         _this2.flashMessage.info({
-          title: "Kateg\xF3ria \xFAsp\u011B\u0161n\xE9 premenovan\xE1",
+          title: "Zna\u010Dka \xFAsp\u011B\u0161n\xE9 premenovan\xE1",
           icon: false,
-          message: "Kateg\xF3ria s n\xE1zvom \"".concat(_this2.category.category_name, "\" bola premenovan\xE1 na kateg\xF3riu s n\xE1zvom \"").concat(_this2.editCategoryData.category_name, "\"")
+          message: "Zna\u010Dka s n\xE1zvom \"".concat(_this2.brand.brand_name, "\" bola premenovan\xE1 na zna\u010Dku s n\xE1zvom \"").concat(_this2.editBrandData.brand_name, "\"")
         });
       })["catch"](function (err) {
         if (Object(_shared_utils_response__WEBPACK_IMPORTED_MODULE_0__["is422"])(err)) {
           var errors = err.response.data.errors;
 
-          if (errors["category_name"] && 1 === _.size(errors)) {
+          if (errors["brand_name"] && 1 === _.size(errors)) {
             _this2.errors = errors;
             return;
           }
         }
       }).then(function () {
         return _this2.loading = false;
+      });
+    },
+    addModelAndAttachToBrand: function addModelAndAttachToBrand() {
+      var _this3 = this;
+
+      this.loading = true;
+      this.model.brand_id = this.brand.id;
+      axios.post("/api/model", this.model).then(function (response) {
+        var fetchedData = response.data;
+
+        _this3.brand.device_models.push(fetchedData);
+
+        _this3.flashMessage.info({
+          title: 'Model úspěšné vytvorený',
+          icon: false,
+          message: "Model s n\xE1zvom \"".concat(_this3.model.model_name, "\" vytvoren\xFD a priraden\xFD ku zna\u010Dke ").concat(_this3.brand.brand_name)
+        });
+      })["catch"](function (err) {
+        if (Object(_shared_utils_response__WEBPACK_IMPORTED_MODULE_0__["is422"])(err)) {
+          var errors = err.response.data.errors;
+
+          if (errors['model_name'] && 1 === _.size(errors)) {
+            _this3.errors = errors;
+            return;
+          }
+        }
+      }).then(function () {
+        return _this3.loading = false;
+      });
+    },
+    deleteModel: function deleteModel(model) {
+      var _this4 = this;
+
+      this.loading = true;
+      axios["delete"]("/api/model/".concat(model.id)).then(function (response) {
+        var index = _this4.brand.device_models.indexOf(model);
+
+        _this4.brand.device_models.splice(index, 1);
+
+        _this4.flashMessage.error({
+          title: 'Model úspěšné vymazaný',
+          icon: false,
+          message: "Model s n\xE1zvom \"".concat(model.model_name, "\" vymazan\xFD")
+        });
+      }).then(function () {
+        return _this4.loading = false;
       });
     } // attachBrandToCategory(){
     //     this.loading = true;
@@ -3027,16 +3077,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _shared_utils_response__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../shared/utils/response */ "./resources/js/shared/utils/response.js");
-/* harmony import */ var _shared_mixins_validationErrors__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../shared/mixins/validationErrors */ "./resources/js/shared/mixins/validationErrors.js");
-
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
+/* harmony import */ var _shared_utils_response__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../../shared/utils/response */ "./resources/js/shared/utils/response.js");
+/* harmony import */ var _shared_mixins_validationErrors__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../shared/mixins/validationErrors */ "./resources/js/shared/mixins/validationErrors.js");
 //
 //
 //
@@ -3118,7 +3160,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mixins: [_shared_mixins_validationErrors__WEBPACK_IMPORTED_MODULE_2__["default"]],
+  mixins: [_shared_mixins_validationErrors__WEBPACK_IMPORTED_MODULE_1__["default"]],
   data: function data() {
     return {
       loading: false,
@@ -3160,45 +3202,31 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     addBrand: function addBrand() {
       var _this3 = this;
 
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _this3.success = null, _this3.loading = true;
-                _this3.errors = null;
-                _context.next = 4;
-                return axios.post('/api/znacky', _this3.brand).then(function (response) {
-                  _this3.success = 201 === response.status;
-                  var fetchedData = response.data;
+      this.success = null, this.loading = true;
+      this.errors = null;
+      axios.post('/api/znacky', this.brand).then(function (response) {
+        _this3.success = 201 === response.status;
+        var fetchedData = response.data;
 
-                  _this3.brands.push(fetchedData);
+        _this3.brands.push(fetchedData);
 
-                  _this3.flashMessage.info({
-                    title: "Zna\u010Dka \xFAsp\u011B\u0161n\xE9 vytvoren\xE1",
-                    icon: false,
-                    message: "Zna\u010Dka s n\xE1zvom \"".concat(fetchedData.brand_name, "\" vytvoren\xE1")
-                  });
-                })["catch"](function (err) {
-                  if (Object(_shared_utils_response__WEBPACK_IMPORTED_MODULE_1__["is422"])(err)) {
-                    var errors = err.response.data.errors;
+        _this3.flashMessage.info({
+          title: "Zna\u010Dka \xFAsp\u011B\u0161n\xE9 vytvoren\xE1",
+          icon: false,
+          message: "Zna\u010Dka s n\xE1zvom \"".concat(fetchedData.brand_name, "\" vytvoren\xE1")
+        });
+      })["catch"](function (err) {
+        if (Object(_shared_utils_response__WEBPACK_IMPORTED_MODULE_0__["is422"])(err)) {
+          var errors = err.response.data.errors;
 
-                    if (errors["brand_name"] && 1 === _.size(errors)) {
-                      _this3.errors = errors;
-                      return;
-                    }
-                  }
-                }).then(function () {
-                  return _this3.loading = false;
-                });
-
-              case 4:
-              case "end":
-                return _context.stop();
-            }
+          if (errors["brand_name"] && 1 === _.size(errors)) {
+            _this3.errors = errors;
+            return;
           }
-        }, _callee);
-      }))();
+        }
+      }).then(function () {
+        return _this3.loading = false;
+      });
     }
   }
 });
@@ -3356,7 +3384,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _this3.errors = null;
                 _context.next = 4;
                 return axios.post('/api/kategorie', _this3.category).then(function (response) {
-                  _this3.success = 201 === response.status;
                   var fetchedData = response.data;
 
                   _this3.categories.push(fetchedData);
@@ -70457,7 +70484,7 @@ var render = function() {
                   staticClass: "btn btn-lg btn-success",
                   on: {
                     click: function($event) {
-                      return _vm.updatebrand()
+                      return _vm.updateBrand()
                     }
                   }
                 },
@@ -70485,7 +70512,7 @@ var render = function() {
                   )
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "card-body mt-5" }, [
+                _c("div", { staticClass: "card-body" }, [
                   _c("div", { staticClass: "table-responsive table-hover" }, [
                     _c(
                       "table",
@@ -70521,7 +70548,25 @@ var render = function() {
                                 )
                               ]),
                               _vm._v(" "),
-                              _vm._m(3, true)
+                              _c("td", [
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass: "btn btn-danger",
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.deleteModel(model)
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _c("i", {
+                                      staticClass: "fas fa-trash-alt"
+                                    }),
+                                    _vm._v(" Odstrániť")
+                                  ]
+                                )
+                              ])
                             ])
                           ])
                         })
@@ -70536,60 +70581,62 @@ var render = function() {
             _c("div", { staticClass: "col-md-4" }, [
               _c("label", { attrs: { for: "select_brand" } }, [
                 _vm._v(
-                  'Pridat model ku značke "' +
+                  'Pridať model a priradiť ku značke "' +
                     _vm._s(_vm.brand.brand_name) +
                     '"'
                 )
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "input-group" }, [
-                _c(
-                  "select",
-                  {
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("input", {
                     directives: [
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.selectedModelId,
-                        expression: "selectedModelId"
+                        value: _vm.model.model_name,
+                        expression: "model.model_name"
                       }
                     ],
-                    staticClass: "custom-select",
-                    attrs: { id: "inputGroupSelect04", name: "select_brand" },
+                    staticClass: "form-control",
+                    class: [{ "is-invalid": _vm.errorFor("model_name") }],
+                    attrs: {
+                      type: "text",
+                      name: "model_name",
+                      placeholder: "Názov modelu"
+                    },
+                    domProps: { value: _vm.model.model_name },
                     on: {
-                      change: function($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
-                            return o.selected
-                          })
-                          .map(function(o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.selectedModelId = $event.target.multiple
-                          ? $$selectedVal
-                          : $$selectedVal[0]
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.model, "model_name", $event.target.value)
                       }
                     }
-                  },
-                  [
-                    _c("option", { attrs: { disabled: "", value: "" } }, [
-                      _vm._v("Vyberte model")
-                    ]),
-                    _vm._v(" "),
-                    _vm._l(_vm.brands, function(brand, index) {
-                      return _c(
-                        "option",
-                        { key: index, domProps: { value: brand.id } },
-                        [_vm._v(_vm._s(brand.brand_name))]
-                      )
-                    })
-                  ],
-                  2
-                ),
-                _vm._v(" "),
-                _vm._m(4)
-              ])
+                  }),
+                  _vm._v(" "),
+                  _c("v-errors", {
+                    attrs: { errors: _vm.errorFor("model_name") }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-lg btn-success",
+                  on: {
+                    click: function($event) {
+                      return _vm.addModelAndAttachToBrand()
+                    }
+                  }
+                },
+                [_vm._v("Pridať a priradiť model")]
+              )
             ])
           ])
         ])
@@ -70637,27 +70684,6 @@ var staticRenderFns = [
         _c("th", [_vm._v("Aktualizované")]),
         _vm._v(" "),
         _c("th", [_vm._v("Odstrániť")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [
-      _c("button", { staticClass: "btn btn-danger" }, [
-        _c("i", { staticClass: "fas fa-trash-alt" }),
-        _vm._v(" Odstrániť")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "input-group-append" }, [
-      _c("button", { staticClass: "btn btn-lg btn-success" }, [
-        _vm._v("Pridat model")
       ])
     ])
   }

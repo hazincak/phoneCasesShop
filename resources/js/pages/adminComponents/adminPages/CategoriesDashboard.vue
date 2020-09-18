@@ -123,7 +123,6 @@ export default {
        
         await axios.post('/api/kategorie', this.category)
           .then(response=>{
-            this.success = 201 === response.status;
             const fetchedData = response.data;
             this.categories.push(fetchedData);
             this.flashMessage.info({

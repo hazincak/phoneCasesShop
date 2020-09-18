@@ -101,9 +101,15 @@ class BrandController extends Controller
      * @param  \App\Brand  $brand
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Brand $brand)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'brand_name' => 'required|min:2|unique:brands',
+         ]);
+ 
+         $brand = Brand::findOrFail($id);
+ 
+         $brand->update($request->all());
     }
 
     /**
@@ -112,7 +118,7 @@ class BrandController extends Controller
      * @param  \App\Brand  $brand
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Brand $brand, $id)
+    public function destroy( $id)
     {
         $brand = Brand::findOrFail($id);
    

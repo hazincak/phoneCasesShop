@@ -116,13 +116,13 @@ export default {
                   });
             });
       },
-     async addBrand(){
+      addBrand(){
         this.success = null,
         this.loading = true;
         this.errors = null;
 
        
-        await axios.post('/api/znacky', this.brand)
+      axios.post('/api/znacky', this.brand)
           .then(response=>{
             this.success = 201 === response.status;
             const fetchedData = response.data;
