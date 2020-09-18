@@ -9,6 +9,10 @@ use App\Brand;
 
 class CategoryBrandsController extends Controller
 {
+    public function getCategoriesWithBrands(){
+        return Category::with('brands')->get();
+    }
+
     public function attachBrandToCategory(Request $request, $id, $brandId){
         $category = Category::findOrFail($id);
         $brand = Brand::findOrFail($brandId);

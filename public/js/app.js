@@ -4306,34 +4306,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     isActive: Boolean
-  }
+  },
+  data: function data() {
+    return {
+      sidebarListItems: {},
+      selectedCategory: null,
+      selectedBrand: null
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    axios.get('/api/sidebar/kontent').then(function (response) {
+      _this.sidebarListItems = response.data;
+    });
+  },
+  methods: {}
 });
 
 /***/ }),
@@ -73020,167 +73011,101 @@ var render = function() {
       _c("nav", { attrs: { id: "sidebar" } }, [
         _vm._m(0),
         _vm._v(" "),
-        _c("ul", { staticClass: "list-unstyled" }, [
-          _vm._m(1),
-          _vm._v(" "),
-          _c("li", { staticClass: "text-center" }, [
+        _vm._m(1),
+        _vm._v(" "),
+        _c(
+          "ul",
+          { staticClass: "list-group" },
+          [
             _c(
-              "a",
-              {
-                staticClass: "dropdown-toggle sidebar__itemMainCategory",
-                attrs: {
-                  href: "#phoneCovers",
-                  "data-toggle": "collapse",
-                  "aria-expanded": "false"
-                }
-              },
-              [_vm._v("Obaly na mobil")]
-            ),
-            _vm._v(" "),
-            _c(
-              "ul",
-              {
-                staticClass: "collapse list-unstyled",
-                attrs: { id: "phoneCovers" }
-              },
-              [
-                _c("li", [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "dropdown-toggle sidebar__itemBrandCategory",
-                      attrs: {
-                        href: "#phoneBrandApple",
-                        "data-toggle": "collapse",
-                        "aria-expanded": "false"
+              "transition-group",
+              { attrs: { name: "fade" } },
+              _vm._l(_vm.sidebarListItems, function(category) {
+                return _c(
+                  "li",
+                  {
+                    key: category.id,
+                    staticClass: "text-left",
+                    on: {
+                      click: function($event) {
+                        _vm.selectedCategory = category.id
                       }
-                    },
-                    [_vm._v("Apple")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "ul",
-                    {
-                      staticClass: "collapse list-unstyled",
-                      attrs: { id: "phoneBrandApple" }
-                    },
-                    [
-                      _c(
-                        "li",
-                        [
-                          _c(
-                            "router-link",
-                            {
-                              staticClass: "sidebar__itemModelCategory",
-                              attrs: {
-                                to: {
-                                  name: "obchod-model-obaly",
-                                  params: { model: "Iphone 10" }
-                                }
-                              }
-                            },
-                            [_vm._v("Iphone 10")]
+                    }
+                  },
+                  [
+                    _vm._v(
+                      " \r\n               " +
+                        _vm._s(category.category_name) +
+                        "\r\n               "
+                    ),
+                    _c("transition", { attrs: { name: "fade" } }, [
+                      _vm.selectedCategory == category.id
+                        ? _c(
+                            "div",
+                            _vm._l(category.brands, function(brand) {
+                              return _c(
+                                "ul",
+                                {
+                                  key: brand.id,
+                                  staticClass: "list-group ml-3",
+                                  on: {
+                                    click: function($event) {
+                                      _vm.selectedBrand = brand.id
+                                    }
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    _vm._s(brand.brand_name) +
+                                      "\r\n                        "
+                                  ),
+                                  _c(
+                                    "transition",
+                                    { attrs: { name: "fade" } },
+                                    [
+                                      _vm.selectedBrand == brand.id
+                                        ? _c(
+                                            "div",
+                                            _vm._l(
+                                              brand.device_models,
+                                              function(model) {
+                                                return _c(
+                                                  "ul",
+                                                  {
+                                                    key: model.id,
+                                                    staticClass:
+                                                      "list-group ml-4"
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      _vm._s(model.model_name)
+                                                    )
+                                                  ]
+                                                )
+                                              }
+                                            ),
+                                            0
+                                          )
+                                        : _vm._e()
+                                    ]
+                                  )
+                                ],
+                                1
+                              )
+                            }),
+                            0
                           )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "li",
-                        [
-                          _c(
-                            "router-link",
-                            {
-                              staticClass: "sidebar__itemModelCategory",
-                              attrs: {
-                                to: {
-                                  name: "obchod-model-obaly",
-                                  params: { model: "Iphone 9" }
-                                }
-                              }
-                            },
-                            [_vm._v("Iphone 9")]
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "li",
-                        [
-                          _c(
-                            "router-link",
-                            {
-                              staticClass: "sidebar__itemModelCategory",
-                              attrs: {
-                                to: {
-                                  name: "obchod-model-obaly",
-                                  params: { model: "Iphone 8" }
-                                }
-                              }
-                            },
-                            [_vm._v("Iphone 8")]
-                          )
-                        ],
-                        1
-                      )
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "dropdown-toggle sidebar__itemBrandCategory",
-                      attrs: {
-                        href: "#phoneBrandMotorola",
-                        "data-toggle": "collapse",
-                        "aria-expanded": "false"
-                      }
-                    },
-                    [_vm._v("Motorola")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "ul",
-                    {
-                      staticClass: "collapse list-unstyled",
-                      attrs: { id: "phoneBrandMotorola" }
-                    },
-                    [
-                      _c(
-                        "li",
-                        [
-                          _c(
-                            "router-link",
-                            {
-                              staticClass: "sidebar__itemModelCategory",
-                              attrs: {
-                                to: {
-                                  name: "obchod-model-obaly",
-                                  params: { model: "Iphone 10" }
-                                }
-                              }
-                            },
-                            [_vm._v("Iphone 10")]
-                          )
-                        ],
-                        1
-                      )
-                    ]
-                  )
-                ])
-              ]
+                        : _vm._e()
+                    ])
+                  ],
+                  1
+                )
+              }),
+              0
             )
-          ]),
-          _vm._v(" "),
-          _vm._m(2),
-          _vm._v(" "),
-          _vm._m(3),
-          _vm._v(" "),
-          _vm._m(4)
-        ])
+          ],
+          1
+        )
       ])
     ]
   )
@@ -73200,114 +73125,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "sidebar-subheader" }, [
       _c("h3", { staticClass: "text-center" }, [_vm._v("Kategorie produktov")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "text-center" }, [
-      _c(
-        "a",
-        {
-          staticClass: "dropdown-toggle sidebar__itemMainCategory",
-          attrs: {
-            href: "#tabletCovers",
-            "data-toggle": "collapse",
-            "aria-expanded": "false"
-          }
-        },
-        [_vm._v("Obaly na tablet")]
-      ),
-      _vm._v(" "),
-      _c(
-        "ul",
-        {
-          staticClass: "collapse list-unstyled",
-          attrs: { id: "tabletCovers" }
-        },
-        [
-          _c("li", [
-            _c(
-              "a",
-              {
-                staticClass: "dropdown-toggle",
-                attrs: {
-                  href: "#tabletBrandApple",
-                  "data-toggle": "collapse",
-                  "aria-expanded": "false"
-                }
-              },
-              [_vm._v("Apple")]
-            ),
-            _vm._v(" "),
-            _c(
-              "ul",
-              {
-                staticClass: "collapse list-unstyled",
-                attrs: { id: "tabletBrandApple" }
-              },
-              [
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [_vm._v("Apple iPad Pro")])
-                ])
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c(
-              "a",
-              {
-                staticClass: "dropdown-toggle",
-                attrs: {
-                  href: "#tabletBrandSamsung",
-                  "data-toggle": "collapse",
-                  "aria-expanded": "false"
-                }
-              },
-              [_vm._v("Samsung")]
-            ),
-            _vm._v(" "),
-            _c(
-              "ul",
-              {
-                staticClass: "collapse list-unstyled",
-                attrs: { id: "tabletBrandSamsung" }
-              },
-              [
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [_vm._v("Galaxy Tab s")])
-                ])
-              ]
-            )
-          ])
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "text-center" }, [
-      _c(
-        "a",
-        { staticClass: "sidebar__itemMainCategory", attrs: { href: "#" } },
-        [_vm._v("Ochranné sklá")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "text-center" }, [
-      _c(
-        "a",
-        { staticClass: "sidebar__itemMainCategory", attrs: { href: "#" } },
-        [_vm._v("Príslušenstvo")]
-      )
     ])
   }
 ]

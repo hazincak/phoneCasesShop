@@ -8,54 +8,30 @@
         <div class="sidebar-header">
             <h2 class="text-center">Menu</h2>
         </div>
-
-        <ul class="list-unstyled">
-            <div class="sidebar-subheader">
+        <div class="sidebar-subheader">
                 <h3 class="text-center">Kategorie produktov</h3>
             </div>
-            
-            <li class="text-center">
-                <a href="#phoneCovers" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle sidebar__itemMainCategory">Obaly na mobil</a>
-                  <ul class="collapse list-unstyled" id="phoneCovers">
-                      <li>
-                          <a href="#phoneBrandApple" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle sidebar__itemBrandCategory">Apple</a>
-                            <ul class="collapse list-unstyled" id="phoneBrandApple">
-                                <li><router-link class="sidebar__itemModelCategory" :to="{name:'obchod-model-obaly', params: {model: 'Iphone 10'}}">Iphone 10</router-link></li>
-                                <li><router-link class="sidebar__itemModelCategory"  :to="{name:'obchod-model-obaly', params: {model: 'Iphone 9'}}">Iphone 9</router-link></li>
-                                <li><router-link class="sidebar__itemModelCategory"  :to="{name:'obchod-model-obaly', params: {model: 'Iphone 8'}}">Iphone 8</router-link></li>
-                            </ul>
-                      </li>
-                      <li>
-                          <a href="#phoneBrandMotorola" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle sidebar__itemBrandCategory">Motorola</a>
-                            <ul class="collapse list-unstyled" id="phoneBrandMotorola">
-                              <li><router-link class="sidebar__itemModelCategory" :to="{name:'obchod-model-obaly', params: {model: 'Iphone 10'}}">Iphone 10</router-link></li>
-                            </ul>
-                      </li>
-                  </ul>
+
+        <ul class="list-group">
+            <transition-group name="fade">            
+            <li v-for="category in sidebarListItems" :key="category.id" class="text-left" @click="selectedCategory = category.id"> 
+               {{category.category_name}}
+               <transition name="fade"> 
+                <div v-if="selectedCategory == category.id" >
+                    
+                     <ul class="list-group ml-3" v-for="brand in category.brands" :key="brand.id"  @click="selectedBrand = brand.id">{{brand.brand_name}}
+                        <transition name="fade">
+                        <div v-if="selectedBrand == brand.id" >
+                             <ul class="list-group ml-4" v-for="model in brand.device_models" :key="model.id">{{model.model_name}}</ul>
+                        </div>
+                        </transition>
+                     </ul>
+                    
+                </div>
+                </transition>
+                   
             </li>
-            <li class="text-center">
-                <a href="#tabletCovers" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle sidebar__itemMainCategory">Obaly na tablet</a>
-                <ul class="collapse list-unstyled" id="tabletCovers">
-                    <li>
-                          <a href="#tabletBrandApple" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Apple</a>
-                            <ul class="collapse list-unstyled" id="tabletBrandApple">
-                                <li><a href="#">Apple iPad Pro</a></li>
-                            </ul>
-                      </li>
-                      <li>
-                          <a href="#tabletBrandSamsung" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Samsung</a>
-                            <ul class="collapse list-unstyled" id="tabletBrandSamsung">
-                              <li><a href="#">Galaxy Tab s</a></li>
-                            </ul>
-                      </li>
-                </ul>
-            </li>
-            <li class="text-center">
-                <a href="#" class="sidebar__itemMainCategory">Ochranné sklá</a>
-            </li>
-            <li class="text-center">
-                <a href="#" class="sidebar__itemMainCategory">Príslušenstvo</a>
-            </li>
+            </transition-group>
         </ul>
     </nav>
 
@@ -64,8 +40,30 @@
 <script>
 export default {
     props:{
-        isActive: Boolean
+        isActive: Boolean,
     },
+
+    data(){
+        return{
+            sidebarListItems:{},
+            selectedCategory: null,
+            selectedBrand: null
+        }
+    },
+
+    created(){
+        axios.get('/api/sidebar/kontent')
+        .then(response => {
+            this.sidebarListItems = response.data
+        })
+    },
+
+    methods:{
+      
+        
+    }
+
+
 }
 </script>
 

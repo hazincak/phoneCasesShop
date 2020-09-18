@@ -32,9 +32,13 @@ Route::apiResource('kategorie', 'api\CategoryController');
 
 Route::apiResource('model', 'api\DeviceModelController');
 
+Route::get('kategorie-a-znacky', 'api\CategoryBrandsController@getCategoriesWithBrands');
+
 Route::get('kategorie/{category}/pridat-znacku/{brand}', 'api\CategoryBrandsController@attachBrandToCategory');
 
 Route::get('kategorie/{category}/odobrat-znacku/{brand}', 'api\CategoryBrandsController@unAttachBrandFromCategory');
 
 Route::apiResource('znacky', 'api\BrandController');
+
+Route::get('sidebar/kontent', 'api\CategoriesBrandsModelsController');
 
