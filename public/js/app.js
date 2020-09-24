@@ -4473,7 +4473,8 @@ __webpack_require__.r(__webpack_exports__);
     return {
       sidebarListItems: [],
       selectedCategory: null,
-      selectedBrand: null
+      selectedBrand: {},
+      filteredModels: null
     };
   },
   created: function created() {
@@ -4483,13 +4484,19 @@ __webpack_require__.r(__webpack_exports__);
       _this.sidebarListItems = response.data;
     });
   },
-  //     computed: {
-  //         productCategories () {
-  //         // return uniq(this.sidebarListItems.map(({ category }) => category))
-  //         return _.uniqBy(this.sidebarListItems, 'category.category_name')
-  //   }
-  //     },
-  methods: {}
+  watch: {
+    selectedCategory: function selectedCategory() {
+      this.filteredModels = null;
+    }
+  },
+  methods: {
+    getFilteredModels: function getFilteredModels(categoryId) {
+      this.filteredModels = null;
+      this.filteredModels = _.filter(this.selectedBrand.device_models, function (model) {
+        return _.some(model.categories, ['id', categoryId]);
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -75225,11 +75232,11 @@ var render = function() {
             _c(
               "transition-group",
               { attrs: { name: "fade" } },
-              _vm._l(_vm.productCategories, function(category, index) {
+              _vm._l(_vm.sidebarListItems, function(category) {
                 return _c(
                   "li",
                   {
-                    key: index,
+                    key: category.id,
                     staticClass: "text-left mb-4 mt-4",
                     on: {
                       click: function($event) {
@@ -75239,7 +75246,7 @@ var render = function() {
                   },
                   [
                     _c("span", { staticClass: "sidebar--link" }, [
-                      _vm._v(_vm._s(category.category.category_name))
+                      _vm._v(_vm._s(category.category_name))
                     ]),
                     _vm._v(" "),
                     _c("transition", { attrs: { name: "fade" } }, [
@@ -75254,7 +75261,10 @@ var render = function() {
                                   staticClass: "list-group ml-4 mb-4 mt-4",
                                   on: {
                                     click: function($event) {
-                                      _vm.selectedBrand = brand.id
+                                      _vm.selectedBrand = brand
+                                      _vm.getFilteredModels(
+                                        _vm.selectedCategory
+                                      )
                                     }
                                   }
                                 },
@@ -75267,38 +75277,35 @@ var render = function() {
                                     "transition",
                                     { attrs: { name: "fade" } },
                                     [
-                                      _vm.selectedBrand == brand.id
+                                      _vm.selectedBrand.id == brand.id
                                         ? _c(
                                             "div",
-                                            _vm._l(
-                                              brand.device_models,
-                                              function(model) {
-                                                return _c(
-                                                  "ul",
-                                                  {
-                                                    key: model.id,
-                                                    staticClass:
-                                                      "list-group ml-4 mb-4 mt-4"
-                                                  },
-                                                  [
-                                                    _c(
-                                                      "span",
-                                                      {
-                                                        staticClass:
-                                                          "sidebar--link"
-                                                      },
-                                                      [
-                                                        _vm._v(
-                                                          _vm._s(
-                                                            model.model_name
-                                                          )
-                                                        )
-                                                      ]
-                                                    )
-                                                  ]
-                                                )
-                                              }
-                                            ),
+                                            _vm._l(_vm.filteredModels, function(
+                                              model
+                                            ) {
+                                              return _c(
+                                                "ul",
+                                                {
+                                                  key: model.id,
+                                                  staticClass:
+                                                    "list-group ml-4 mb-4 mt-4"
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticClass:
+                                                        "sidebar--link"
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(model.model_name)
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            }),
                                             0
                                           )
                                         : _vm._e()

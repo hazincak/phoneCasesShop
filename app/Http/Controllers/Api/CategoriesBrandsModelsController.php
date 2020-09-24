@@ -30,9 +30,10 @@ class CategoriesBrandsModelsController extends Controller
 
     public function getSideBarContent(){
           $sideBarContent = Category::with(['brands.deviceModels' => function($query){
-            $query->whereHas('categories');
-            }
-        ])->get();
+            $query->whereHas('categories')->with('categories');
+            
+            
+          }])->get();
 
         return $sideBarContent;
     }

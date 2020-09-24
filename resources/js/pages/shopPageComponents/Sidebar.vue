@@ -14,16 +14,16 @@
 
         <ul class="list-group">
             <transition-group name="fade">            
-            <li v-for="(category, index) in productCategories" :key="index"  class="text-left mb-4 mt-4" @click="selectedCategory = category.id"> 
-               <span class="sidebar--link">{{category.category.category_name}}</span>
+            <li v-for="category in sidebarListItems" :key="category.id"  class="text-left mb-4 mt-4" @click="selectedCategory = category.id;"> 
+               <span class="sidebar--link">{{category.category_name}}</span>
                <transition name="fade"> 
                 <div v-if="selectedCategory == category.id" >
                     
-                     <ul class="list-group ml-4 mb-4 mt-4" v-for="brand in category.brands" :key="brand.id"  @click="selectedBrand = brand.id">
+                     <ul class="list-group ml-4 mb-4 mt-4" v-for="brand in category.brands" :key="brand.id"  @click="selectedBrand = brand; getFilteredModels(selectedCategory)">
                          <span class="sidebar--link">{{brand.brand_name}}</span>
                         <transition name="fade">
-                        <div v-if="selectedBrand == brand.id" >
-                            <ul class="list-group ml-4 mb-4 mt-4" v-for="model in brand.device_models" :key="model.id">
+                        <div v-if="selectedBrand.id == brand.id" >
+                            <ul class="list-group ml-4 mb-4 mt-4" v-for="model in filteredModels" :key="model.id">
                                  <span class="sidebar--link">{{model.model_name}}</span>
                             </ul>
                         </div>
@@ -53,7 +53,8 @@ export default {
         return{
             sidebarListItems:[],
             selectedCategory: null,
-            selectedBrand: null
+            selectedBrand: {},
+            filteredModels: null,
         }
     },
 
@@ -64,16 +65,19 @@ export default {
         })
     },
 
-//     computed: {
-//         productCategories () {
-//         // return uniq(this.sidebarListItems.map(({ category }) => category))
-
-//         return _.uniqBy(this.sidebarListItems, 'category.category_name')
-//   }
-//     },
+    watch:{
+        selectedCategory : function(){
+             this.filteredModels = null
+        }
+    },
 
     methods:{
-      
+        getFilteredModels(categoryId){
+            this.filteredModels = null
+            this.filteredModels = _.filter(this.selectedBrand.device_models, function (model){
+            return _.some(model.categories, ['id', categoryId]);
+        })
+        }
         
     }
 
