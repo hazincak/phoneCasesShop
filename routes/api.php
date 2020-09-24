@@ -34,7 +34,10 @@ Route::apiResource('kategorie', 'api\CategoryController');
 
 Route::apiResource('model', 'api\DeviceModelController');
 
+
 Route::get('kategorie-a-znacky', 'api\CategoryBrandsController@getCategoriesWithBrands');
+
+Route::get('znacky-nepatriace-kategorii/{categoryId}', 'api\CategoryBrandsController@getDistinctBrands');
 
 Route::get('kategorie/{category}/pridat-znacku/{brand}', 'api\CategoryBrandsController@attachBrandToCategory');
 
@@ -46,7 +49,9 @@ Route::get('kategorie/{category}/odobrat-model/{model}', 'api\CategoryDeviceMode
 
 Route::apiResource('znacky', 'api\BrandController');
 
+
 Route::get('modely-podla-kategorie/{categoryId}/znacky/{brandId}', 'api\CategoriesBrandsModelsController@getModelsBelongingToSelectedCategoryAndToSelectedBrand');
 
 Route::get('modely-nepatriace-kategorii/{categoryId}/znacka/{brandId}', 'api\CategoriesBrandsModelsController@getDistinctModels');
 
+Route::get('sidebar/kontent', 'api\CategoriesBrandsModelsController@getSideBarContent');

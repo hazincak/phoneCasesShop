@@ -9,6 +9,7 @@ use App\Brand;
 
 class CategoryBrandsController extends Controller
 {
+
     public function getCategoriesWithBrands(){
         return Category::with('brands')->get();
     }

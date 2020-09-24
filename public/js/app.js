@@ -3598,6 +3598,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3611,7 +3619,8 @@ __webpack_require__.r(__webpack_exports__);
       editCategoryData: {},
       selectedModelId: null,
       models: {},
-      queriedModels: null
+      queriedModels: null,
+      modelError: null
     };
   },
   created: function created() {
@@ -3658,6 +3667,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this3 = this;
 
       this.loading = true;
+      this.errors = null;
       axios.get("/api/kategorie/".concat(this.category.id, "/pridat-znacku/").concat(this.selectedBrandId)).then(function (response) {
         var fetchedData = response.data;
 
@@ -3668,6 +3678,11 @@ __webpack_require__.r(__webpack_exports__);
           icon: false,
           message: "Zna\u010Dka s n\xE1zvom \"".concat(fetchedData.brand_name, "\" pridan\xE1 ku kategorii ").concat(_this3.category.category_name, " ")
         });
+      })["catch"](function (err) {
+        if (Object(_shared_utils_response__WEBPACK_IMPORTED_MODULE_0__["is500"])(err)) {
+          _this3.errors = "Kateg\xF3ria  ".concat(_this3.category.category_name, " u\u017E obsahuje t\xFAto zna\u010Dku");
+          return;
+        }
       }).then(function () {
         return _this3.loading = false;
       });
@@ -3684,7 +3699,7 @@ __webpack_require__.r(__webpack_exports__);
         _this4.flashMessage.error({
           title: "Zna\u010Dka \xFAsp\u011B\u0161n\xE9 odobrata z tejto kategorie",
           icon: false,
-          message: "Zna\u010Dka s n\xE1zvom \"".concat(brand.brand_name, "\" odobrata z kategorie \"").concat(_this4.category.category_name, "\"")
+          message: "Zna\u010Dka s n\xE1zvom \"".concat(brand.brand_name, "\" odobrat\xE1 z kategorie \"").concat(_this4.category.category_name, "\"")
         });
       }).then(function () {
         return _this4.loading = false;
@@ -3714,6 +3729,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this7 = this;
 
       this.loading = true;
+      this.errors = null;
       axios.get("/api/kategorie/".concat(this.category.id, "/pridat-model/").concat(this.selectedModelId)).then(function (response) {
         var fetchedData = response.data;
 
@@ -3724,6 +3740,11 @@ __webpack_require__.r(__webpack_exports__);
           icon: false,
           message: "Model s n\xE1zvom \"".concat(fetchedData.model_name, "\" pridan\xFD ku kategorii ").concat(_this7.category.category_name, " ")
         });
+      })["catch"](function (err) {
+        if (Object(_shared_utils_response__WEBPACK_IMPORTED_MODULE_0__["is500"])(err)) {
+          _this7.modelError = "Kateg\xF3ria  ".concat(_this7.category.category_name, " u\u017E obsahuje tento model");
+          return;
+        }
       }).then(function () {
         return _this7.loading = false;
       });
@@ -73284,15 +73305,15 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-md-4 align-middle" }, [
-              _c("label", { attrs: { for: "select_brand" } }, [
-                _vm._v(
-                  'Pridat značku ku kategorií "' +
-                    _vm._s(_vm.category.category_name) +
-                    '"'
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "input-group" }, [
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "select_brand" } }, [
+                  _vm._v(
+                    'Pridať značku ku kategorií "' +
+                      _vm._s(_vm.category.category_name) +
+                      '"'
+                  )
+                ]),
+                _vm._v(" "),
                 _c(
                   "select",
                   {
@@ -73304,8 +73325,9 @@ var render = function() {
                         expression: "selectedBrandId"
                       }
                     ],
-                    staticClass: "custom-select",
-                    attrs: { id: "inputGroupSelect04", name: "select_brand" },
+                    staticClass: "form-control",
+                    class: [{ "is-invalid": _vm.errors }],
+                    attrs: { name: "select_brand" },
                     on: {
                       change: function($event) {
                         var $$selectedVal = Array.prototype.filter
@@ -73338,21 +73360,25 @@ var render = function() {
                   2
                 ),
                 _vm._v(" "),
-                _c("div", { staticClass: "input-group-append" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-lg btn-success",
-                      on: {
-                        click: function($event) {
-                          return _vm.attachBrandToCategory()
-                        }
-                      }
-                    },
-                    [_vm._v("Pridat značku")]
-                  )
-                ])
-              ])
+                _c(
+                  "span",
+                  { staticStyle: { color: "red", "font-size": "11px" } },
+                  [_vm._v(_vm._s(_vm.errors))]
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-lg btn-success",
+                  on: {
+                    click: function($event) {
+                      return _vm.attachBrandToCategory()
+                    }
+                  }
+                },
+                [_vm._v("Pridať značku")]
+              )
             ])
           ]),
           _vm._v(" "),
@@ -73434,16 +73460,16 @@ var render = function() {
               ]),
               _vm._v(" "),
               _vm.selectedBrandId
-                ? _c("div", { staticClass: "row mt-5" }, [
-                    _c("label", { attrs: { for: "select_model" } }, [
-                      _vm._v(
-                        'Pridat model ku kategorií "' +
-                          _vm._s(_vm.category.category_name) +
-                          '"'
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "input-group" }, [
+                ? _c("div", { staticClass: "mt-5" }, [
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("label", { attrs: { for: "select_model" } }, [
+                        _vm._v(
+                          'Pridať model ku kategorií "' +
+                            _vm._s(_vm.category.category_name) +
+                            '"'
+                        )
+                      ]),
+                      _vm._v(" "),
                       _c(
                         "select",
                         {
@@ -73455,7 +73481,8 @@ var render = function() {
                               expression: "selectedModelId"
                             }
                           ],
-                          staticClass: "custom-select",
+                          staticClass: "form-control",
+                          class: [{ "is-invalid": _vm.modelError }],
                           attrs: {
                             id: "inputGroupSelect04",
                             name: "select_model"
@@ -73492,21 +73519,25 @@ var render = function() {
                         2
                       ),
                       _vm._v(" "),
-                      _c("div", { staticClass: "input-group-append" }, [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-lg btn-success",
-                            on: {
-                              click: function($event) {
-                                return _vm.attachModelToCategory()
-                              }
-                            }
-                          },
-                          [_vm._v("Pridat model")]
-                        )
-                      ])
-                    ])
+                      _c(
+                        "span",
+                        { staticStyle: { color: "red", "font-size": "11px" } },
+                        [_vm._v(_vm._s(_vm.modelError))]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-lg btn-success",
+                        on: {
+                          click: function($event) {
+                            return _vm.attachModelToCategory()
+                          }
+                        }
+                      },
+                      [_vm._v("Pridať model")]
+                    )
                   ])
                 : _vm._e()
             ]),
@@ -94266,7 +94297,9 @@ var is404 = function is404(err) {
 var is422 = function is422(err) {
   return isErrorWithResponseAndStatus(err) && 422 === err.response.status;
 };
-var is500 = function is500(err) {};
+var is500 = function is500(err) {
+  return isErrorWithResponseAndStatus(err) && 500 === err.response.status;
+};
 
 var isErrorWithResponseAndStatus = function isErrorWithResponseAndStatus(err) {
   return err.response && err.response.status;

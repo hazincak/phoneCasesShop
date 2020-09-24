@@ -7,7 +7,7 @@ export const is422 = function(err) {
 };
 
 export const is500 = function(err){
-
+    return isErrorWithResponseAndStatus(err) && 500 === err.response.status;
 };
 
 const isErrorWithResponseAndStatus = function(err) {

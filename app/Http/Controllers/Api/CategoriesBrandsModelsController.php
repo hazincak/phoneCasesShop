@@ -22,43 +22,19 @@ class CategoriesBrandsModelsController extends Controller
     }
 
     public function getModelsBelongingToSelectedCategoryAndToSelectedBrand($categoryId, $brandId){
-        // $categoryWithBelongingBrandsAndModels = Category::with(['brands.deviceModels' => function($query){
-        //     $query->whereHas('categories');
-        //     }
-        // ])->findOrFail($categoryId);
-
-        // return $categoryWithBelongingBrandsAndModels;
-
         $modelsBelongingToSelectedCategoryAndBrand = DeviceModel::where('brand_id', $brandId)->whereHas('categories', function($query) use ($categoryId){
             $query->where('id', $categoryId);
         })->get();
         return $modelsBelongingToSelectedCategoryAndBrand;
     }
 
-    // public function __invoke()
-    // {
+    public function getSideBarContent(){
+          $sideBarContent = Category::with(['brands.deviceModels' => function($query){
+            $query->whereHas('categories');
+            }
+        ])->get();
 
+        return $sideBarContent;
+    }
 
-    //     return Product::with('category', 'brand', 'model')->get();
-
-    //     // $SidebarListItems = Category::with(['brands.deviceModels' => function($query){
-    //     //     $query->whereHas('');
-            
-    //     // }
-        
-        
-        
-    //     // ])->get();
-
-    //     // $SidebarListItems = Category::with(['brands.deviceModels' => function($query){
-    //     //     $query->where('brand_id', 1);
-    //     // },
-        
-    //     // ])->get();
-    //     // $SidebarListItems = DeviceModel::with('brand.categories')->get();
-
-
-       
-    //     // return $SidebarListItems;
-    // }
 }

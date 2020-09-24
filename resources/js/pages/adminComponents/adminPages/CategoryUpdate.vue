@@ -72,21 +72,22 @@
                     </div>
                 </div>
                 <div class="col-md-4 align-middle">
-                    
-                            <label for="select_brand">Pridat značku ku kategorií "{{category.category_name}}"</label>
-                                <div class="input-group">
+                                <div class="form-group">
+                                  <label for="select_brand">Pridať značku ku kategorií "{{category.category_name}}"</label>
                                      <select 
-                                        class="custom-select" 
-                                        id="inputGroupSelect04" 
+                                        class="form-control" 
                                         name="select_brand"
-                                        v-model="selectedBrandId">
+                                        v-model="selectedBrandId"
+                                        :class="[{'is-invalid': errors}]">
                                        <option disabled value="">Vyberte značku</option>
                                        <option v-for="(brand, index) in brands" :key="index" :value="brand.id">{{brand.brand_name}}</option>
-                                     </select>
-                                <div class="input-group-append">
-                                  <button class="btn btn-lg btn-success" @click="attachBrandToCategory()">Pridat značku</button>
-                                </div>
-                            </div>
+                                     </select>  
+                                  <span style="color: red; font-size: 11px">{{errors}}</span>
+                              </div>
+                                  <button class="btn btn-lg btn-success" @click="attachBrandToCategory()">Pridať značku</button>
+                              
+                            
+                             
                 </div>
             </div>
             <hr>
@@ -109,22 +110,29 @@
         
                             </div>
                   </div>
-                  <div v-if="selectedBrandId" class="row mt-5">
+                  <div v-if="selectedBrandId" class="mt-5">
                     
-                            <label for="select_model">Pridat model ku kategorií "{{category.category_name}}"</label>
-                                <div class="input-group">
+                            
+                                <div class="form-group">
+                                  <label for="select_model">Pridať model ku kategorií "{{category.category_name}}"</label>
                                      <select 
-                                        class="custom-select" 
+                                        class="form-control" 
                                         id="inputGroupSelect04" 
                                         name="select_model"
-                                        v-model="selectedModelId">
+                                        v-model="selectedModelId"
+                                        :class="[{'is-invalid': modelError}]">
                                        <option disabled value="">Vyberte model</option>
                                        <option v-for="(model, index) in models" :key="index" :value="model.id">{{model.model_name}}</option>
                                      </select>
-                                <div class="input-group-append">
-                                  <button class="btn btn-lg btn-success" @click="attachModelToCategory()">Pridat model</button>
+                                     <span style="color: red; font-size: 11px">{{modelError}}</span>
                                 </div>
-                            </div>
+                                  <button class="btn btn-lg btn-success" @click="attachModelToCategory()">Pridať model</button>
+                                
+                   
+                                  
+                              
+                                
+                            
                   </div>
                 </div>
                 <div class="col-md-8" v-if="queriedModels">
@@ -167,7 +175,7 @@
 </template>
 
 <script>
-import {is404, is422} from "./../../../shared/utils/response";
+import {is404, is422, is500} from "./../../../shared/utils/response";
 import validationErrors from "../../../shared/mixins/validationErrors";
 export default {
     mixins:[validationErrors],
@@ -176,7 +184,7 @@ export default {
             loading: false,
             category: {},
             brands: {},
-           
+          
             selectedBrandId: null,
             
             editCategoryData: {},
@@ -184,6 +192,8 @@ export default {
             selectedModelId: null,
             models: {},
             queriedModels:null,
+
+            modelError: null,
         }
     },
 
@@ -229,6 +239,7 @@ export default {
 
         attachBrandToCategory(){
             this.loading = true;
+            this.errors = null;
             axios.get(`/api/kategorie/${this.category.id}/pridat-znacku/${this.selectedBrandId}`)
             .then(response => {
               const fetchedData = response.data;
@@ -238,7 +249,14 @@ export default {
                icon: false,
                message: `Značka s názvom "${fetchedData.brand_name}" pridaná ku kategorii ${this.category.category_name} `
             });
-            }).then(() => this.loading = false)
+            })
+            .catch(err=> {
+                if(is500(err)){
+                    this.errors = `Kategória  ${this.category.category_name} už obsahuje túto značku`;
+                    return;
+                  }
+            })
+            .then(() => this.loading = false)
             },
 
         unattachBrandFromCategory(brand){
@@ -250,7 +268,7 @@ export default {
                 this.flashMessage.error({
                   title: `Značka úspěšné odobrata z tejto kategorie`,
                   icon: false,
-                  message: `Značka s názvom "${brand.brand_name}" odobrata z kategorie "${this.category.category_name}"`
+                  message: `Značka s názvom "${brand.brand_name}" odobratá z kategorie "${this.category.category_name}"`
                   });
             }).then(() => this.loading = false)
         },
@@ -273,6 +291,7 @@ export default {
 
         attachModelToCategory(){
             this.loading = true;
+            this.errors = null
             axios.get(`/api/kategorie/${this.category.id}/pridat-model/${this.selectedModelId}`)
             .then(response => {
               const fetchedData = response.data;
@@ -282,7 +301,15 @@ export default {
                icon: false,
                message: `Model s názvom "${fetchedData.model_name}" pridaný ku kategorii ${this.category.category_name} `
             });
-            }).then(() => this.loading = false)
+            
+            })
+            .catch(err=> {
+                if(is500(err)){
+                    this.modelError = `Kategória  ${this.category.category_name} už obsahuje tento model`;
+                    return;
+                  }
+            })
+            .then(() => this.loading = false)
             },
 
          unattachModelFromCategory(model){
