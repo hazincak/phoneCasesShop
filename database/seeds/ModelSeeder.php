@@ -1,5 +1,6 @@
 <?php
 
+use App\DeviceModel;
 use Illuminate\Database\Seeder;
 
 class ModelSeeder extends Seeder
@@ -9,8 +10,17 @@ class ModelSeeder extends Seeder
      *
      * @return void
      */
+    
+
     public function run()
     {
+        // $brands = ['Iphone 5', 'Iphone 6', 'Iphone 7', 'Iphone 8', 'Iphone 9', 'Galaxy 5', 'Galaxy 6', 'Galaxy 7'];
+        // foreach($brands as $brand){
+        //     factory(DeviceModel::class)->create([
+        //         'model_name' => $brand,
+        //     ]);
+        // }
+
 
         App\Brand::all()->each(function($brand){
             if($brand->brand_name == 'Apple'){

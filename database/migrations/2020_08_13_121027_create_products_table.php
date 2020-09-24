@@ -19,12 +19,15 @@ class CreateProductsTable extends Migration
             $table->text('description_short');
             $table->text('description_long');
 
-            $table->string('model');
+           
             $table->unsignedBigInteger('brand_id');
             $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade');
 
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+
+            $table->unsignedBigInteger('model_id');
+            $table->foreign('model_id')->references('id')->on('device_models')->onDelete('cascade');
 
             $table->float('price', 8, 2);
             $table->string('color', 30);

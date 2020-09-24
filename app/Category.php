@@ -15,4 +15,13 @@ class Category extends Model
     {
         return $this->belongsToMany('App\Brand');
     }
+
+    public function products(){
+        return $this->hasMany('App\Product');
+    }
+
+    public function models()
+    {
+        return $this->belongsToMany('App\DeviceModel');
+    }
 }

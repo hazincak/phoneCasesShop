@@ -48,52 +48,23 @@
 
 }
 
-#sidebar .sidebar__itemMainCategory{
+#sidebar .sidebar--link{
    
-    font-size: 2rem;
+    // font-size: 1.6rem;
     display: block;
     color: $color-teal;
     transition: all .3s;
-    margin: 0.8rem;
+   
     
 
     &:hover{
         color:$color-teal-dark;
     text-decoration:none;
-    transform: scale(1.1);
+    transform: translateX(-4px);
     }
 }
 
-#sidebar ul li.active > a, a[aria-expanded="true"] {
-    color: $color-teal;
-    background-color: $color-grey-light;
-}
-#sidebar .sidebar__itemBrandCategory {
-    font-size: 1.7rem;
-    margin: 0.3rem;
-    
-    background-color: $color-grey-light;
-    color: $color-teal;
 
-    &:hover{
-        color:$color-teal-dark;
-    text-decoration:none;
-    transform: scale(1.1);
-    }
-}
-
-#sidebar .sidebar__itemModelCategory{
-    font-size: 1.4rem;
-    margin:1rem;
-    background-color: $color-grey-light;
-    color: $color-teal;
-    
-    &:hover{
-        color:$color-teal-dark;
-    text-decoration:none;
-    transform: scale(1.1);
-    }
-} 
 
 // #sidebar a {
 //     font-size: 1.4rem;

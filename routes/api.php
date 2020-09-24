@@ -20,11 +20,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('obchod', 'Api\ProductController@index');
 
+Route::get('vsetky-produkty', 'Api\ProductController@getAllProducts');
+
 Route::get('obchod/produkt-podla-id/{id}', 'Api\ProductController@productById');
 
 Route::get('/obaly-na-{model}', 'Api\ProductController@productsByModel');
 
-Route::get('/modely-podla-znacky/{znacka}', 'Api\BrandController@getModels');
+Route::get('/modely-podla-znacky/{brandId}', 'Api\BrandController@getModels');
 
 Route::apiResource('produkt', 'api\ProductController');
 
@@ -38,7 +40,13 @@ Route::get('kategorie/{category}/pridat-znacku/{brand}', 'api\CategoryBrandsCont
 
 Route::get('kategorie/{category}/odobrat-znacku/{brand}', 'api\CategoryBrandsController@unAttachBrandFromCategory');
 
+Route::get('kategorie/{category}/pridat-model/{model}', 'api\CategoryDeviceModelsController@attachModelToCategory');
+
+Route::get('kategorie/{category}/odobrat-model/{model}', 'api\CategoryDeviceModelsController@unAttachModelFromCategory');
+
 Route::apiResource('znacky', 'api\BrandController');
 
-Route::get('sidebar/kontent', 'api\CategoriesBrandsModelsController');
+Route::get('modely-podla-kategorie/{categoryId}/znacky/{brandId}', 'api\CategoriesBrandsModelsController@getModelsBelongingToSelectedCategoryAndToSelectedBrand');
+
+Route::get('modely-nepatriace-kategorii/{categoryId}/znacka/{brandId}', 'api\CategoriesBrandsModelsController@getDistinctModels');
 

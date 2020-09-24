@@ -16,8 +16,9 @@ class ProductController extends Controller
         return Product::with('images')->findOrFail($id);
     }
 
-    public function productsByModel($model){
-        return Product::where('purpose', 'Obal na mobil')->where('model', $model)->with('images')->paginate(12);
+
+    public function getAllProducts(){
+        return Product::with('category', 'brand', 'model')->get();
     }
 
     

@@ -6,23 +6,26 @@
     <nav id="sidebar">
         
         <div class="sidebar-header">
-            <h2 class="text-center">Menu</h2>
+            <h1 class="text-center">Menu</h1>
         </div>
         <div class="sidebar-subheader">
-                <h3 class="text-center">Kategorie produktov</h3>
+                <h2 class="text-center">Kategorie produktov</h2>
             </div>
 
         <ul class="list-group">
             <transition-group name="fade">            
-            <li v-for="category in sidebarListItems" :key="category.id" class="text-left" @click="selectedCategory = category.id"> 
-               {{category.category_name}}
+            <li v-for="(category, index) in productCategories" :key="index"  class="text-left mb-4 mt-4" @click="selectedCategory = category.id"> 
+               <span class="sidebar--link">{{category.category.category_name}}</span>
                <transition name="fade"> 
                 <div v-if="selectedCategory == category.id" >
                     
-                     <ul class="list-group ml-3" v-for="brand in category.brands" :key="brand.id"  @click="selectedBrand = brand.id">{{brand.brand_name}}
+                     <ul class="list-group ml-4 mb-4 mt-4" v-for="brand in category.brands" :key="brand.id"  @click="selectedBrand = brand.id">
+                         <span class="sidebar--link">{{brand.brand_name}}</span>
                         <transition name="fade">
                         <div v-if="selectedBrand == brand.id" >
-                             <ul class="list-group ml-4" v-for="model in brand.device_models" :key="model.id">{{model.model_name}}</ul>
+                            <ul class="list-group ml-4 mb-4 mt-4" v-for="model in brand.device_models" :key="model.id">
+                                 <span class="sidebar--link">{{model.model_name}}</span>
+                            </ul>
                         </div>
                         </transition>
                      </ul>
@@ -38,14 +41,17 @@
 </div>
 </template>
 <script>
+import uniq from 'lodash/uniq';
 export default {
+
+    
     props:{
         isActive: Boolean,
     },
 
     data(){
         return{
-            sidebarListItems:{},
+            sidebarListItems:[],
             selectedCategory: null,
             selectedBrand: null
         }
@@ -57,6 +63,14 @@ export default {
             this.sidebarListItems = response.data
         })
     },
+
+//     computed: {
+//         productCategories () {
+//         // return uniq(this.sidebarListItems.map(({ category }) => category))
+
+//         return _.uniqBy(this.sidebarListItems, 'category.category_name')
+//   }
+//     },
 
     methods:{
       

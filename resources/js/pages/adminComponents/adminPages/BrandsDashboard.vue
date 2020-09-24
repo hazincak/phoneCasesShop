@@ -7,7 +7,7 @@
         />
     </div>
 <div v-else>
-  <div class="m-5"><h3>Správca značiek</h3></div>
+  <div class="m-5"><h3>Správca značiek & modelov</h3></div>
     <div class="row m-5">
         <div class="col-md-8">
          <div class="card shadow">

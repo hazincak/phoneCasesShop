@@ -15,13 +15,13 @@
             </div>
             
             <li class="text-left">
-                <a href="#products" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle sidebar__itemMainCategory">Produkty</a>
+                <a href="#products" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle sidebar--link">Produkty</a>
                   <ul class="collapse list-unstyled" id="products">
                       <li class="text-center">
-                        <router-link :to="{name: 'ProductsDashboard'}" class="sidebar__itemMainCategory">Vsetky produkty</router-link>
+                        <router-link :to="{name: 'ProductsDashboard'}" class="sidebar--link">Vsetky produkty</router-link>
                       </li>
                        <li class="text-center">
-                            <router-link :to="{name: 'addProduct'}" class="sidebar__itemMainCategory">Pridať produkt</router-link>
+                            <router-link :to="{name: 'addProduct'}" class="sidebar--link">Pridať produkt</router-link>
                        </li>
                   </ul>
             </li>
@@ -29,13 +29,13 @@
 
            
             <li class="text-left">
-                <router-link :to="{name: 'users'}" class="sidebar__itemMainCategory">Užívatelia</router-link>
+                <router-link :to="{name: 'users'}" class="sidebar--link">Užívatelia</router-link>
             </li>
             <li class="text-left">
-                <router-link :to="{name: 'CategoriesDashboard'}" class="sidebar__itemMainCategory">Kategorie</router-link>
+                <router-link :to="{name: 'CategoriesDashboard'}" class="sidebar--link">Kategorie</router-link>
             </li>
             <li class="text-left">
-                <router-link :to="{name: 'BrandsDashboard'}" class="sidebar__itemMainCategory">Značky</router-link>
+                <router-link :to="{name: 'BrandsDashboard'}" class="sidebar--link">Značky & modely</router-link>
             </li>
         </ul>
     </nav>

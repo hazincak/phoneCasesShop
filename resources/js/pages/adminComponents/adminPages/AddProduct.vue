@@ -69,10 +69,10 @@
                     v-model="product.brand"
                     name="brand"
                     
-                    @change="getModels(product.brand)"
+                    @change="getModels(product.brand_id)"
                     >
                         <option disabled value="">Vyberte značku</option>
-                        <option v-for="brand in brands" :key="brand.id" :value="brand.brand_name"  >{{brand.brand_name}}</option>
+                        <option v-for="brand in brands" :key="brand.id" :value="brand.id"  >{{brand.brand_name}}</option>
                 </select>
             </div>
       
@@ -163,9 +163,9 @@
                     </div>
                 </div>
             </div>
-            <div class="row justify-content-center mt-2">
+            <div class="row justify-content-center mt-4">
                 <div class="col-md-6">
-                    <button class="btn btn-secondary btn-block btn-lg">Pridať produkt</button>
+                    <button class="btn btn-success btn-block btn-lg">Pridať produkt</button>
                 </div>
             </div>
         </div>
@@ -186,7 +186,7 @@ export default {
             description_long: null,
             category: '',
             model: '',
-            brand: '',
+            brand_id: '',
            
             price: null,
             color: null,

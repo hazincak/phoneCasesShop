@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 class BrandController extends Controller
 {
 
-    public function getModels($brand){
+    public function getModels($brandId){
     //    $brand = Brand::where('brand_name', $brand)->first();
     //     return $brand->deviceModels()->get();
 
@@ -21,7 +21,7 @@ class BrandController extends Controller
         // return BrandGetModelResource::collection(
         //     Brand::where('brand_name', $brand)->with('deviceModels')->get()
         // );
-        $brand = Brand::where('brand_name', $brand)->first();
+        $brand = Brand::findOrFail($brandId);
         return BrandGetModelResource::collection(
            
              $brand->deviceModels()->get()

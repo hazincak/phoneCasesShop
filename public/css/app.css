@@ -17558,50 +17558,16 @@ p {
   color: #000;
 }
 
-#sidebar .sidebar__itemMainCategory {
-  font-size: 2rem;
+#sidebar .sidebar--link {
   display: block;
   color: #01a9b4;
   transition: all 0.3s;
-  margin: 0.8rem;
 }
 
-#sidebar .sidebar__itemMainCategory:hover {
+#sidebar .sidebar--link:hover {
   color: #086972;
   text-decoration: none;
-  transform: scale(1.1);
-}
-
-#sidebar ul li.active > a,
-a[aria-expanded=true] {
-  color: #01a9b4;
-  background-color: #f5f5fa;
-}
-
-#sidebar .sidebar__itemBrandCategory {
-  font-size: 1.7rem;
-  margin: 0.3rem;
-  background-color: #f5f5fa;
-  color: #01a9b4;
-}
-
-#sidebar .sidebar__itemBrandCategory:hover {
-  color: #086972;
-  text-decoration: none;
-  transform: scale(1.1);
-}
-
-#sidebar .sidebar__itemModelCategory {
-  font-size: 1.4rem;
-  margin: 1rem;
-  background-color: #f5f5fa;
-  color: #01a9b4;
-}
-
-#sidebar .sidebar__itemModelCategory:hover {
-  color: #086972;
-  text-decoration: none;
-  transform: scale(1.1);
+  transform: translateX(-4px);
 }
 
 .sidebar__closeButton {

@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Image;
+use App\DeviceModel;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
@@ -14,11 +15,15 @@ class Product extends Model
 
     public function category()
     {
-        return $this->hasOne('App\Category');
+        return $this->belongsTo('App\Category');
     }
 
     public function brand()
     {
-        return $this->hasOne('App\Brand');
+        return $this->belongsTo('App\Brand');
+    }
+
+    public function model(){
+        return $this->belongsTo(DeviceModel::class);
     }
 }

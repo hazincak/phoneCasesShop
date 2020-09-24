@@ -8,7 +8,7 @@
             />
         </div>
         <div v-else>
-            <div class="m-5"><h3>Správca značiek</h3></div>
+            <div class="m-5"><h3>Správca značiek & modelov</h3></div>
             <div class="row justify-content-left m-5">
                 <div class="col-md-5">
                     <div class="form-group">

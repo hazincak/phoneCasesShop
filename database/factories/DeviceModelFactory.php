@@ -10,3 +10,4 @@ $factory->define(DeviceModel::class, function (Faker $faker) {
         //
     ];
 });
+
