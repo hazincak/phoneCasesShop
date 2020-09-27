@@ -11,7 +11,8 @@
         <div class="col-12">
          <div class="card shadow mb-4 mt-5">
            <div>   
-            <b-modal id="modal-xl" size="xl" title="Pridať produkt">
+            <b-modal id="modal-xl" size="xl" title="Pridať produkt"
+            :hide-footer = true>
               <add-product></add-product>
             </b-modal>
           </div>

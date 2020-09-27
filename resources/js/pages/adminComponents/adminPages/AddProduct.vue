@@ -17,7 +17,9 @@
                     v-model="product.title"
                     name="title"
                     placeholder="Názov"
+                    :class="[{'is-invalid': errorFor('title')}]"
                     >
+                    
             </div>
         
         
@@ -29,7 +31,9 @@
                     name="description_short"
                     placeholder="Krátky popis"
                     rows="3"
+                    :class="[{'is-invalid': errorFor('description_short')}]"
                     >
+                    
                 </textarea>
             </div>
         
@@ -42,7 +46,9 @@
                     name="description_long"
                     placeholder="Dlhý popis"
                     rows="5"
+                    :class="[{'is-invalid': errorFor('description_long')}]"
                     >
+                    
                 </textarea>
             </div>
        
@@ -53,10 +59,12 @@
                     class="form-control"
                     name="category"
                     @change="getBrandsBelongingToSelectedCategory(product.category_id)"
-                    v-model="product.category_id">
+                    v-model="product.category_id"
+                    :class="[{'is-invalid': errorFor('category_id')}]">
                         <option disabled value="">Vyberte kategóriu</option>
                         <option v-for="category in categories" :key="category.id" :value="category.id">{{category.category_name}}</option>
                 </select>
+                
             </div>
         
         
@@ -68,6 +76,7 @@
                     name="brand"
                     :disabled="disabledBrandForm"
                     @change="getModelsBelongingToSelectedBrand(product.brand_id)"
+                    :class="[{'is-invalid': errorFor('brand_id')}]"
                     >
                         <option disabled value="">Vyberte značku</option>
                         <option v-for="brand in brands" :key="brand.id" :value="brand.id"  >{{brand.brand_name}}</option>
@@ -82,6 +91,7 @@
                     v-model="product.model_id"
                     name="model"
                     :disabled="disabledModelForm"
+                    :class="[{'is-invalid': errorFor('model_id')}]"
                     >
                         <option disabled value="">Vyberte model</option>
                         <option v-for="model in models" :key="model.id" :value="model.id">{{model.model_name}}</option>
@@ -116,7 +126,7 @@
                                             <img :src="product.images[index-1]" class="img img-thumbnail">
                                         </div>
                                         <div class="p-2 flex-fill align-self-center">
-                                            <button class="btn btn-secondary" @click="removeImage(index)">Odstrániť obrázok</button>
+                                            <button class="btn btn-secondary" @click="removeImage(index)">O dstrániť obrázok</button>
                                         </div>
                                     </div>
                                     <hr>
@@ -150,6 +160,7 @@
                         v-model="product.color"
                         name="price"
                         placeholder="Cena"
+                        :class="[{'is-invalid': errorFor('price')}]"
                         >
                     </div>
                 </div>
@@ -162,6 +173,7 @@
                         v-model="product.color"
                         name="color"
                         placeholder="Farba"
+                        :class="[{'is-invalid': errorFor('color')}]"
                         >
                     </div>
                 </div>
@@ -174,6 +186,7 @@
                         v-model="product.material"
                         name="material"
                         placeholder="Materiál"
+                        :class="[{'is-invalid': errorFor('material')}]"
                         >
                     </div>
                 </div>
@@ -218,7 +231,7 @@
     </div>
     <div class="row justify-content-center mt-4">
         <div class="col-md-6">
-            <button class="btn btn-success btn-block btn-lg">Pridať produkt</button>
+            <button class="btn btn-success btn-block btn-lg" @click="createProduct">Pridať produkt</button>
         </div>
     </div>
         
@@ -227,8 +240,10 @@
 </template>
 
 <script>
-
+import {is404, is422} from "./../../../shared/utils/response";
+import validationErrors from "../../../shared/mixins/validationErrors";
 export default {
+    mixins: [validationErrors],
     data() {
     return {
         loading:false,
@@ -314,8 +329,25 @@ export default {
               this.product.images.pop(e);
         },
 
-        createProduct(){
+       async createProduct(){
+            this.loading = true;
+        this.errors = null;
 
+       try {
+          const response =  await axios.post('/api/produkt', this.product);
+          if(201 == response){
+              this.flashMessage.info({
+               title: `Produkt úspěšné vytvoreny`,
+               icon: false,
+               message: `Produkt s názvom "${this.produkt.title}" vytvoreny`
+            });
+          }
+       } catch (error) {
+           this.errors = error.response && error.response.data.errors;
+       }
+       this.loading = false;
+        
+         
         }
 
     }
