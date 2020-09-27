@@ -10,8 +10,13 @@
     <div class="row">
         <div class="col-12">
          <div class="card shadow mb-4 mt-5">
-                <div class="card-header py-3">
-                  <h3 class="m-0 font-weight-bold text-secondary">Produkty</h3>
+           <div>   
+            <b-modal id="modal-xl" size="xl" title="Pridať produkt">
+              <add-product></add-product>
+            </b-modal>
+          </div>
+                <div class="card-header d-flex">
+                  <h3 class="m-0 font-weight-bold text-secondary">Produkty</h3> <b-button class="ml-auto" v-b-modal.modal-xl variant="primary"><span class="fa fa-plus"></span> Pridať produkt</b-button>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
@@ -84,7 +89,11 @@
 </template>
 
 <script>
+import AddProduct from './AddProduct';
 export default {
+  components:{
+        AddProduct
+    },
   data(){
     return{
       loading:false,

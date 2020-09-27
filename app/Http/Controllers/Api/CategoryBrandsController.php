@@ -14,6 +14,12 @@ class CategoryBrandsController extends Controller
         return Category::with('brands')->get();
     }
 
+    public function getBrandsBelongingToSelectedCategory($modelId){
+        $category = Category::findOrFail($modelId);
+        $belongingBrands = $category->brands()->get();
+        return $belongingBrands;
+    }
+
     public function attachBrandToCategory(Request $request, $id, $brandId){
         $category = Category::findOrFail($id);
         $brand = Brand::findOrFail($brandId);

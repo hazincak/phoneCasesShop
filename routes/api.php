@@ -37,7 +37,7 @@ Route::apiResource('model', 'api\DeviceModelController');
 
 Route::get('kategorie-a-znacky', 'api\CategoryBrandsController@getCategoriesWithBrands');
 
-Route::get('znacky-nepatriace-kategorii/{categoryId}', 'api\CategoryBrandsController@getDistinctBrands');
+Route::get('znacky-patriace-kategorii/{categoryId}', 'api\CategoryBrandsController@getBrandsBelongingToSelectedCategory');
 
 Route::get('kategorie/{category}/pridat-znacku/{brand}', 'api\CategoryBrandsController@attachBrandToCategory');
 
