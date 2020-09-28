@@ -24,7 +24,8 @@
                         <transition name="fade">
                         <div v-if="selectedBrand.id == brand.id" >
                             <ul class="list-group ml-4 mb-4 mt-4" v-for="model in filteredModels" :key="model.id">
-                                 <span class="sidebar--link">{{model.model_name}}</span>
+                                 <!-- <span class="sidebar--link">{{model.model_name}}</span> -->
+                                 <router-link class="sidebar--link" :to="{name: 'Obaly na mobil', params: {model: model.model_name}}">{{model.model_name}}</router-link>
                             </ul>
                         </div>
                         </transition>

@@ -335,12 +335,14 @@ export default {
 
        try {
           const response =  await axios.post('/api/produkt', this.product);
-          if(200 == response){
+          if(200 == response.status){
               this.flashMessage.info({
-               title: `Produkt úspěšné vytvoreny`,
+               title: `Produkt úspěšné vytvorený `,
                icon: false,
-               message: `Produkt s názvom "${this.produkt.title}" vytvoreny`
+               message: `Produkt s názvom "${this.product.title}" vytvorený`
+               
             });
+            
           }
        } catch (error) {
            this.errors = error.response && error.response.data.errors;

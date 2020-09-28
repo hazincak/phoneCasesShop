@@ -25,7 +25,18 @@ class Product extends Model
         return $this->belongsTo('App\Brand');
     }
 
-    public function model(){
+    public function color()
+    {
+        return $this->belongsTo('App\Color');
+    }
+
+    public function material()
+    {
+        return $this->belongsTo('App\Material');
+    }
+
+    public function model()
+    {
         return $this->belongsTo(DeviceModel::class);
     }
 }

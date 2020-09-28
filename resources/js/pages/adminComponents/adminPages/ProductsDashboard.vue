@@ -12,6 +12,7 @@
          <div class="card shadow mb-4 mt-5">
            <div>   
             <b-modal id="modal-xl" size="xl" title="Pridať produkt"
+           
             :hide-footer = true>
               <add-product></add-product>
             </b-modal>
@@ -48,8 +49,8 @@
                           <th>Hlavný obrázok</th>
                           <th>Krátky popis</th>
                           <th>Dlhý popis</th>
-                          <th>Model</th>
                           <th>Značka</th>
+                          <th>Model</th>
                           <th>Cena</th>
                           <th>Farba</th>
                           <th>Materiál</th>
@@ -62,12 +63,12 @@
                           <tr>
                             <td class="align-middle">{{product.id}}</td>
                             <td class="align-middle">{{product.title}}</td>
-                            <td class="align-middle">{{product.category}}</td>
+                            <td class="align-middle">{{product.category.category_name}}</td>
                             <td class="align-middle"><img class="table-img" :src='product.images[0].path'></td>
                             <td>{{product.description_short}}</td>
                             <td>{{product.description_long}}</td>
-                            <td class="align-middle">{{product.model}}</td>
-                            <td class="align-middle">{{product.brand}}</td>
+                            <td class="align-middle">{{product.brand.brand_name}}</td>
+                            <td class="align-middle">{{product.model.model_name}}</td>
                             <td class="align-middle">{{product.price}}</td>
                             <td class="align-middle">{{product.color}}</td>
                             <td class="align-middle">{{product.material}}</td>

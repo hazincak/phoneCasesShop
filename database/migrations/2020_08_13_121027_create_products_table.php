@@ -30,8 +30,11 @@ class CreateProductsTable extends Migration
             $table->foreign('model_id')->references('id')->on('device_models')->onDelete('cascade');
 
             $table->float('price', 8, 2);
-            $table->string('color', 30);
-            $table->string('material', 30);
+           
+            $table->unsignedBigInteger('color_id');
+            $table->foreign('color_id')->references('id')->on('colors')->onDelete('cascade');
+            $table->unsignedBigInteger('material_id');
+            $table->foreign('material_id')->references('id')->on('materials')->onDelete('cascade');
 
             $table->timestamps();
         });

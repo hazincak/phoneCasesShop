@@ -22,6 +22,7 @@ class ProductController extends Controller
     public function getAllProducts(){
         return Product::with('category', 'brand', 'model')->get();
     }
+    
 
     
 
@@ -33,7 +34,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return Product::with('images', 'model')->paginate(12);
+        return Product::with('images', 'model', 'category', 'brand')->paginate(12);
     }
 
     /**

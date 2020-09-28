@@ -2,7 +2,9 @@
         <div>
             <div class="row justify-content-center">
                 <div class="col-12">
-                    <div v-for="image in product.images" :key="product.images[image]" class=" product-img-field" :class="{active:image.path == selected }" @click="selected = image.path"> <img class="gallery-img img-fluid" :src='image.path'> </div>
+                    <div v-for="image in product.images" :key="product.images[image]" class=" product-img-field" :class="{active:image.path == selected }" @click="selected = image.path">  
+                        <img class="gallery-img img-fluid"  :src='image.path'> 
+                    </div>
                 </div>
                 
             </div>

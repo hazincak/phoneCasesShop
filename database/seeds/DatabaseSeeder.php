@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
             BrandSeeder::class,
             BrandCategorySeeder::class,
             ModelSeeder::class,
+            ColorSeeder::class,
+            MaterialSeeder::class,
             ProductSeeder::class,
             ImagesTableSeeder::class,
         ]);
