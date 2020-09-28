@@ -167,67 +167,35 @@
                 <div class="col-md-3">
                     <div class="form-group">
                     <label for="color">Farba produktu</label>
-                    <input 
-                        type="text"
+                    <select 
                         class="form-control"
-                        v-model="product.color"
+                        v-model="product.color_id"
                         name="color"
-                        placeholder="Farba"
                         :class="[{'is-invalid': errorFor('color')}]"
                         >
+                        <option value="">Vyberte farbu</option>
+                        <option v-for="color in colors" :key="color.id" :value="color.id">{{color.color}}</option>
+                    </select>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
                     <label for="material">Materiál produktu</label>
-                    <input 
+                    <select 
                         type="text"
                         class="form-control"
-                        v-model="product.material"
+                        v-model="product.material_id"
                         name="material"
                         placeholder="Materiál"
                         :class="[{'is-invalid': errorFor('material')}]"
                         >
+                        <option value="">Vyberte materiál</option>
+                        <option v-for="material in materials" :key="material.id" :value="material.id">{{material.material}}</option>
+                    </select>
                     </div>
                 </div>
             </div>
         </div>
-            <div class="col-md-6">
-                <!-- <div class="form-group">
-                    <label for="count">Počet obrázkov produktu</clabel>
-                    <select 
-                        class="form-control"
-                        v-model="images_count"
-                        name="count"
-                        >
-                            <option disabled value="">Vyberte počet</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>8</option>
-                    </select>
-                </div> -->
-                <!-- <div v-if="images_count">
-                    <div v-for=" index in Number(images_count)" :key="index" >
-                        <div class="form-group">
-                            <div class="ml-5">
-                                <label for="obrazky">Obrázok {{index}}</label>
-                                <div class="input-group mb-3" name = "obrazky">
-                                    <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="inputGroupFile01" @change="onFileChange">
-                                    <label class="custom-file-label" for="inputGroupFile01">Vyber obrázok {{index}} </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-                
-            </div>
     </div>
     <div class="row justify-content-center mt-4">
         <div class="col-md-6">
@@ -260,13 +228,15 @@ export default {
             brand_id: '',
             images:[],
             price: null,
-            color: null,
-            material: null
+            color_id: null,
+            material_id: null
             },
         
         categories:{},
         brands: {},
         models: {},
+        colors: {},
+        materials: {},
         }
     },
 
@@ -280,7 +250,19 @@ export default {
 
              this.loading = false
         );
-       
+        axios.get('/api/farba')
+        .then(response =>{
+            this.colors = response.data
+        }).then(() => 
+
+             this.loading = false
+        );
+        axios.get('/api/material')
+        .then(response =>{
+            this.materials = response.data
+        }).then(()=>
+            this.loading = false
+        );       
     },
 
 

@@ -70,8 +70,8 @@
                             <td class="align-middle">{{product.brand.brand_name}}</td>
                             <td class="align-middle">{{product.model.model_name}}</td>
                             <td class="align-middle">{{product.price}}</td>
-                            <td class="align-middle">{{product.color}}</td>
-                            <td class="align-middle">{{product.material}}</td>
+                            <td class="align-middle">{{product.color.color}}</td>
+                            <td class="align-middle">{{product.material.material}}</td>
                             <td class="align-middle">{{product.created_at | fromNow}}</td>
                             <td class="align-middle">{{product.updated_at | fromNow}}</td>
                             <td class="align-middle"><button class="btn btn-danger" @click="deleteProduct(product)"><i class="fas fa-trash-alt"></i> Odstrániť</button></td>

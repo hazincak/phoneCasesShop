@@ -34,7 +34,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return Product::with('images', 'model', 'category', 'brand')->paginate(12);
+        return Product::with('images', 'model', 'category', 'brand', 'color', 'material')->paginate(12);
     }
 
     /**
@@ -62,8 +62,8 @@ class ProductController extends Controller
             'brand_id' => 'required',
             'category_id' => 'required',
             'model_id' => 'required',
-            'color' => 'required',
-            'material' => 'required',
+            'color_id' => 'required',
+            'material_id' => 'required',
             'price' => 'required',
         ]);
 
@@ -74,8 +74,8 @@ class ProductController extends Controller
             'brand_id' => $request->brand_id,
             'category_id' => $request->category_id,
             'model_id' => $request->model_id,
-            'color' => $request->color,
-            'material' => $request->material,
+            'color_id' => $request->color_id,
+            'material_id' => $request->material_id,
             'price' => $request->price,
         ]);
 
