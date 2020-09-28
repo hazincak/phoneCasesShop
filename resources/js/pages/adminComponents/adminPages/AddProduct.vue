@@ -157,7 +157,7 @@
                     <input 
                         type="text"
                         class="form-control"
-                        v-model="product.color"
+                        v-model="product.price"
                         name="price"
                         placeholder="Cena"
                         :class="[{'is-invalid': errorFor('price')}]"
