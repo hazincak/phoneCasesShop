@@ -14,29 +14,19 @@
                 <h3 class="text-center">Options</h3>
             </div>
             
-            <li class="text-left">
-                <a href="#products" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle sidebar--link">Produkty</a>
-                  <ul class="collapse list-unstyled" id="products">
-                      <li class="text-center">
-                        <router-link :to="{name: 'ProductsDashboard'}" class="sidebar--link">Vsetky produkty</router-link>
-                      </li>
-                       <li class="text-center">
-                            <router-link :to="{name: 'addProduct'}" class="sidebar--link">Pridať produkt</router-link>
-                       </li>
-                  </ul>
+           <li class="text-left">
+                <router-link :to="{name: 'BrandsDashboard'}" class="sidebar--link">Značky & Modely</router-link>
             </li>
-
-
-           
             <li class="text-left">
-                <router-link :to="{name: 'users'}" class="sidebar--link">Užívatelia</router-link>
+                <router-link :to="{name: 'ColorsAndMaterialsDashboard'}" class="sidebar--link">Farby & Materiály</router-link>
             </li>
             <li class="text-left">
                 <router-link :to="{name: 'CategoriesDashboard'}" class="sidebar--link">Kategorie</router-link>
             </li>
-            <li class="text-left">
-                <router-link :to="{name: 'BrandsDashboard'}" class="sidebar--link">Značky & modely</router-link>
+            <li class="text-left"> 
+                <router-link :to="{name: 'ProductsDashboard'}" class="sidebar--link">Vsetky produkty</router-link>
             </li>
+            
         </ul>
     </nav>
 

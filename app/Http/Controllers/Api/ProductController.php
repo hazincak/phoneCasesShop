@@ -15,7 +15,7 @@ class ProductController extends Controller
     
 
     public function productById($id){
-        return Product::with('images', 'model')->findOrFail($id);
+        return Product::with('images', 'model', 'color', 'material')->findOrFail($id);
     }
 
 

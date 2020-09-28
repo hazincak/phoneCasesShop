@@ -1,11 +1,11 @@
 <template>
- <div v-if="loading">
+<div v-if="loading">
         <atom-spinner class="my-center"
           :animation-duration="1000"
           :size="80"
           :color="'#086972'"
         />
-    </div>
+</div>
 <div v-else>
   <div class="m-5"><h3>Správca značiek & modelov</h3></div>
     <div class="row m-5">
@@ -117,7 +117,6 @@ export default {
             });
       },
       addBrand(){
-        this.success = null,
         this.loading = true;
         this.errors = null;
 

@@ -34,6 +34,10 @@ Route::apiResource('kategorie', 'api\CategoryController');
 
 Route::apiResource('model', 'api\DeviceModelController');
 
+Route::apiResource('farba', 'api\ColorController');
+
+Route::apiResource('material', 'api\MaterialController');
+
 
 Route::get('kategorie-a-znacky', 'api\CategoryBrandsController@getCategoriesWithBrands');
 

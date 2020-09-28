@@ -52,11 +52,11 @@
                                     <tbody>
                                       <tr>
                                         <th scope="row">Farba</th>
-                                        <td>{{product.color}}</td>
+                                        <td>{{product.color.color}}</td>
                                       </tr>
                                       <tr>
                                         <th scope="row">Material</th>
-                                        <td>{{product.material}}</td>
+                                        <td>{{product.material.material}}</td>
                                       </tr>
                                       <tr>
                                         <th scope="row">Model</th>

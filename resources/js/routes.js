@@ -10,11 +10,11 @@ import Admin from "./pages/Admin";
 
 import Products from "./pages/adminComponents/adminPages/Products";
 import ProductsDashboard from "./pages/adminComponents/adminPages/ProductsDashboard";
-import AddProduct from "./pages/adminComponents/adminPages/AddProduct";
 import UpdateProduct from "./pages/adminComponents/adminPages/UpdateProduct";
 
 
-import Users from "./pages/adminComponents/adminPages/Users";
+import ColorsAndMaterials from "./pages/adminComponents/adminPages/ColorsAndMaterials";
+import ColorsAndMaterialsDashboard from "./pages/adminComponents/adminPages/ColorsAndMaterialsDashboard";
 
 import Brands from "./pages/adminComponents/adminPages/Brands";
 import BrandsDashboard from "./pages/adminComponents/adminPages/BrandsDashboard";
@@ -132,6 +132,19 @@ const routes = [
                     },
                   ]
               },
+              {
+                path: "farby-a-materialy",
+                name: "colorsAndCategories",
+                component: ColorsAndMaterials,
+                    children:[
+                        {
+                            path: "farby-a-materialy-nadhlad",
+                            name: "ColorsAndMaterialsDashboard",
+                            component: ColorsAndMaterialsDashboard
+                        }
+                    ]
+              },
+
             {
                 path: "znacky",
                 name: "brands",
@@ -163,21 +176,11 @@ const routes = [
                     },
                     {
                         path: "pridat",
-                        name: "addProduct",
-                        component: AddProduct,
-                    },
-                    {
-                        path: "pridat",
                         name: "updateProduct",
                         component: UpdateProduct,
                     }
                 ]
             },
-            {
-                path: "uzivatelia",
-                name: "users",
-                component: Users
-              },
           ]
 
     
