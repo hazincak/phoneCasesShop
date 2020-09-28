@@ -335,7 +335,7 @@ export default {
 
        try {
           const response =  await axios.post('/api/produkt', this.product);
-          if(201 == response){
+          if(200 == response){
               this.flashMessage.info({
                title: `Produkt úspěšné vytvoreny`,
                icon: false,

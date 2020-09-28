@@ -10,7 +10,7 @@
 					</router-link>
 						
 					
-					<p class="card-text">{{product.model}}</p>
+					<p class="card-text">{{product.model.model_name}}</p>
 			</div>
 			<div class="bottom-wrap pt-3">
 				<button 

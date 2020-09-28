@@ -16,8 +16,15 @@
                 </div>
                 <div class="col-mb-6">
                       <h3>{{product.title}}</h3>
-                    <h4>€{{product.price}} <span class="price"> s DPH</span> {{product.model}}</h4>
-                    <p>{{product.description}}</p>
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <h4>€{{product.price}} <span class="price"> s DPH</span></h4>
+                            </div>
+                            <div>
+                                <h4>{{product.model.model_name}}</h4>
+                            </div>
+                        </div>
+                    <p>{{product.description_short}}</p>
                     <button 
 			    		v-if="inBasketAlready" 
 			    		class=" button button--block button--teal float-right"
@@ -37,15 +44,7 @@
                         <!-- <li :class="{active: active}" @click="active = active">Podrobnosti</li> -->
                     </ul>
                     
-                         <div class="description-area text-center" v-if="selected == 'Popis'" >
-                        
-                            
-                            Stay connected either on the phone or the Web with the Galaxy S4 I337 from Samsung. With 16 GB of memory and a 4G connection, this phone stores precious photos and video and lets you upload them to a cloud or social network at blinding-fast speed. With a 17-hour operating life from one charge, this phone allows you keep in touch even on the go. 
-        
-                            With its built-in photo editor, the Galaxy S4 allows you to edit photos with the touch of a finger, eliminating extraneous background items. Usable with most carriers, this smartphone is the perfect companion for work or entertainment.
-                            
-                      
-                        </div>
+                         <div class="description-area text-center" v-if="selected == 'Popis'" >{{product.description_long}}</div>
                     
                         <div class="description-area text-center" v-if="selected == 'Podrobnosti'">
                             
@@ -61,7 +60,7 @@
                                       </tr>
                                       <tr>
                                         <th scope="row">Model</th>
-                                        <td>{{product.model}}</td>
+                                        <td>{{product.model.model_name}}</td>
                                       </tr>
                                     </tbody>
                                 </table>

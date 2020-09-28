@@ -15,7 +15,7 @@ class ProductController extends Controller
     
 
     public function productById($id){
-        return Product::with('images')->findOrFail($id);
+        return Product::with('images', 'model')->findOrFail($id);
     }
 
 
@@ -33,7 +33,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return Product::with('images')->paginate(12);
+        return Product::with('images', 'model')->paginate(12);
     }
 
     /**
