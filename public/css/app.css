@@ -20389,6 +20389,11 @@ input[type=color].form-control:disabled {
   transform: translate(-50%, -50%);
 }
 
+.my-vertical-alignment {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
 html {
   font-size: 62.5%;
 }

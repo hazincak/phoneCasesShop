@@ -11,12 +11,12 @@
         <div v-else>
             <breadcrumb></breadcrumb>
             <div class="row justify-content-around">
-                <div class="col-mb-6">
+                <div class="col-md-6">
                     <product-gallery :product="product"></product-gallery>
                 </div>
-                <div class="col-mb-6">
-                      <h3>{{product.title}}</h3>
-                        <div class="d-flex justify-content-between">
+                <div class="col-md-6 mt-5">
+                      <h2 class="mb-5">{{product.title}}</h2>
+                        <div class="d-flex justify-content-between mb-5">
                             <div>
                                 <h4>€{{product.price}} <span class="price"> s DPH</span></h4>
                             </div>
@@ -24,7 +24,7 @@
                                 <h4>{{product.model.model_name}}</h4>
                             </div>
                         </div>
-                    <p>{{product.description_short}}</p>
+                    <p class="mb-5">{{product.description_short}}</p>
                     <button 
 			    		v-if="inBasketAlready" 
 			    		class=" button button--block button--teal float-right"
