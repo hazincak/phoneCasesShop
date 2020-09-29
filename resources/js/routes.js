@@ -52,9 +52,9 @@ const routes = [
     },
 
     {
-        path:"/obaly-na-:model",
+        path:"/kategoria-:categoryId-znacka-:brandId-model-:modelId",
         component: Shop,
-        name: 'obchod-model-obaly',
+        name: 'obchod-vyber',
         meta:{
             breadcrumb: [
                 {name: 'Domov', link: '/'},

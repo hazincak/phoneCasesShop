@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Category;
-use App\Http\Controllers\Controller;
 use App\Image;
-use Illuminate\Http\Request;
 use App\Product;
+use App\DeviceModel;
+use App\Category;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
@@ -21,6 +23,18 @@ class ProductController extends Controller
 
     public function getAllProducts(){
         return Product::with('category', 'brand', 'model')->get();
+    }
+
+    public function productsByCategoryBrandModel($categoryId, $brandId, $modelId){
+
+       
+        return Product::with('images', 'brand', 'color', 'material','category', 'model')
+        ->where([
+            ['brand_id', $brandId],
+            ['category_id', $categoryId],
+            ['model_id', $modelId]
+        ])
+        ->paginate(12);
     }
     
 

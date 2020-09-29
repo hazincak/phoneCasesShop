@@ -24,8 +24,8 @@
                         <transition name="fade">
                         <div v-if="selectedBrand.id == brand.id" >
                             <ul class="list-group ml-4 mb-4 mt-4" v-for="model in filteredModels" :key="model.id">
-                                 <!-- <span class="sidebar--link">{{model.model_name}}</span> -->
-                                 <router-link class="sidebar--link" :to="{name: 'Obaly na mobil', params: {model: model.model_name}}">{{model.model_name}}</router-link>
+                                 <!-- <span class="sidebar--link" @click="getUrl(model)">{{model.model_name}}</span> -->
+                                 <router-link class="sidebar--link" :to="{name: 'obchod-vyber', params: { categoryId: selectedCategory, brandId: model.brand_id ,modelId: model.id  }}">{{model.model_name}}</router-link>
                             </ul>
                         </div>
                         </transition>
@@ -78,6 +78,10 @@ export default {
             this.filteredModels = _.filter(this.selectedBrand.device_models, function (model){
             return _.some(model.categories, ['id', categoryId]);
         })
+        },
+
+        getUrl(model){
+            alert(`${model.categories}/${model.brand_id}/${model.model_name}`);
         }
         
     }

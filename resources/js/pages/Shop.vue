@@ -58,7 +58,6 @@ export default {
     methods:{
         getResults(page = 1){
              this.loading = true
-            // this.products = {}
                 axios.get(`api${this.$route.path}?page=` + page)
                 .then(response => {
                     this.products = response.data;
