@@ -24,6 +24,9 @@ import Categories from "./pages/adminComponents/adminPages/Categories";
 import CategoriesDashboard from "./pages/adminComponents/adminPages/CategoriesDashboard";
 import CategoryUpdate from "./pages/adminComponents/adminPages/CategoryUpdate";
 
+import NotAuthorised from "./shared/components/NotAuthorised";
+import store from "./store";
+
 
 
 
@@ -107,6 +110,7 @@ const routes = [
         path: "/admin",
         component: Admin,
         name: "admin",
+        
         meta:{
             breadcrumb: [
                 {name: 'Domov', link: '/'},
@@ -124,6 +128,7 @@ const routes = [
                         path: "kategorie-nahlad",
                         name: "CategoriesDashboard",
                         component: CategoriesDashboard,
+                        
                     },
                     {
                         path: "aktualizovat-kategorie/:id",
@@ -181,10 +186,22 @@ const routes = [
                     }
                 ]
             },
-          ]
-
+          ],
+          beforeEnter: (to, from, next) => {
+            if(store.state.isAdmin){
+                next()
+            }else{
+                next({name: "not-authorised"})
+            }
+        },
+   
     
     },
+    {
+        path: "/pristup-zamietnuty",
+        name: "not-authorised",
+        component: NotAuthorised
+    }
 
 
 ];

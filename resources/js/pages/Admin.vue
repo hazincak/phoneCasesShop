@@ -16,7 +16,7 @@
 
 
 import AdminSidebar from "./adminComponents/AdminSidebar";
-
+import {mapState ,mapGetters} from "vuex";
 
 export default {
  components:{
@@ -32,7 +32,7 @@ data(){
 methods:{
      changeSideBarStatus(status){
             this.isActive =  status
-        }
+        },
 }
 
 

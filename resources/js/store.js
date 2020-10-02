@@ -8,7 +8,8 @@ export default{
         isLoggedIn: false,
         user:{
 
-        }
+        },
+        isAdmin: false,
     },
     mutations:{
         addToBasket(state, payload) {
@@ -25,6 +26,9 @@ export default{
         },
         setLoggedIn(state, payload){
             state.isLoggedIn = payload;
+        },
+        setAdminStatus(state, payload){
+            state.isAdmin = payload;
         }
     
 
@@ -58,6 +62,11 @@ export default{
                     const user =  (await axios.get('/user')).data;
                     commit("setUser", user);
                     commit("setLoggedIn", true);
+                    if(user.is_admin === 1){
+                        commit('setAdminStatus', true)
+                    }else{
+                        commit('setAdminStatus', false)
+                    }
                 } catch (error) {
                     dispatch("logout");
                 }
@@ -67,6 +76,7 @@ export default{
         logout({commit}) {
             commit("setUser", {});
             commit("setLoggedIn", false);
+            commit("setAdminStatus", false);
             logOut();
         }
     },
@@ -87,7 +97,7 @@ export default{
             }
         },
         isUserAdmin(state){
-            return state.user.role ==='admin' ? true : false;
+            return state.isAdmin;
         }
 
     }   
