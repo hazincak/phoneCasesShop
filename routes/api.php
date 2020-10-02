@@ -28,30 +28,30 @@ Route::get('/kategoria-{categoryId}-znacka-{brandId}-model-{modelId}', 'Api\Prod
 
 Route::get('/modely-podla-znacky/{brandId}', 'Api\BrandController@getModels');
 
-Route::apiResource('produkt', 'api\ProductController');
+Route::middleware('can:manipulateContent')->apiResource('produkt', 'api\ProductController');
 
-Route::apiResource('kategorie', 'api\CategoryController');
+Route::middleware('can:manipulateContent')->apiResource('kategorie', 'api\CategoryController');
 
-Route::apiResource('model', 'api\DeviceModelController');
+Route::middleware('can:manipulateContent')->apiResource('model', 'api\DeviceModelController');
 
-Route::apiResource('farba', 'api\ColorController');
+Route::middleware('can:manipulateContent')->apiResource('farba', 'api\ColorController');
 
-Route::apiResource('material', 'api\MaterialController');
+Route::middleware('can:manipulateContent')->apiResource('material', 'api\MaterialController');
 
 
 Route::get('kategorie-a-znacky', 'api\CategoryBrandsController@getCategoriesWithBrands');
 
 Route::get('znacky-patriace-kategorii/{categoryId}', 'api\CategoryBrandsController@getBrandsBelongingToSelectedCategory');
 
-Route::get('kategorie/{category}/pridat-znacku/{brand}', 'api\CategoryBrandsController@attachBrandToCategory');
+Route::middleware('can:manipulateContent')->get('kategorie/{category}/pridat-znacku/{brand}', 'api\CategoryBrandsController@attachBrandToCategory');
 
-Route::get('kategorie/{category}/odobrat-znacku/{brand}', 'api\CategoryBrandsController@unAttachBrandFromCategory');
+Route::middleware('can:manipulateContent')->get('kategorie/{category}/odobrat-znacku/{brand}', 'api\CategoryBrandsController@unAttachBrandFromCategory');
 
-Route::get('kategorie/{category}/pridat-model/{model}', 'api\CategoryDeviceModelsController@attachModelToCategory');
+Route::middleware('can:manipulateContent')->get('kategorie/{category}/pridat-model/{model}', 'api\CategoryDeviceModelsController@attachModelToCategory');
 
-Route::get('kategorie/{category}/odobrat-model/{model}', 'api\CategoryDeviceModelsController@unAttachModelFromCategory');
+Route::middleware('can:manipulateContent')->get('kategorie/{category}/odobrat-model/{model}', 'api\CategoryDeviceModelsController@unAttachModelFromCategory');
 
-Route::apiResource('znacky', 'api\BrandController');
+Route::middleware('can:manipulateContent')->apiResource('znacky', 'api\BrandController');
 
 
 Route::get('modely-podla-kategorie/{categoryId}/znacky/{brandId}', 'api\CategoriesBrandsModelsController@getModelsBelongingToSelectedCategoryAndToSelectedBrand');

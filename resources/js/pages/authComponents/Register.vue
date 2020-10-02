@@ -1,7 +1,7 @@
 <template>
     <div class="container" >
         <breadcrumb></breadcrumb>
-        <div class="row mt-5 mb-5 justify-content-center">
+        <div class="row mt-5 justify-content-center">
             <div class="col-md-6">    
                 <div class="row">
                     <div class="col-md-6">

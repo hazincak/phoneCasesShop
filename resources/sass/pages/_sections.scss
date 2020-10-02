@@ -1,3 +1,7 @@
+.section{
+    min-height: 90vh;
+}
+
 .section-title{
     background-image: linear-gradient(rgba($color-teal-dark, 1), rgba($color-grey-light, 0.801)), url("../images/hero2.jpg");
     background-size: cover;
@@ -12,23 +16,12 @@
     
 }
 
-.shop-section{
-    min-height: 90vh;
-}
-
 .empty-basket-section .icon{
     color: $color-teal;
     font-size: 10rem;
     
 }
 
-.login-section{
-    min-height:90vh;
-}
-
-.admin-section{
-    min-height: 90vh;
-}
 
 
 
