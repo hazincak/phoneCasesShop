@@ -12,7 +12,7 @@
                         <side-bar :isActive = "isActive" v-on:sidebar-change = "changeSideBarStatus($event)"></side-bar>
                     
                 <div class="col">
-                        <div class="row p-2">
+                        <div class="row p-3">
                             <div class="sidebar__toggler" @click="isActive = !isActive">Menu <i class="fas fa-bars"></i></div>
                             <breadcrumb></breadcrumb>
                             <form class="form-inline ml-auto">

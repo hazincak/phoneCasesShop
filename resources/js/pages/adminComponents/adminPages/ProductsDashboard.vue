@@ -9,7 +9,47 @@
   <div v-else>
     <div class="row">
         <div class="col-12">
-         <div class="card shadow mb-4 mt-5">
+          <form class="form-inline ml-auto p-3">
+                                
+                                    <div class="form-group mr-5">
+                                        <label for="productQuantity" class="mr-2">Počet zobrazených: </label>
+                                            <select 
+                                            class="form-control"
+                                            name="productsQuantity"
+                                            v-model="perPage"
+                                            >
+                                              <option value = 8>8</option>
+                                              <option value = 12>12</option>
+                                              <option value = 16>16</option>
+                                              <option value = 32>32</option>
+                                              
+                                            </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div v-if="orderBy != 'id'">
+                                            <div v-if="order == 'asc'">
+                                                <i @click="order = 'desc'"  class="fas fa-sort-amount-down-alt mr-2 orderBy-icon"></i>
+                                            </div>
+                                            <div v-if="order == 'desc'">
+                                                <i @click="order = 'asc'" class="fas fa-sort-amount-down mr-2 orderBy-icon"></i>
+                                            </div>
+                                        </div>
+                                        
+                                            <select 
+                                                class="form-control"
+                                                v-model="orderBy"
+                                                >
+                                                <option value= 'id' selected disabled>Zoradiť produkty</option>
+                                              <option value="price">Zoradiť podľa ceny</option>
+                                              <option value="created_at">Zoradiť podľa dátumu pridania</option>
+                                            </select>
+                                    </div>
+                                
+                            </form>
+          
+         <div class="card shadow mb-4 mt-2">
+           
            <div>   
             <b-modal id="modal-xl" size="xl" title="Pridať produkt"
            
@@ -100,17 +140,32 @@ export default {
     return{
       loading:false,
       products: {},
+      perPage: 16,
+      orderBy: 'id',
+      order: 'asc',
     }
   },
 
   created(){
     this.getResults();
     },
+
+   watch:{
+        perPage: function(){
+            this.getResults() 
+        },
+        orderBy: function(){
+            this.getResults()
+        },
+        order: function(){
+            this.getResults()
+        }
+    },
   
   methods:{
     getResults(page = 1){
              this.loading = true
-                axios.get(`/api/produkt?page=${page}`)
+                axios.get(`/api/produkt?page=${page}&perPage=${this.perPage}&orderBy=${this.orderBy}&order=${this.order}`)
                 .then(response => {
                     this.products = response.data;
                     this.loading=false;
