@@ -35,75 +35,33 @@ const routes = [
         path: "/",
         component: Home,
         name: "domov",
-        meta:{
-            breadcrumb: [
-                {name: 'domov'}
-            ]
-        }
     },
     {
         path: "/obchod",
         component: Shop,
         name: "obchod",
-        meta:{
-            breadcrumb: [
-                {name: 'Domov', link: '/'},
-                {name: 'Obchod',link: '/obchod'},
-                {name: 'Všetky produkty'}
-            ]
-        }
     },
 
     {
         path:"/kategoria-:categoryId-znacka-:brandId-model-:modelId",
         component: Shop,
         name: 'obchod-vyber',
-        meta:{
-            breadcrumb: [
-                {name: 'Domov', link: '/'},
-                {name: 'Obchod', link: '/obchod'},
-                {name:  'Obaly na mobil'}
-            ]
-        }
     },
-
-
-
     {
         path: "/produkt/:id",
         component: DisplayProduct,
         name: "produkt",
-        meta:{
-            breadcrumb: [
-                {name: 'Domov', link: '/'},
-                {name: 'Obchod', link: '/obchod'},
-                {name: 'Produkt'}
-            ]
-        }
     },
     {
         path: "/kosik",
         component: Basket,
         name: "kosik",
-        meta:{
-            breadcrumb: [
-                {name: 'Domov', link: '/'},
-                {name: 'Obchod', link: 'obchod'},
-                {name: 'Košík'}
-            ]
-        }
     },
 
     {
         path: "/registracia",
         component: Register,
         name: "register",
-        meta:{
-            breadcrumb: [
-                {name: 'Domov', link: '/'},
-                {name: 'Registrácia'}
-            ]
-        }
     },
 
     {
@@ -111,12 +69,6 @@ const routes = [
         component: Admin,
         name: "admin",
         
-        meta:{
-            breadcrumb: [
-                {name: 'Domov', link: '/'},
-                {name: 'Admin'}
-            ],
-        },
         children: [
             {
                 path: "kategorie",
@@ -212,23 +164,5 @@ const router = new VueRouter({
 
     
 });
-
-
-// router.beforeEach((to, from, next) => {
-//     if (to.matched.some(record => record.meta.requiresAuth && record.meta.requiresAdmin)) {
-//       if (isUserAdmin) {
-//         next({
-//           path: '/admin',
-//           query: { redirect: to.fullPath }
-//         })
-//       } else {
-//         next({
-//             path: 'home',
-//         })
-//       }
-//     } else {
-//       next() // make sure to always call next()!
-//     }
-//   })
 
 export default router;

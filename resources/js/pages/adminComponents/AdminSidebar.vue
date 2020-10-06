@@ -10,21 +10,17 @@
         </div>
 
         <ul class="list-unstyled">
-            <div class="sidebar-subheader">
-                <h3 class="text-center">Options</h3>
-            </div>
-            
-           <li class="text-left">
-                <router-link :to="{name: 'BrandsDashboard'}" class="sidebar--link">Značky & Modely</router-link>
+           <li class="text-left mb-4 mt-4">
+                <router-link :to="{name: 'BrandsDashboard'}" class="sidebar--link-main">Značky & Modely</router-link>
             </li>
-            <li class="text-left">
-                <router-link :to="{name: 'ColorsAndMaterialsDashboard'}" class="sidebar--link">Farby & Materiály</router-link>
+            <li class="text-left mb-4 mt-4">
+                <router-link :to="{name: 'ColorsAndMaterialsDashboard'}" class="sidebar--link-main">Farby & Materiály</router-link>
             </li>
-            <li class="text-left">
-                <router-link :to="{name: 'CategoriesDashboard'}" class="sidebar--link">Kategorie</router-link>
+            <li class="text-left mb-4 mt-4">
+                <router-link :to="{name: 'CategoriesDashboard'}" class="sidebar--link-main">Kategorie</router-link>
             </li>
-            <li class="text-left"> 
-                <router-link :to="{name: 'ProductsDashboard'}" class="sidebar--link">Vsetky produkty</router-link>
+            <li class="text-left mb-4 mt-4"> 
+                <router-link :to="{name: 'ProductsDashboard'}" class="sidebar--link-main">Vsetky produkty</router-link>
             </li>
             
         </ul>

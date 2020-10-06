@@ -12,7 +12,6 @@ import moment from "moment";
 
 
 import Navbar from "./components/Navbar";
-import BreadCrumb from "./components/BreadCrumbs.vue";
 import Footer from "./components/Footer";
 
 import ValidationErrors from "./shared/components/ValidationErrors";
@@ -30,7 +29,6 @@ Vue.use(Vuex);
 
 
 Vue.component("navbar", Navbar);
-Vue.component("breadcrumb", BreadCrumb);
 Vue.component("section-footer", Footer);
 
 Vue.component("v-errors", ValidationErrors);
@@ -65,12 +63,6 @@ const app = new Vue({
     store,
     components:{
         "index": Index
-    },
-
-    watch: {
-        'route' () {
-            this.breadCrumbList - this.$route.meta.BreadCrumb
-        }
     },
 
     async beforeCreate(){

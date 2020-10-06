@@ -14,8 +14,19 @@
                 <div class="col">
                         <div class="row p-3">
                             <div class="sidebar__toggler" @click="isActive = !isActive">Menu <i class="fas fa-bars"></i></div>
-                            <breadcrumb></breadcrumb>
-                            <form class="form-inline ml-auto">
+                            <b-breadcrumb>
+                                <router-link class="breadcrumb-link" :to="{name: 'domov'}"> <i class="fas fa-home"></i> Domov/</router-link>
+                                <router-link class="breadcrumb-link" :to="{name: 'obchod'}"> Obchod/</router-link>
+                                <div v-if="this.$route.path == '/obchod'">
+                                    <b-breadcrumb-item active>Vsetky produkty</b-breadcrumb-item>
+                                </div>
+                                <div v-else>
+                                    <b-breadcrumb-item active>{{products.data[0].category.category_name}}/{{products.data[0].brand.brand_name}}/{{products.data[0].model.model_name}}</b-breadcrumb-item>
+                                </div>
+                               
+                            </b-breadcrumb>
+                        </div>
+                        <form class="form-inline pl-3">
                                 
                                     <div class="form-group mr-5">
                                         <label for="productQuantity" class="mr-2">Počet zobrazených: </label>
@@ -52,9 +63,8 @@
                                             </select>
                                     </div>
                                 
-                            </form>
-                        </div>                        
-                        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
+                            </form>                        
+                        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 p-5">
                             <div v-for="product in products.data" :key="product.id"><product-item-card v-bind:product="product"></product-item-card></div>
                         </div>
                         <pagination :data="products" align='center' @pagination-change-page="getResults"></pagination>
@@ -85,7 +95,7 @@ export default {
             perPage: 16,
             orderBy: 'id',
             order: 'asc',
-          
+
         }
     },
   
@@ -130,11 +140,12 @@ export default {
 
 <style scoped>
 .orderBy-icon{
-    color:#086972;
+    color: #01a9b4;
     font-size: 2rem;
 }
 
 .orderBy-icon:hover{
     transform: scale(1.1);
+    color: #086972;
 }
 </style>

@@ -2,12 +2,17 @@
  background-color: $color-white;
 }
 
-.breadcrumb-item{
+.breadcrumb-link{
     color: $color-teal;
+    font-weight: bold;
     cursor: pointer;
+    &:hover{
+        color: $color-teal-dark;
+        text-decoration: none;
+    }
 }
 
 .breadcrumb-item.active{
-    color: $color-teal-dark;
-    font-weight: bold;
+    color: grey;
+    
 }

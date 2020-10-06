@@ -78,11 +78,6 @@ export default {
             return _.some(model.categories, ['id', categoryId]);
         })
         },
-
-        getUrl(model){
-            alert(`${model.categories}/${model.brand_id}/${model.model_name}`);
-        }
-        
     }
 
 

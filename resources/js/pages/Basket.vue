@@ -1,6 +1,10 @@
 <template>
     <div class="container">
-        <breadcrumb></breadcrumb>
+        <b-breadcrumb>
+            <router-link class="breadcrumb-link" :to="{name: 'domov'}"> <i class="fas fa-home"></i> Domov/</router-link>
+            <router-link class="breadcrumb-link" :to="{name: 'obchod'}">Obchod/</router-link>
+            <b-breadcrumb-item active>Košík</b-breadcrumb-item>
+        </b-breadcrumb>
         <div class="row mt-5" v-if="itemsInBasket">
             <div class="col-md-7">
                 <div class="row">

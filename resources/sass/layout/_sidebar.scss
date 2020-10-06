@@ -15,14 +15,14 @@
 .sidebar__wrapper.active{
     display: block;
     height: 100%;
-  width: 85%;
+  width: 55%;
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   left: 0;
   top: 0;
-
   overflow-x: hidden; /* Disable horizontal scroll */
   transition: 0.5s; 
+  
 }
 
 #sidebar {
@@ -70,7 +70,6 @@
        &:hover{
             color:$color-teal-dark;
             text-decoration:none;
-            transform: translateX(4px);
        }
    } 
 }
@@ -96,7 +95,8 @@
         padding: 0.75rem 1rem;
         margin-bottom: 1rem;
         display: none;
-        color: $color-teal-dark;
+        font-weight: bold;
+        color: $color-teal;
         cursor: pointer;
     
         @include respond(1000) {

@@ -9,7 +9,11 @@
             />
         </div>
         <div v-else>
-            <breadcrumb></breadcrumb>
+            <b-breadcrumb>
+                <router-link class="breadcrumb-link" :to="{name: 'domov'}"> <i class="fas fa-home"></i> Domov/</router-link>
+                <router-link class="breadcrumb-link" :to="{name: 'obchod'}">Obchod/</router-link>
+                <b-breadcrumb-item active>{{product.title}}</b-breadcrumb-item>
+            </b-breadcrumb>
             <div class="row justify-content-around">
                 <div class="col-md-6">
                     <product-gallery :product="product"></product-gallery>

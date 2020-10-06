@@ -1,6 +1,9 @@
 <template>
     <div class="container" >
-        <breadcrumb></breadcrumb>
+        <b-breadcrumb>
+            <router-link class="breadcrumb-link" :to="{name: 'domov'}"> <i class="fas fa-home"></i> Domov/</router-link>
+            <b-breadcrumb-item active>Registrácia</b-breadcrumb-item>
+        </b-breadcrumb>
         <div class="row ">
             <div class="col-md-6 my-center">    
                 <div class="row">

@@ -20765,14 +20765,19 @@ p {
   background-color: #fff;
 }
 
-.breadcrumb-item {
+.breadcrumb-link {
   color: #01a9b4;
+  font-weight: bold;
   cursor: pointer;
 }
 
-.breadcrumb-item.active {
+.breadcrumb-link:hover {
   color: #086972;
-  font-weight: bold;
+  text-decoration: none;
+}
+
+.breadcrumb-item.active {
+  color: grey;
 }
 
 .page-link {
@@ -20922,7 +20927,7 @@ p {
 .sidebar__wrapper.active {
   display: block;
   height: 100%;
-  width: 85%;
+  width: 55%;
   position: fixed;
   /* Stay in place */
   z-index: 1;
@@ -20975,7 +20980,6 @@ p {
 #sidebar .sidebar--link-main:hover {
   color: #086972;
   text-decoration: none;
-  transform: translateX(4px);
 }
 
 .sidebar__closeButton {
@@ -20990,7 +20994,8 @@ p {
   padding: 0.75rem 1rem;
   margin-bottom: 1rem;
   display: none;
-  color: #086972;
+  font-weight: bold;
+  color: #01a9b4;
   cursor: pointer;
 }
 
