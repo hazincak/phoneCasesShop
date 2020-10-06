@@ -25,7 +25,7 @@ class ProductController extends Controller
         return Product::with('category', 'brand', 'model')->get();
     }
 
-    public function productsByCategoryBrandModel($categoryId, $brandId, $modelId){
+    public function productsByCategoryBrandModel(Request $request, $categoryId, $brandId, $modelId){
 
        
         return Product::with('images', 'brand', 'color', 'material','category', 'model')
@@ -34,7 +34,8 @@ class ProductController extends Controller
             ['category_id', $categoryId],
             ['model_id', $modelId]
         ])
-        ->paginate(12);
+        ->orderBy($request->orderBy, $request->order)
+        ->paginate($request->perPage);
     }
     
 
@@ -46,9 +47,11 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return Product::with('images', 'model', 'category', 'brand', 'color', 'material')->paginate(12);
+        return Product::with('images', 'model', 'category', 'brand', 'color', 'material')
+        ->orderBy($request->orderBy, $request->order)
+        ->paginate($request->perPage);
     }
 
     /**
