@@ -15,7 +15,7 @@
         <ul class="list-group">
             <transition-group name="fade">            
             <li v-for="category in sidebarListItems" :key="category.id"  class="text-left mb-4 mt-4" @click="selectedCategory = category.id;"> 
-               <span class="sidebar--link">{{category.category_name}}</span>
+               <span class="sidebar--link-main">{{category.category_name}}</span>
                <transition name="fade"> 
                 <div v-if="selectedCategory == category.id" >
                     
@@ -24,7 +24,6 @@
                         <transition name="fade">
                         <div v-if="selectedBrand.id == brand.id" >
                             <ul class="list-group ml-4 mb-4 mt-4" v-for="model in filteredModels" :key="model.id">
-                                 <!-- <span class="sidebar--link" @click="getUrl(model)">{{model.model_name}}</span> -->
                                  <router-link class="sidebar--link" :to="{name: 'obchod-vyber', params: { categoryId: selectedCategory, brandId: model.brand_id ,modelId: model.id  }}">{{model.model_name}}</router-link>
                             </ul>
                         </div>

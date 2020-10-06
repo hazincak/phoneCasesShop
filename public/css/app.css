@@ -20962,7 +20962,20 @@ p {
 #sidebar .sidebar--link:hover {
   color: #086972;
   text-decoration: none;
-  transform: translateX(-4px);
+  transform: translateX(4px);
+}
+
+#sidebar .sidebar--link-main {
+  color: #01a9b4;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+#sidebar .sidebar--link-main:hover {
+  color: #086972;
+  text-decoration: none;
+  transform: translateX(4px);
 }
 
 .sidebar__closeButton {

@@ -56,13 +56,23 @@
     transition: all .3s;
     cursor: pointer;
    
-    
-
     &:hover{
         color:$color-teal-dark;
     text-decoration:none;
-    transform: translateX(-4px);
+    transform: translateX(4px);
     }
+
+    &-main{
+        color: $color-teal;
+       font-weight: bold;
+       cursor: pointer;
+       transition: all .3s;
+       &:hover{
+            color:$color-teal-dark;
+            text-decoration:none;
+            transform: translateX(4px);
+       }
+   } 
 }
 
 
