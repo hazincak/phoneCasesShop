@@ -20558,6 +20558,20 @@ a {
   }
 }
 
+.underlined-header {
+  margin-bottom: 30px;
+}
+
+.underlined-header::after {
+  display: block;
+  height: 2px;
+  background-color: #01a9b4;
+  content: " ";
+  width: 100px;
+  margin-left: 0;
+  margin-top: 20px;
+}
+
 .heading-secondary {
   text-transform: uppercase;
 }
@@ -20743,8 +20757,8 @@ p {
 }
 
 .card-product .img-wrap img {
-  max-height: 100%;
-  max-width: 100%;
+  max-height: 80%;
+  max-width: 80%;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -20946,9 +20960,9 @@ p {
 }
 
 #sidebar .sidebar-header {
-  padding: 2rem;
+  padding: 1.7rem;
   background-color: #f5f5fa;
-  color: #000;
+  color: #333;
 }
 
 #sidebar .sidebar-subheader {

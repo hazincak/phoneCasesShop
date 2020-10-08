@@ -26,8 +26,9 @@
                                
                             </b-breadcrumb>
                         </div>
-                        <form class="form-inline pl-3">
-                                
+                        <div class="row">
+                            <div class="col-md-3">
+                                <form class="form-inline pl-3">
                                     <div class="form-group mr-5">
                                         <label for="productQuantity" class="mr-2">Počet zobrazených: </label>
                                             <select 
@@ -42,9 +43,12 @@
                                               
                                             </select>
                                     </div>
-
+                                </form>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-inline pl-3">
                                     <div class="form-group">
-                                        <div v-if="orderBy != 'id'">
+                                         <div  v-if="orderBy != 'id'">
                                             <div v-if="order == 'asc'">
                                                 <i @click="order = 'desc'"  class="fas fa-sort-amount-down-alt mr-2 orderBy-icon"></i>
                                             </div>
@@ -61,9 +65,15 @@
                                               <option value="price">Zoradiť podľa ceny</option>
                                               <option value="created_at">Zoradiť podľa dátumu pridania</option>
                                             </select>
+                                        </div>
                                     </div>
+                            </div>
+                        </div>
+                        <hr>
+                        
+                                    
                                 
-                            </form>                        
+                                                    
                         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 p-5">
                             <div v-for="product in products.data" :key="product.id"><product-item-card v-bind:product="product"></product-item-card></div>
                         </div>
@@ -142,6 +152,7 @@ export default {
 .orderBy-icon{
     color: #01a9b4;
     font-size: 2rem;
+    display: inline;
 }
 
 .orderBy-icon:hover{

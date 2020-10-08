@@ -9,7 +9,7 @@
             <h1 class="text-center">Menu</h1>
         </div>
         <div class="sidebar-subheader">
-                <h2 class="text-center">Kategorie produktov</h2>
+                <h2 class="text-center">Kategórie produktov</h2>
             </div>
 
         <ul class="list-group">

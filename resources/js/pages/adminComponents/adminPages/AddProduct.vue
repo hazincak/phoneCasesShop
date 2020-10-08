@@ -104,7 +104,7 @@
                         v-model="images_count"
                         name="count"
                         >
-                            <option disabled value="">Vyberte počet</option>
+                            <option :value=null selected disabled >Vyberte počet</option>
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
@@ -126,7 +126,7 @@
                                             <img :src="product.images[index-1]" class="img img-thumbnail">
                                         </div>
                                         <div class="p-2 flex-fill align-self-center">
-                                            <button class="btn btn-secondary" @click="removeImage(index)">O dstrániť obrázok</button>
+                                            <button class="btn btn-secondary" @click="removeImage(index)">Odstrániť obrázok</button>
                                         </div>
                                     </div>
                                     <hr>

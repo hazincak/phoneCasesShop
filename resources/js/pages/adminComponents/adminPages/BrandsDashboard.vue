@@ -41,7 +41,7 @@
                                 <td><router-link :to="{name:'brandUpdate', params: {id: item.id}}">{{item.brand_name}}</router-link></td>
                                 <td>{{item.created_at | fromNow}}</td>
                                 <td>{{item.created_at | fromNow}}</td>
-                                <td><button class="btn btn-danger btn-lg" @click="deleteBrand(item)"><i class="fas fa-trash-alt"></i> Odstrániť</button></td>
+                                <td><b-button class="btn btn-danger" @click="showConfirmationModal(item)"><i class="fas fa-trash-alt"></i> Odstrániť</b-button></td>
                             </tr>
                         </tbody>
                     </table>
@@ -88,7 +88,8 @@ export default {
             brands: {},
             brand:{
                 brand_name:null
-            }
+            },
+            confirmedDeletion: ''
         }
     },
 
@@ -102,6 +103,26 @@ export default {
     },
 
     methods:{
+      showConfirmationModal(item) {
+        this.confirmedDeletion = ''
+        this.$bvModal.msgBoxConfirm(`Naozaj chcete odstrániť značku "${item.brand_name}"? Značka sa odstráni zo všetkých už pridaných produktov.`,  {
+          title: 'Prosím, potvrďte',
+          size: 'md',
+          buttonSize: 'md',
+          okVariant: 'danger',
+          okTitle: 'Áno',
+          cancelTitle: 'Nie',
+          footerClass: 'p-2',
+          hideHeaderClose: false,
+          centered: true
+        })
+          .then(value => {
+            this.confirmedDeletion = value
+            if(this.confirmedDeletion){
+              this.deleteBrand(item)
+            }
+          })
+      },
       deleteBrand(item){
         this.loading = true;
         axios.delete(`/api/znacky/${item.id}`)

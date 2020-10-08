@@ -4,7 +4,7 @@
 			<router-link :to="{name: 'produkt', params: { id: product.id }}">
 				<div class="img-wrap"><img :src='product.images[0].path'></div>
 			</router-link>	
-			<div>
+			<div class="card-product-text">
 					<router-link :to="{name: 'produkt', params: { id: product.id }}">
 						{{product.title}}
 					</router-link>

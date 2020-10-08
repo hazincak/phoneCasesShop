@@ -63,7 +63,7 @@
                                       <td>{{model.model_name}}</td>
                                       <td>{{model.created_at | fromNow}}</td>
                                       <td>{{model.updated_at | fromNow}}</td>
-                                      <td><button class="btn btn-danger" @click="deleteModel(model)" ><i class="fas fa-trash-alt"></i> Odstrániť</button></td>
+                                      <td><b-button class="btn btn-danger" @click="showConfirmationModal(model)"><i class="fas fa-trash-alt"></i> Odstrániť</b-button></td>
                               </tr>
                                 </tbody>
                             </table>
@@ -112,7 +112,8 @@ export default {
             model:{
                 model_name:null,
                 brand_id:null
-            }
+            },
+            confirmedDeletion: ''
         }
     },
 
@@ -174,6 +175,27 @@ export default {
             .then(() => this.loading = false)
         },
 
+        showConfirmationModal(model) {
+        this.confirmedDeletion = ''
+        this.$bvModal.msgBoxConfirm(`Naozaj chcete odstrániť model "${model.model_name}"?`,  {
+          title: 'Prosím, potvrďte',
+          size: 'md',
+          buttonSize: 'md',
+          okVariant: 'danger',
+          okTitle: 'Áno',
+          cancelTitle: 'Nie',
+          footerClass: 'p-2',
+          hideHeaderClose: false,
+          centered: true
+        })
+          .then(value => {
+            this.confirmedDeletion = value
+            if(this.confirmedDeletion){
+              this.deleteModel(model)
+            }
+          })
+      },
+
         deleteModel(model){
             this.loading = true;
             axios.delete(`/api/model/${model.id}`)
@@ -188,38 +210,6 @@ export default {
                 })
                 .then(() => this.loading = false)
         }
-
-
-
-        
-
-        // attachBrandToCategory(){
-        //     this.loading = true;
-        //     axios.get(`/api/kategorie/${this.category.id}/pridat-znacku/${this.selectedBrandId}`)
-        //     .then(response => {
-        //       const fetchedData = response.data;
-        //       this.category.brands.push(fetchedData);  
-        //       this.flashMessage.info({
-        //        title: `Značka úspěšné pridaná ku kategorii`,
-        //        icon: false,
-        //        message: `Značka s názvom "${fetchedData.brand_name}" pridaná ku kategorii ${this.category.category_name} `
-        //     });
-        //     }).then(() => this.loading = false)
-        //     },
-
-        // unattachBrandFromCategory(brand){
-        //     this.loading = true;
-        //     axios.get(`/api/kategorie/${this.category.id}/odobrat-znacku/${brand.id}`)
-        //     .then(response => {
-        //         let index = this.category.brands.indexOf(brand);
-        //         this.category.brands.splice(index,1);
-        //         this.flashMessage.error({
-        //           title: `Značka úspěšné odobrata z tejto kategorie`,
-        //           icon: false,
-        //           message: `Značka s názvom "${brand.brand_name}" odobrata z kategorie "${this.category.category_name}"`
-        //           });
-        //     }).then(() => this.loading = false)
-        // },
     }
 }
 </script>

@@ -43,7 +43,7 @@
                               <td><router-link :to="{name:'categoryUpdate', params: {id: item.id}}">{{item.category_name}}</router-link></td>
                               <td>{{item.created_at | fromNow}}</td>
                               <td>{{item.updated_at | fromNow}}</td>
-                              <td><button class="btn btn-danger" @click="deleteCategory(item)"><i class="fas fa-trash-alt"></i> Odstrániť</button></td>
+                              <td class="align-middle"><b-button class="btn btn-danger" @click="showConfirmationModal(item)"><i class="fas fa-trash-alt"></i> Odstrániť</b-button></td>
                       </tr>
                         </tbody>
                     </table>
@@ -88,7 +88,8 @@ export default {
             categories: {},
             category:{
                 category_name:null
-            }
+            },
+            confirmedDeletion: ''
         }
     },
 
@@ -102,6 +103,32 @@ export default {
     },
 
     methods:{
+
+      showConfirmationModal(item) {
+        this.confirmedDeletion = ''
+        this.$bvModal.msgBoxConfirm(
+          `Naozaj chcete odstrániť kategóriu s názvom "${item.category_name}"? V prípade odstránenia, budú odstránené všetky značky, modely a produkty priradené ku kategórií "${item.category_name}"! `, {
+          title: 'Prosím, potvrďte',
+          size: 'md',
+          buttonSize: 'md',
+          okVariant: 'danger',
+          okTitle: 'Áno',
+          cancelTitle: 'Nie',
+          footerClass: 'p-2',
+          hideHeaderClose: false,
+          centered: true
+        })
+          .then(value => {
+            this.confirmedDeletion = value
+            if(this.confirmedDeletion){
+              this.deleteCategory(item)
+            }
+          })
+          .catch(err => {
+            // An error occurred
+          })
+      },
+
       deleteCategory(item){
         this.loading = true;
         axios.delete(`/api/kategorie/${item.id}`)
@@ -112,7 +139,7 @@ export default {
                 this.flashMessage.error({
                   title: 'Kategória úspěšné vymazaná',
                   icon: false,
-                  message: `Kategória s názvom "${item.category_name}" vymazaná`
+                  message: `Kategória s názvom "${item.category_name}" vymazaná.`
                   });
             });
       },

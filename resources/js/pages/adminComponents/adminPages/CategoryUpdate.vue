@@ -63,7 +63,7 @@
                                       <td>{{brand.brand_name}}</td>
                                       <td>{{brand.created_at | fromNow}}</td>
                                       <td>{{brand.updated_at | fromNow}}</td>
-                                      <td><button class="btn btn-danger" @click="unattachBrandFromCategory(brand)"><i class="fas fa-trash-alt"></i> Odstrániť</button></td>
+                                      <td><b-button class="btn btn-danger" @click="showBrandConfirmationModal(brand)"><i class="fas fa-trash-alt"></i> Odstrániť</b-button></td>
                               </tr>
                                 </tbody>
                             </table>
@@ -161,7 +161,7 @@
                                     <tr>
                                       <td>{{queriedModel.id}}</td>
                                       <td>{{queriedModel.model_name}}</td>
-                                      <td><button class="btn btn-danger" @click="unattachModelFromCategory(queriedModel)"><i class="fas fa-trash-alt"></i> Odstrániť</button></td>
+                                      <td><b-button class="btn btn-danger" @click="showModelConfirmationModal(queriedModel)"><i class="fas fa-trash-alt"></i> Odstrániť</b-button></td>
                               </tr>
                                 </tbody>
                             </table>
@@ -194,6 +194,8 @@ export default {
             queriedModels:null,
 
             modelError: null,
+            brandConfirmedDeletion: '',
+            modelConfirmedDeletion: ''
         }
     },
 
@@ -258,6 +260,26 @@ export default {
             })
             .then(() => this.loading = false)
             },
+        showBrandConfirmationModal(brand) {
+        this.brandConfirmedDeletion = ''
+        this.$bvModal.msgBoxConfirm(`Naozaj chcete odobrať značku "${brand.brand_name}" od kategórie ${this.category.category_name}?`,  {
+          title: 'Prosím, potvrďte',
+          size: 'md',
+          buttonSize: 'md',
+          okVariant: 'danger',
+          okTitle: 'Áno',
+          cancelTitle: 'Nie',
+          footerClass: 'p-2',
+          hideHeaderClose: false,
+          centered: true
+        })
+          .then(value => {
+            this.brandConfirmedDeletion = value
+            if(this.brandConfirmedDeletion){
+              this.unattachBrandFromCategory(brand)
+            }
+          })
+      },
 
         unattachBrandFromCategory(brand){
             this.loading = true;
@@ -266,7 +288,7 @@ export default {
                 let index = this.category.brands.indexOf(brand);
                 this.category.brands.splice(index,1);
                 this.flashMessage.error({
-                  title: `Značka úspěšné odobrata z tejto kategorie`,
+                  title: `Značka úspěšné odobratá z tejto kategorie`,
                   icon: false,
                   message: `Značka s názvom "${brand.brand_name}" odobratá z kategorie "${this.category.category_name}"`
                   });
@@ -305,12 +327,32 @@ export default {
             })
             .catch(err=> {
                 if(is500(err)){
-                    this.modelError = `Kategória  ${this.category.category_name} už obsahuje tento model`;
+                    this.modelError = `Kategória ${this.category.category_name} už obsahuje tento model`;
                     return;
                   }
             })
             .then(() => this.loading = false)
             },
+          showModelConfirmationModal(model) {
+        this.modelConfirmedDeletion = ''
+        this.$bvModal.msgBoxConfirm(`Naozaj chcete odobrať model "${model.model_name}" od kategórie ${this.category.category_name}?`,  {
+          title: 'Prosím, potvrďte',
+          size: 'md',
+          buttonSize: 'md',
+          okVariant: 'danger',
+          okTitle: 'Áno',
+          cancelTitle: 'Nie',
+          footerClass: 'p-2',
+          hideHeaderClose: false,
+          centered: true
+        })
+          .then(value => {
+            this.modelConfirmedDeletion = value
+            if(this.modelConfirmedDeletion){
+              this.unattachModelFromCategory(model)
+            }
+          })
+      },
 
          unattachModelFromCategory(model){
             this.loading = true;

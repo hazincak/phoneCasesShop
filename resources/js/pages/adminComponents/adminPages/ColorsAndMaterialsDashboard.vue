@@ -35,7 +35,7 @@
                           <tr>
                             <td>{{color.id}}</td>
                             <td>{{color.color}}</td>
-                            <td><button class="btn btn-danger" @click="deleteColor(color)"><i class="fas fa-trash-alt"></i> Odstrániť</button></td>
+                            <td><b-button class="btn btn-danger" @click="showColorConfirmationModal(color)"><i class="fas fa-trash-alt"></i> Odstrániť</b-button></td>
                           </tr>
                         </tbody>
                     </table>
@@ -91,7 +91,7 @@
                           <tr>
                             <td>{{material.id}}</td>
                             <td>{{material.material}}</td>
-                            <td><button class="btn btn-danger" @click="deleteMaterial(material)"><i class="fas fa-trash-alt"></i> Odstrániť</button></td>
+                            <td><b-button class="btn btn-danger" @click="showMaterialConfirmationModal(material)"><i class="fas fa-trash-alt"></i> Odstrániť</b-button></td>
                           </tr>
                         </tbody>
                     </table>
@@ -137,7 +137,9 @@ export default {
       },
       material:{
         material:null,
-      }
+      },
+      colorConfirmedDeletion: '',
+      materialConfirmedDeletion: ''
     }
   },
 
@@ -185,6 +187,30 @@ export default {
         .then(() => this.loading = false)
     },
 
+    showColorConfirmationModal(color) {
+        this.colorConfirmedDeletion = ''
+        this.$bvModal.msgBoxConfirm(`Naozaj chcete odstrániť farbu "${color.color}" ? Farba sa odstráni zo všetkých už pridaných produktov.`,  {
+          title: 'Prosím, potvrďte',
+          size: 'md',
+          buttonSize: 'md',
+          okVariant: 'danger',
+          okTitle: 'Áno',
+          cancelTitle: 'Nie',
+          footerClass: 'p-2',
+          hideHeaderClose: false,
+          centered: true
+        })
+          .then(value => {
+            this.colorConfirmedDeletion = value
+            if(this.colorConfirmedDeletion){
+              this.deleteColor(color)
+            }
+          })
+          .catch(err => {
+            // An error occurred
+          })
+      },
+
     deleteColor(color){
       this.loading = true;
         axios.delete(`/api/farba/${color.id}`)
@@ -227,6 +253,28 @@ export default {
         })
         .then(() => this.loading = false)
     },
+
+    showMaterialConfirmationModal(material) {
+        this.materialConfirmedDeletion = ''
+        this.$bvModal.msgBoxConfirm(`Naozaj chcete odstrániť materiál "${material.material}" ? Materiál sa odstráni zo všetkých už pridaných produktov.`,  {
+          title: 'Prosím, potvrďte',
+          size: 'md',
+          buttonSize: 'md',
+          okVariant: 'danger',
+          okTitle: 'Áno',
+          cancelTitle: 'Nie',
+          footerClass: 'p-2',
+          hideHeaderClose: false,
+          centered: true
+        })
+          .then(value => {
+            this.materialConfirmedDeletion = value
+            if(this.materialConfirmedDeletion){
+              this.deleteMaterial(material)
+            }
+          })
+      },
+
     deleteMaterial(material){
       this.loading = true;
         axios.delete(`/api/material/${material.id}`)

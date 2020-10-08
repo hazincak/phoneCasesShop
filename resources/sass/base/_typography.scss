@@ -7,6 +7,8 @@ a{
     transition: all 0.3s;
 }
 
+
+
 .heading-primary{
     color: $color-white;
     text-transform: uppercase;
@@ -34,6 +36,19 @@ a{
         @include respond(600) {
             letter-spacing: 1rem;
         }
+    }
+}
+
+.underlined-header{
+    margin-bottom: 30px;
+    &::after{
+    display: block;
+    height: 2px;
+    background-color: $color-teal;
+    content: " ";
+    width: 100px;
+    margin-left: 0;
+    margin-top: 20px;
     }
 }
 

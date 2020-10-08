@@ -19,7 +19,7 @@
                     <product-gallery :product="product"></product-gallery>
                 </div>
                 <div class="col-md-6 mt-5">
-                      <h2 class="mb-5">{{product.title}}</h2>
+                      <h2 class="mb-5 underlined-header">{{product.title}}</h2>
                         <div class="d-flex justify-content-between mb-5">
                             <div>
                                 <h4>€{{product.price}} <span class="price"> s DPH</span></h4>
@@ -31,13 +31,13 @@
                     <p class="mb-5">{{product.description_short}}</p>
                     <button 
 			    		v-if="inBasketAlready" 
-			    		class=" button button--block button--teal float-right"
+			    		class=" mt-5 button button--block button--teal button--squared"
 			    		@click="removeFromBasket"
 			    		>odstrániť <i class="fas fa-trash-restore"></i></button>
     
 			    	<button 
 			    		v-else
-			    		class="button button--block button--teal-outline"
+			    		class="mt-5 button button--block button--teal-outline button--squared"
 			    		@click="addToBasket">do košíka <i class="fas fa-cart-arrow-down"></i></button>	
                 </div>
             </div>

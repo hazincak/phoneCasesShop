@@ -17,7 +17,7 @@
                 <router-link :to="{name: 'ColorsAndMaterialsDashboard'}" class="sidebar--link-main">Farby & Materiály</router-link>
             </li>
             <li class="text-left mb-4 mt-4">
-                <router-link :to="{name: 'CategoriesDashboard'}" class="sidebar--link-main">Kategorie</router-link>
+                <router-link :to="{name: 'CategoriesDashboard'}" class="sidebar--link-main">Kategórie</router-link>
             </li>
             <li class="text-left mb-4 mt-4"> 
                 <router-link :to="{name: 'ProductsDashboard'}" class="sidebar--link-main">Vsetky produkty</router-link>

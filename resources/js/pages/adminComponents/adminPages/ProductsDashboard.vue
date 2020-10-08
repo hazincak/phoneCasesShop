@@ -114,7 +114,7 @@
                             <td class="align-middle">{{product.material.material}}</td>
                             <td class="align-middle">{{product.created_at | fromNow}}</td>
                             <td class="align-middle">{{product.updated_at | fromNow}}</td>
-                            <td class="align-middle"><button class="btn btn-danger" @click="deleteProduct(product)"><i class="fas fa-trash-alt"></i> Odstrániť</button></td>
+                            <td class="align-middle"><b-button class="btn btn-danger" @click="showConfirmationModal(product)"><i class="fas fa-trash-alt"></i> Odstrániť</b-button></td>
                           </tr>
                         </tbody>
                         
@@ -143,6 +143,7 @@ export default {
       perPage: 16,
       orderBy: 'id',
       order: 'asc',
+      confirmedDeletion: ''
     }
   },
 
@@ -186,7 +187,31 @@ export default {
                   message: `Produkt s názvom "${product.title}" vymazaný`
                   });
             });
-    }
+    },
+
+    showConfirmationModal(product) {
+        this.confirmedDeletion = ''
+        this.$bvModal.msgBoxConfirm(`Naozaj chcete odstrániť produkt s názvom "${product.title}" ?`, {
+          title: 'Prosím, potvrďte',
+          size: 'md',
+          buttonSize: 'md',
+          okVariant: 'danger',
+          okTitle: 'Áno',
+          cancelTitle: 'Nie',
+          footerClass: 'p-2',
+          hideHeaderClose: false,
+          centered: true
+        })
+          .then(value => {
+            this.confirmedDeletion = value
+            if(this.confirmedDeletion){
+              this.deleteProduct(product)
+            }
+          })
+          .catch(err => {
+            // An error occurred
+          })
+      }
   }
 }
 </script>
