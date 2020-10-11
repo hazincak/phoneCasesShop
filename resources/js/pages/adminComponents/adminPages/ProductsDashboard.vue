@@ -51,14 +51,18 @@
          <div class="card shadow mb-4 mt-2">
            
            <div>   
-            <b-modal id="modal-xl" size="xl" title="Pridať produkt"
+            <b-modal id="modal-updateProduct" size="xl" title="Upraviť produkt"
+              :hide-footer = true>
+            </b-modal>
+            <b-modal id="modal-addProduct" size="xl" title="Pridať produkt"
            
             :hide-footer = true>
               <add-product></add-product>
             </b-modal>
           </div>
                 <div class="card-header d-flex">
-                  <h3 class="m-0 font-weight-bold text-secondary">Produkty</h3> <b-button class="ml-auto" v-b-modal.modal-xl variant="primary"><span class="fa fa-plus"></span> Pridať produkt</b-button>
+                  <h3 class="m-0 font-weight-bold text-secondary">Produkty</h3> <b-button class="ml-auto" v-b-modal.modal-addProduct variant="primary"><span class="fa fa-plus"></span> Pridať produkt</b-button>
+                  <b-button v-b-modal.modal-updateProduct="primary">xl modal</b-button>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">

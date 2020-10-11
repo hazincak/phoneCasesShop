@@ -3,13 +3,14 @@
         <div class="container-fluid">
             <div class="row">
                 <div class = "col-lg-4 text-center">
-                    <a href="#"><i class="fas fa-phone-alt"></i> Kontakt</a>
+                    <router-link :to="{name: 'reklamacny-poriadok'}">Reklamačný poriadok</router-link>
+                    
                 </div>
                 <div class = "col-lg-4 text-center">
-                    <a href="#"><i class="fas fa-list-ol"></i> Obchodné podmienky</a>
+                    <router-link :to="{name: 'obchodne-podmienky'}"><i class="fas fa-list-ol"></i> Obchodné podmienky</router-link>
                 </div>
                 <div class = "col-lg-4 text-center">
-                    <a href="#"><i class="fas fa-shield-alt"></i> Ochrana osobných údajov</a>
+                    <router-link :to="{name: 'ochrana-osobnych-udajov'}"><i class="fas fa-shield-alt"></i> Ochrana osobných údajov</router-link>
                 </div>
             </div>
             <div class="row">

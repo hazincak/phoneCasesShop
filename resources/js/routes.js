@@ -3,6 +3,9 @@ import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 import Basket from "./pages/Basket";
 import DisplayProduct from "./pages/DisplayProduct";
+import TradingTerms from "./pages/TradingTerms";
+import Gdpr from "./pages/GDPR";
+import RulesOfReturns from "./pages/RulesOfReturns";
 
 import Register from "./pages/authComponents/Register";
 
@@ -62,6 +65,24 @@ const routes = [
         path: "/registracia",
         component: Register,
         name: "register",
+    },
+
+    {
+        path: "/obchodne-podmienky",
+        component: TradingTerms,
+        name: "obchodne-podmienky",
+    },
+
+    {
+        path: "/ochrana-osobnych-udajov",
+        component: Gdpr,
+        name: "ochrana-osobnych-udajov",
+    },
+
+    {
+        path: "/reklamacny-poriadok",
+        component: RulesOfReturns,
+        name: "reklamacny-poriadok",
     },
 
     {

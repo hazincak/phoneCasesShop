@@ -106,7 +106,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="password">Potvrdenie hesla</label>
+                    <label for="password_confirmation">Potvrdenie hesla</label>
                     <input type="password" name="password_confirmation" placeholder="Potvrdte heslo" class="form-control" v-model="user.password_confirmation" :class="[{'is-invalid': errorFor('password_confirmation')}]">
                         <v-errors :errors="errorFor('password_confirmation')"></v-errors>
                 </div>
