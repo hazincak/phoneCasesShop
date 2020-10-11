@@ -6,7 +6,7 @@
         </b-breadcrumb>
         <h2 class="underlined-header mt-5">Reklamačný poriadok</h2>
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-md-8">
                 <ol>
                 <li>Reklamovať je možné len tovar, ktorý bol zakúpený len u predávajúceho a ktorý je vlastníctvom kupujúceho.</li>
                 <li>V prípade ak vlastnícke právo ešte neprešlo k predávajúceho na kupujúceho, kupujúci si v zmysle platnej legislatívy reklamáciu vybaviť až po úplnej úhrade v zmysle § 151 Občianskeho zákonníka.</li>
@@ -39,11 +39,57 @@
                 <p class="text-center">email: slobodalukas@hotmail.com, tel. č.: +421 911 209 511 </p>
                 </ol> 
             </div>
-            <div class="col-md-3">
-                <h4>Stiahnuť reklamačný protokol</h4>
+            <div class="col-md-4">
+                <div class="row mb-4">
+                    <h3>Stiahnuť reklamačný protokol</h3>
+                    <a class="link" @click="download()"><i class="fas fa-file-download"></i> reklamacny-protokol.pdf</a>
+                </div>    
+              
+            
+                
+
             </div>
             
         </div>
             
     </div>
 </template>
+
+<script>
+export default {
+     data(){
+        return{
+            returnsProtocol: 'reklamacny-protokol.pdf'
+        };
+    },
+    methods:{
+        download() {    
+        axios.get(`api/stiahnut-pdf/${this.returnsProtocol}`, {responseType: 'arraybuffer'})
+        .then(response => {
+        this.downloadFile(response, this.returnsProtocol)
+    }, response => {
+        console.warn('error from download_contract')
+        console.log(response)
+    })
+    },
+        downloadFile(response, filename) {
+
+    var newBlob = new Blob([response.data], {type: 'application/pdf'})
+    if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+      window.navigator.msSaveOrOpenBlob(newBlob)
+      return
+    }
+
+    const data = window.URL.createObjectURL(newBlob)
+    var link = document.createElement('a')
+    link.href = data
+    link.download = filename + '.pdf'
+    link.click()
+    setTimeout(function () {
+      // For Firefox it is necessary to delay revoking the ObjectURL
+      window.URL.revokeObjectURL(data)
+    }, 100)
+        },
+    }
+}
+</script>

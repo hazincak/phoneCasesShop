@@ -28,6 +28,8 @@ Route::get('/kategoria-{categoryId}-znacka-{brandId}-model-{modelId}', 'Api\Prod
 
 Route::get('/modely-podla-znacky/{brandId}', 'Api\BrandController@getModels');
 
+Route::get('/stiahnut-pdf/{nameOfFile}', 'Api\DownloadsController@getDownload');
+
 Route::middleware('can:manipulateContent')->apiResource('produkt', 'api\ProductController');
 
 Route::middleware('can:manipulateContent')->apiResource('kategorie', 'api\CategoryController');

@@ -3,7 +3,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class = "col-lg-4 text-center">
-                    <router-link :to="{name: 'reklamacny-poriadok'}">Reklamačný poriadok</router-link>
+                    <router-link :to="{name: 'reklamacny-poriadok'}"><i class="fas fa-list-ul"></i> Reklamačný poriadok</router-link>
                     
                 </div>
                 <div class = "col-lg-4 text-center">
