@@ -20558,10 +20558,6 @@ a {
   }
 }
 
-.underlined-header {
-  margin-bottom: 30px;
-}
-
 .underlined-header::after {
   display: block;
   height: 2px;
@@ -20777,6 +20773,7 @@ p {
 
 .breadcrumb {
   background-color: #fff;
+  padding: 0.75rem 0rem;
 }
 
 .breadcrumb-link {
@@ -21076,8 +21073,12 @@ p {
   background-color: #f5f5fa;
 }
 
+.empty-basket-section {
+  color: #777;
+}
+
 .empty-basket-section .icon {
-  color: #01a9b4;
+  color: #777;
   font-size: 10rem;
 }
 

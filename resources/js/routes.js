@@ -153,20 +153,20 @@ const routes = [
                         component:ProductsDashboard,
                     },
                     {
-                        path: "pridat",
+                        path: "aktualizovat-product/:id",
                         name: "updateProduct",
                         component: UpdateProduct,
                     }
                 ]
             },
           ],
-          beforeEnter: (to, from, next) => {
-            if(store.state.isAdmin){
-                next()
-            }else{
-                next({name: "not-authorised"})
-            }
-        },
+        //   beforeEnter: (to, from, next) => {
+        //     if(store.state.isAdmin){
+        //         next()
+        //     }else{
+        //         next({name: "not-authorised"})
+        //     }
+        // },
    
     
     },

@@ -62,7 +62,6 @@
           </div>
                 <div class="card-header d-flex">
                   <h3 class="m-0 font-weight-bold text-secondary">Produkty</h3> <b-button class="ml-auto" v-b-modal.modal-addProduct variant="primary"><span class="fa fa-plus"></span> Pridať produkt</b-button>
-                  <b-button v-b-modal.modal-updateProduct="primary">xl modal</b-button>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
@@ -106,7 +105,7 @@
                         <tbody v-for="product in products.data" :key="product.id">
                           <tr>
                             <td class="align-middle">{{product.id}}</td>
-                            <td class="align-middle">{{product.title}}</td>
+                            <td class="align-middle"><router-link :to="{name: 'updateProduct', params:{id: product.id}}">{{product.title}}</router-link></td>
                             <td class="align-middle">{{product.category.category_name}}</td>
                             <td class="align-middle"><img class="table-img" :src='product.images[0].path'></td>
                             <td>{{product.description_short}}</td>
@@ -116,8 +115,8 @@
                             <td class="align-middle">{{product.price}}</td>
                             <td class="align-middle">{{product.color.color}}</td>
                             <td class="align-middle">{{product.material.material}}</td>
-                            <td class="align-middle">{{product.created_at | fromNow}}</td>
-                            <td class="align-middle">{{product.updated_at | fromNow}}</td>
+                            <td class="align-middle text-center">{{product.created_at | fromNow}}</td>
+                            <td class="align-middle text-center">{{product.updated_at | fromNow}}</td>
                             <td class="align-middle"><b-button class="btn btn-danger" @click="showConfirmationModal(product)"><i class="fas fa-trash-alt"></i> Odstrániť</b-button></td>
                           </tr>
                         </tbody>

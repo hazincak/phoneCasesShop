@@ -7,7 +7,7 @@
         />
     </div>
      <div  v-else >
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mb-5">
         <div class="col-md-12">
             <div class="form-group">
                 <label for="title">Názov produktu</label>
@@ -19,10 +19,7 @@
                     placeholder="Názov"
                     :class="[{'is-invalid': errorFor('title')}]"
                     >
-                    
             </div>
-        
-        
             <div class="form-group">
                 <label for="description_short">Stručný popis produktu</label>
                 <textarea 
@@ -33,11 +30,8 @@
                     rows="3"
                     :class="[{'is-invalid': errorFor('description_short')}]"
                     >
-                    
                 </textarea>
             </div>
-        
-        
             <div class="form-group">
                 <label for="description_long">Detailný popis produktu</label>
                 <textarea 
@@ -51,8 +45,6 @@
                     
                 </textarea>
             </div>
-       
-        
             <div class="form-group">
                 <label for="category">Kategória produktu</label>
                 <select 
@@ -296,7 +288,7 @@ export default {
             return;
             this.createImage(files[0]);
         },
-            createImage(file) {
+        createImage(file) {
                 var image = new Image();
                 var reader = new FileReader();
                 var vm = this;
@@ -307,7 +299,7 @@ export default {
                 };
                 reader.readAsDataURL(file);
         },
-            removeImage: function (e) {
+        removeImage: function (e) {
               this.product.images.pop(e);
         },
 

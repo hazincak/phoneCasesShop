@@ -143,7 +143,7 @@
                         <i class="fas fa-cart-plus icon"></i>
                         <h3 class="mt-5"><strong>Váš košík je prázdny</strong></h3>
                         <h4>Pridajte tovar a dokončite nákup :)</h4> 
-                        <router-link :to="{name: 'obchod'}" class="button button--block button--teal mt-5">pokračujte v nákupe <i class="fas fa-arrow-circle-left"></i></router-link>
+                        <router-link :to="{name: 'obchod'}" class="button button--block button--squared  button--teal mt-5">pokračujte v nákupe <i class="fas fa-arrow-circle-left"></i></router-link>
                     
                 </div>
             
@@ -174,10 +174,3 @@ export default {
     }
 }
 </script>
-
-<style scoped>
-.container{
-    min-height: 70vh;
-}
-
-</style>

@@ -9,8 +9,15 @@
 </template>
 
 <style scoped>
+
+a{
+  color: #888;
+}
+
 .error {
-  color: #999;
+
+
+  color: #888;
   font-size: 10rem;
 }
 </style>
