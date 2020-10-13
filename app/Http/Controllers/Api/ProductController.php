@@ -4,11 +4,13 @@ namespace App\Http\Controllers\Api;
 
 use App\Image;
 use App\Product;
+use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
-use Illuminate\Support\Arr;
 class ProductController extends Controller
 {
    
@@ -166,7 +168,10 @@ class ProductController extends Controller
 
             Storage::disk('public')->put($file_name, base64_decode($image));
             $product->images()->save(
-            Image::make(['path' => Storage::url($file_name)])
+            Image::make([
+                'name' => $file_name,
+                'path' => Storage::url($file_name)]
+                )
        );
    
         $imageIndex++;
@@ -197,7 +202,16 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $product = Product::findOrFail($id);
+        
+        // Storage::delete($product->images->path);
+        // // Storage::delete($productsImages);
+        foreach($product->images as $image){
+            // dd($image->path);
+            Storage::disk('public')->delete($image->name);
+         }
         $product->delete();
+        
+
     }
 
     

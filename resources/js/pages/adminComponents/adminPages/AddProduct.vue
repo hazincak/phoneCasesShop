@@ -6,7 +6,7 @@
           :color="'#086972'"
         />
     </div>
-     <div  v-else >
+    <div  v-else >
     <div class="row justify-content-center mb-5">
         <div class="col-md-12">
             <div class="form-group">
@@ -58,8 +58,6 @@
                 </select>
                 
             </div>
-        
-        
             <div class="form-group">
                 <label for="brand">Značka produktu</label>
                 <select 
@@ -74,8 +72,6 @@
                         <option v-for="brand in brands" :key="brand.id" :value="brand.id"  >{{brand.brand_name}}</option>
                 </select>
             </div>
-      
-        
             <div class="form-group">
                 <label for="model">Model produktu</label>
                 <select 
@@ -133,15 +129,10 @@
                                         <label class="custom-file-label" for="inputGroupFile01">Vyberte obrázok </label>
                                 </div>
                             </div>
-                        </div>
-
-                           
+                        </div>     
                     </div>
                 </div>
             </div>
-            
-
-      
             <div class="row justify-content-between">
                 <div class="col-md-3">
                     <div class="form-group">
