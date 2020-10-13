@@ -145,7 +145,7 @@
             <div class="row justify-content-between">
                 <div class="col-md-3">
                     <div class="form-group">
-                    <label for="price">Cena produktu</label>
+                    <label for="price">Cena produktu (v €)</label>
                     <input 
                         type="text"
                         class="form-control"

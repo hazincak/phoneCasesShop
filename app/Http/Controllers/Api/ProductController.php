@@ -79,7 +79,7 @@ class ProductController extends Controller
             'model_id' => 'required',
             'color_id' => 'required',
             'material_id' => 'required',
-            'price' => 'required',
+            'price' => ['required', new \App\Rules\ValidChars],
         ]);
 
         $product = Product::create([
@@ -148,7 +148,7 @@ class ProductController extends Controller
             'title' => 'required',
             'description_short' => 'required',
             'description_long' => 'required',
-            'price' => 'required',
+            'price' => ['required', new \App\Rules\ValidChars],
         ]);
 
 

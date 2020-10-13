@@ -59,7 +59,7 @@
                         </textarea>
                     </div>
                     <div class="form-group">
-                    <label for="price">Cena produktu</label>
+                    <label for="price">Cena produktu (v €)</label>
                     <input 
                         type="text"
                         class="form-control"
