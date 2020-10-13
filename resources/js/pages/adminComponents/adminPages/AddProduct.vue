@@ -300,12 +300,12 @@ export default {
                 reader.readAsDataURL(file);
         },
         removeImage: function (e) {
-              this.product.images.pop(e);
+              this.product.images.splice(e, 1);
         },
 
        async createProduct(){
             this.loading = true;
-        this.errors = null;
+            this.errors = null;
 
        try {
           const response =  await axios.post('/api/produkt', this.product);

@@ -20,4 +20,8 @@ class Image extends Model
     {
         return Storage::url($this->path);
     }
+
+    public function deleteImage($path){
+        $this->path($path)->delete();
+    }
 }

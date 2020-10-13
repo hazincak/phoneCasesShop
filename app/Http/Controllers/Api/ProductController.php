@@ -4,13 +4,11 @@ namespace App\Http\Controllers\Api;
 
 use App\Image;
 use App\Product;
-use App\DeviceModel;
-use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 
+use Illuminate\Support\Arr;
 class ProductController extends Controller
 {
    
@@ -96,10 +94,6 @@ class ProductController extends Controller
             'price' => $request->price,
         ]);
 
-    //   dd($request->images);
-            
-
-        
             $images = $request->images;
             $imageIndex = 0;
             foreach($images as $image){
@@ -149,7 +143,49 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+         $validatedData = $request->validate([
+            'title' => 'required',
+            'description_short' => 'required',
+            'description_long' => 'required',
+            'price' => 'required',
+        ]);
+
+
+        $product = Product::findOrFail($id);
+
+        $product->fill($validatedData);
+        if($request->addedImages){
+            $images = $request->addedImages;
+            $imageIndex = 0;
+            foreach($images as $image){
+                preg_match("/data:image\/(.*?);/",$image,$image_extension); // extract the image extension
+                $image = preg_replace('/data:image\/(.*?);base64,/','',$image); // remove the type part
+                $image = str_replace(' ', '+', $image);
+                $file_name = $imageIndex .'_' . time() . '.' . $image_extension[1]; //generating unique file name;
+
+            Storage::disk('public')->put($file_name, base64_decode($image));
+            $product->images()->save(
+            Image::make(['path' => Storage::url($file_name)])
+       );
+   
+        $imageIndex++;
+        }
+        }
+
+        // dd($request->deletedImages);
+        if($request->deletedImages){
+            $deletedImages = $request->deletedImages;
+            foreach($deletedImages as $image){
+                // Storage::delete($product->images($image)->path);
+                $id = Arr::get($image, 'id');
+                $product->images()->find($id)->delete();
+            }
+        }
+        
+   
+        $product->save();
+
     }
 
     /**
