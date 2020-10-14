@@ -8,6 +8,9 @@ a{
     transition: all 0.3s;
 }
 
+p{
+    font-size: inherit;
+}
 
 
 .heading-primary{
@@ -60,9 +63,6 @@ a{
     text-transform: uppercase;
 }
 
-p{
-    font-size: inherit;
-}
 
 .card{
     font-size: inherit;
@@ -80,10 +80,32 @@ p{
     }
 }
 
-// .text-muted {
-//     color: $color-grey-dark;
-// }
-
-.card-model{
-    font-size: 1.5rem;
+.sidebar__wrapper.active{
+    font-size: 2.5rem;
 }
+
+.sidebar--link{ 
+    display: block;
+    color: $color-grey-dark-3;
+    transition: all .3s;
+    cursor: pointer;
+   
+    &:hover{
+    color:$color-teal-dark;
+    text-decoration:underline;
+    transform: translateX(4px);
+    }
+
+    &-main{
+        // color: $color-teal;
+       font-weight: bold;
+       cursor: pointer;
+       transition: all .3s;
+       &:hover{
+            color:$color-teal-dark;
+            text-decoration:none;
+       }
+   } 
+}
+
+

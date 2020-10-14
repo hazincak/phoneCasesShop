@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+@charset "UTF-8";
 
 /*!
  * Font Awesome Free 5.14.0 by @fontawesome - https://fontawesome.com
@@ -20522,6 +20522,10 @@ a {
   transition: all 0.3s;
 }
 
+p {
+  font-size: inherit;
+}
+
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
@@ -20577,10 +20581,6 @@ a {
   text-transform: uppercase;
 }
 
-p {
-  font-size: inherit;
-}
-
 .card {
   font-size: inherit;
   transition: all 0.3s;
@@ -20596,8 +20596,32 @@ p {
   color: #01a9b4;
 }
 
-.card-model {
-  font-size: 1.5rem;
+.sidebar__wrapper.active {
+  font-size: 2.5rem;
+}
+
+.sidebar--link {
+  display: block;
+  color: #333;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.sidebar--link:hover {
+  color: #086972;
+  text-decoration: underline;
+  transform: translateX(4px);
+}
+
+.sidebar--link-main {
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.sidebar--link-main:hover {
+  color: #086972;
+  text-decoration: none;
 }
 
 .button,
@@ -20906,7 +20930,7 @@ p {
   max-height: -webkit-max-content;
   max-height: -moz-max-content;
   max-height: max-content;
-  padding: 1rem;
+  width: 15%;
   align-items: stretch;
   border-right: 1px solid transparent;
   background-color: #f5f5fa;
@@ -20919,10 +20943,14 @@ p {
   }
 }
 
+#sidebar ul {
+  list-style-type: none;
+}
+
 .sidebar__wrapper.active {
   display: block;
   height: 100%;
-  width: 55%;
+  width: 65%;
   position: fixed;
   /* Stay in place */
   z-index: 1;
@@ -20934,58 +20962,16 @@ p {
   transition: 0.5s;
 }
 
-#sidebar {
-  min-height: 100vh;
-  background-color: #f5f5fa;
-  color: #086972;
-}
-
-#sidebar .sidebar-header {
-  padding: 1.7rem;
-  background-color: #f5f5fa;
-  color: #333;
-}
-
-#sidebar .sidebar-subheader {
-  padding: 2rem;
-  background-color: #f5f5fa;
-  color: #000;
-}
-
-#sidebar .sidebar--link {
-  display: block;
-  color: #01a9b4;
-  transition: all 0.3s;
-  cursor: pointer;
-}
-
-#sidebar .sidebar--link:hover {
-  color: #086972;
-  text-decoration: none;
-  transform: translateX(4px);
-}
-
-#sidebar .sidebar--link-main {
-  color: #01a9b4;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-#sidebar .sidebar--link-main:hover {
-  color: #086972;
-  text-decoration: none;
-}
-
 .sidebar__closeButton {
   position: absolute;
   top: 10px;
   right: 30px;
-  font-size: 30px;
+  font-size: 4rem;
   cursor: pointer;
 }
 
 .sidebar__toggler {
+  font-size: 2.5rem;
   padding: 0.75rem 1rem;
   margin-bottom: 1rem;
   display: none;

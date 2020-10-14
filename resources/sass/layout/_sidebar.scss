@@ -1,8 +1,7 @@
 .sidebar__wrapper {
     
     max-height: max-content;
-    
-    padding: 1rem;
+    width: 15%;
     align-items: stretch;
     border-right: 1px solid transparent;
     background-color: $color-grey-light;
@@ -12,86 +11,32 @@
     }
 }
 
+#sidebar ul{
+    list-style-type: none;
+}
+
 .sidebar__wrapper.active{
-    display: block;
-    height: 100%;
-  width: 55%;
+  display: block;
+  height: 100%;
+  width: 65%;
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   left: 0;
   top: 0;
   overflow-x: hidden; /* Disable horizontal scroll */
   transition: 0.5s; 
-  
 }
-
-#sidebar {
-    min-height: 100vh;
-    
-    background-color: $color-grey-light;
-    color: $color-teal-dark;
-   
-}
-
-
-#sidebar .sidebar-header {
-    padding: 1.7rem;
-    background-color: $color-grey-light;
-    color: $color-grey-dark-3;
-
-}
-
-#sidebar .sidebar-subheader {
-    padding: 2rem;
-    background-color: $color-grey-light;
-    color: $color-black;
-
-}
-
-#sidebar .sidebar--link{
-   
-    // font-size: 1.6rem;
-    display: block;
-    color: $color-teal;
-    transition: all .3s;
-    cursor: pointer;
-   
-    &:hover{
-        color:$color-teal-dark;
-    text-decoration:none;
-    transform: translateX(4px);
-    }
-
-    &-main{
-        color: $color-teal;
-       font-weight: bold;
-       cursor: pointer;
-       transition: all .3s;
-       &:hover{
-            color:$color-teal-dark;
-            text-decoration:none;
-       }
-   } 
-}
-
-
-
-// #sidebar a {
-//     font-size: 1.4rem;
-//     background-color: $color-grey-light;
-//     color: $color-teal;
-// }
 
 .sidebar__closeButton{
     position: absolute;
     top: 10px;
     right: 30px;
-    font-size: 30px;
+    font-size: 4rem;
     cursor: pointer;
 }
 //shop component
 .sidebar__toggler{
-    
+        font-size: 2.5rem;
         padding: 0.75rem 1rem;
         margin-bottom: 1rem;
         display: none;

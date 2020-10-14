@@ -4,15 +4,10 @@
    
    <div v-if="isActive" class="sidebar__closeButton" @click="$emit('sidebar-change', !isActive)"><i class="far fa-times-circle"></i></div>
     <nav id="sidebar">
-        
-        <div class="sidebar-header">
+        <div class="p-5">
             <h1 class="text-center">Menu</h1>
         </div>
-        <div class="sidebar-subheader">
-                <h2 class="text-center">Kategórie produktov</h2>
-            </div>
-
-        <ul class="list-group">
+        <ul class="list-group ml-5">
             <transition-group name="fade">            
             <li v-for="category in sidebarListItems" :key="category.id"  class="text-left mb-4 mt-4" @click="selectedCategory = category.id;"> 
                <span class="sidebar--link-main">{{category.category_name}}</span>
@@ -23,7 +18,7 @@
                          <span class="sidebar--link">{{brand.brand_name}}</span>
                         <transition name="fade">
                         <div v-if="selectedBrand.id == brand.id" >
-                            <ul class="list-group ml-4 mb-4 mt-4" v-for="model in filteredModels" :key="model.id">
+                            <ul class="list-group ml-4 mt-4" v-for="model in filteredModels" :key="model.id">
                                  <router-link class="sidebar--link" :to="{name: 'obchod-vyber', params: { categoryId: selectedCategory, brandId: model.brand_id ,modelId: model.id  }}">{{model.model_name}}</router-link>
                             </ul>
                         </div>
