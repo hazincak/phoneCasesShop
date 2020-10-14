@@ -1,39 +1,8 @@
-.card-product{
+.card{
     border: none;
-    font-size: inherit;
-    transition: all 0.3s;
-    a{
-        color: $color-grey-dark;
-        font-size: 2.0rem;
-    }
-
-    &:hover{
-        a{
-            color:$color-teal
-        }
-    }
 }
-
-
-.card-product .img-wrap {
-    overflow: hidden;
-    position: relative;
-    text-align: center;
-    color:$color-white
-}
-.card-product .img-wrap img {
-    max-height: 80%;
-    max-width: 80%;
-    object-fit: cover;
-}
-
-.card-product .bottom-wrap {
+.bottom-wrap {
     border-top: 1px solid $color-grey-light;
-}
-.card-product .price-wrap{
-    border-bottom: 1px solid $color-grey-light;
+    border-bottom: 1px solid $color-grey-light; ;
 }
 
-.card-product .text-muted {
-    color: #999;
-}

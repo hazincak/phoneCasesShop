@@ -1,5 +1,6 @@
 body{
     font-size: 1.6rem;
+    color: $color-grey-dark-3;
 }
 
 a{
@@ -51,6 +52,10 @@ a{
     }
 }
 
+.text-muted {
+    color: $color-grey-dark;
+}
+
 .heading-secondary{
     text-transform: uppercase;
 }
@@ -59,10 +64,25 @@ p{
     font-size: inherit;
 }
 
-.card-title{
-    font-size: 1.8rem;
-    font-weight: 500;
+.card{
+    font-size: inherit;
+    transition: all 0.3s;
+    a{
+        color: $color-grey-dark;
+        font-size: inherit;
+        font-weight: 500;
+    }
+
+    &:hover{
+        a{
+            color:$color-teal
+        }
+    }
 }
+
+// .text-muted {
+//     color: $color-grey-dark;
+// }
 
 .card-model{
     font-size: 1.5rem;
