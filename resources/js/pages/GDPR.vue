@@ -5,7 +5,8 @@
             <b-breadcrumb-item active>Ochrana osobných údajov</b-breadcrumb-item>
         </b-breadcrumb>
         <h2 class="underlined-header mt-5">Ochrana osobných údajov</h2>
-        <p><b>Ochrana osobných údajov:</b></p>
+        <div class="mt-5">
+            <p><b>Ochrana osobných údajov:</b></p>
             <ol>
                 <li>Osobné údaje sú spracúvané v súlade so zákonom č. 122/2013 Z. z. o ochrane osobných údajov v znení neskorších predpisov.</li>
                 <li>Prevádzkovateľ neposkytuje osobné údaje kupujúceho tretej osobe, okrem prepravnej spoločnosti pre doručenie tovaru alebo služieb, alebo štátnym orgánom v prípade kontroly.</li>
@@ -22,5 +23,7 @@
                 <li>Predávajúci môže ďalej pri poskytnutí súhlasu zapracovávať tzv. "cookies" tak, aby uľahčil  poskytovanie služieb informačnej spoločnosti, v súlade s ustanovením Smernice 95/46/ES o účele "cookies" či podobných nástrojov a je zaistené, aby užívateľom boli známe informácie, ktoré sa ukladajú do koncového zariadenia, ktoré používajú, predávajúci pre tento účel stanoví samostatné podmienky pre použitie cookies. </li>
                 <li>Užívatelia majú možnosť odmietnuť, aby "cookies" alebo podobné nástroje boli uložené do ich koncových zariadení, napr. tým, že spustí vo svojom prehliadači funkcionalitu anonymného prehliadania.</li>
             </ol> 
+        </div>
+        
     </div>
 </template>

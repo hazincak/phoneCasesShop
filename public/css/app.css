@@ -20417,11 +20417,16 @@ html {
 }
 
 .form-control {
-  font-size: 1.6rem;
+  font-size: inherit;
 }
 
 .custom-select {
-  font-size: 1.6rem;
+  font-size: inherit;
+}
+
+.form-check-input {
+  margin-top: 0.7rem;
+  position: relative;
 }
 
 @-webkit-keyframes moveInLeft {
@@ -20526,6 +20531,19 @@ p {
   font-size: inherit;
 }
 
+.text-muted {
+  color: #777;
+}
+
+.link {
+  cursor: pointer;
+  color: #01a9b4;
+}
+
+.link:hover {
+  color: #086972;
+}
+
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
@@ -20573,10 +20591,6 @@ p {
   margin-top: 20px;
 }
 
-.text-muted {
-  color: #777;
-}
-
 .heading-secondary {
   text-transform: uppercase;
 }
@@ -20614,6 +20628,7 @@ p {
 }
 
 .sidebar--link-main {
+  color: #333;
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s;
@@ -20847,7 +20862,6 @@ p {
 
 .basket a {
   color: #777;
-  font-size: 2rem;
 }
 
 .basket__icon {

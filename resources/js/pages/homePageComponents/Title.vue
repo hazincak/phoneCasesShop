@@ -9,14 +9,14 @@
                 </div>
             
             <div class="d-flex flex-row bd-highlight mb-3 my-bottom-center">
-                <div class="p-2 bd-highlight"><img class="press-logo" src="../../../images/logos/Apple-logo.png" alt="apple-logo"></div>
-                <div class="p-2 bd-highlight"><img class="press-logo" src="../../../images/logos/Huawei-logo.png" alt="huawei-logo"></div>
-                <div class="p-2 bd-highlight"><img class="press-logo" src="../../../images/logos/Motorola-logo.png" alt="motorola-logo"></div>
-                <div class="p-2 bd-highlight"><img class="press-logo" src="../../../images/logos/Samsung-logo.png" alt="samsung-logo"></div>
-                <div class="p-2 bd-highlight"><img class="press-logo" src="../../../images/logos/Lg-logo.png" alt="lg-logo"></div>
-                <div class="p-2 bd-highlight"><img class="press-logo" src="../../../images/logos/Nokia-logo.png" alt="nokia-logo"></div>
-                <div class="p-2 bd-highlight"><img class="press-logo" src="../../../images/logos/Mi-logo.png" alt="mi-logo"></div>
-                <div class="p-2 bd-highlight"><img class="press-logo" src="../../../images/logos/Oneplus-logo.png" alt="oneplus-logo"></div>
+                <div class="p-2 bd-highlight"><img class="press-logo" src="../../../images/phoneLogos/Apple-logo.png" alt="apple-logo"></div>
+                <div class="p-2 bd-highlight"><img class="press-logo" src="../../../images/phoneLogos/Huawei-logo.png" alt="huawei-logo"></div>
+                <div class="p-2 bd-highlight"><img class="press-logo" src="../../../images/phoneLogos/Motorola-logo.png" alt="motorola-logo"></div>
+                <div class="p-2 bd-highlight"><img class="press-logo" src="../../../images/phoneLogos/Samsung-logo.png" alt="samsung-logo"></div>
+                <div class="p-2 bd-highlight"><img class="press-logo" src="../../../images/phoneLogos/Lg-logo.png" alt="lg-logo"></div>
+                <div class="p-2 bd-highlight"><img class="press-logo" src="../../../images/phoneLogos/Nokia-logo.png" alt="nokia-logo"></div>
+                <div class="p-2 bd-highlight"><img class="press-logo" src="../../../images/phoneLogos/Mi-logo.png" alt="mi-logo"></div>
+                <div class="p-2 bd-highlight"><img class="press-logo" src="../../../images/phoneLogos/Oneplus-logo.png" alt="oneplus-logo"></div>
             </div>
         
     </div> 

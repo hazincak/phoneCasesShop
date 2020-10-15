@@ -5,11 +5,11 @@
    <div v-if="isActive" class="sidebar__closeButton" @click="$emit('sidebar-change', !isActive)"><i class="far fa-times-circle"></i></div>
     <nav id="sidebar">
         
-        <div class="sidebar-header">
-            <h2 class="text-center">Admin</h2>
+        <div class="p-5">
+            <h1 class="text-center">Admin</h1>
         </div>
 
-        <ul class="list-unstyled">
+        <ul class="list-group">
            <li class="text-left mb-4 mt-4">
                 <router-link :to="{name: 'BrandsDashboard'}" class="sidebar--link-main">Značky & Modely</router-link>
             </li>

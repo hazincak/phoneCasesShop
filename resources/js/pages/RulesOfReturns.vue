@@ -5,7 +5,7 @@
             <b-breadcrumb-item active>Reklamačný poriadok</b-breadcrumb-item>
         </b-breadcrumb>
         <h2 class="underlined-header mt-5">Reklamačný poriadok</h2>
-        <div class="row">
+        <div class="row mt-5">
             <div class="col-md-8">
                 <ol>
                 <li>Reklamovať je možné len tovar, ktorý bol zakúpený len u predávajúceho a ktorý je vlastníctvom kupujúceho.</li>

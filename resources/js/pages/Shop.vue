@@ -47,7 +47,7 @@
                                     </select>
                                 </form>
                          
-                                <form class="form-inline">
+                                <form class="form-inline align-self-end">
                                     <label for="orderBy">
                                         <span class="d-inline mr-2"  v-if="orderBy != 'id'">
                                             <span v-if="order == 'asc'">
