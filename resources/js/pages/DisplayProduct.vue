@@ -31,9 +31,10 @@
                     <p class="mt-5">{{product.description_short}}</p>
                     <button 
 			    		v-if="inBasketAlready" 
-			    		class=" mt-auto5 button button--block button--teal button--squared"
+			    		class=" mt-auto button button--block button--teal button--squared"
 			    		@click="removeFromBasket"
-			    		>odstrániť <i class="fas fa-trash-restore"></i></button>
+			    		>odstrániť <i class="fas fa-trash-restore"></i>
+                    </button>
     
 			    	<button 
 			    		v-else

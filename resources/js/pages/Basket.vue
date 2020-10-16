@@ -153,25 +153,25 @@
                         <div class="form-check">
                           <input class="form-check-input" type="radio" name="payment" id="payment1" v-model='paymentFee' :value="0" >
                           <label class="form-check-label" for="payment1">
-                            Platba prevodom na účet 0,00 EUR
+                            Platba prevodom na účet <span class="badge badge-secondary">€0,00</span>
                           </label>
                         </div>
                         <div class="form-check">
                           <input class="form-check-input" type="radio" name="payment" id="payment2"  v-model='paymentFee' :value="0">
                           <label class="form-check-label" for="payment2">
-                            PayPal: 0,00 EUR
+                            PayPal <span class="badge badge-secondary">€0,00</span>
                           </label>
                         </div>
                         <div class="form-check">
                           <input class="form-check-input" type="radio" name="payment" id="payment3" v-model='paymentFee' :value="0">
                           <label class="form-check-label" for="payment3">
-                            Platba kartou online, visa, mastercard: 0,00 EUR
+                            Platba kartou online <span class="badge badge-secondary">€0,00</span>
                           </label>
                         </div>
                         <div class="form-check">
                           <input class="form-check-input" type="radio" name="payment" id="payment4" v-model='paymentFee' :value="1.59">
                           <label class="form-check-label" for="payment4">
-                            Platba dobierkou (pri preberaní tovaru): 1,59 EUR
+                            Platba dobierkou (pri preberaní tovaru) <span class="badge badge-secondary">€1,59</span> 
                           </label>
                         </div>
                     </div>
@@ -183,19 +183,19 @@
                         <div class="form-check">
                           <input class="form-check-input" type="radio" name="deliveryFee" id="deliveryFee1" v-model='deliveryFee' :value="1.79" :disabled = '!paidDelivery'>
                           <label class="form-check-label" for="deliveryFee1">
-                            Pri doprave Slovenskou poštou: 1,79 €
+                            Pri doprave Slovenskou poštou <span class="badge badge-secondary">€1,79</span>
                           </label>
                         </div>
                         <div class="form-check">
                           <input class="form-check-input" type="radio" name="deliveryFee" id="deliveryFee2" v-model='deliveryFee' :value="1.99" :disabled = '!paidDelivery'>
                           <label class="form-check-label" for="deliveryFee2">
-                            Pri doprave kuriérskou spoločnosťou : 1,99 €
+                            Pri doprave kuriérskou spoločnosťou <span class="badge badge-secondary">€1,99</span>
                           </label>
                         </div>
                         <div class="form-check">
                           <input class="form-check-input" type="radio" name="deliveryFee" id="deliveryFee3" v-model='deliveryFee' :value="0" :disabled = 'paidDelivery'>
                           <label class="form-check-label" for="deliveryFee3">
-                            Pri nákupe nad 29,99 €: doručenie ZADARMO = 0,00 €
+                            Pri nákupe nad 29,99 €: doručenie ZADARMO <span class="badge badge-secondary">€0,00</span>
                           </label>
                         </div>
                     </div>
