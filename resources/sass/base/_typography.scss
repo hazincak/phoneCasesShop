@@ -1,3 +1,4 @@
+
 body{
     font-size: 1.6rem;
     color: $color-grey-dark-3;
@@ -42,7 +43,6 @@ p{
 
         @include respond(600) {
             letter-spacing: 1.5rem;
-            // font-family: 3rem;
         }
     }
 
@@ -92,31 +92,46 @@ p{
 }
 
 .sidebar__wrapper.active{
-    font-size: 2.5rem;
+    font-size: 2rem;
 }
 
 .sidebar--link{ 
     display: block;
+    font-size: 2rem;
     color: $color-grey-dark-3;
     transition: all .3s;
     cursor: pointer;
    
     &:hover{
-    color:$color-teal-dark;
-    text-decoration:underline;
+    color:$color-teal;
+    text-decoration:none;
     transform: translateX(4px);
     }
 
     &-main{
         color: $color-grey-dark-3;
-       font-weight: bold;
+        font-size: 2.2rem;
        cursor: pointer;
-       transition: all .3s;
-       &:hover{
-            color:$color-teal-dark;
-            text-decoration:none;
-       }
-   } 
+       
+    //    &:hover{
+    //         color:$color-teal-dark;
+    //         text-decoration:none;
+    //     } 
+
 }
+}
+
+.underline--magical {
+    background-image: linear-gradient(120deg, $color-teal-light 0%, $color-teal 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 0.2em;
+    background-position: 0 88%;
+    transition: background-size 0.25s ease-in;
+    &:hover {
+      background-size: 100% 88%;
+    }
+  }
+  
+
 
 

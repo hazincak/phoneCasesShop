@@ -10,7 +10,7 @@
         <ul class="list-group ml-5">
             <transition-group name="fade">            
             <li v-for="category in sidebarListItems" :key="category.id"  class="text-left mb-4 mt-4" @click="selectedCategory = category.id;"> 
-               <span class="sidebar--link-main">{{category.category_name}}</span>
+               <span class="sidebar--link-main underline--magical">{{category.category_name}}</span>
                <transition name="fade"> 
                 <div v-if="selectedCategory == category.id" >
                     
@@ -36,7 +36,6 @@
 </div>
 </template>
 <script>
-import uniq from 'lodash/uniq';
 export default {
 
     

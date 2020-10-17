@@ -20616,32 +20616,39 @@ p {
 }
 
 .sidebar__wrapper.active {
-  font-size: 2.5rem;
+  font-size: 2rem;
 }
 
 .sidebar--link {
   display: block;
+  font-size: 2rem;
   color: #333;
   transition: all 0.3s;
   cursor: pointer;
 }
 
 .sidebar--link:hover {
-  color: #086972;
-  text-decoration: underline;
+  color: #01a9b4;
+  text-decoration: none;
   transform: translateX(4px);
 }
 
 .sidebar--link-main {
   color: #333;
-  font-weight: bold;
+  font-size: 2.2rem;
   cursor: pointer;
-  transition: all 0.3s;
 }
 
-.sidebar--link-main:hover {
-  color: #086972;
-  text-decoration: none;
+.underline--magical {
+  background-image: linear-gradient(120deg, #87dfd6 0%, #01a9b4 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 0.2em;
+  background-position: 0 88%;
+  transition: background-size 0.25s ease-in;
+}
+
+.underline--magical:hover {
+  background-size: 100% 88%;
 }
 
 .button,
@@ -20951,9 +20958,8 @@ p {
   max-height: max-content;
   width: 15%;
   align-items: stretch;
-  border-right: 1px solid transparent;
   background-color: #f5f5fa;
-  transition: all 0.3s;
+  border-right: 1px solid #01a9b4;
 }
 
 @media only screen and (max-width: 62.5em) {

@@ -42,16 +42,16 @@
                         <div class="d-flex border-top p-2 justify-content-between">
                             <h4 class="text-secondary">Doprava</h4> 
                             <h4>
+                                
                                 <div v-if="paidDelivery">
                                      €{{deliveryFee}}
                                 </div>
                                 <div v-else>
                                     ZADARMO
                                 </div>
-                            
-                            </h4> 
+                            </h4>
                         </div>
-                        <div v-if="paymentFee">
+                        <div v-if="paymentMethod === 'PayWhenDelivered'">
                             <div class="d-flex border-top p-2 justify-content-between">
                                 <h4 class="text-secondary">Platba dobierkou</h4> 
                                 <h4>
@@ -62,14 +62,13 @@
                         <div class="d-flex border-top p-2 justify-content-between">
                             <h4 class="text-secondary">Cena spolu</h4> 
                             <h4>
-                                <div v-if="paidDelivery">
                                     €{{calculatedTotalPrice.toFixed(2)}}
-                                </div>
-                                <div v-else>
-                                    €{{totalPrice.toFixed(2)}}
-                                </div>
                             </h4> 
                         </div>
+                
+                    
+                    
+                        
                 </div>
             </div>
             <div class="col-md-7">
@@ -151,27 +150,39 @@
                         <h3>Platba <i class="far fa-money-bill-alt"></i></h3>
                         
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="payment" id="payment1" v-model='paymentFee' :value="0" >
+                          <input class="form-check-input" type="radio" name="payment" id="payment1" v-model='paymentMethod' value="MoneyTransfer" >
                           <label class="form-check-label" for="payment1">
-                            Platba prevodom na účet <span class="badge badge-secondary">€0,00</span>
+                            Platba prevodom na účet 
+                            <transition name="fade">
+                                <span v-if="paymentMethod === 'MoneyTransfer'" class="badge badge-secondary">€0,00</span>
+                            </transition>
                           </label>
                         </div>
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="payment" id="payment2"  v-model='paymentFee' :value="0">
+                          <input class="form-check-input" type="radio" name="payment" id="payment2"  v-model='paymentMethod' value="PayPal">
                           <label class="form-check-label" for="payment2">
-                            PayPal <span class="badge badge-secondary">€0,00</span>
+                            PayPal
+                            <transition name="fade">
+                                <span v-if="paymentMethod === 'PayPal'" class="badge badge-secondary">€0,00</span>
+                            </transition>     
                           </label>
                         </div>
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="payment" id="payment3" v-model='paymentFee' :value="0">
+                          <input class="form-check-input" type="radio" name="payment" id="payment3" v-model='paymentMethod' value="CreditCard">
                           <label class="form-check-label" for="payment3">
-                            Platba kartou online <span class="badge badge-secondary">€0,00</span>
+                            Platba kartou online
+                            <transition name="fade">
+                                <span v-if="paymentMethod === 'CreditCard'" class="badge badge-secondary">€0,00</span>
+                            </transition> 
                           </label>
                         </div>
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="payment" id="payment4" v-model='paymentFee' :value="1.59">
+                          <input class="form-check-input" type="radio" name="payment" id="payment4" v-model='paymentMethod' value="PayWhenDelivered">
                           <label class="form-check-label" for="payment4">
-                            Platba dobierkou (pri preberaní tovaru) <span class="badge badge-secondary">€1,59</span> 
+                            Platba dobierkou (pri preberaní tovaru) 
+                            <transition name="fade">
+                                <span v-if="paymentMethod === 'PayWhenDelivered'" class="badge badge-secondary">€1,59</span> 
+                            </transition>
                           </label>
                         </div>
                     </div>
@@ -183,30 +194,57 @@
                         <div class="form-check">
                           <input class="form-check-input" type="radio" name="deliveryFee" id="deliveryFee1" v-model='deliveryFee' :value="1.79" :disabled = '!paidDelivery'>
                           <label class="form-check-label" for="deliveryFee1">
-                            Pri doprave Slovenskou poštou <span class="badge badge-secondary">€1,79</span>
+                            Pri doprave Slovenskou poštou 
+                            <transition name="fade">
+                                <span v-if="deliveryFee === 1.79" class="badge badge-secondary">€1,79</span>
+                            </transition>
                           </label>
                         </div>
                         <div class="form-check">
                           <input class="form-check-input" type="radio" name="deliveryFee" id="deliveryFee2" v-model='deliveryFee' :value="1.99" :disabled = '!paidDelivery'>
                           <label class="form-check-label" for="deliveryFee2">
-                            Pri doprave kuriérskou spoločnosťou <span class="badge badge-secondary">€1,99</span>
+                            Pri doprave kuriérskou spoločnosťou 
+                            <transition name="fade">
+                                <span v-if="deliveryFee === 1.99" class="badge badge-secondary">€1,99</span>
+                            </transition>
                           </label>
                         </div>
                         <div class="form-check">
                           <input class="form-check-input" type="radio" name="deliveryFee" id="deliveryFee3" v-model='deliveryFee' :value="0" :disabled = 'paidDelivery'>
                           <label class="form-check-label" for="deliveryFee3">
-                            Pri nákupe nad 29,99 €: doručenie ZADARMO <span class="badge badge-secondary">€0,00</span>
+                            Pri nákupe nad 29,99 €: doručenie ZADARMO 
+                            <transition name="fade">
+                                <span v-if="deliveryFee === 0" class="badge badge-secondary">€0,00</span>
+                            </transition>
                           </label>
                         </div>
                     </div>
                 </div>
                 <hr>
+                <div v-if="paymentMethod === 'CreditCard'">
+                    <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="card-element"><h3>Kreditná karta</h3></label>
+                        <card-element></card-element>
+                        
+                    </div>
+                </div>
+                </div>
+                </div>
+                
+                 
                 <div class="row">
                     <div class="col-md-12 form-group">
-                        <button 
+                        <div v-if="paymentMethod === 'CreditCard'">
+                            <button class='button button--block button--teal button--squared' @click='pay' :disabled='!complete'>Zaplatiť €{{calculatedTotalPrice.toFixed(2)}} kartou</button>
+                        </div>
+                        <div v-else-if="paymentMethod === 'PayWhenDelivered' || paymentMethod === 'MoneyTransfer'">
+                            <button 
                         type="submit" 
                         class="button button--block button--teal button--squared" 
                         >Dokončite objednávku <i class="fas fa-check"></i></button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -230,13 +268,18 @@
 </template>
 <script>
 import { mapGetters, mapState } from 'vuex'
+import CardElement from "../components/stripeComponents/CardElement";
 export default {
+    components:{
+        CardElement
+    },
     data(){
         return{
             deliveryFee: 1.79,
+            paymentMethod: "MoneyTransfer",
             paymentFee: 0,
             paidDelivery: true,
-            calculatedTotalPrice:null
+            calculatedTotalPrice: 0
         }
     },
 
@@ -258,9 +301,17 @@ export default {
         deliveryFee: function(){
             this.calculateTotalPrice()
         },
-        paymentFee: function(){
-            this.calculateTotalPrice()
-        }
+        paymentMethod: function(){
+            if(this.paymentMethod === 'MoneyTransfer' || this.paymentMethod === 'PayPal' || this.paymentMethod === 'CreditCard' ){
+                this.paymentFee = 0
+            }else if(this.paymentMethod === 'PayWhenDelivered'){
+                this.paymentFee = 1.59
+                this.calculateTotalPrice()
+            }
+        },
+        // paymentFee: function(){
+        //     this.calculateTotalPrice()
+        // }
     },
 
    
@@ -269,6 +320,7 @@ export default {
             if(this.totalPrice >= 29.99){
                 this.paidDelivery = false
                 this.deliveryFee = 0
+                this.calculatedTotalPrice = this.totalPrice + this.deliveryFee + this.paymentFee
             }else{
                 this.calculatedTotalPrice = this.totalPrice + this.deliveryFee + this.paymentFee;
                 this.paidDelivery = true

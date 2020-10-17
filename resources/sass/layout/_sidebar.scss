@@ -3,9 +3,8 @@
     max-height: max-content;
     width: 15%;
     align-items: stretch;
-    border-right: 1px solid transparent;
     background-color: $color-grey-light;
-    transition: all 0.3s;
+    border-right: 1px solid $color-teal;
     @include respond(1000) {
         display: none;
     }
@@ -25,6 +24,7 @@
   top: 0;
   overflow-x: hidden; /* Disable horizontal scroll */
   transition: 0.5s; 
+ 
 }
 
 .sidebar__closeButton{

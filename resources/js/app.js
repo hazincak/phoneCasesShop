@@ -10,7 +10,6 @@ import router from "./routes";
 
 import moment from "moment";
 
-
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 

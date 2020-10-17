@@ -9,3 +9,4 @@
         <FlashMessage :position="'right bottom'"></FlashMessage>
     </div>
 </template>
+
