@@ -41,9 +41,13 @@ Vue.filter("fromNow", value => moment(value).fromNow());
 
 const store = new Vuex.Store(StoreDefinition);
 
+
+
 window.axios.interceptors.response.use(
     response => {
+        
         return response;
+       
     },
     error => {
         if(401 === error.response.status){

@@ -79,6 +79,7 @@
                         type="text" 
                         class="form-control" 
                         name="first_name" 
+                        v-model="customer.first_name"
                        >
                     </div>
                     <div class="col-md-6 form-group">
@@ -86,7 +87,8 @@
                         <input 
                         type="text" 
                         class="form-control" 
-                        name="last_name" 
+                        name="last_name"
+                        v-model="customer.last_name" 
                         >
                     </div>
                 </div>
@@ -96,7 +98,8 @@
                         <input 
                         type="email"
                          class="form-control"
-                         name="email" 
+                         name="email"
+                         v-model="customer.email" 
                          >
                     </div>
                 </div>
@@ -107,6 +110,7 @@
                         type="text" 
                         class="form-control" 
                         name="street" 
+                        v-model="customer.street"
                         >
                     </div>
                     <div class="col-md-6 form-group">
@@ -115,6 +119,7 @@
                         type="text" 
                         class="form-control" 
                         name="city" 
+                        v-model="customer.city"
                         >
 
                     </div>
@@ -124,7 +129,7 @@
                   <div class="input-group-prepend">
                     <label for="county">Kraj</label>
                   </div>
-                  <select class="custom-select" id="inputGroupSelect01">
+                  <select class="custom-select" id="inputGroupSelect01" v-model="customer.county">
                     <option selected>Vyberte kraj</option>
                     <option>Bratislavský kraj</option>
                     <option>Trnavský kraj</option>
@@ -141,7 +146,8 @@
                         <input 
                         type="text" 
                         class="form-control" 
-                        name="zip" 
+                        name="zip"
+                        v-model="customer.zip" 
                         >
                     </div>
                 </div>
@@ -226,7 +232,7 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="card-element"><h3>Kreditná karta</h3></label>
-                        <card-element></card-element>
+                        <card-element :customer = customer :priceToBePaid = calculatedTotalPrice.toFixed(2)></card-element>
                         
                     </div>
                 </div>
@@ -236,10 +242,7 @@
                  
                 <div class="row">
                     <div class="col-md-12 form-group">
-                        <div v-if="paymentMethod === 'CreditCard'">
-                            <button class='button button--block button--teal button--squared' @click='pay' :disabled='!complete'>Zaplatiť €{{calculatedTotalPrice.toFixed(2)}} kartou</button>
-                        </div>
-                        <div v-else-if="paymentMethod === 'PayWhenDelivered' || paymentMethod === 'MoneyTransfer'">
+                        <div v-if="paymentMethod === 'PayWhenDelivered' || paymentMethod === 'MoneyTransfer'">
                             <button 
                         type="submit" 
                         class="button button--block button--teal button--squared" 
@@ -279,7 +282,8 @@ export default {
             paymentMethod: "MoneyTransfer",
             paymentFee: 0,
             paidDelivery: true,
-            calculatedTotalPrice: 0
+            calculatedTotalPrice: 0,
+            customer:{}
         }
     },
 
@@ -309,9 +313,9 @@ export default {
                 this.calculateTotalPrice()
             }
         },
-        // paymentFee: function(){
-        //     this.calculateTotalPrice()
-        // }
+        paymentFee: function(){
+            this.calculateTotalPrice()
+        }
     },
 
    

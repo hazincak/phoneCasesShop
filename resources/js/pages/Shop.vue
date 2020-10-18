@@ -75,19 +75,6 @@
                             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 p-5">
                                 <div v-for="product in products.data" :key="product.id"><product-item-card v-bind:product="product"></product-item-card></div>
                             </div>
-                            <!-- <div class="container-fluid">
-                                <div class="row">
-                                    <div class="d-flex align-items-stretch">
-                                        <div v-for="product in products.data" :key="product.id"><product-item-card v-bind:product="product"></product-item-card></div>
-                                    </div>
-
-                                </div>
-                            </div> -->
-                            
-                              
-                            
-                            
-                           
                         <pagination :data="products" align='center' @pagination-change-page="getResults"></pagination>
                         
                 </div>
