@@ -25,7 +25,7 @@
                                 <strong>€{{product.price.toFixed(2)}} <span class="text-muted"><small>s DPH.</small></span></strong>
                             </div>
                             <div>
-                                <em>{{product.model.model_name}}</em>
+                                <em>{{product.model_name}}</em>
                             </div>
                         </div>
                     <p class="mt-5">{{product.description_short}}</p>

@@ -8,6 +8,7 @@ use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ShopPageProductResource;
+use App\Http\Resources\DisplayProductPageResource;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
@@ -17,11 +18,14 @@ class ProductController extends Controller
     
 
     public function productById($id){
-        return Product::with('images', 'model', 'color', 'material')->findOrFail($id);
+        $product = Product::with('images', 'model', 'color', 'material')->findOrFail($id);
+        return new DisplayProductPageResource($product);
+
     }
 
 
     public function getAllProducts(){
+        
         return Product::with('category', 'brand', 'model')->get();
     }
 
@@ -53,9 +57,13 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        return Product::with('images', 'model', 'category', 'brand', 'color', 'material')
+         $products = Product::with('images', 'model', 'category', 'brand', 'color', 'material')
         ->orderBy($request->orderBy, $request->order)
         ->paginate($request->perPage);
+
+        return ShopPageProductResource::collection(
+            $products
+        );
     }
 
     /**
