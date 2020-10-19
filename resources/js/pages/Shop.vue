@@ -25,7 +25,7 @@
                                     <b-breadcrumb-item active>Všetky  produkty</b-breadcrumb-item>
                                 </div>
                                 <div v-else>
-                                    <b-breadcrumb-item active>{{products.data[0].category.category_name}}/{{products.data[0].brand.brand_name}}/{{products.data[0].model.model_name}}</b-breadcrumb-item>
+                                    <b-breadcrumb-item active>{{products.data[0].category_name}}/{{products.data[0].brand_name}}/{{products.data[0].model_name}}</b-breadcrumb-item>
                                 </div>
                                 </b-breadcrumb>
                             </div>

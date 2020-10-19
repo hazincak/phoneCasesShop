@@ -28,7 +28,7 @@ class ProductController extends Controller
     public function productsByCategoryBrandModel(Request $request, $categoryId, $brandId, $modelId){
 
        
-        return Product::with('images', 'brand', 'color', 'material','category', 'model')
+        $products = Product::with('images', 'brand', 'color', 'material','category', 'model')
         ->where([
             ['brand_id', $brandId],
             ['category_id', $categoryId],
@@ -36,24 +36,11 @@ class ProductController extends Controller
         ])
         ->orderBy($request->orderBy, $request->order)
         ->paginate($request->perPage);
+
+        return ShopPageProductResource::collection(
+            $products
+        );
     }
-
-    // public function productsByCategoryBrandModel(Request $request, $categoryId, $brandId, $modelId){
-
-       
-    //     $products = Product::with('images', 'brand', 'color', 'material','category', 'model')
-    //     ->where([
-    //         ['brand_id', $brandId],
-    //         ['category_id', $categoryId],
-    //         ['model_id', $modelId]
-    //     ])
-    //     ->orderBy($request->orderBy, $request->order)
-    //     ->paginate($request->perPage);
-
-    //     return ShopPageProductResource::collection(
-    //         $products
-    //     );
-    // }
     
 
     

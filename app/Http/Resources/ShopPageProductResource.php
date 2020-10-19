@@ -20,6 +20,7 @@ class ShopPageProductResource extends JsonResource
             'price' => $this->price,
             'main_image' => $this->images[0],
             'category_name' => $this->category->category_name,
+            'brand_name' => $this->brand->brand_name,
             'model_name' => $this->model->model_name,
         ];
     }

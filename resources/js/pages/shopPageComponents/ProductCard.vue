@@ -3,7 +3,7 @@
 	<div class="card h-100"> 
      	
 			<router-link :to="{name: 'produkt', params: { id: product.id }}">
-				<img :src='product.images[0].path' class="card-img-top">
+				<img :src='product.main_image.path' class="card-img-top">
 			</router-link>	
 			<div class="card-body d-flex flex-column">
 					<div class="p-2">
@@ -14,7 +14,7 @@
 					<div class=" bottom-wrap mt-auto">
 						<div class="d-flex justify-content-between">
 							<div class="p-2">
-								<em>{{product.model.model_name}}</em>
+								<em>{{product.model_name}}</em>
 								<p><strong>€{{product.price.toFixed(2)}} <span class="text-muted"><small>s DPH.</small></span></strong></p>
 							</div>
 							<button 
