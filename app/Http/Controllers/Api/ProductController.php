@@ -7,7 +7,7 @@ use App\Product;
 use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Http\Resources\ShopPageProductResource;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
@@ -37,6 +37,23 @@ class ProductController extends Controller
         ->orderBy($request->orderBy, $request->order)
         ->paginate($request->perPage);
     }
+
+    // public function productsByCategoryBrandModel(Request $request, $categoryId, $brandId, $modelId){
+
+       
+    //     $products = Product::with('images', 'brand', 'color', 'material','category', 'model')
+    //     ->where([
+    //         ['brand_id', $brandId],
+    //         ['category_id', $categoryId],
+    //         ['model_id', $modelId]
+    //     ])
+    //     ->orderBy($request->orderBy, $request->order)
+    //     ->paginate($request->perPage);
+
+    //     return ShopPageProductResource::collection(
+    //         $products
+    //     );
+    // }
     
 
     

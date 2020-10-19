@@ -1,35 +1,5 @@
 <template>
-	<!-- <div class="card-product m-5"> 
-     	
-			<router-link :to="{name: 'produkt', params: { id: product.id }}">
-				<div class="img-wrap"><img :src='product.images[0].path'></div>
-			</router-link>	
-			<div class="card-product h-100 d-flex flex-column">
-					<router-link :to="{name: 'produkt', params: { id: product.id }}">
-						{{product.title}}
-					</router-link>
-
-					
-					<div class="bottom-wrap mt-auto">
-						<div>
-							<p class="card-text">{{product.model.model_name}}</p>
-						</div>
-						<button 
-							v-if="inBasketAlready" 
-							class=" button button--teal button--squared float-right"
-							@click="removeFromBasket"
-							>odstrániť <i class="fas fa-trash-restore"></i></button>
-
-						<button 
-							v-else
-							class="button button--teal-outline button--squared float-right"
-							@click="addToBasket">do košíka <i class="fas fa-cart-arrow-down"></i></button>	
-						<div class="price-wrap">
-							<span class="price-new">€{{product.price.toFixed(2)}} <p class="text-muted">s DPH.</p></span> 
-						</div> 
-					</div> 
-			</div>
-	</div> -->
+	
 	<div class="card h-100"> 
      	
 			<router-link :to="{name: 'produkt', params: { id: product.id }}">
@@ -67,9 +37,7 @@
 <script>
 import { mapState, mapGetters } from "vuex";
 export default {
-	
 
-	// props: {"model":String, "title":String, "price":Number, "id":Number}
 	props:{"product":Object},
 
 	computed: {
