@@ -121,8 +121,13 @@ export default {
     
     methods: {
 		addToBasket() {
+            const mainImage = this.product.images[0];
+            console.log(mainImage)
+            var destructuredProduct = _.pick(this.product, ['id', 'title' ,'price']) ;
+             destructuredProduct.main_image = mainImage;
       		this.$store.dispatch("addToBasket", {
-        	product: this.product,
+                 
+        	product: destructuredProduct,
       			});
 		},
 		removeFromBasket(){
