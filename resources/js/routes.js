@@ -2,6 +2,7 @@ import VueRouter from "vue-router";
 import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 import Basket from "./pages/Basket";
+import SuccessfulCheckout from "./components/checkoutComponents/successCheckout";
 import DisplayProduct from "./pages/DisplayProduct";
 import TradingTerms from "./pages/TradingTerms";
 import Gdpr from "./pages/GDPR";
@@ -56,11 +57,15 @@ const routes = [
         name: "produkt",
     },
     {
-        path: "/kosik",
+        path: "/nakupny-kosik",
         component: Basket,
         name: "kosik",
     },
-
+    {
+        path:"/dakujeme-za-vas-nakup",
+        component: SuccessfulCheckout,
+        name: 'successfulCheckout',
+    },
     {
         path: "/registracia",
         component: Register,
@@ -84,6 +89,8 @@ const routes = [
         component: RulesOfReturns,
         name: "reklamacny-poriadok",
     },
+
+
 
     {
         path: "/admin",

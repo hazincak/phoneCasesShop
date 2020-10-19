@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div>      
       <card class='stripe-card'
       :class='{ complete }'
       :stripe= "stripeInstance"
@@ -7,13 +7,15 @@
       @change='change($event)'
     />
     <div id="card-errors" role="alert" v-text="errorMessage"></div>
+    <b-alert class="mt-3" v-if="errors" show variant="danger">{{errors}}</b-alert>
     <hr>
     <!-- <button class='button button--block button--teal button--squared' @click='pay' :disabled='!complete'>Zaplatiť €{{priceToBePaid}} kartou</button> -->
     <button class='button button--block button--teal button--squared' @click='pay'>Zaplatiť €{{priceToBePaid}} kartou</button>
     </div>
 </template>
 <script>
-    
+    import validationErrors from "../../shared/mixins/validationErrors"
+    import { mapState, mapGetters } from "vuex";
     import { Card, createToken } from 'vue-stripe-elements-plus'
     export default {
       props:{
@@ -21,6 +23,7 @@
         customer:Object
     },
         components: { Card },
+        mixins: [validationErrors],
         data () {
             return {
             stripeInstance: Stripe('pk_test_51HczEjDDA0O0qOLHNmhiFGzQ87LyksMRmVmKqTpLfRMnvMQrd4XHxltHRT3atQPn1aKwo5TAFuqaxRuOTB7rqhrQ00qVjDabg1', { locale: 'sk' }),
@@ -50,6 +53,12 @@
             }
           }
         },
+
+        computed:{
+          ...mapState({
+            basket:state => state.basket.items
+           })
+    },
         methods: {
             pay() {
              
@@ -66,10 +75,19 @@
      
             },
 
-            paymentRequest(data){
-
-
-              const response = axios.post(`/api/stripe-checkout`, {customer: this.customer, price: this.priceToBePaid, data: data},)
+            async paymentRequest(data){
+              this.errors = null;
+              try {
+                const response = await axios.post(`/api/stripe-checkout`, {customer: this.customer, price: this.priceToBePaid, data: data, basket: this.basket},)   
+                console.log(response.data.status)
+                console.log(response.data.msg)
+                if(response.data.status === 'success'){
+                 this.$router.push({ name: "successfulCheckout" });
+                }
+              } catch (error) {
+                this.errors = error.response && error.response.data.errors
+              }
+             
             }, 
 
 

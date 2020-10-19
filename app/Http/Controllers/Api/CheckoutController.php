@@ -12,29 +12,62 @@ class CheckoutController extends Controller
     public function stripeCheckout(Request $request){
 
         //validation
+        dd($request->basket);
+        dd($request);
 
-        // dd($request);
+        $customersFullName = $request->customer['first_name'] . ' ' . $request->customer['last_name'];
 
         try {
             $charge = Stripe::charges()->create([
                 'currency' => 'EUR',
                 'source' => $request->data['id'],
                 'amount'   => $request->price,
+                
+                // for($request->basket as $product){
+
+                // }
                 'description' => 'Description goes here',
+                
                 'receipt_email' => $request->customer['email'],
                 'metadata' => [
-                    'data1' => 'metadata 1',
-                    'data2' => 'metadata 2',
-                    'data3' => 'metadata 3'
+                    'Meno a priezvisko' => $customersFullName ,
+                    'Email' => $request->customer['email'],
+                    'Telefónne číslo' => 'metadata 3',
+                    'Adresa' => $request->customer['street'],
+                    'Mesto' => $request->customer['city'],
+                    'Poštové smerovacie čísla' => $request->customer['zip'],
+                    'Kraj' => $request->customer['county']
                 ]
             ]);
 
             //save this data to database
 
             //SUCCESFUL
-            return back()->with('success_message', 'Ďakujeme za Vašu objednávku. Urýchlene ju spracujeme a budeme Vás informovať o dátume expedície tovaru. Správa bude doručená do vašej mailovej schránky, ktorú ste uviedli pri registrácii objednávky.');
+            return response()->json([
+                'status' => 'success',
+            ], 201);
         } catch (CardErrorException $e) {
-            return back()->withErrors('Error! ' . $e->getMessage());
+            // dd($e->getMessage());
+            if($e->getMessage() === 'Your card has insufficient funds.'){
+                return response()->json([
+                    'errors' => 'Nedostatok prostriedkov na účte.',
+                ], 422);
+            }else if($e->getMessage() === 'Your card has expired.'){
+                return response()->json([
+                    'errors' => 'Platobná karta je expirovaná.',
+                ], 422);
+            }else if($e->getMessage() === "Your card's security code is incorrect."){
+                return response()->json([
+                    'errors' => 'Nesprávny CVV/CVC kód (číslo na zadnej strane platobnej/kreditnej karty).',
+                ], 422);
+            }else if ($e->getMessage() === 'Your card was declined.'){
+                return response()->json([
+                    'errors' => 'Vaša platba bola zamietnutá. Prosím použite inú kartu',
+                ], 422);
+            }
+            
+            
+            
         }
     }
 }

@@ -231,7 +231,7 @@
                     <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label for="card-element"><h3>Kreditná karta</h3></label>
+                        <label for="card-element"><h3>Kreditná karta <i class="fas fa-credit-card"></i></h3></label>
                         <card-element :customer = customer :priceToBePaid = calculatedTotalPrice.toFixed(2)></card-element>
                         
                     </div>
