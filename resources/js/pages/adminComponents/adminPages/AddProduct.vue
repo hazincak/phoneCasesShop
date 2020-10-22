@@ -85,56 +85,47 @@
                         <option v-for="model in models" :key="model.id" :value="model.id">{{model.model_name}}</option>
                 </select>
             </div>
-             <div class="form-group">
-                    <label for="count">Počet obrázkov produktu</label>
-                    <select 
-                        class="form-control"
-                        v-model="images_count"
-                        name="count"
-                        >
-                            <option :value=null selected disabled >Vyberte počet</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>8</option>
-                    </select>
-            </div>
+            <div class="form-group">
+                <div v-for="(image, index) in product.images" :key="index">
+                    <div class="row justify-content-center">
 
-            <div v-if="images_count">
-                <div v-for="index in Number(images_count)" :key="index">
-                    <div class="form-group ml-5">    
-                        
-                        <div v-if="product.images[index-1]" class="ml-5">
-                                    <div class="d-flex justify-content-around">
-                                        <div class="p-2 flex-fill">
-                                            <img :src="product.images[index-1]" class="img img-thumbnail">
-                                        </div>
-                                        <div class="p-2 flex-fill align-self-center">
-                                            <button class="btn btn-secondary" @click="removeImage(index)">Odstrániť obrázok</button>
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    
-                                </div>
-                        <div v-else>
-                            <label for="obrazky">Vyberte obrázok {{index}} </label>
-                             <div class="input-group mb-3" name = "obrazky">
-                                
-                                <div class="custom-file">
-                                        <input type="file" name="obrazky" class="custom-file-input" id="inputGroupFile01" @change="onFileChange">
-                                        <label class="custom-file-label" for="inputGroupFile01">Vyberte obrázok </label>
-                                </div>
+                    
+                        <div class="card" style="width: 18rem;">
+                            <img :src="product.images[index]" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <span v-if="index === 0">Hlavný obrázok</span> 
+                                    <span v-else>Obrázok {{index + 1}}</span>
+                                </h5>
+                                <button class="btn btn-secondary" @click="removeImage(index)">Odstrániť obrázok</button>
                             </div>
-                        </div>     
+                                                            
+                        </div>
+                        <!-- card             -->
+                    </div>
+                    <!-- row -->
+                </div>
+                <!-- for loop -->
+            </div>
+                <div v-if="addPicture">
+                <label for="obrazky">Vyberte obrázok </label>
+                    <div class="input-group mb-3" name = "obrazky">
+                        
+                        <div class="custom-file">
+                                <input type="file" name="obrazky" class="custom-file-input" id="inputGroupFile01" @change="onFileChange">
+                                <label class="custom-file-label" for="inputGroupFile01">Vyberte obrázok </label>
+                        </div>
+                    </div>
+                </div>
+                <div v-if="!addPicture" class="row justify-content-left m-2">
+                    <div class="col-md-5">
+                        <button class="btn btn-secondary" @click="addPicture = true"><i class="fas fa-plus"></i> Pridať obrázok</button>
                     </div>
                 </div>
             </div>
+            
             <div class="row justify-content-between">
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="form-group">
                     <label for="price">Cena produktu (v €)</label>
                     <input 
@@ -147,7 +138,7 @@
                         >
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="form-group">
                     <label for="color">Farba produktu</label>
                     <select 
@@ -161,7 +152,7 @@
                     </select>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="form-group">
                     <label for="material">Materiál produktu</label>
                     <select 
@@ -178,7 +169,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        
     </div>
     <div class="row justify-content-center mt-4">
         <div class="col-md-6">
@@ -198,9 +189,10 @@ export default {
     data() {
     return {
         loading:false,
-        images_count: null,
+        // images_count: null,
         disabledBrandForm: true,
         disabledModelForm: true,
+        addPicture: false,
 
         product:{
             title: null,
@@ -291,7 +283,7 @@ export default {
                 reader.readAsDataURL(file);
         },
         removeImage: function (e) {
-              this.product.images.splice(e, 1);
+                this.product.images.splice(e, 1); 
         },
 
        async createProduct(){
@@ -321,10 +313,9 @@ export default {
 }
 </script>
 <style scoped>
-img {
-  max-width: 20%;
-  max-block-size: -webkit-fill-available;
-  margin: auto;
-  display: block;
+.card-img-top {
+    width: 100%;
+    height: 10vw;
+    object-fit: cover;
 }
 </style>

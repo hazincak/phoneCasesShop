@@ -24,9 +24,11 @@ class ProductController extends Controller
     }
 
 
-    public function getAllProducts(){
+    public function getAllProducts(Request $request){
         
-        return Product::with('category', 'brand', 'model')->get();
+        return Product::with('images', 'model', 'category', 'brand', 'color', 'material')
+        ->orderBy($request->orderBy, $request->order)
+        ->paginate($request->perPage);
     }
 
     public function productsByCategoryBrandModel(Request $request, $categoryId, $brandId, $modelId){
@@ -65,6 +67,7 @@ class ProductController extends Controller
             $products
         );
     }
+
 
     /**
      * Show the form for creating a new resource.

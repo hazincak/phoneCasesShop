@@ -169,7 +169,7 @@ export default {
   methods:{
     getResults(page = 1){
              this.loading = true
-                axios.get(`/api/produkt?page=${page}&perPage=${this.perPage}&orderBy=${this.orderBy}&order=${this.order}`)
+                axios.get(`/api/vsetky-produkty?page=${page}&perPage=${this.perPage}&orderBy=${this.orderBy}&order=${this.order}`)
                 .then(response => {
                     this.products = response.data;
                     this.loading=false;

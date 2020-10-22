@@ -72,9 +72,9 @@
                     </div>
                 <div v-for="(image, index) in product.images" :key="index">
                     <div class="row justify-content-center">
-                        <div class="col-md-12">
+                        <div class="card" style="width: 18rem">
                             <div v-if="image.path">
-                                <img :src="image.path" class="img img-thumbnail">
+                                <img :src="image.path" class="card-img-top">
                                 <button class="btn btn-secondary" @click="removeExistingImage(index, image)">Odstrániť obrázok</button>
                             </div>
                             <div v-else>
@@ -84,6 +84,7 @@
 
 
                         </div>
+                        <!-- card -->
                     </div>
                 </div>
             <div v-if="addPicture">
@@ -198,11 +199,11 @@ export default {
 }
 </script>
 <style scoped>
-img {
-  min-width: 20%;
-  max-width: 20%;
-  max-block-size: -webkit-fill-available;
-  margin: auto;
-  display: inline;
+
+.card-img-top {
+    width: 100%;
+    height: 10vw;
+    object-fit: cover;
 }
+
 </style>
