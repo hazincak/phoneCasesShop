@@ -1,7 +1,7 @@
 <template>
     <div>
     <nav class="navbar navbar-expand-md navbar-dark">
-        <a class="navbar-brand" href="#"><img class="logo" src="" alt="apple-logo"></a>
+        <a class="navbar-brand" href="#">LOGO</a>
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
                 <router-link :to="{name: 'domov'}" class="nav-link" href="#"><i class="fas fa-home"></i> <span class="sr-only">(current)</span></router-link>

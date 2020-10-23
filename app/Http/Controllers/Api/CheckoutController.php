@@ -2,32 +2,56 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
-use Cartalyst\Stripe\Exception\CardErrorException;
-use Cartalyst\Stripe\Laravel\Facades\Stripe;
+use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Cartalyst\Stripe\Laravel\Facades\Stripe;
+use Cartalyst\Stripe\Exception\CardErrorException;
 
 class CheckoutController extends Controller
 {
     public function stripeCheckout(Request $request){
 
         //validation
-        dd($request->basket);
-        dd($request);
 
         $customersFullName = $request->customer['first_name'] . ' ' . $request->customer['last_name'];
+        
 
+        $collapsedArray = Arr::dot($request->basket);
+        $basketLength = count($request->basket);       
+        $basketItems[] = null;
+        $output = '';
+
+        for($index = 0; $index <= $basketLength-1; $index++){
+            
+            $basketItems[$index]['Produkt ID'] = Arr::get($collapsedArray, "{$index}.product.id");
+            $basketItems[$index]['Názov produktu'] = Arr::get($collapsedArray, "{$index}.product.title");
+            $basketItems[$index]['Cena produktu'] = Arr::get($collapsedArray, "{$index}.product.price");
+
+            $output .= implode(', ', array_map(
+                function ($v, $k) {
+                    if(is_array($v)){
+                        return $k.'[]='.implode('&'.$k.'[]=', $v);
+                    }else{
+                        return $k.' = '.$v;
+                    }
+                }, 
+                $basketItems[$index], 
+                array_keys($basketItems[$index])
+            ));
+
+        };
+
+        
+
+        // dd($output);
+        // dd($request->price);
         try {
             $charge = Stripe::charges()->create([
                 'currency' => 'EUR',
                 'source' => $request->data['id'],
-                'amount'   => $request->price,
-                
-                // for($request->basket as $product){
-
-                // }
-                'description' => 'Description goes here',
-                
+                'amount'   => $request->price['calculatedTotalPrice'],
+                'description' => $output,
                 'receipt_email' => $request->customer['email'],
                 'metadata' => [
                     'Meno a priezvisko' => $customersFullName ,

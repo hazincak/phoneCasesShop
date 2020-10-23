@@ -1,4 +1,4 @@
-<template>
+ <template>
 	
 	<div class="card h-100"> 
      	
@@ -51,7 +51,6 @@ export default {
 
 	methods: {
 		addToBasket() {
-			//  const destructuredProduct = _.pick(this.product, ['id', 'title', mainImage ,'price']);
       		this.$store.dispatch("addToBasket", {
         	product: this.product,
       			});

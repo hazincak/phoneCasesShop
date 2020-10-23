@@ -10,6 +10,9 @@ export default{
 
         },
         isAdmin: false,
+        totalPriceBreakdown:{
+
+        }
     },
     mutations:{
         addToBasket(state, payload) {
@@ -29,7 +32,10 @@ export default{
         },
         setAdminStatus(state, payload){
             state.isAdmin = payload;
-        }
+        },
+        setTotalPriceBreakdown(state, payload){
+            state.totalPriceBreakdown = payload
+        },
     
 
     },
@@ -44,8 +50,6 @@ export default{
             context.commit("setLoggedIn", isLoggedIn());
         },
 
-
-
         addToBasket({commit, state}, payload){
             commit('addToBasket', payload);
             localStorage.setItem('basket', JSON.stringify(state.basket));
@@ -54,6 +58,10 @@ export default{
         removeFromBasket({commit, state}, payload){
             commit('removeFromBasket', payload);
             localStorage.setItem('basket', JSON.stringify(state.basket));
+        },
+
+        setTotalPriceBreakdown({commit}, payload){
+            commit('setTotalPriceBreakdown', payload);
         },
 
         async loadUser({commit, dispatch}){
@@ -83,7 +91,7 @@ export default{
 
     getters: {
         itemsInBasket: (state) => state.basket.items.length,
-        totalPrice (state) {
+        productsPrice (state) {
                 return state.basket.items.reduce(function(prev, cur){
                     return prev + cur.product.price;
                 },0)
@@ -98,7 +106,10 @@ export default{
         },
         isUserAdmin(state){
             return state.isAdmin;
-        }
+        },
+        totalPriceBreakdown(state) {
+            return state.totalPriceBreakdown
+        } 
 
     }   
 }

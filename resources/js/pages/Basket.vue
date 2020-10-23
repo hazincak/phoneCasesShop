@@ -37,32 +37,32 @@
                     </div>
                         <div class="d-flex border-top p-2 justify-content-between">
                             <h4 class="text-secondary">Medzisúčet</h4> 
-                            <h4>€{{totalPrice.toFixed(2)}}</h4> 
+                            <h4>€{{productsPrice.toFixed(2)}}</h4> 
                         </div>
                         <div class="d-flex border-top p-2 justify-content-between">
                             <h4 class="text-secondary">Doprava</h4> 
                             <h4>
                                 
-                                <div v-if="paidDelivery">
-                                     €{{deliveryFee}}
+                                <div v-if="priceBreakdown.paidDelivery">
+                                     €{{priceBreakdown.deliveryFee}}
                                 </div>
                                 <div v-else>
                                     ZADARMO
                                 </div>
                             </h4>
                         </div>
-                        <div v-if="paymentMethod === 'PayWhenDelivered'">
+                        <div v-if="priceBreakdown.paymentMethod === 'Platba dobierkou'">
                             <div class="d-flex border-top p-2 justify-content-between">
                                 <h4 class="text-secondary">Platba dobierkou</h4> 
                                 <h4>
-                                    €{{paymentFee}}
+                                    €{{priceBreakdown.paymentFee}}
                                 </h4> 
                             </div>
                         </div>
                         <div class="d-flex border-top p-2 justify-content-between">
                             <h4 class="text-secondary">Cena spolu</h4> 
                             <h4>
-                                    €{{calculatedTotalPrice.toFixed(2)}}
+                                    €{{priceBreakdown.calculatedTotalPrice.toFixed(2)}}
                             </h4> 
                         </div>
                 
@@ -156,38 +156,38 @@
                         <h3>Platba <i class="far fa-money-bill-alt"></i></h3>
                         
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="payment" id="payment1" v-model='paymentMethod' value="MoneyTransfer" >
+                          <input class="form-check-input" type="radio" name="payment" id="payment1" v-model='priceBreakdown.paymentMethod' value="Platba prevodom na účet" >
                           <label class="form-check-label" for="payment1">
                             Platba prevodom na účet 
                             <transition name="fade">
-                                <span v-if="paymentMethod === 'MoneyTransfer'" class="badge badge-secondary">€0,00</span>
+                                <span v-if="priceBreakdown.paymentMethod === 'Platba prevodom na účet'" class="badge badge-secondary">€0,00</span>
                             </transition>
                           </label>
                         </div>
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="payment" id="payment2"  v-model='paymentMethod' value="PayPal">
+                          <input class="form-check-input" type="radio" name="payment" id="payment2"  v-model='priceBreakdown.paymentMethod' value="PayPal">
                           <label class="form-check-label" for="payment2">
                             PayPal
                             <transition name="fade">
-                                <span v-if="paymentMethod === 'PayPal'" class="badge badge-secondary">€0,00</span>
+                                <span v-if="priceBreakdown.paymentMethod === 'PayPal'" class="badge badge-secondary">€0,00</span>
                             </transition>     
                           </label>
                         </div>
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="payment" id="payment3" v-model='paymentMethod' value="CreditCard">
+                          <input class="form-check-input" type="radio" name="payment" id="payment3" v-model='priceBreakdown.paymentMethod' value="Platba kartou online">
                           <label class="form-check-label" for="payment3">
                             Platba kartou online
                             <transition name="fade">
-                                <span v-if="paymentMethod === 'CreditCard'" class="badge badge-secondary">€0,00</span>
+                                <span v-if="priceBreakdown.paymentMethod === 'Platba kartou online'" class="badge badge-secondary">€0,00</span>
                             </transition> 
                           </label>
                         </div>
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="payment" id="payment4" v-model='paymentMethod' value="PayWhenDelivered">
+                          <input class="form-check-input" type="radio" name="payment" id="payment4" v-model='priceBreakdown.paymentMethod' value="Platba dobierkou">
                           <label class="form-check-label" for="payment4">
                             Platba dobierkou (pri preberaní tovaru) 
                             <transition name="fade">
-                                <span v-if="paymentMethod === 'PayWhenDelivered'" class="badge badge-secondary">€1,59</span> 
+                                <span v-if="priceBreakdown.paymentMethod === 'Platba dobierkou'" class="badge badge-secondary">€1,59</span> 
                             </transition>
                           </label>
                         </div>
@@ -198,41 +198,41 @@
                     <div class="col-md-12 mb-2">
                         <h3>Spôsob dopravy <i class="fas fa-shuttle-van"></i></h3>
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="deliveryFee" id="deliveryFee1" v-model='deliveryFee' :value="1.79" :disabled = '!paidDelivery'>
-                          <label class="form-check-label" for="deliveryFee1">
+                          <input class="form-check-input" type="radio" name="deliverymethod" id="deliveryMethod1" v-model='priceBreakdown.deliveryMethod' value="Slovenská pošta" :disabled = '!priceBreakdown.paidDelivery'>
+                          <label class="form-check-label" for="deliveryMethod1">
                             Pri doprave Slovenskou poštou 
                             <transition name="fade">
-                                <span v-if="deliveryFee === 1.79" class="badge badge-secondary">€1,79</span>
+                                <span v-if="priceBreakdown.deliveryMethod === 'Slovenská pošta'" class="badge badge-secondary">€1,79</span>
                             </transition>
                           </label>
                         </div>
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="deliveryFee" id="deliveryFee2" v-model='deliveryFee' :value="1.99" :disabled = '!paidDelivery'>
-                          <label class="form-check-label" for="deliveryFee2">
+                          <input class="form-check-input" type="radio" name="deliveryMethod" id="deliveryMethod2" v-model='priceBreakdown.deliveryMethod' value="Kuriérska spoločnosť" :disabled = '!priceBreakdown.paidDelivery'>
+                          <label class="form-check-label" for="deliveryMethod2">
                             Pri doprave kuriérskou spoločnosťou 
                             <transition name="fade">
-                                <span v-if="deliveryFee === 1.99" class="badge badge-secondary">€1,99</span>
+                                <span v-if="priceBreakdown.deliveryMethod === 'Kuriérska spoločnosť'" class="badge badge-secondary">€1,99</span>
                             </transition>
                           </label>
                         </div>
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="deliveryFee" id="deliveryFee3" v-model='deliveryFee' :value="0" :disabled = 'paidDelivery'>
-                          <label class="form-check-label" for="deliveryFee3">
+                          <input class="form-check-input" type="radio" name="deliveryMethod" id="deliveryMethod3" v-model='priceBreakdown.deliveryFee' :value=0 :disabled = 'priceBreakdown.paidDelivery'>
+                          <label class="form-check-label" for="deliveryMethod3">
                             Pri nákupe nad 29,99 €: doručenie ZADARMO 
                             <transition name="fade">
-                                <span v-if="deliveryFee === 0" class="badge badge-secondary">€0,00</span>
+                                <span v-if="!priceBreakdown.paidDelivery" class="badge badge-secondary">€0,00</span>
                             </transition>
                           </label>
                         </div>
                     </div>
                 </div>
                 <hr>
-                <div v-if="paymentMethod === 'CreditCard'">
+                <div v-if="priceBreakdown.paymentMethod === 'Platba kartou online'">
                     <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="card-element"><h3>Kreditná karta <i class="fas fa-credit-card"></i></h3></label>
-                        <card-element :customer = customer :priceToBePaid = calculatedTotalPrice.toFixed(2)></card-element>
+                        <card-element :customer = customer :priceBreakdown = priceBreakdown></card-element>
                         
                     </div>
                 </div>
@@ -242,7 +242,7 @@
                  
                 <div class="row">
                     <div class="col-md-12 form-group">
-                        <div v-if="paymentMethod === 'PayWhenDelivered' || paymentMethod === 'MoneyTransfer'">
+                        <div v-if="priceBreakdown.paymentMethod === 'Platba dobierkou' || priceBreakdown.paymentMethod === 'Platba prevodom na účet'">
                             <button 
                         type="submit" 
                         class="button button--block button--teal button--squared" 
@@ -278,11 +278,14 @@ export default {
     },
     data(){
         return{
-            deliveryFee: 1.79,
-            paymentMethod: "MoneyTransfer",
-            paymentFee: 0,
-            paidDelivery: true,
-            calculatedTotalPrice: 0,
+            priceBreakdown:{
+                paidDelivery: true,
+                deliveryMethod: 'Slovenská pošta',
+                deliveryFee: 1.79,
+                paymentMethod: "Platba prevodom na účet",
+                paymentFee: 0, 
+                calculatedTotalPrice: 0,
+            },
             customer:{}
         }
     },
@@ -292,7 +295,7 @@ export default {
     },
 
     computed:{
-    ...mapGetters(['itemsInBasket', 'totalPrice']),
+    ...mapGetters(['itemsInBasket', 'productsPrice']),
     ...mapState({
         basket:state => state.basket.items
         })
@@ -302,32 +305,36 @@ export default {
         itemsInBasket: function(){
             this.calculateTotalPrice()
         },
-        deliveryFee: function(){
-            this.calculateTotalPrice()
-        },
-        paymentMethod: function(){
-            if(this.paymentMethod === 'MoneyTransfer' || this.paymentMethod === 'PayPal' || this.paymentMethod === 'CreditCard' ){
-                this.paymentFee = 0
-            }else if(this.paymentMethod === 'PayWhenDelivered'){
-                this.paymentFee = 1.59
-                this.calculateTotalPrice()
-            }
-        },
-        paymentFee: function(){
-            this.calculateTotalPrice()
+        priceBreakdown:{
+            handler: 'calculateTotalPrice',
+            deep: true
         }
     },
 
    
     methods:{
-        calculateTotalPrice(){
-            if(this.totalPrice >= 29.99){
-                this.paidDelivery = false
-                this.deliveryFee = 0
-                this.calculatedTotalPrice = this.totalPrice + this.deliveryFee + this.paymentFee
+        setPaymentFee(){
+            this.priceBreakdown.paymentFee = this.priceBreakdown.paymentMethod === 'Platba dobierkou' ? 1.59 : 0;
+        },
+        setDeliveryFee(){
+            if(this.priceBreakdown.paidDelivery){
+                this.priceBreakdown.deliveryFee = this.priceBreakdown.deliveryMethod === 'Slovenská pošta' ? 1.79 : 1.99;
             }else{
-                this.calculatedTotalPrice = this.totalPrice + this.deliveryFee + this.paymentFee;
-                this.paidDelivery = true
+                this.priceBreakdown.deliveryFee = 0.00
+            }
+        },
+
+        calculateTotalPrice(){
+            this.setPaymentFee();
+            this.setDeliveryFee();            
+
+            if(this.productsPrice >= 29.99){
+                this.priceBreakdown.paidDelivery = false
+                this.priceBreakdown.deliveryFee = 0
+                this.priceBreakdown.calculatedTotalPrice = this.productsPrice + this.priceBreakdown.deliveryFee + this.priceBreakdown.paymentFee
+            }else{
+                this.priceBreakdown.calculatedTotalPrice = this.productsPrice + this.priceBreakdown.deliveryFee + this.priceBreakdown.paymentFee;
+                this.priceBreakdown.paidDelivery = true
             }
             
         }

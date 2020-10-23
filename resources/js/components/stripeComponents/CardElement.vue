@@ -10,7 +10,7 @@
     <b-alert class="mt-3" v-if="errors" show variant="danger">{{errors}}</b-alert>
     <hr>
     <!-- <button class='button button--block button--teal button--squared' @click='pay' :disabled='!complete'>Zaplatiť €{{priceToBePaid}} kartou</button> -->
-    <button class='button button--block button--teal button--squared' @click='pay'>Zaplatiť €{{priceToBePaid}} kartou</button>
+    <button class='button button--block button--teal button--squared' @click='pay'>Zaplatiť €{{priceBreakdown.calculatedTotalPrice.toFixed(2)}} kartou</button>
     </div>
 </template>
 <script>
@@ -19,7 +19,7 @@
     import { Card, createToken } from 'vue-stripe-elements-plus'
     export default {
       props:{
-        priceToBePaid: String,
+        priceBreakdown: Object,
         customer:Object
     },
         components: { Card },
@@ -77,11 +77,14 @@
 
             async paymentRequest(data){
               this.errors = null;
+              this.setTotalPriceBreakdown(null);
+              
               try {
-                const response = await axios.post(`/api/stripe-checkout`, {customer: this.customer, price: this.priceToBePaid, data: data, basket: this.basket},)   
+                const response = await axios.post(`/api/stripe-checkout`, {customer: this.customer, price: this.priceBreakdown, data: data, basket: this.basket},)   
                 console.log(response.data.status)
                 console.log(response.data.msg)
                 if(response.data.status === 'success'){
+                 this.setTotalPriceBreakdown(this.priceBreakdown);
                  this.$router.push({ name: "successfulCheckout" });
                 }
               } catch (error) {
@@ -89,10 +92,11 @@
               }
              
             }, 
-
-
             change(event){
               this.errorMessage = event.error ? event.error.message : ''
+            },
+            setTotalPriceBreakdown(payload){
+              this.$store.dispatch('setTotalPriceBreakdown', payload);
             }
         }
     }
