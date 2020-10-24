@@ -5,17 +5,21 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CheckoutUserValidation;
 use Cartalyst\Stripe\Laravel\Facades\Stripe;
 use Cartalyst\Stripe\Exception\CardErrorException;
 
 class CheckoutController extends Controller
 {
-    public function stripeCheckout(Request $request){
+    public function stripeCheckout(CheckoutUserValidation $request){
 
         //validation
+        $validated = $request->validated();
+        // dd($validated);
 
-        $customersFullName = $request->customer['first_name'] . ' ' . $request->customer['last_name'];
-        
+        $customersFullName = $validated['customer']['first_name'] . ' ' . $validated['customer']['last_name'];
+        $customerFullStreetName = $validated['customer']['street_name'] . ' ' . $validated['customer']['street_number'];
+        // dd($customersFullName);
 
         $collapsedArray = Arr::dot($request->basket);
         $basketLength = count($request->basket);       
@@ -55,12 +59,12 @@ class CheckoutController extends Controller
                 'receipt_email' => $request->customer['email'],
                 'metadata' => [
                     'Meno a priezvisko' => $customersFullName ,
-                    'Email' => $request->customer['email'],
-                    'Telefónne číslo' => 'metadata 3',
-                    'Adresa' => $request->customer['street'],
-                    'Mesto' => $request->customer['city'],
-                    'Poštové smerovacie čísla' => $request->customer['zip'],
-                    'Kraj' => $request->customer['county']
+                    'Email' => $validated['customer']['email'],
+                    'Telefónne číslo' => $validated['customer']['phone_number'],
+                    'Názov a a číslo ulice' => $customerFullStreetName,
+                    'Mesto' => $validated['customer']['city'],
+                    'Poštové smerovacie čísla' => $validated['customer']['zip'],
+                    'Kraj' => $validated['customer']['county']
                 ]
             ]);
 

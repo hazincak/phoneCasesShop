@@ -12,6 +12,9 @@ export default{
         isAdmin: false,
         totalPriceBreakdown:{
 
+        },
+        customer:{
+
         }
     },
     mutations:{
@@ -36,7 +39,9 @@ export default{
         setTotalPriceBreakdown(state, payload){
             state.totalPriceBreakdown = payload
         },
-    
+        setCustomer(state, payload){
+            state.customer = payload
+        }
 
     },
 
@@ -62,6 +67,10 @@ export default{
 
         setTotalPriceBreakdown({commit}, payload){
             commit('setTotalPriceBreakdown', payload);
+        },
+
+        setCustomer({commit}, payload){
+            commit('setCustomer', payload);
         },
 
         async loadUser({commit, dispatch}){
@@ -109,7 +118,9 @@ export default{
         },
         totalPriceBreakdown(state) {
             return state.totalPriceBreakdown
-        } 
-
+        }, 
+        customer(state){
+            return state.customer
+        }
     }   
 }

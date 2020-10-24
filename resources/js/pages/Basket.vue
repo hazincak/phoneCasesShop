@@ -80,7 +80,9 @@
                         class="form-control" 
                         name="first_name" 
                         v-model="customer.first_name"
+                        :class="[{'is-invalid': errorFor('customer.first_name')}]"
                        >
+                       <v-errors :errors="errorFor('customer.first_name')"></v-errors>
                     </div>
                     <div class="col-md-6 form-group">
                         <label for="last_name">Priezvisko</label>
@@ -88,8 +90,22 @@
                         type="text" 
                         class="form-control" 
                         name="last_name"
-                        v-model="customer.last_name" 
+                        v-model="customer.last_name"
+                        :class="[{'is-invalid': errorFor('customer.last_name')}]" 
                         >
+                        <v-errors :errors="errorFor('customer.last_name')"></v-errors>
+                    </div>
+                </div>
+                 <div class="row">
+                    <div class="col-md-12 form-group">
+                        <label for="phoneNumber">Telefónne číslo</label>
+                        <input 
+                         class="form-control"
+                         name="phoneNumber"
+                         v-model="customer.phone_number"
+                         :class="[{'is-invalid': errorFor('customer.phone_number')}]"  
+                         >
+                         <v-errors :errors="errorFor('customer.phone_number')"></v-errors>
                     </div>
                 </div>
                 <div class="row">
@@ -99,29 +115,45 @@
                         type="email"
                          class="form-control"
                          name="email"
-                         v-model="customer.email" 
+                         v-model="customer.email"
+                         :class="[{'is-invalid': errorFor('customer.email')}]"  
                          >
+                         <v-errors :errors="errorFor('customer.email')"></v-errors>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6 form-group">
-                        <label for="street">Ulica</label>
+                    <div class="col-md-5 form-group">
+                        <label for="street_name">Názov ulice</label>
                         <input 
                         type="text" 
                         class="form-control" 
-                        name="street" 
-                        v-model="customer.street"
+                        name="street_name" 
+                        v-model="customer.street_name"
+                        :class="[{'is-invalid': errorFor('customer.street_name')}]"  
                         >
+                        <v-errors :errors="errorFor('customer.street_name')"></v-errors>
                     </div>
-                    <div class="col-md-6 form-group">
+                    <div class="col-md-3 form-group">
+                        <label for="street_number">Číslo ulice</label>
+                        <input 
+                        type="text" 
+                        class="form-control" 
+                        name="street_number" 
+                        v-model="customer.street_number"
+                        :class="[{'is-invalid': errorFor('customer.street_number')}]"  
+                        >
+                        <v-errors :errors="errorFor('customer.street_number')"></v-errors>
+                    </div>
+                    <div class="col-md-4 form-group">
                         <label for="city">Mesto</label>
                         <input 
                         type="text" 
                         class="form-control" 
                         name="city" 
                         v-model="customer.city"
+                        :class="[{'is-invalid': errorFor('customer.city')}]"  
                         >
-
+                        <v-errors :errors="errorFor('customer.city')"></v-errors>
                     </div>
                 </div>
                 <div class="row">
@@ -129,7 +161,12 @@
                   <div class="input-group-prepend">
                     <label for="county">Kraj</label>
                   </div>
-                  <select class="custom-select" id="inputGroupSelect01" v-model="customer.county">
+                  <select 
+                    class="custom-select" 
+                    id="inputGroupSelect01" 
+                    v-model="customer.county"
+                    :class="[{'is-invalid': errorFor('customer.county')}]"  
+                    >
                     <option selected>Vyberte kraj</option>
                     <option>Bratislavský kraj</option>
                     <option>Trnavský kraj</option>
@@ -147,8 +184,10 @@
                         type="text" 
                         class="form-control" 
                         name="zip"
-                        v-model="customer.zip" 
+                        v-model="customer.zip"
+                        :class="[{'is-invalid': errorFor('customer.zip')}]"   
                         >
+                        <v-errors :errors="errorFor('customer.zip')"></v-errors>
                     </div>
                 </div>
                 <div class="row">
@@ -232,7 +271,7 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="card-element"><h3>Kreditná karta <i class="fas fa-credit-card"></i></h3></label>
-                        <card-element :customer = customer :priceBreakdown = priceBreakdown></card-element>
+                        <card-element @update:parent="errors = $event" :customer = customer :priceBreakdown = priceBreakdown></card-element>
                         
                     </div>
                 </div>
@@ -270,9 +309,11 @@
     
 </template>
 <script>
+import validationErrors from "../shared/mixins/validationErrors";
 import { mapGetters, mapState } from 'vuex'
 import CardElement from "../components/stripeComponents/CardElement";
 export default {
+    mixins: [validationErrors],
     components:{
         CardElement
     },

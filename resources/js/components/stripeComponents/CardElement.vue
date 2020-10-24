@@ -7,28 +7,30 @@
       @change='change($event)'
     />
     <div id="card-errors" role="alert" v-text="errorMessage"></div>
-    <b-alert class="mt-3" v-if="errors" show variant="danger">{{errors}}</b-alert>
+    <b-alert class="mt-3" v-if="cardErrors" show variant="danger">{{cardErrors}}</b-alert>
     <hr>
     <!-- <button class='button button--block button--teal button--squared' @click='pay' :disabled='!complete'>Zaplatiť €{{priceToBePaid}} kartou</button> -->
     <button class='button button--block button--teal button--squared' @click='pay'>Zaplatiť €{{priceBreakdown.calculatedTotalPrice.toFixed(2)}} kartou</button>
     </div>
 </template>
 <script>
-    import validationErrors from "../../shared/mixins/validationErrors"
+    // import validationErrors from "../../shared/mixins/validationErrors"
     import { mapState, mapGetters } from "vuex";
     import { Card, createToken } from 'vue-stripe-elements-plus'
     export default {
       props:{
+        errors: Object,
         priceBreakdown: Object,
         customer:Object
     },
         components: { Card },
-        mixins: [validationErrors],
+        // mixins: [validationErrors],
         data () {
             return {
             stripeInstance: Stripe('pk_test_51HczEjDDA0O0qOLHNmhiFGzQ87LyksMRmVmKqTpLfRMnvMQrd4XHxltHRT3atQPn1aKwo5TAFuqaxRuOTB7rqhrQ00qVjDabg1', { locale: 'sk' }),
             complete: false,
             errorMessage: '',
+            cardErrors: null,
             stripeOptions: {
               style:{
                 base: {
@@ -76,19 +78,28 @@
             },
 
             async paymentRequest(data){
-              this.errors = null;
+              this.cardErrors = null,
               this.setTotalPriceBreakdown(null);
+              this.setCustomer(null);
+              this.emitErrors(null);
               
               try {
-                const response = await axios.post(`/api/stripe-checkout`, {customer: this.customer, price: this.priceBreakdown, data: data, basket: this.basket},)   
+                const response = await axios.post(`/api/stripe-checkout`, {customer: this.customer, price: this.priceBreakdown, data: data, basket: this.basket});   
                 console.log(response.data.status)
                 console.log(response.data.msg)
                 if(response.data.status === 'success'){
                  this.setTotalPriceBreakdown(this.priceBreakdown);
+                 this.setCustomer(this.customer);
                  this.$router.push({ name: "successfulCheckout" });
                 }
               } catch (error) {
-                this.errors = error.response && error.response.data.errors
+
+                if(error.response.status === 422){
+                this.emitErrors(error.response && error.response.data.errors);
+                }else{
+                  this.cardErrors = error.response && error.response.data.errors
+                }
+                
               }
              
             }, 
@@ -97,6 +108,12 @@
             },
             setTotalPriceBreakdown(payload){
               this.$store.dispatch('setTotalPriceBreakdown', payload);
+            },
+            setCustomer(payload){
+              this.$store.dispatch('setCustomer', payload);
+            },
+            emitErrors(validationErrors){
+              this.$emit('update:parent', validationErrors);
             }
         }
     }

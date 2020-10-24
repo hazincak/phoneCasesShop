@@ -20540,6 +20540,10 @@ p {
   color: #777;
 }
 
+.text-teal {
+  color: #01a9b4;
+}
+
 .link {
   cursor: pointer;
   color: #01a9b4;
