@@ -63,3 +63,5 @@ Route::get('modely-nepatriace-kategorii/{categoryId}/znacka/{brandId}', 'api\Cat
 Route::get('sidebar/kontent', 'api\CategoriesBrandsModelsController@getSideBarContent');
 
 Route::post('stripe-checkout', 'api\CheckoutController@stripeCheckout');
+
+Route::post('checkout', 'api\CheckoutController@checkout');

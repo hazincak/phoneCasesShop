@@ -284,7 +284,8 @@
                         <div v-if="priceBreakdown.paymentMethod === 'Platba dobierkou' || priceBreakdown.paymentMethod === 'Platba prevodom na účet'">
                             <button 
                         type="submit" 
-                        class="button button--block button--teal button--squared" 
+                        class="button button--block button--teal button--squared"
+                        @click="checkout()" 
                         >Dokončite objednávku <i class="fas fa-check"></i></button>
                         </div>
                     </div>
@@ -377,6 +378,17 @@ export default {
                 this.priceBreakdown.calculatedTotalPrice = this.productsPrice + this.priceBreakdown.deliveryFee + this.priceBreakdown.paymentFee;
                 this.priceBreakdown.paidDelivery = true
             }
+            
+        },
+
+        async checkout(){
+            this.errors = null
+            try {
+                const response = await axios.post(`/api/checkout`, {customer: this.customer, priceBreakdown: this.priceBreakdown, basket: this.basket});    
+            } catch (error) {
+                this.errors = error.response && error.response.data.errors;
+            }
+
             
         }
     }
