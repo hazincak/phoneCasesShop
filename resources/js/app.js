@@ -10,8 +10,8 @@ import router from "./routes";
 
 import moment from "moment";
 
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import Navbar from "./shared/components/Navbar";
+import Footer from "./shared/components/Footer";
 
 import ValidationErrors from "./shared/components/ValidationErrors";
 
@@ -31,7 +31,6 @@ Vue.component("navbar", Navbar);
 Vue.component("section-footer", Footer);
 
 Vue.component("v-errors", ValidationErrors);
-
 
 Vue.use(FlashMessage);
 Vue.component('atom-spinner', SpringSpinner);

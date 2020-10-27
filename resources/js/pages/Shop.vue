@@ -89,8 +89,8 @@
 
 <script>
 import { mapState, mapGetters } from "vuex";
-import ProductItemCard from "./shopPageComponents/ProductCard";
-import SideBar from "./shopPageComponents/Sidebar";
+import ProductItemCard from "../components/shopPageComponents/ProductCard";
+import SideBar from "../components/shopPageComponents/Sidebar";
 export default {
 
 

@@ -9,7 +9,7 @@
         </ul> 
         <ul class= "navbar-nav ml-auto ">
             <li class="nav-item">
-                <router-link :to="{name: 'kosik'}" class="nav-link" href="#"><i class="fas fa-shopping-cart"></i><span class="badge badge-secondary badge-pill">{{itemsInBasket}}</span></router-link>
+                <router-link :to="{name: 'kosik'}"   class="nav-link" ><i class="fas fa-shopping-cart"></i><span class="badge badge-secondary badge-pill">{{itemsInBasket}}</span></router-link>
             </li>   
         </ul>     
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,7 +42,7 @@
     </div>
 </template>
 <script>
-import Login from "./../pages/authComponents/Login";
+import Login from "../../components/authComponents/Login";
 import {mapState ,mapGetters} from "vuex";
 export default {
     components:{

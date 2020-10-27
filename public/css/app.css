@@ -20957,9 +20957,7 @@ p {
 }
 
 .sidebar__wrapper {
-  max-height: -webkit-max-content;
-  max-height: -moz-max-content;
-  max-height: max-content;
+  min-height: 90vh;
   width: 15%;
   align-items: stretch;
   background-color: #f5f5fa;

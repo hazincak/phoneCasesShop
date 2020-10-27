@@ -35,9 +35,6 @@
                         <div v-if="isUserAdmin">
                             <div class="text-center"><router-link :to="{name: 'BrandsDashboard'}">Admin <i class="fas fa-user-shield"></i></router-link></div>
                         </div>
-                        <div class="text-center"><router-link to="">Profile <i class="far fa-id-card"></i></router-link></div>
-                        <div class="text-center"><router-link to="">História objednávok <i class="fas fa-list"></i></router-link></div>
-
                         <div class="dropdown-divider"></div>
                         <button class="button button--block button--teal button--squared" @click.prevent="logout">Odhlásiť sa <i class="fas fa-sign-out-alt"></i></button>
                         <div class="dropdown-divider"></div>

@@ -82,7 +82,7 @@
 </template>
 <script>
 import { mapState, mapGetters } from "vuex";
-import ProductGallery from "./displayProductPageComponents/ProductGallery";
+import ProductGallery from "../components/displayProductPageComponents/ProductGallery";
 export default {
     components:{
         ProductGallery

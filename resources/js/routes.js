@@ -8,25 +8,24 @@ import TradingTerms from "./pages/TradingTerms";
 import Gdpr from "./pages/GDPR";
 import RulesOfReturns from "./pages/RulesOfReturns";
 
-import Register from "./pages/authComponents/Register";
+import Register from "./components/authComponents/Register";
 
 import Admin from "./pages/Admin";
 
-import Products from "./pages/adminComponents/adminPages/Products";
-import ProductsDashboard from "./pages/adminComponents/adminPages/ProductsDashboard";
-import UpdateProduct from "./pages/adminComponents/adminPages/UpdateProduct";
+import Products from "./components/adminComponents/adminPages/Products";
+import ProductsDashboard from "./components/adminComponents/adminPages/ProductsDashboard";
+import UpdateProduct from "./components/adminComponents/adminPages/UpdateProduct";
 
+import ColorsAndMaterials from "./components/adminComponents/adminPages/ColorsAndMaterials.vue";
+import ColorsAndMaterialsDashboard from "./components/adminComponents/adminPages/ColorsAndMaterialsDashboard";
 
-import ColorsAndMaterials from "./pages/adminComponents/adminPages/ColorsAndMaterials";
-import ColorsAndMaterialsDashboard from "./pages/adminComponents/adminPages/ColorsAndMaterialsDashboard";
+import Brands from "./components/adminComponents/adminPages/Brands";
+import BrandsDashboard from "./components/adminComponents/adminPages/BrandsDashboard";
+import BrandUpdate from "./components/adminComponents/adminPages/BrandUpdate";
 
-import Brands from "./pages/adminComponents/adminPages/Brands";
-import BrandsDashboard from "./pages/adminComponents/adminPages/BrandsDashboard";
-import BrandUpdate from "./pages/adminComponents/adminPages/BrandUpdate";
-
-import Categories from "./pages/adminComponents/adminPages/Categories";
-import CategoriesDashboard from "./pages/adminComponents/adminPages/CategoriesDashboard";
-import CategoryUpdate from "./pages/adminComponents/adminPages/CategoryUpdate";
+import Categories from "./components/adminComponents/adminPages/Categories";
+import CategoriesDashboard from "./components/adminComponents/adminPages/CategoriesDashboard";
+import CategoryUpdate from "./components/adminComponents/adminPages/CategoryUpdate";
 
 import NotAuthorised from "./shared/components/NotAuthorised";
 import store from "./store";

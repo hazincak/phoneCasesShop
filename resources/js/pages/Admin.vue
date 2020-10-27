@@ -15,7 +15,7 @@
 <script>
 
 
-import AdminSidebar from "./adminComponents/AdminSidebar";
+import AdminSidebar from "../components/adminComponents/AdminSidebar";
 import {mapState ,mapGetters} from "vuex";
 
 export default {

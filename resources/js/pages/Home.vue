@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import HomeTitle from "./homePageComponents/Title";
-import HomeCards from "./homePageComponents/HomeCards";
+import HomeTitle from "../components/homePageComponents/Title";
+import HomeCards from "../components/homePageComponents/HomeCards";
 
 
 
