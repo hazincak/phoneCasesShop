@@ -72,6 +72,19 @@
                 </div>
             </div>
             <div class="col-md-7">
+                <div v-if="priceBreakdown.paymentMethod === 'PayPal'">
+                    <div class="row">
+                    <div class="col-md-12 form-group">
+                        <label for="phoneNumber">Telefónne číslo</label>
+                        <input 
+                         class="form-control"
+                         name="phoneNumber"
+                         v-model="customer.phone_number"
+                         >
+                    </div>
+                </div>
+                </div>
+                <div v-if="priceBreakdown.paymentMethod !== 'PayPal'">
                 <div class="row">
                     <div class="col-md-6  form-group">
                         <label for="first_name">Meno</label>
@@ -190,6 +203,7 @@
                         <v-errors :errors="errorFor('customer.zip')"></v-errors>
                     </div>
                 </div>
+            </div>
                 <div class="row">
                     <div class="col-md-12 mb-2">
                         <h3>Platba <i class="far fa-money-bill-alt"></i></h3>
@@ -268,25 +282,32 @@
                 <hr>
                 <div v-if="priceBreakdown.paymentMethod === 'Platba kartou online'">
                     <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label for="card-element"><h3>Kreditná karta <i class="fas fa-credit-card"></i></h3></label>
-                        <card-element @update:parent="errors = $event" :customer = customer :priceBreakdown = priceBreakdown></card-element>
-                        
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="card-element"><h3>Kreditná karta <i class="fas fa-credit-card"></i></h3></label>
+                                <card-element @update:parent="errors = $event" :customer = customer :priceBreakdown = priceBreakdown></card-element>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
-                </div>
+
+                <div v-if="priceBreakdown.paymentMethod === 'PayPal'">
+                    <div class="row">
+                        <div class="col-md-12 form-group">
+                            <PayPalCheckout :customer = customer :priceBreakdown = priceBreakdown></PayPalCheckout>
+                        </div>
+                    </div>
                 </div>
                 
-                 
-                <div class="row">
-                    <div class="col-md-12 form-group">
-                        <div v-if="priceBreakdown.paymentMethod === 'Platba dobierkou' || priceBreakdown.paymentMethod === 'Platba prevodom na účet'">
-                            <button 
-                        type="submit" 
-                        class="button button--block button--teal button--squared"
-                        @click="checkout()" 
-                        >Dokončite objednávku <i class="fas fa-check"></i></button>
+                <div v-if="priceBreakdown.paymentMethod === 'Platba dobierkou' || priceBreakdown.paymentMethod === 'Platba prevodom na účet'"> 
+                    <div class="row">
+                        <div class="col-md-12 form-group">
+                                <button 
+                            type="submit" 
+                            class="button button--block button--teal button--squared"
+                            @click="checkout()" 
+                            >Dokončite objednávku <i class="fas fa-check"></i></button>
                         </div>
                     </div>
                 </div>
@@ -312,11 +333,14 @@
 <script>
 import validationErrors from "../shared/mixins/validationErrors";
 import { mapGetters, mapState } from 'vuex'
-import CardElement from "../components/stripeComponents/CardElement";
+import CardElement from "../components/checkoutComponents/stripeComponents/CardElement";
+import PayPalCheckout from "../components/checkoutComponents/payPalComponents/PayPalCheckout";
+
 export default {
     mixins: [validationErrors],
     components:{
-        CardElement
+        CardElement,
+        PayPalCheckout
     },
     data(){
         return{

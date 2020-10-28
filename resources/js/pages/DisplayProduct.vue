@@ -56,15 +56,15 @@
                                     <tbody>
                                       <tr>
                                         <th scope="row">Farba</th>
-                                        <td>{{product.color.color}}</td>
+                                        <td>{{product.color}}</td>
                                       </tr>
                                       <tr>
                                         <th scope="row">Material</th>
-                                        <td>{{product.material.material}}</td>
+                                        <td>{{product.material}}</td>
                                       </tr>
                                       <tr>
                                         <th scope="row">Model</th>
-                                        <td>{{product.model.model_name}}</td>
+                                        <td>{{product.model_name}}</td>
                                       </tr>
                                     </tbody>
                                 </table>
