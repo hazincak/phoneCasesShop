@@ -68,7 +68,6 @@ export default {
         this.customer.street_name = payPalResponse.purchase_units[0].shipping.address.address_line_1;
         this.customer.street_number = payPalResponse.purchase_units[0].shipping.address.address_line_2;
         this.customer.zip = payPalResponse.purchase_units[0].shipping.address.postal_code;
-
     },
 
     setTotalPriceBreakdown(payload){
@@ -77,6 +76,7 @@ export default {
     setCustomer(payload){
         this.$store.dispatch('setCustomer', payload);
     },
+
 
    
   }

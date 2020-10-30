@@ -30,6 +30,7 @@ class CheckoutUserValidation extends FormRequest
             'customer.email' => 'required|email',
             'customer.street_number' => 'required|numeric',
             'customer.street_name' => 'required',
+            'customer.phone_number' => 'required',
             'customer.city' => 'required',
             'customer.county' => 'required',
             'customer.zip' => 'required|numeric'

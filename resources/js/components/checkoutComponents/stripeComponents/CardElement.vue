@@ -84,7 +84,7 @@
               this.emitErrors(null);
               
               try {
-                const response = await axios.post(`/api/stripe-checkout`, {customer: this.customer, price: this.priceBreakdown, data: data, basket: this.basket});   
+                const response = await axios.post(`/api/stripe-checkout`, {customer: this.customer, priceBreakdown: this.priceBreakdown, data: data, basket: this.basket});   
                 console.log(response.data.status)
                 console.log(response.data.msg)
                 if(response.data.status === 'success'){
