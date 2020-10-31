@@ -14,17 +14,17 @@
     </div>
 </template>
 <script>
-    // import validationErrors from "../../shared/mixins/validationErrors"
     import { mapState, mapGetters } from "vuex";
+    import setCustomerAndTotalPrice from "../../../shared/mixins/beforeCheckout";
     import { Card, createToken } from 'vue-stripe-elements-plus'
     export default {
+      mixins: [setCustomerAndTotalPrice],
       props:{
         errors: Object,
         priceBreakdown: Object,
         customer:Object
     },
         components: { Card },
-        // mixins: [validationErrors],
         data () {
             return {
             stripeInstance: Stripe('pk_test_51HczEjDDA0O0qOLHNmhiFGzQ87LyksMRmVmKqTpLfRMnvMQrd4XHxltHRT3atQPn1aKwo5TAFuqaxRuOTB7rqhrQ00qVjDabg1', { locale: 'sk' }),
@@ -105,12 +105,6 @@
             }, 
             change(event){
               this.errorMessage = event.error ? event.error.message : ''
-            },
-            setTotalPriceBreakdown(payload){
-              this.$store.dispatch('setTotalPriceBreakdown', payload);
-            },
-            setCustomer(payload){
-              this.$store.dispatch('setCustomer', payload);
             },
             emitErrors(validationErrors){
               this.$emit('update:parent', validationErrors);

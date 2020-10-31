@@ -8,18 +8,15 @@
           <p>Vašu objednávku sa budeme snažiť čo najskôr vybaviť, o procese vybavovania budete pravidelne informovaná/-ý.</p>
           <hr>
           <p>
-            Having trouble? <a href="">Contact us</a>
-          </p>
-          <p class="lead">
-            <router-link :to="{name: 'domov'}">Návrat na domovskú stránku</router-link>
+            <router-link class="text-teal" :to="{name: 'domov'}">Návrat na domovskú stránku</router-link>
           </p>
       </div>
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mb-5">
       <div class="col-md-6">
         <div class="d-flex mt-3 justify-content between">    
-        <h3 class="text-uppercase text-teal font-weight-bolder">Zhrnutie objednávky</h3>
+        <h3 class="underlined-header text-uppercase font-weight-bolder">Zhrnutie objednávky</h3>
       </div>
-        <table class="table ">
+        <table class="table mt-3 ">
             <thead>
               <tr>
                 <th scope="col">#</th>
@@ -29,14 +26,14 @@
             </thead>
               <tbody v-for="(item, index) in basket" :key="index">
                   <tr>
-                      <td>{{index}}</td>
+                      <td>{{index+1}}</td>
                       <td>{{item.product.title}}</td>
                       <td>€{{item.product.price}}</td>
                   </tr>
               </tbody>
         </table>
-      
-    <div class="d-flex mt-2 justify-content between">    
+      <hr>
+    <div class="d-flex mt-5 justify-content between">    
         <h3 class="text-uppercase text-teal font-weight-bolder">výpočet ceny</h3>
     </div>
     <div class="d-flex border-top p-4 justify-content-between">
@@ -46,15 +43,15 @@
     <div class="d-flex border-top p-4 justify-content-between">
         <h4>Doprava</h4> 
         <p v-if="priceBreakdown.paidDelivery">€{{priceBreakdown.deliveryFee}}</p>
-        <h4 v-else>ZADARMO</h4> 
+        <p v-else>ZADARMO</p> 
     </div>
     <div v-if="priceBreakdown.paymentFee !== 0" class="d-flex border-top p-4 justify-content-between">
         <h4>Platba dobierkou</h4> 
         <p>€{{priceBreakdown.paymentFee}}</p>
     </div>
-    <div class="d-flex p-4 border-top justify-content-between text-success">
-        <h4>Cena spolu</h4> 
-        <h4>€{{priceBreakdown.calculatedTotalPrice.toFixed(2)}}</h4>
+    <div class="d-flex p-4 border-top justify-content-between">
+        <h3>Cena spolu</h3> 
+        <h3>€{{priceBreakdown.calculatedTotalPrice.toFixed(2)}}</h3>
     </div>
 
     <div class="d-flex mt-3 justify-content between">    

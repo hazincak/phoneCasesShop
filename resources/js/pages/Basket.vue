@@ -332,12 +332,14 @@
 </template>
 <script>
 import validationErrors from "../shared/mixins/validationErrors";
+import setCustomerAndTotalPrice from "../shared/mixins/beforeCheckout";
+
 import { mapGetters, mapState } from 'vuex'
 import CardElement from "../components/checkoutComponents/stripeComponents/CardElement";
 import PayPalCheckout from "../components/checkoutComponents/payPalComponents/PayPalCheckout";
 
 export default {
-    mixins: [validationErrors],
+    mixins: [validationErrors, setCustomerAndTotalPrice],
     components:{
         CardElement,
         PayPalCheckout
@@ -407,14 +409,19 @@ export default {
 
         async checkout(){
             this.errors = null
+            this.setTotalPriceBreakdown(null);
+            this.setCustomer(null);
             try {
                 const response = await axios.post(`/api/checkout`, {customer: this.customer, priceBreakdown: this.priceBreakdown, basket: this.basket});    
+                if(response.data.status === 'success'){
+                 this.setTotalPriceBreakdown(this.priceBreakdown);
+                 this.setCustomer(this.customer);
+                 this.$router.push({ name: "successfulCheckout" });
+                }
             } catch (error) {
                 this.errors = error.response && error.response.data.errors;
-            }
-
-            
-        }
+            }   
+        },
     }
 }
 </script>

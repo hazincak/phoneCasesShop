@@ -47,7 +47,6 @@ export default {
           },
           onApprove: async (data, actions, resp) => {
             const order = await actions.order.capture();
-            console.log(order);
             this.modelCustomer(order);
             this.setTotalPriceBreakdown(this.priceBreakdown);
             this.setCustomer(this.customer);
@@ -76,12 +75,6 @@ export default {
     setCustomer(payload){
         this.$store.dispatch('setCustomer', payload);
     },
-
-
-   
   }
-
-
-
 }
 </script>

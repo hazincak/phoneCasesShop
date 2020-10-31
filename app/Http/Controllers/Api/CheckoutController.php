@@ -28,21 +28,7 @@ class CheckoutController extends Controller
         //Storing user to my database        
         $user = $this->createUser($validated);
 
-        dd($user->email);
         try {
-            //Storing user to Stripe payment gateway
-            // $customer = Stripe::customers()->create([
-            // 'name' =>  $customersFullName,
-            // 'email' => $validated['customer']['email'],
-            // 'phone' => $validated['customer']['phone_number'],
-            // 'address' => [
-            //     'line1' => $user->street,
-            //     'city' => $validated['customer']['city'],
-            //     'postal_code' => $validated['customer']['zip'],
-            //     ],
-            // ]);
-
-
             $charge = Stripe::charges()->create([
                 'currency' => 'EUR',
                 'source' => $request->data['id'],
@@ -52,10 +38,10 @@ class CheckoutController extends Controller
                     'Meno a priezvisko' => $customersFullName ,
                     'Email' => $user->email,
                     'Telefónne číslo' => $user->phone_number,
-                    'Adresa' => $request->customer['street'],
-                    'Mesto' => $request->customer['city'],
-                    'Poštové smerovacie čísla' => $request->customer['zip'],
-                    'Kraj' => $request->customer['county'],
+                    'Adresa' => $user->street,
+                    'Mesto' => $user->city,
+                    'Poštové smerovacie čísla' => $user->zip,
+                    'Kraj' => $user->county,
                     'číslo objednávky' => ''
                 ]
             ]);
@@ -69,7 +55,6 @@ class CheckoutController extends Controller
                 ] 
             ]);
         
-            //after saving to database update $charge metadata with the order id
 
             //SUCCESFUL
             return response()->json([
@@ -103,49 +88,13 @@ class CheckoutController extends Controller
         $basketLength = count($request->basket);  
         $customerFullStreetName = $validated['customer']['street_name'] . ' ' . $validated['customer']['street_number'];
         
-        
+        $user = $this->createUser($validated);
 
-        // try {
-            $user = User::create([
-                'first_name' => $validated['customer']['first_name'],
-                'last_name' => $validated['customer']['last_name'],
-                'street' => $customerFullStreetName,
-                'phone_number' => $validated['customer']['phone_number'],
-                'city' => $validated['customer']['city'],
-                'county' => $validated['customer']['county'],
-                'zip' => $validated['customer']['zip'],
-                'email' => $validated['customer']['email'],
-            ]);
-        // } catch (QueryException $e) {
-        //     $user = User::where('email', $validated['customer']['email'])->firstOrFail();
-        //     $user->update([
-        //         'first_name' => $validated['customer']['first_name'],
-        //         'last_name' => $validated['customer']['last_name'],
-        //         'street' => $customerFullStreetName,
-        //         'city' => $validated['customer']['city'],
-        //         'county' => $validated['customer']['county'],
-        //         'zip' => $validated['customer']['zip'],
-        //         'phone_number' => $validated['customer']['phone_number'],
-        //     ]);
-        // }
+        $order = $this->storeOrder($request->priceBreakdown, $request->basket, $user);
 
-        $order = Orders::create([
-            'user_id' => $user->id,
-            'payment_method' => $request->priceBreakdown['paymentMethod'],
-            'delivery_method' => $request->priceBreakdown['deliveryMethod'],
-            'total_price' => $request->priceBreakdown['calculatedTotalPrice'],  
-        ]);
-
-        
-
-        for($index = 0; $index <= $basketLength-1; $index++){
-            OrdersProducts::create([
-                'order_id' => $order->id,
-                'product_id' => Arr::get($collapsedArray, "{$index}.product.id"),
-                'product_title' =>  Arr::get($collapsedArray, "{$index}.product.title"),   
-            ]);
-        }         
-
+        return response()->json([
+            'status' => 'success',
+        ], 201);
         //send Email
     }
 
