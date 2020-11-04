@@ -3,13 +3,14 @@
 namespace App\Http\Controllers\Api;
 
 use App\User;
-use App\Orders;
+use App\Order;
 use App\OrdersProducts;
+use App\Mail\ConfirmOrder;
+use Illuminate\Support\Arr;
 use App\Traits\CreateUserTrait;
 use App\Traits\StoreOrderTrait;
-use Illuminate\Support\Arr;
 use App\Http\Controllers\Controller;
-use Illuminate\Database\QueryException;
+use Illuminate\Support\Facades\Mail;
 use Cartalyst\Stripe\Laravel\Facades\Stripe;
 use App\Http\Requests\CheckoutUserValidation;
 use Cartalyst\Stripe\Exception\CardErrorException;
@@ -54,7 +55,8 @@ class CheckoutController extends Controller
                     'Číslo objednávky' => $order->id,
                 ] 
             ]);
-        
+            
+            //send Email
 
             //SUCCESFUL
             return response()->json([
@@ -92,10 +94,24 @@ class CheckoutController extends Controller
 
         $order = $this->storeOrder($request->priceBreakdown, $request->basket, $user);
 
+        //send Email
+       
+        // dd($email);
+        // dd($order);
+
+        $products = Order::find($order->id)->ordersProducts;
+      
+        
+        Mail::to($user->email)->send(
+            new ConfirmOrder($user, $order, $products)
+        );
+
         return response()->json([
             'status' => 'success',
         ], 201);
-        //send Email
+        
+
+        
     }
 
     

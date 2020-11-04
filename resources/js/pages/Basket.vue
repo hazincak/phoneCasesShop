@@ -66,15 +66,16 @@
                             </h4> 
                         </div>
                 
-                    
-                    
-                        
                 </div>
             </div>
             <div class="col-md-7">
                 <div v-if="priceBreakdown.paymentMethod === 'PayPal'">
                     <div class="row">
                     <div class="col-md-12 form-group">
+                        <div class="alert alert-secondary" role="alert">
+                            Pri zaplatení pomocou služby PayPal, použijeme Vaše osobné údaje z Vášho účtu PayPal. 
+                            Na dokončenie objednávky nám preto bude stačit Vaše telefónne číslo.
+                        </div>
                         <label for="phoneNumber">Telefónne číslo</label>
                         <input 
                          class="form-control"
@@ -204,10 +205,9 @@
                     </div>
                 </div>
             </div>
-                <div class="row">
+                <div class="row mt-3">
                     <div class="col-md-12 mb-2">
                         <h3>Platba <i class="far fa-money-bill-alt"></i></h3>
-                        
                         <div class="form-check">
                           <input class="form-check-input" type="radio" name="payment" id="payment1" v-model='priceBreakdown.paymentMethod' value="Platba prevodom na účet" >
                           <label class="form-check-label" for="payment1">
@@ -292,7 +292,7 @@
                     </div>
                 </div>
 
-                <div v-if="priceBreakdown.paymentMethod === 'PayPal'">
+                <div v-if="priceBreakdown.paymentMethod === 'PayPal' && customer.phone_number">
                     <div class="row">
                         <div class="col-md-12 form-group">
                             <PayPalCheckout :customer = customer :priceBreakdown = priceBreakdown></PayPalCheckout>

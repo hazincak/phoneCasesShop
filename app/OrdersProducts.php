@@ -11,7 +11,7 @@ class OrdersProducts extends Model
     public $timestamps = false;
 
     public function orders(){
-        return $this->belongsTo('App\Orders');
+        return $this->belongsTo('App\Order');
     }
     
 }

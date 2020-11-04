@@ -2,7 +2,7 @@
 
 namespace App\Traits;
 
-use App\Orders;
+use App\Order;
 use App\OrdersProducts;
 use Illuminate\Support\Arr;
 
@@ -15,7 +15,7 @@ trait StoreOrderTrait{
         $collapsedArray = Arr::dot($basket);
 
 
-        $order = Orders::create([
+        $order = Order::create([
             'user_id' => $user->id,
             'payment_method' => $priceBreakdown['paymentMethod'],
             'delivery_method' => $priceBreakdown['deliveryMethod'],
