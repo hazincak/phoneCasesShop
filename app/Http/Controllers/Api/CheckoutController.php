@@ -86,8 +86,7 @@ class CheckoutController extends Controller
 
     public function checkout(CheckoutUserValidation $request){
         $validated = $request->validated();
-        $collapsedArray = Arr::dot($request->basket);
-        $basketLength = count($request->basket);  
+
         $customerFullStreetName = $validated['customer']['street_name'] . ' ' . $validated['customer']['street_number'];
         
         $user = $this->createUser($validated);
@@ -96,14 +95,14 @@ class CheckoutController extends Controller
 
         //send Email
        
-        // dd($email);
-        // dd($order);
+
+        // dd($request->priceBreakdown);
 
         $products = Order::find($order->id)->ordersProducts;
       
         
         Mail::to($user->email)->send(
-            new ConfirmOrder($user, $order, $products)
+            new ConfirmOrder($user, $order, $products, $request->priceBreakdown['deliveryFee'])
         );
 
         return response()->json([

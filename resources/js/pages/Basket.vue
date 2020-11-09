@@ -415,7 +415,7 @@ export default {
                 const response = await axios.post(`/api/checkout`, {customer: this.customer, priceBreakdown: this.priceBreakdown, basket: this.basket});    
                 if(response.data.status === 'success'){
                  this.setTotalPriceBreakdown(this.priceBreakdown);
-                 this.setCustomer(this.customer);
+                 this.setCustomer(this.customer); 
                  this.$router.push({ name: "successfulCheckout" });
                 }
             } catch (error) {

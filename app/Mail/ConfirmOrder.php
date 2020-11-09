@@ -16,18 +16,19 @@ class ConfirmOrder extends Mailable
     public $user;
     public $order;
     public $products;
+    public $deliveryFee;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($user, $order, $products)
+    public function __construct($user, $order, $products, $deliveryFee)
     {
-        
         $this->user = $user;
         $this->order = $order;
         $this->products = $products;
+        $this->deliveryFee = $deliveryFee;
     }
 
     /**

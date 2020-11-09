@@ -18,7 +18,7 @@
       </div>
         <table class="table mt-3 ">
             <thead>
-              <tr>
+              <tr style="border-top: hidden">
                 <th scope="col">#</th>
                 <th scope="col">Popis produktu</th>
                 <th scope="col">Cena</th>
@@ -28,7 +28,7 @@
                   <tr>
                       <td>{{index+1}}</td>
                       <td>{{item.product.title}}</td>
-                      <td>€{{item.product.price}}</td>
+                      <td class="float-right">€{{item.product.price}}</td>
                   </tr>
               </tbody>
         </table>
@@ -110,7 +110,7 @@ export default {
       counter: 0
     }
   },
-  
+
   computed:{
     ...mapGetters(['productsPrice', 'customer']),
     ...mapState({
@@ -119,6 +119,5 @@ export default {
         customer: state => state.customer, 
         })
     },
-
 }
 </script>

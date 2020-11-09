@@ -28,6 +28,7 @@ trait StoreOrderTrait{
             OrdersProducts::create([
                 'order_id' => $order->id,
                 'product_id' => Arr::get($collapsedArray, "{$index}.product.id"),
+                'product_price' => Arr::get($collapsedArray, "{$index}.product.price"),
                 'product_title' =>  Arr::get($collapsedArray, "{$index}.product.title"),   
             ]);
         }
