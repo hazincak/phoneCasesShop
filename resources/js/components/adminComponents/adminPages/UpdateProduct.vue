@@ -8,25 +8,25 @@
             />
         </div>
         <div v-else class="mb-5">
-            <h2 class="underlined-header mt-5">Aktualizovať produkt</h2>
+            <h2 class="underlined-header mt-5">Update product</h2>
              <div class="row justify-content-center mt-5 mb-5">
                 <div class="col-md-4">
-                    <h3>Pôvodný produkt</h3>
-                    <p><strong>Názov produktu</strong></p>
+                    <h3>Product details</h3>
+                    <p><strong>Product title</strong></p>
                     <p>{{product.title}}</p>
-                    <p><strong>Stručný popis produktu</strong></p>
+                    <p><strong>Short description</strong></p>
                     <p>{{product.description_short}}</p>
-                    <p><strong>Detailný popis produktu</strong></p>
+                    <p><strong>Detailed description</strong></p>
                     <p>{{product.description_long}}</p>
-                    <p><strong>Cena produktu</strong></p>
+                    <p><strong>Price</strong></p>
                     <p>{{product.price}}</p>
 
                 </div>
                 <div class="col-md-8">
-                    <h3>Aktualizovaný produkt</h3>
+                    <h3>New product details</h3>
                     <div class="form-group">
-                        <label for="title">Názov produktu</label>
-                        <input 
+                        <label for="title">Product title</label>
+                        <input
                             type="text"
                             class="form-control"
                             v-model="editedProduct.title"
@@ -36,8 +36,8 @@
                             >
                     </div>
                     <div class="form-group">
-                        <label for="description_short">Stručný popis produktu</label>
-                        <textarea 
+                        <label for="description_short">Short description</label>
+                        <textarea
                             class="form-control"
                             v-model="editedProduct.description_short"
                             name="description_short"
@@ -47,8 +47,8 @@
                         </textarea>
                     </div>
                     <div class="form-group">
-                        <label for="description_long">Detailný popis produktu</label>
-                        <textarea 
+                        <label for="description_long">Long description</label>
+                        <textarea
                             class="form-control"
                             v-model="editedProduct.description_long"
                             name="description_long"
@@ -59,8 +59,8 @@
                         </textarea>
                     </div>
                     <div class="form-group">
-                    <label for="price">Cena produktu (v €)</label>
-                    <input 
+                    <label for="price">Price (€)</label>
+                    <input
                         type="text"
                         class="form-control"
                         v-model="editedProduct.price"
@@ -75,11 +75,11 @@
                         <div class="card" style="width: 18rem">
                             <div v-if="image.path">
                                 <img :src="image.path" class="card-img-top">
-                                <button class="btn btn-secondary" @click="removeExistingImage(index, image)">Odstrániť obrázok</button>
+                                <button class="btn btn-secondary" @click="removeExistingImage(index, image)">Delete Image</button>
                             </div>
                             <div v-else>
                                 <img :src="image" class="img img-thumbnail">
-                                <button class="btn btn-secondary" @click="removeImage(index)">Odstrániť obrázok</button>
+                                <button class="btn btn-secondary" @click="removeImage(index)">Delete image</button>
                             </div>
 
 
@@ -88,27 +88,27 @@
                     </div>
                 </div>
             <div v-if="addPicture">
-                <label for="obrazky">Vyberte obrázok </label>
+                <label for="obrazky">Select image</label>
                     <div class="input-group mb-3" name = "obrazky">
-                        
+
                         <div class="custom-file">
                                 <input type="file" name="obrazky" class="custom-file-input" id="inputGroupFile01" @change="onFileChange">
-                                <label class="custom-file-label" for="inputGroupFile01">Vyberte obrázok </label>
+                                <label class="custom-file-label" for="inputGroupFile01">Select image</label>
                         </div>
                     </div>
             </div>
             <div v-if="!addPicture" class="row justify-content-center mt-2">
                 <div class="col-md-5">
-                    <button class="btn btn-secondary" @click="addPicture = true"><i class="fas fa-plus"></i> Pridať obrázok</button>
+                    <button class="btn btn-secondary" @click="addPicture = true"><i class="fas fa-plus"></i> Add image</button>
                 </div>
             </div>
                 </div>
                 </div>
-             
-            
+
+
             <div class="row justify-content-center mb-5">
                 <div class="col-md-6">
-                    <button class="btn btn-success btn-block btn-lg" @click="updateProduct" >Aktualizovať produkt</button>
+                    <button class="btn btn-success btn-block btn-lg" @click="updateProduct" >Update product</button>
                 </div>
             </div>
             <!-- row between -->
@@ -182,18 +182,18 @@ export default {
           const response =  await axios.put(`/api/produkt/${this.product.id}`, this.editedProduct);
           if(200 == response.status){
               this.flashMessage.info({
-               title: `Produkt úspěšné aktualizovaný `,
+               title: `Product successfully updated`,
                icon: false,
-               message: `Produkt s názvom "${this.product.title}" aktualizovaný`
+               message: `Product "${this.product.title}" has been updated`
             });
-            
+
           }
        } catch (error) {
            this.errors = error.response && error.response.data.errors;
        }
        this.loading = false;
-        
-         
+
+
         }
     }
 }

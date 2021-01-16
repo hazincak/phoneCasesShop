@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    protected $guarded = [];   
+    protected $guarded = [];
 
     public function images()
     {
@@ -38,4 +38,5 @@ class Product extends Model
     {
         return $this->belongsTo(DeviceModel::class);
     }
+
 }

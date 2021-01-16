@@ -1,10 +1,10 @@
  <template>
-	
-	<div class="card h-100"> 
-     	
+
+	<div class="card h-100">
+
 			<router-link :to="{name: 'produkt', params: { id: product.id }}">
 				<img :src='product.main_image.path' class="card-img-top">
-			</router-link>	
+			</router-link>
 			<div class="card-body d-flex flex-column">
 					<div class="p-2">
 						<router-link class="card-title" :to="{name: 'produkt', params: { id: product.id }}">
@@ -15,22 +15,22 @@
 						<div class="d-flex justify-content-between">
 							<div class="p-2">
 								<em>{{product.model_name}}</em>
-								<p><strong>€{{product.price.toFixed(2)}} <span class="text-muted"><small>s DPH.</small></span></strong></p>
+								<p><strong>€{{product.price.toFixed(2)}}</strong></p>
 							</div>
-							<button 
-								v-if="inBasketAlready" 
+							<button
+								v-if="inBasketAlready"
 								class=" button button--teal button--squared align-self-center"
 								@click="removeFromBasket"
-								>odstrániť <i class="fas fa-trash-restore"></i>
+								>Delete <i class="fas fa-trash-restore"></i>
 							</button>
-							<button 
+							<button
 								v-else
 								class="button button--teal-outline button--squared align-self-center"
-								@click="addToBasket">do košíka <i class="fas fa-cart-arrow-down"></i>
+								@click="addToBasket">Add to basket <i class="fas fa-cart-arrow-down"></i>
 							</button>
 						</div>
 					</div>
-					
+
 			</div>
 	</div>
 </template>
@@ -58,6 +58,6 @@ export default {
 		removeFromBasket(){
 			this.$store.dispatch("removeFromBasket", this.product.id);
 		}
-	}	
+	}
 };
 </script>

@@ -22,6 +22,7 @@ Route::get('obchod', 'Api\ProductController@index');
 
 Route::get('vsetky-produkty', 'Api\ProductController@getAllProducts');
 
+
 Route::get('obchod/produkt-podla-id/{id}', 'Api\ProductController@productById');
 
 Route::get('/kategoria-{categoryId}-znacka-{brandId}-model-{modelId}', 'Api\ProductController@productsByCategoryBrandModel');
@@ -40,6 +41,7 @@ Route::middleware('can:manipulateContent')->apiResource('farba', 'api\ColorContr
 
 Route::middleware('can:manipulateContent')->apiResource('material', 'api\MaterialController');
 
+Route::apiResource('carousel-items', 'api\CarouselItemController');
 
 Route::get('kategorie-a-znacky', 'api\CategoryBrandsController@getCategoriesWithBrands');
 

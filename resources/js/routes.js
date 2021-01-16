@@ -95,19 +95,34 @@ const routes = [
         path: "/admin",
         component: Admin,
         name: "admin",
-        
+
+        beforeRouterEnter: (to, from, next) => {
+            if(store.state.isAdmin){
+                next()
+            }else{
+                next({name: "not-authorised"})
+            }
+        },
+        beforeUpdate(to, from, next) {
+            if(store.state.isAdmin){
+                next()
+            }else{
+                next({name: "not-authorised"})
+            }
+        },
+
         children: [
             {
                 path: "kategorie",
                 name: "categories",
                 component: Categories,
-                
+
                   children:[
                     {
                         path: "kategorie-nahlad",
                         name: "CategoriesDashboard",
                         component: CategoriesDashboard,
-                        
+
                     },
                     {
                         path: "aktualizovat-kategorie/:id",
@@ -166,15 +181,6 @@ const routes = [
                 ]
             },
           ],
-        //   beforeEnter: (to, from, next) => {
-        //     if(store.state.isAdmin){
-        //         next()
-        //     }else{
-        //         next({name: "not-authorised"})
-        //     }
-        // },
-   
-    
     },
     {
         path: "/pristup-zamietnuty",
@@ -189,7 +195,7 @@ const router = new VueRouter({
     routes,
     mode: "history",
 
-    
+
 });
 
 export default router;

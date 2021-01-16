@@ -7,12 +7,11 @@
         />
 </div>
 <div v-else>
-  <div class="m-5"><h3>Správca farieb & materiálov</h3></div>
     <div class="row">
         <div class="col-md-8">
          <div class="card shadow">
                 <div class="card-header py-3">
-                  <h3 class="m-0 font-weight-bold text-secondary">Farby</h3>
+                  <h3 class="m-0 font-weight-bold text-secondary">Colours</h3>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
@@ -20,22 +19,22 @@
                       <thead>
                         <tr>
                           <th>Id</th>
-                          <th>Farba</th>
-                          <th>Vymazať</th>
+                          <th>Colour</th>
+                          <th>Delete</th>
                         </tr>
                       </thead>
                       <tfoot>
                         <tr>
                           <th>Id</th>
-                          <th>Farba</th>
-                          <th>Vymazať</th>
+                          <th>Colour</th>
+                          <th>Delete</th>
                         </tr>
                       </tfoot>
                         <tbody v-for="color in colors" :key="color.id">
                           <tr>
                             <td>{{color.id}}</td>
                             <td>{{color.color}}</td>
-                            <td><b-button class="btn btn-danger" @click="showColorConfirmationModal(color)"><i class="fas fa-trash-alt"></i> Odstrániť</b-button></td>
+                            <td><b-button class="btn btn-danger" @click="showColorConfirmationModal(color)"><i class="fas fa-trash-alt"></i> Delete</b-button></td>
                           </tr>
                         </tbody>
                     </table>
@@ -45,22 +44,22 @@
         </div>
         <div class="col-md-4">
             <div class="form-group">
-                <label for="color">Pridať farbu</label>
-                    <input 
-                    type="text" 
-                    class="form-control" 
+                <label for="color">Add colour</label>
+                    <input
+                    type="text"
+                    class="form-control"
                     v-model="color.color"
                     name="color"
-                    placeholder="Názov novej farby"
+                    placeholder="New colour name"
                     :class="[{'is-invalid': errorFor('color')}]"
                     >
                     <v-errors :errors="errorFor('color')"></v-errors>
             </div>
-            
-                  <button 
+
+                  <button
                      @click="addColor"
-                     class="btn btn-lg btn-success" 
-                     >Pridať farbu</button>
+                     class="btn btn-lg btn-success"
+                     >Add colour</button>
         </div>
     </div>
     <hr>
@@ -68,7 +67,7 @@
         <div class="col-md-8">
          <div class="card shadow">
                 <div class="card-header py-3">
-                  <h3 class="m-0 font-weight-bold text-secondary">Materiály</h3>
+                  <h3 class="m-0 font-weight-bold text-secondary">Materials</h3>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
@@ -76,22 +75,22 @@
                       <thead>
                         <tr>
                           <th>Id</th>
-                          <th>Materiál</th>
-                          <th>Vymazať</th>
+                          <th>Material</th>
+                          <th>Delete</th>
                         </tr>
                       </thead>
                       <tfoot>
                         <tr>
-                            <th>Id</th>
-                            <th>Materiál</th>
-                            <th>Vymazať</th>
+                          <th>Id</th>
+                          <th>Material</th>
+                          <th>Delete</th>
                         </tr>
                       </tfoot>
                         <tbody v-for="material in materials" :key="material.id">
                           <tr>
                             <td>{{material.id}}</td>
                             <td>{{material.material}}</td>
-                            <td><b-button class="btn btn-danger" @click="showMaterialConfirmationModal(material)"><i class="fas fa-trash-alt"></i> Odstrániť</b-button></td>
+                            <td><b-button class="btn btn-danger" @click="showMaterialConfirmationModal(material)"><i class="fas fa-trash-alt"></i> Delete</b-button></td>
                           </tr>
                         </tbody>
                     </table>
@@ -101,10 +100,10 @@
         </div>
         <div class="col-md-4">
             <div class="form-group">
-                <label for="material">Pridať materiál</label>
-                    <input 
-                    type="text" 
-                    class="form-control" 
+                <label for="material">Add material</label>
+                    <input
+                    type="text"
+                    class="form-control"
                     v-model="material.material"
                     name="material"
                     placeholder="Názov noveho materiálu"
@@ -112,11 +111,11 @@
                     >
                     <v-errors :errors="errorFor('material')"></v-errors>
             </div>
-            
-                  <button 
+
+                  <button
                      @click="addMaterial"
-                     class="btn btn-lg btn-success" 
-                     >Pridať materiál</button>
+                     class="btn btn-lg btn-success"
+                     >Add material</button>
         </div>
     </div>
   </div>
@@ -168,12 +167,12 @@ export default {
             const fetchedData = response.data;
             this.colors.push(fetchedData);
             this.flashMessage.info({
-               title: `Farba úspěšné vytvorená`,
+               title: `Colour created successfully`,
                icon: false,
-               message: `Farba "${fetchedData.color}" vytvorená`
+               message: `Colour "${fetchedData.color}" has been created`
             });
           }
-          
+
         })
         .catch(err => {
           if(is422){
@@ -189,13 +188,13 @@ export default {
 
     showColorConfirmationModal(color) {
         this.colorConfirmedDeletion = ''
-        this.$bvModal.msgBoxConfirm(`Naozaj chcete odstrániť farbu "${color.color}" ? Farba sa odstráni zo všetkých už pridaných produktov.`,  {
-          title: 'Prosím, potvrďte',
+        this.$bvModal.msgBoxConfirm(`Do you really want to delete "${color.color}" colour? This colour will be deleted from all products`,  {
+          title: 'Please confirm',
           size: 'md',
           buttonSize: 'md',
           okVariant: 'danger',
-          okTitle: 'Áno',
-          cancelTitle: 'Nie',
+          okTitle: 'Yes',
+          cancelTitle: 'No ',
           footerClass: 'p-2',
           hideHeaderClose: false,
           centered: true
@@ -219,9 +218,9 @@ export default {
                 let index = this.colors.indexOf(color);
                 this.colors.splice(index,1);
                 this.flashMessage.error({
-                  title: 'Farba úspěšné vymazaná',
+                  title: 'Colour successfully deleted',
                   icon: false,
-                  message: `Farba "${color.color}" vymazaná`
+                  message: `Colour "${color.color}" has been deleted`
                   });
             });
     },
@@ -236,9 +235,9 @@ export default {
               const fetchedData = response.data;
               this.materials.push(fetchedData);
               this.flashMessage.info({
-               title: `Materiál úspěšné vytvorený`,
+               title: `Material successfully created`,
                icon: false,
-               message: `Materiál "${fetchedData.color}" vytvorený`
+               message: `Material "${fetchedData.material}" has been created`
             });
           }
         })
@@ -256,13 +255,13 @@ export default {
 
     showMaterialConfirmationModal(material) {
         this.materialConfirmedDeletion = ''
-        this.$bvModal.msgBoxConfirm(`Naozaj chcete odstrániť materiál "${material.material}" ? Materiál sa odstráni zo všetkých už pridaných produktov.`,  {
-          title: 'Prosím, potvrďte',
+        this.$bvModal.msgBoxConfirm(`Do you really want to delete "${material.material}" material? Material will be deleted from all existing products.`,  {
+          title: 'Please confirm',
           size: 'md',
           buttonSize: 'md',
           okVariant: 'danger',
-          okTitle: 'Áno',
-          cancelTitle: 'Nie',
+          okTitle: 'Yes',
+          cancelTitle: 'No',
           footerClass: 'p-2',
           hideHeaderClose: false,
           centered: true
@@ -283,9 +282,9 @@ export default {
                 let index = this.materials.indexOf(material);
                 this.materials.splice(index,1);
                 this.flashMessage.error({
-                  title: 'Materiál úspěšné vymazaný',
+                  title: 'Material successfully deleted',
                   icon: false,
-                  message: `Materiál "${material.material}" vymazaný`
+                  message: `Material "${material.material}" has been deleted`
                   });
             });
     }

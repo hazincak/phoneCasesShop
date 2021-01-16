@@ -8,14 +8,13 @@
             />
         </div>
         <div v-else>
-            <div class="m-5"><h2>Správa kategorií</h2></div>
             <div class="row justify-content-left m-5">
                 <div class="col-md-5">
                     <div class="form-group">
-                        <label for="category_name">Premenovat názov kategórie</label>
-                            <input 
-                            type="text" 
-                            class="form-control" 
+                        <label for="category_name">Rename category</label>
+                            <input
+                            type="text"
+                            class="form-control"
                             v-model="editCategoryData.category_name"
                             name="category_name"
                             :placeholder="category.category_name"
@@ -23,10 +22,10 @@
                             >
                             <v-errors :errors="errorFor('category_name')"></v-errors>
                     </div>
-                            <button 
+                            <button
                                 @click="updateCategory()"
-                                class="btn btn-lg btn-success" 
-                                >Aktualizovať kategóriu</button>
+                                class="btn btn-lg btn-success"
+                                >Update category</button>
                 </div>
             </div>
             <hr>
@@ -34,7 +33,7 @@
                 <div class="col-md-8">
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                          <h3 class="m-0 font-weight-bold text-secondary">Značky priradené ku kategorií "{{category.category_name}}"</h3>
+                          <h3 class="m-0 font-weight-bold text-secondary">Brands linked to "{{category.category_name}}" category</h3>
                         </div>
                         <div class="card-body">
                           <div class="table-responsive table-hover">
@@ -42,19 +41,19 @@
                               <thead>
                                 <tr>
                                   <th>Id</th>
-                                  <th>Názov značky</th>
-                                  <th>Vytvorené</th>
-                                  <th>Aktualizované</th>
-                                  <th>Odstrániť</th>
+                                  <th>Brand name</th>
+                                  <th>Created</th>
+                                  <th>Updated</th>
+                                  <th>Delete</th>
                                 </tr>
                               </thead>
                               <tfoot>
                                 <tr>
                                   <th>Id</th>
-                                  <th>Názov značky</th>
-                                  <th>Vytvorené</th>
-                                  <th>Aktualizované</th>
-                                  <th>Odstrániť</th>
+                                  <th>Brand name</th>
+                                  <th>Created</th>
+                                  <th>Updated</th>
+                                  <th>Delete</th>
                                 </tr>
                               </tfoot>
                                 <tbody v-for="brand in category.brands" :key = brand.id >
@@ -63,7 +62,7 @@
                                       <td>{{brand.brand_name}}</td>
                                       <td>{{brand.created_at | fromNow}}</td>
                                       <td>{{brand.updated_at | fromNow}}</td>
-                                      <td><b-button class="btn btn-danger" @click="showBrandConfirmationModal(brand)"><i class="fas fa-trash-alt"></i> Odstrániť</b-button></td>
+                                      <td><b-button class="btn btn-danger" @click="showBrandConfirmationModal(brand)"><i class="fas fa-trash-alt"></i> Delete</b-button></td>
                               </tr>
                                 </tbody>
                             </table>
@@ -73,72 +72,64 @@
                 </div>
                 <div class="col-md-4 align-middle">
                                 <div class="form-group">
-                                  <label for="select_brand">Pridať značku ku kategorií "{{category.category_name}}"</label>
-                                     <select 
-                                        class="form-control" 
+                                  <label for="select_brand">Add brand to "{{category.category_name}}" category</label>
+                                     <select
+                                        class="form-control"
                                         name="select_brand"
                                         v-model="selectedBrandId"
                                         :class="[{'is-invalid': errors}]">
-                                       <option disabled value="">Vyberte značku</option>
+                                       <option disabled value="">Select brand</option>
                                        <option v-for="(brand, index) in brands" :key="index" :value="brand.id">{{brand.brand_name}}</option>
-                                     </select>  
+                                     </select>
                                   <span style="color: red; font-size: 11px">{{errors}}</span>
                               </div>
-                                  <button class="btn btn-lg btn-success" @click="attachBrandToCategory()">Pridať značku</button>
-                              
-                            
-                             
+                                  <button class="btn btn-lg btn-success" @click="attachBrandToCategory()">Add brand</button>
+
+
+
                 </div>
             </div>
             <hr>
-            <div class="m-5"><h2>Správa modelov priradených ku kategorií "{{category.category_name}}"</h2></div>
+            <div class="m-5"><h2>Models linked to "{{category.category_name}}" category</h2></div>
             <div class="row justify-content-left m-5">
                 <div class="col-md-4">
                   <div class="row">
-                            <label for="select_brand">Vyberte značku pre zobrazenie vsetkych jej modelov priradenych ku kategorií "{{category.category_name}}"</label>
+                            <label for="select_brand">Select brand to display all linked models to this brand and linked to "{{category.category_name}}" category</label>
                                 <div class="input-group">
-                                     <select 
-                                        class="custom-select" 
-                                        id="inputGroupSelect04" 
+                                     <select
+                                        class="custom-select"
+                                        id="inputGroupSelect04"
                                         name="select_brand"
                                         v-model="selectedBrandId"
                                         @change="getDistinctModels(); getModelsBelongingToCategoryAndSelectedBrand()">
-                                        
-                                       <option disabled value="">Vyberte značku</option>
+
+                                       <option disabled value="">Select brand</option>
                                        <option v-for="brand in brands" :key="brand.id" :value="brand.id">{{brand.brand_name}}</option>
                                      </select>
-        
+
                             </div>
                   </div>
                   <div v-if="selectedBrandId" class="mt-5">
-                    
-                            
-                                <div class="form-group">
-                                  <label for="select_model">Pridať model ku kategorií "{{category.category_name}}"</label>
-                                     <select 
-                                        class="form-control" 
-                                        id="inputGroupSelect04" 
-                                        name="select_model"
-                                        v-model="selectedModelId"
-                                        :class="[{'is-invalid': modelError}]">
-                                       <option disabled value="">Vyberte model</option>
-                                       <option v-for="(model, index) in models" :key="index" :value="model.id">{{model.model_name}}</option>
-                                     </select>
-                                     <span style="color: red; font-size: 11px">{{modelError}}</span>
-                                </div>
-                                  <button class="btn btn-lg btn-success" @click="attachModelToCategory()">Pridať model</button>
-                                
-                   
-                                  
-                              
-                                
-                            
-                  </div>
+                    <div class="form-group">
+                      <label for="select_model">Add model to model "{{category.category_name}}" category</label>
+                         <select
+                            class="form-control"
+                            id="inputGroupSelect04"
+                            name="select_model"
+                            v-model="selectedModelId"
+                            :class="[{'is-invalid': modelError}]">
+                           <option disabled value="">Select model</option>
+                           <option v-for="(model, index) in models" :key="index" :value="model.id">{{model.model_name}}</option>
+                         </select>
+                         <span style="color: red; font-size: 11px">{{modelError}}</span>
+                    </div>
+                      <button class="btn btn-lg btn-success" @click="attachModelToCategory()">Add model</button>
+                    </div>
                 </div>
                 <div class="col-md-8" v-if="queriedModels">
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                          <h3 class="m-0 font-weight-bold text-secondary">Modely značky ku kategorií "{{category.category_name}}"</h3>
+                          <h3 class="m-0 font-weight-bold text-secondary">All models linked to "{{category.category_name}}" category</h3>
                         </div>
                         <div class="card-body">
                           <div class="table-responsive table-hover">
@@ -146,22 +137,22 @@
                               <thead>
                                 <tr>
                                   <th>Id</th>
-                                  <th>Názov modelu</th>
-                                  <th>Odstrániť</th>
+                                  <th>Model name</th>
+                                  <th>Delete</th>
                                 </tr>
                               </thead>
                               <tfoot>
                                 <tr>
                                   <th>Id</th>
-                                  <th>Názov modelu</th>
-                                  <th>Odstrániť</th>
+                                  <th>Model name</th>
+                                  <th>Delete</th>
                                 </tr>
                               </tfoot>
                                 <tbody v-for="queriedModel in queriedModels" :key = queriedModel.id >
                                     <tr>
                                       <td>{{queriedModel.id}}</td>
                                       <td>{{queriedModel.model_name}}</td>
-                                      <td><b-button class="btn btn-danger" @click="showModelConfirmationModal(queriedModel)"><i class="fas fa-trash-alt"></i> Odstrániť</b-button></td>
+                                      <td><b-button class="btn btn-danger" @click="showModelConfirmationModal(queriedModel)"><i class="fas fa-trash-alt"></i> Delete</b-button></td>
                               </tr>
                                 </tbody>
                             </table>
@@ -184,11 +175,11 @@ export default {
             loading: false,
             category: {},
             brands: {},
-          
+
             selectedBrandId: null,
-            
+
             editCategoryData: {},
-        
+
             selectedModelId: null,
             models: {},
             queriedModels:null,
@@ -222,9 +213,9 @@ export default {
                 .then(response => {
                     this.loading = false
                     this.flashMessage.info({
-                    title: `Kategória úspěšné premenovaná`,
+                    title: `Category renamed successfully`,
                     icon: false,
-                    message: `Kategória s názvom "${this.category.category_name}" bola premenovaná na kategóriu s názvom "${this.editCategoryData.category_name}"`
+                    message: `Category "${this.category.category_name}" has been renamed to "${this.editCategoryData.category_name}" category`
             });
                 })
                 .catch(err=> {
@@ -245,16 +236,16 @@ export default {
             axios.get(`/api/kategorie/${this.category.id}/pridat-znacku/${this.selectedBrandId}`)
             .then(response => {
               const fetchedData = response.data;
-              this.category.brands.push(fetchedData);  
+              this.category.brands.push(fetchedData);
               this.flashMessage.info({
-               title: `Značka úspěšné pridaná ku kategorii`,
+               title: `Brand successfully linked to category`,
                icon: false,
-               message: `Značka s názvom "${fetchedData.brand_name}" pridaná ku kategorii ${this.category.category_name} `
+               message: `Brand "${fetchedData.brand_name}" has been linked to ${this.category.category_name} category`
             });
             })
             .catch(err=> {
                 if(is500(err)){
-                    this.errors = `Kategória  ${this.category.category_name} už obsahuje túto značku`;
+                    this.errors = `Category ${this.category.category_name} already contains this brand`;
                     return;
                   }
             })
@@ -262,13 +253,13 @@ export default {
             },
         showBrandConfirmationModal(brand) {
         this.brandConfirmedDeletion = ''
-        this.$bvModal.msgBoxConfirm(`Naozaj chcete odobrať značku "${brand.brand_name}" od kategórie ${this.category.category_name}?`,  {
-          title: 'Prosím, potvrďte',
+        this.$bvModal.msgBoxConfirm(`Do you really want to unlink "${brand.brand_name}" brand from  ${this.category.category_name} category?`,  {
+          title: 'Please, confirm',
           size: 'md',
           buttonSize: 'md',
           okVariant: 'danger',
-          okTitle: 'Áno',
-          cancelTitle: 'Nie',
+          okTitle: 'Yes',
+          cancelTitle: 'No',
           footerClass: 'p-2',
           hideHeaderClose: false,
           centered: true
@@ -288,9 +279,9 @@ export default {
                 let index = this.category.brands.indexOf(brand);
                 this.category.brands.splice(index,1);
                 this.flashMessage.error({
-                  title: `Značka úspěšné odobratá z tejto kategorie`,
+                  title: `Brand successfully unlinked from this category`,
                   icon: false,
-                  message: `Značka s názvom "${brand.brand_name}" odobratá z kategorie "${this.category.category_name}"`
+                  message: `Brand "${brand.brand_name}" unlinked from "${this.category.category_name}" category`
                   });
             }).then(() => this.loading = false)
         },
@@ -317,17 +308,17 @@ export default {
             axios.get(`/api/kategorie/${this.category.id}/pridat-model/${this.selectedModelId}`)
             .then(response => {
               const fetchedData = response.data;
-              this.queriedModels.push(fetchedData);  
+              this.queriedModels.push(fetchedData);
               this.flashMessage.info({
-               title: `Model úspěšné pridaný ku kategorii`,
+               title: `Model successfully linked to category`,
                icon: false,
-               message: `Model s názvom "${fetchedData.model_name}" pridaný ku kategorii ${this.category.category_name} `
+               message: `Model "${fetchedData.model_name}" linked to ${this.category.category_name} category`
             });
-            
+
             })
             .catch(err=> {
                 if(is500(err)){
-                    this.modelError = `Kategória ${this.category.category_name} už obsahuje tento model`;
+                    this.modelError = `Category ${this.category.category_name} already contains this model`;
                     return;
                   }
             })
@@ -335,13 +326,13 @@ export default {
             },
           showModelConfirmationModal(model) {
         this.modelConfirmedDeletion = ''
-        this.$bvModal.msgBoxConfirm(`Naozaj chcete odobrať model "${model.model_name}" od kategórie ${this.category.category_name}?`,  {
-          title: 'Prosím, potvrďte',
+        this.$bvModal.msgBoxConfirm(`Do you really want to unlink "${model.model_name}" model from ${this.category.category_name} category?`,  {
+          title: 'Please confirm',
           size: 'md',
           buttonSize: 'md',
           okVariant: 'danger',
-          okTitle: 'Áno',
-          cancelTitle: 'Nie',
+          okTitle: 'Yes',
+          cancelTitle: 'No',
           footerClass: 'p-2',
           hideHeaderClose: false,
           centered: true
@@ -361,9 +352,9 @@ export default {
                 let index = this.queriedModels.indexOf(model);
                 this.queriedModels.splice(index,1);
                 this.flashMessage.error({
-                  title: `Model úspěšné odobratý z tejto kategorie`,
+                  title: `Model successfully unlinked from this category`,
                   icon: false,
-                  message: `Model s názvom "${model.model_name}" odobratý z kategorie "${this.category.category_name}"`
+                  message: `Model${model.model_name}" has been successfully unlinked from "${this.category.category_name}" category`
                   });
             }).then(() => this.loading = false)
         },

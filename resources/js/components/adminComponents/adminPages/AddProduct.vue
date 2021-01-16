@@ -10,8 +10,8 @@
     <div class="row justify-content-center mb-5">
         <div class="col-md-12">
             <div class="form-group">
-                <label for="title">Názov produktu</label>
-                <input 
+                <label for="title">Product name</label>
+                <input
                     type="text"
                     class="form-control"
                     v-model="product.title"
@@ -21,8 +21,8 @@
                     >
             </div>
             <div class="form-group">
-                <label for="description_short">Stručný popis produktu</label>
-                <textarea 
+                <label for="description_short">Short product description</label>
+                <textarea
                     class="form-control"
                     v-model="product.description_short"
                     name="description_short"
@@ -33,8 +33,8 @@
                 </textarea>
             </div>
             <div class="form-group">
-                <label for="description_long">Detailný popis produktu</label>
-                <textarea 
+                <label for="description_long">Detailed product description</label>
+                <textarea
                     class="form-control"
                     v-model="product.description_long"
                     name="description_long"
@@ -42,12 +42,12 @@
                     rows="5"
                     :class="[{'is-invalid': errorFor('description_long')}]"
                     >
-                    
+
                 </textarea>
             </div>
             <div class="form-group">
-                <label for="category">Kategória produktu</label>
-                <select 
+                <label for="category">Product category</label>
+                <select
                     class="form-control"
                     name="category"
                     @change="getBrandsBelongingToSelectedCategory(product.category_id)"
@@ -56,11 +56,11 @@
                         <option disabled value="">Vyberte kategóriu</option>
                         <option v-for="category in categories" :key="category.id" :value="category.id">{{category.category_name}}</option>
                 </select>
-                
+
             </div>
             <div class="form-group">
-                <label for="brand">Značka produktu</label>
-                <select 
+                <label for="brand">Product brand</label>
+                <select
                     class="form-control"
                     v-model="product.brand_id"
                     name="brand"
@@ -73,15 +73,15 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="model">Model produktu</label>
-                <select 
+                <label for="model">Product model</label>
+                <select
                     class="form-control"
                     v-model="product.model_id"
                     name="model"
                     :disabled="disabledModelForm"
                     :class="[{'is-invalid': errorFor('model_id')}]"
                     >
-                        <option disabled value="">Vyberte model</option>
+                        <option disabled value="">Select model</option>
                         <option v-for="model in models" :key="model.id" :value="model.id">{{model.model_name}}</option>
                 </select>
             </div>
@@ -89,17 +89,17 @@
                 <div v-for="(image, index) in product.images" :key="index">
                     <div class="row justify-content-center">
 
-                    
+
                         <div class="card" style="width: 18rem;">
                             <img :src="product.images[index]" class="card-img-top">
                             <div class="card-body">
                                 <h5 class="card-title">
-                                    <span v-if="index === 0">Hlavný obrázok</span> 
-                                    <span v-else>Obrázok {{index + 1}}</span>
+                                    <span v-if="index === 0">Main image</span>
+                                    <span v-else>Image {{index + 1}}</span>
                                 </h5>
                                 <button class="btn btn-secondary" @click="removeImage(index)">Odstrániť obrázok</button>
                             </div>
-                                                            
+
                         </div>
                         <!-- card             -->
                     </div>
@@ -108,9 +108,9 @@
                 <!-- for loop -->
             </div>
                 <div v-if="addPicture">
-                <label for="obrazky">Vyberte obrázok </label>
+                <label for="obrazky">Add image </label>
                     <div class="input-group mb-3" name = "obrazky">
-                        
+
                         <div class="custom-file">
                                 <input type="file" name="obrazky" class="custom-file-input" id="inputGroupFile01" @change="onFileChange">
                                 <label class="custom-file-label" for="inputGroupFile01">Vyberte obrázok </label>
@@ -123,12 +123,12 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="row justify-content-between">
                 <div class="col-md-4">
                     <div class="form-group">
-                    <label for="price">Cena produktu (v €)</label>
-                    <input 
+                    <label for="price">Price (€)</label>
+                    <input
                         type="text"
                         class="form-control"
                         v-model="product.price"
@@ -140,8 +140,8 @@
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                    <label for="color">Farba produktu</label>
-                    <select 
+                    <label for="color">Colour</label>
+                    <select
                         class="form-control"
                         v-model="product.color_id"
                         name="color"
@@ -154,8 +154,8 @@
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                    <label for="material">Materiál produktu</label>
-                    <select 
+                    <label for="material">Material</label>
+                    <select
                         type="text"
                         class="form-control"
                         v-model="product.material_id"
@@ -163,21 +163,21 @@
                         placeholder="Materiál"
                         :class="[{'is-invalid': errorFor('material')}]"
                         >
-                        <option value="">Vyberte materiál</option>
+                        <option value="">Select material</option>
                         <option v-for="material in materials" :key="material.id" :value="material.id">{{material.material}}</option>
                     </select>
                     </div>
                 </div>
             </div>
-        
+
     </div>
     <div class="row justify-content-center mt-4">
         <div class="col-md-6">
             <button class="btn btn-success btn-block btn-lg" @click="createProduct">Pridať produkt</button>
         </div>
     </div>
-        
-    
+
+
      </div>
 </template>
 
@@ -206,7 +206,7 @@ export default {
             color_id: null,
             material_id: null
             },
-        
+
         categories:{},
         brands: {},
         models: {},
@@ -221,14 +221,14 @@ export default {
         .then(response => {
             this.categories = response.data
         })
-        .then(() => 
+        .then(() =>
 
              this.loading = false
         );
         axios.get('/api/farba')
         .then(response =>{
             this.colors = response.data
-        }).then(() => 
+        }).then(() =>
 
              this.loading = false
         );
@@ -237,7 +237,7 @@ export default {
             this.materials = response.data
         }).then(()=>
             this.loading = false
-        );       
+        );
     },
 
 
@@ -251,7 +251,7 @@ export default {
                      this.loading = false;
                     this.disabledBrandForm = false;
                 });
-            
+
         },
 
         getModelsBelongingToSelectedBrand(brandId){
@@ -262,7 +262,7 @@ export default {
                      this.loading = false;
                     this.disabledModelForm = false;
                 });
-            
+
         },
 
         onFileChange(e) {
@@ -283,7 +283,7 @@ export default {
                 reader.readAsDataURL(file);
         },
         removeImage: function (e) {
-                this.product.images.splice(e, 1); 
+                this.product.images.splice(e, 1);
         },
 
        async createProduct(){
@@ -297,16 +297,16 @@ export default {
                title: `Produkt úspěšné vytvorený `,
                icon: false,
                message: `Produkt s názvom "${this.product.title}" vytvorený`
-               
+
             });
-            
+
           }
        } catch (error) {
            this.errors = error.response && error.response.data.errors;
        }
        this.loading = false;
-        
-         
+
+
         }
 
     }

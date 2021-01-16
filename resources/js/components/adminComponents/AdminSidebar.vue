@@ -1,28 +1,30 @@
 <template>
 <div class="sidebar__wrapper" :class="{active: isActive}">
-   
-   
+
+
    <div v-if="isActive" class="sidebar__closeButton" @click="$emit('sidebar-change', !isActive)"><i class="far fa-times-circle"></i></div>
     <nav id="sidebar">
-        
+
         <div class="p-5">
-            <h1 class="text-center">Admin</h1>
+            <h1 class="text-center">Admin section</h1>
         </div>
 
-        <ul class="list-group">
+        <ul class="list-group ml-5">
            <li class="text-left mb-4 mt-4">
-                <router-link :to="{name: 'BrandsDashboard'}" class="sidebar--link-main">Značky & Modely</router-link>
+                <router-link class="sidebar--link-main underline--magical" :to="{name: 'BrandsDashboard'}">Brands & Models</router-link>
             </li>
             <li class="text-left mb-4 mt-4">
-                <router-link :to="{name: 'ColorsAndMaterialsDashboard'}" class="sidebar--link-main">Farby & Materiály</router-link>
+                <router-link class="sidebar--link-main underline--magical" :to="{name: 'ColorsAndMaterialsDashboard'}">Colours & Materials</router-link>
             </li>
             <li class="text-left mb-4 mt-4">
-                <router-link :to="{name: 'CategoriesDashboard'}" class="sidebar--link-main">Kategórie</router-link>
+                <router-link class="sidebar--link-main underline--magical" :to="{name: 'CategoriesDashboard'}">Categories</router-link>
             </li>
-            <li class="text-left mb-4 mt-4"> 
-                <router-link :to="{name: 'ProductsDashboard'}" class="sidebar--link-main">Všetky produkty</router-link>
+            <li class="text-left mb-4 mt-4">
+                <router-link class="sidebar--link-main underline--magical" :to="{name: 'ProductsDashboard'}">All products</router-link>
             </li>
-            
+            <li class="text-left mb-4 mt-4">
+                <router-link class="sidebar--link-main underline--magical" :to="{name: 'ProductsDashboard'}">Manage carousel</router-link>
+            </li>
         </ul>
     </nav>
 

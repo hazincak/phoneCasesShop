@@ -1,26 +1,31 @@
 <template>
     <div class="cards-section">
         <div class="container">
+            <div class="row text-center">
+                <div class="col-12 text-center m-5">
+                    <h1>Our policies</h1>
+                </div>
+            </div>
             <div class="row">
-                <div class="title-card col-lg-3 text-center">
+                <div class="title-card col-lg-3 text-center my-vertical-alignment">
                     <i class="fas fa-check-circle icon title-card__icon"></i>
-                    <h3>Nieco v zmysle rychla objednavka.</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur voluptas voluptate tempora. Animi eveniet, quibusdam, q.</p>
+                    <h2>Fast order</h2>
+                    <p>All orders are confirmed and shipped within 48 hours</p>
                 </div>
-                <div class="title-card col-lg-3 text-center">
+                <div class="title-card col-lg-3 text-center my-vertical-alignment">
                     <i class="fas fa-undo title-card__icon"></i>
-                    <h3>nieco v zmysle moznost vratenia tovaru</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, possimus nulla! Officia dolorem obcaecati, pariatur, sunt, aliquid </p>
+                    <h2>Fair return & refund policy</h2>
+                    <p>You can return an item bought online for any reason within 30 days</p>
                 </div>
-                <div class="title-card col-lg-3 text-center">
+                <div class="title-card col-lg-3 text-center my-vertical-alignment">
                     <i class="fas fa-warehouse title-card__icon"></i>
-                    <h3>nieco v zmysle vsetko skladom</h3>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa corporis odio blanditiis dicta magni omnis a iusto obcaecati assumend</p>
+                    <h2>All items are ready stock</h2>
+                    <p>All items listed on this website are ready to be shipped within 48 hours from placing the order</p>
                 </div>
-                <div class="title-card col-lg-3 text-center">
+                <div class="title-card col-lg-3 text-center my-vertical-alignment">
                     <i class="fas fa-dolly title-card__icon"></i>
-                    <h3>nieco v zmysle pravidla postovneho</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum, eligendi nisi repellendus error cumque esse soluta.</p>
+                    <h2>Delivery options</h2>
+                    <p>An Post or DHL Express. Orders over €29.99 - Delivery for free </p>
                 </div>
             </div>
         </div>

@@ -20747,7 +20747,7 @@ p {
 }
 
 .title-card__icon {
-  font-size: 3rem;
+  font-size: 5rem;
   color: #01a9b4;
   margin-bottom: 1rem;
 }
@@ -20892,6 +20892,27 @@ p {
   max-width: 10rem;
 }
 
+.separator {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.separator::before,
+.separator::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #01a9b4;
+}
+
+.separator::before {
+  margin-right: 0.25em;
+}
+
+.separator::after {
+  margin-left: 0.25em;
+}
+
 .navbar {
   background-color: #086972;
 }
@@ -21016,7 +21037,7 @@ p {
 .section-footer {
   bottom: 0;
   width: 100%;
-  padding: 4% 30%;
+  padding: 1% 30%;
   background-color: #333;
   color: #f5f5fa;
 }
@@ -21067,6 +21088,10 @@ p {
 }
 
 .cards-section {
+  background-color: #f5f5fa;
+}
+
+.carousel-section {
   background-color: #f5f5fa;
 }
 

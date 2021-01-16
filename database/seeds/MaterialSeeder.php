@@ -13,17 +13,17 @@ class MaterialSeeder extends Seeder
     public function run()
     {
         $materials = [
-            'Plast',
-            'Silikón',
-            'Semiš',
-            'Syntetická koža',
-            'Koža',
+            'Plastic',
+            'Silicone',
+            'Polycarbonate ',
+            'Synthetic Leather',
+            'Leather',
         ];
 
         foreach($materials as $material){
             factory(Material::class)->create([
                 'material' => $material,
-            ]);   
+            ]);
         }
     }
 }

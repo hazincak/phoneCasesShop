@@ -9,20 +9,20 @@
             </div>
             <!-- loading spinner -->
             <div class="row" v-else>
-                
+
                         <side-bar :isActive = "isActive" v-on:sidebar-change = "changeSideBarStatus($event)"></side-bar>
-                    
-                <div class="col">
+
+                <div class="col m-4">
                         <div class="d-flex ">
                             <div class="">
                                 <div class="sidebar__toggler" @click="isActive = !isActive"><i class="fas fa-bars"></i> Menu</div>
                             </div>
                             <div class="align-self-center">
                                 <b-breadcrumb>
-                                <router-link class="breadcrumb-link" :to="{name: 'domov'}"> <i class="fas fa-home"></i> Domov/</router-link>
-                                <router-link class="breadcrumb-link" :to="{name: 'obchod'}"> Obchod/</router-link>
+                                <router-link class="breadcrumb-link" :to="{name: 'domov'}"> <i class="fas fa-home"></i> Home/</router-link>
+                                <router-link class="breadcrumb-link" :to="{name: 'obchod'}"> Shop/</router-link>
                                 <div v-if="this.$route.path == '/obchod'">
-                                    <b-breadcrumb-item active>Všetky  produkty</b-breadcrumb-item>
+                                    <b-breadcrumb-item active>All products</b-breadcrumb-item>
                                 </div>
                                 <div v-else>
                                     <b-breadcrumb-item active>{{products.data[0].category_name}}/{{products.data[0].brand_name}}/{{products.data[0].model_name}}</b-breadcrumb-item>
@@ -32,10 +32,10 @@
                         </div>
                         <!--Sorting navigation row  -->
                         <div class="d-flex justify-content-between">
-                          
+
                                 <form class="form-inline">
-                                    <label for="productsQuantity" class="mr-2">Počet zobrazených: </label>
-                                    <select 
+                                    <label for="productsQuantity" class="mr-2">Displaying: </label>
+                                    <select
                                     class="form-control"
                                     name="productsQuantity"
                                     v-model="perPage"
@@ -46,7 +46,7 @@
                                       <option value = 32>32</option>
                                     </select>
                                 </form>
-                         
+
                                 <form class="form-inline align-self-end">
                                     <label for="orderBy">
                                         <span class="d-inline mr-2"  v-if="orderBy != 'id'">
@@ -55,36 +55,36 @@
                                             </span>
                                             <span class="d-inline" v-if="order == 'desc'">
                                                 <i @click="order = 'asc'" class="fas fa-sort-amount-down mr-2 orderBy-icon"></i> Zostupne
-                                            </span> 
+                                            </span>
                                         </span>
                                     </label>
-                                    <select 
+                                    <select
                                         class="form-control"
                                         v-model="orderBy"
                                         name="orderBy"
                                         >
-                                        <option value= 'id' selected disabled>Zoradiť produkty</option>
-                                      <option value="price">Zoradiť podľa ceny</option>
-                                      <option value="created_at">Zoradiť podľa dátumu pridania</option>
+                                        <option value= 'id' selected disabled>Sort products</option>
+                                      <option value="price">Sort by price</option>
+                                      <option value="created_at">Sort by date</option>
                                     </select>
                                 </form>
                         </div>
-                        
+
                         <hr>
-                                              
+
                             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 p-5">
                                 <div v-for="product in products.data" :key="product.id"><product-item-card v-bind:product="product"></product-item-card></div>
                             </div>
                         <pagination :data="products" align='center' @pagination-change-page="getResults"></pagination>
-                        
+
                 </div>
                 <!-- col row -->
              </div>
              <!-- v-else row -->
     </div>
     <!-- container row -->
-            
-   
+
+
 </template>
 
 <script>
@@ -100,7 +100,7 @@ export default {
 
     data(){
         return{
-         
+
             isActive:false,
             products: {},
             loading:false,
@@ -110,14 +110,14 @@ export default {
 
         }
     },
-  
+
     created(){
         this.getResults();
     },
 
     watch:{
         perPage: function(){
-            this.getResults() 
+            this.getResults()
         },
         orderBy: function(){
             this.getResults()
@@ -128,7 +128,7 @@ export default {
     },
 
     methods:{
-       
+
         getResults(page = 1){
              this.loading = true
                 axios.get(`api${this.$route.path}?page=${page}&perPage=${this.perPage}&orderBy=${this.orderBy}&order=${this.order}` )
@@ -138,12 +138,12 @@ export default {
                     this.loading=false;
                 });
         },
-        
-    
+
+
         changeSideBarStatus(status){
             this.isActive =  status
         }
-       
+
     }
 
 

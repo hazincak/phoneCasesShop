@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             MaterialSeeder::class,
             ProductSeeder::class,
             ImagesTableSeeder::class,
+            CarouselItemSeeder::class,
         ]);
 
     }

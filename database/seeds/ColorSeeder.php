@@ -13,18 +13,18 @@ class ColorSeeder extends Seeder
     public function run()
     {
         $colors = [
-            'Čierna',
-            'Červená',
-            'Transparentná',
-            'Modrá',
-            'Hnedá',
-            'Viacfarebná',
+            'Black',
+            'Red',
+            'Transparent',
+            'Blue',
+            'Brown',
+            'Green',
         ];
 
         foreach($colors as $color){
             factory(Color::class)->create([
                 'color' => $color,
-            ]);   
+            ]);
         }
     }
 }

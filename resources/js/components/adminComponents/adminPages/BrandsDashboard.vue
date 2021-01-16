@@ -7,12 +7,11 @@
         />
 </div>
 <div v-else>
-  <div class="m-5"><h3>Správca značiek & modelov</h3></div>
     <div class="row m-5">
         <div class="col-md-8">
          <div class="card shadow">
                 <div class="card-header py-3">
-                  <h3 class="m-0 font-weight-bold text-secondary">Značky produktov</h3>
+                  <h3 class="m-0 font-weight-bold text-secondary">Brands</h3>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive table-hover">
@@ -20,19 +19,19 @@
                       <thead>
                         <tr>
                           <th>Id</th>
-                          <th>Názov značky</th>
-                          <th>Vytvorená</th>
-                          <th>Aktualizovaná</th>
-                          <th>Odstrániť</th>
+                          <th>Brand name</th>
+                          <th>Created</th>
+                          <th>Updated</th>
+                          <th>Delete</th>
                         </tr>
                       </thead>
                       <tfoot>
                         <tr>
                           <th>Id</th>
-                          <th>Názov značky</th>
-                          <th>Vytvorená</th>
-                          <th>Aktualizovaná</th>
-                          <th>Odstrániť</th>
+                          <th>Brand name</th>
+                          <th>Created</th>
+                          <th>Updated</th>
+                          <th>Delete</th>
                         </tr>
                       </tfoot>
                         <tbody v-for="item in brands" :key = item.id >
@@ -41,7 +40,7 @@
                                 <td><router-link :to="{name:'brandUpdate', params: {id: item.id}}">{{item.brand_name}}</router-link></td>
                                 <td>{{item.created_at | fromNow}}</td>
                                 <td>{{item.created_at | fromNow}}</td>
-                                <td><b-button class="btn btn-danger" @click="showConfirmationModal(item)"><i class="fas fa-trash-alt"></i> Odstrániť</b-button></td>
+                                <td><b-button class="btn btn-danger" @click="showConfirmationModal(item)"><i class="fas fa-trash-alt"></i> Delete</b-button></td>
                             </tr>
                         </tbody>
                     </table>
@@ -51,27 +50,27 @@
         </div>
         <div class="col-md-4">
             <div class="form-group">
-            <label for="brand_name">Pridať značku produktu</label>
-                <input 
-                type="text" 
-                class="form-control" 
+            <label for="brand_name">Add new brand</label>
+                <input
+                type="text"
+                class="form-control"
                 v-model="brand.brand_name"
                 name="brand_name"
-                placeholder="Názov novej značky"
+                placeholder="Enter brand name"
                 :class="[{'is-invalid': errorFor('brand_name')}]"
                  >
                  <v-errors :errors="errorFor('brand_name')"></v-errors>
             </div>
-                  <button 
+                  <button
             @click="addBrand"
-            class="btn btn-lg btn-success " 
-            >Pridať značku</button>
-           
+            class="btn btn-lg btn-success "
+            >Add brand</button>
+
         </div>
     </div>
-    
-        
-        
+
+
+
 
 </div>
 </template>
@@ -105,13 +104,13 @@ export default {
     methods:{
       showConfirmationModal(item) {
         this.confirmedDeletion = ''
-        this.$bvModal.msgBoxConfirm(`Naozaj chcete odstrániť značku "${item.brand_name}"? Značka sa odstráni zo všetkých už pridaných produktov.`,  {
-          title: 'Prosím, potvrďte',
+        this.$bvModal.msgBoxConfirm(`Do you really want to delete "${item.brand_name}"? This brand will be deleted from all existing products.`,  {
+          title: 'Please, confirm',
           size: 'md',
           buttonSize: 'md',
           okVariant: 'danger',
-          okTitle: 'Áno',
-          cancelTitle: 'Nie',
+          okTitle: 'Yes',
+          cancelTitle: 'No',
           footerClass: 'p-2',
           hideHeaderClose: false,
           centered: true
@@ -131,9 +130,9 @@ export default {
                 let index = this.brands.indexOf(item);
                 this.brands.splice(index,1);
                 this.flashMessage.error({
-                  title: 'Značka úspěšné vymazaná',
+                  title: 'Brand successfully deleted',
                   icon: false,
-                  message: `Značka s názvom "${item.brand_name}" vymazaná`
+                  message: `Brand "${item.brand_name}" has been deleted.`
                   });
             });
       },
@@ -141,16 +140,16 @@ export default {
         this.loading = true;
         this.errors = null;
 
-       
+
       axios.post('/api/znacky', this.brand)
           .then(response=>{
             this.success = 201 === response.status;
             const fetchedData = response.data;
             this.brands.push(fetchedData);
             this.flashMessage.info({
-               title: `Značka úspěšné vytvorená`,
+               title: `Brand created successfully`,
                icon: false,
-               message: `Značka s názvom "${fetchedData.brand_name}" vytvorená`
+               message: `Brand "${fetchedData.brand_name}" has been created`
             });
           })
           .catch(err =>{
@@ -161,16 +160,11 @@ export default {
 
               return;
 
-             
+
             }
-            }      
+            }
           })
           .then(() => this.loading = false)
-          
-          
-    
-        
-  
       }
 
     }

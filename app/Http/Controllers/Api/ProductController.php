@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
-   
-    
+
+
 
     public function productById($id){
         $product = Product::with('images', 'model', 'color', 'material')->findOrFail($id);
@@ -25,7 +25,7 @@ class ProductController extends Controller
 
 
     public function getAllProducts(Request $request){
-        
+
         return Product::with('images', 'model', 'category', 'brand', 'color', 'material')
         ->orderBy($request->orderBy, $request->order)
         ->paginate($request->perPage);
@@ -33,7 +33,7 @@ class ProductController extends Controller
 
     public function productsByCategoryBrandModel(Request $request, $categoryId, $brandId, $modelId){
 
-       
+
         $products = Product::with('images', 'brand', 'color', 'material','category', 'model')
         ->where([
             ['brand_id', $brandId],
@@ -47,9 +47,9 @@ class ProductController extends Controller
             $products
         );
     }
-    
 
-    
+
+
 
 
     /**
@@ -123,7 +123,7 @@ class ProductController extends Controller
             $product->images()->save(
             Image::make(['path' => Storage::url($file_name)])
        );
-   
+
    $imageIndex++;
 }
 
@@ -188,7 +188,7 @@ class ProductController extends Controller
                 'path' => Storage::url($file_name)]
                 )
        );
-   
+
         $imageIndex++;
         }
         }
@@ -202,8 +202,8 @@ class ProductController extends Controller
                 $product->images()->find($id)->delete();
             }
         }
-        
-   
+
+
         $product->save();
 
     }
@@ -217,7 +217,7 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $product = Product::findOrFail($id);
-        
+
         // Storage::delete($product->images->path);
         // // Storage::delete($productsImages);
         foreach($product->images as $image){
@@ -225,9 +225,9 @@ class ProductController extends Controller
             Storage::disk('public')->delete($image->name);
          }
         $product->delete();
-        
+
 
     }
 
-    
+
 }

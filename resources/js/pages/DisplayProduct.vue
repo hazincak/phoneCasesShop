@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        
+
         <div v-if="loading">
                 <atom-spinner class="my-center"
                 :animation-duration="1000"
@@ -10,8 +10,8 @@
         </div>
         <div v-else>
             <b-breadcrumb>
-                <router-link class="breadcrumb-link" :to="{name: 'domov'}"> <i class="fas fa-home"></i> Domov/</router-link>
-                <router-link class="breadcrumb-link" :to="{name: 'obchod'}">Obchod/</router-link>
+                <router-link class="breadcrumb-link" :to="{name: 'domov'}"> <i class="fas fa-home"></i> Home/</router-link>
+                <router-link class="breadcrumb-link" :to="{name: 'obchod'}">Shop/</router-link>
                 <b-breadcrumb-item active>{{product.title}}</b-breadcrumb-item>
             </b-breadcrumb>
             <div class="row justify-content-around">
@@ -22,24 +22,24 @@
                       <h2 class="mb-5 underlined-header">{{product.title}}</h2>
                         <div class="d-flex justify-content-between mb-5">
                             <div>
-                                <strong>€{{product.price.toFixed(2)}} <span class="text-muted"><small>s DPH.</small></span></strong>
+                                <strong>€{{product.price.toFixed(2)}} <span class="text-muted"></span></strong>
                             </div>
                             <div>
                                 <em>{{product.model_name}}</em>
                             </div>
                         </div>
                     <p class="mt-5">{{product.description_short}}</p>
-                    <button 
-			    		v-if="inBasketAlready" 
+                    <button
+			    		v-if="inBasketAlready"
 			    		class=" mt-auto button button--block button--teal button--squared"
 			    		@click="removeFromBasket"
-			    		>odstrániť <i class="fas fa-trash-restore"></i>
+			    		>delete <i class="fas fa-trash-restore"></i>
                     </button>
-    
-			    	<button 
+
+			    	<button
 			    		v-else
 			    		class="mt-auto button button--block button--teal-outline button--squared"
-			    		@click="addToBasket">do košíka <i class="fas fa-cart-arrow-down"></i></button>	
+			    		@click="addToBasket">add to basket <i class="fas fa-cart-arrow-down"></i></button>
                 </div>
             </div>
             <div class="row">
@@ -47,15 +47,15 @@
                     <ul class="menu-items">
                         <li v-for="option in options" :key="option.title" :class="{active:option.title == selected}" :title="option.title" @click="selected = option.title" ><h4>{{option.title}}</h4></li>
                     </ul>
-                    
-                         <div class="description-area text-left" v-if="selected == 'Popis'" >{{product.description_long}}</div>
-                    
-                        <div class="description-area text-center" v-if="selected == 'Podrobnosti'">
-                            
+
+                         <div class="description-area text-left" v-if="selected == 'Description'" >{{product.description_long}}</div>
+
+                        <div class="description-area text-center" v-if="selected == 'Details'">
+
                                 <table class="table">
                                     <tbody>
                                       <tr>
-                                        <th scope="row">Farba</th>
+                                        <th scope="row">Colour</th>
                                         <td>{{product.color}}</td>
                                       </tr>
                                       <tr>
@@ -68,9 +68,9 @@
                                       </tr>
                                     </tbody>
                                 </table>
-                            
-                        </div> 
-                        <!-- Podrobnosti -->   
+
+                        </div>
+                        <!-- Podrobnosti -->
                 </div>
                 <!-- col.md-12 -->
             </div>
@@ -93,11 +93,11 @@ export default {
             product: null,
             loading: false,
             options:[
-                {title: 'Popis'},
-                {title: 'Podrobnosti'},
+                {title: 'Description'},
+                {title: 'Details'},
             ],
-            selected: 'Popis',
-            
+            selected: 'Description',
+
         };
     },
 
@@ -118,7 +118,7 @@ export default {
       return this.$store.getters.inBasketAlready(this.product.id);
     }
     },
-    
+
     methods: {
 		addToBasket() {
             const mainImage = this.product.images[0];
@@ -126,13 +126,13 @@ export default {
             var destructuredProduct = _.pick(this.product, ['id', 'title' ,'price']) ;
              destructuredProduct.main_image = mainImage;
       		this.$store.dispatch("addToBasket", {
-                 
+
         	product: destructuredProduct,
       			});
 		},
 		removeFromBasket(){
 			this.$store.dispatch("removeFromBasket", this.product.id);
 		}
-	}	
+	}
 }
 </script>

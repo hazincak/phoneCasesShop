@@ -8,14 +8,13 @@
             />
         </div>
         <div v-else>
-            <div class="m-5"><h3>Správca značiek & modelov</h3></div>
             <div class="row justify-content-left m-5">
                 <div class="col-md-5">
                     <div class="form-group">
-                        <label for="brand_name">Premenovat názov značky</label>
-                            <input 
-                            type="text" 
-                            class="form-control" 
+                        <label for="brand_name">Rename brand name</label>
+                            <input
+                            type="text"
+                            class="form-control"
                             v-model="editBrandData.brand_name"
                             name="brand_name"
                             :placeholder="brand.brand_name"
@@ -23,10 +22,10 @@
                             >
                             <v-errors :errors="errorFor('brand_name')"></v-errors>
                     </div>
-                            <button 
+                            <button
                                 @click="updateBrand()"
-                                class="btn btn-lg btn-success" 
-                                >Aktualizovať značku</button>
+                                class="btn btn-lg btn-success"
+                                >Update brand</button>
                 </div>
             </div>
             <hr>
@@ -34,7 +33,7 @@
                 <div class="col-md-8">
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                          <h3 class="m-0 font-weight-bold text-secondary">Modely priradené ku značke "{{brand.brand_name}}"</h3>
+                          <h3 class="m-0 font-weight-bold text-secondary">Models linked to "{{brand.brand_name}}" brand</h3>
                         </div>
                         <div class="card-body">
                           <div class="table-responsive table-hover">
@@ -42,19 +41,19 @@
                               <thead>
                                 <tr>
                                   <th>Id</th>
-                                  <th>Názov modelu</th>
-                                  <th>Vytvorené</th>
-                                  <th>Aktualizované</th>
-                                  <th>Odstrániť</th>
+                                  <th>Model name</th>
+                                  <th>Created</th>
+                                  <th>Updated</th>
+                                  <th>Delete</th>
                                 </tr>
                               </thead>
                               <tfoot>
                                 <tr>
                                   <th>Id</th>
-                                  <th>Názov modelu</th>
-                                  <th>Vytvorené</th>
-                                  <th>Aktualizované</th>
-                                  <th>Odstrániť</th>
+                                  <th>Model name</th>
+                                  <th>Created</th>
+                                  <th>Updated</th>
+                                  <th>Delete</th>
                                 </tr>
                               </tfoot>
                                 <tbody v-for="model in brand.device_models" :key = model.id >
@@ -72,12 +71,12 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    
-                            <label for="select_brand">Pridať model a priradiť ku značke "{{brand.brand_name}}"</label>
+
+                            <label for="select_brand">Add model and link to "{{brand.brand_name}}" brand</label>
                                 <div class="form-group">
-                                    <input 
-                                    type="text" 
-                                    class="form-control" 
+                                    <input
+                                    type="text"
+                                    class="form-control"
                                     v-model="model.model_name"
                                     name="model_name"
                                     placeholder="Názov modelu"
@@ -85,13 +84,13 @@
                                     >
                                     <v-errors :errors="errorFor('model_name')"></v-errors>
                                 </div>
-                                <button 
+                                <button
                                     @click="addModelAndAttachToBrand()"
-                                    class="btn btn-lg btn-success" 
-                                    >Pridať a priradiť model</button>
+                                    class="btn btn-lg btn-success"
+                                    >Add and link this model</button>
                 </div>
 
-                    
+
             </div>
         </div>
     </div>
@@ -134,9 +133,9 @@ export default {
                 .then(response => {
                     this.loading = false
                     this.flashMessage.info({
-                    title: `Značka úspěšné premenovaná`,
+                    title: `Brand renamed successfully`,
                     icon: false,
-                    message: `Značka s názvom "${this.brand.brand_name}" bola premenovaná na značku s názvom "${this.editBrandData.brand_name}"`
+                    message: `Brand "${this.brand.brand_name}" has been renamed to "${this.editBrandData.brand_name}"`
             });
                 })
                 .catch(err=> {
@@ -159,9 +158,9 @@ export default {
                 const fetchedData = response.data;
                 this.brand.device_models.push(fetchedData);
                 this.flashMessage.info({
-                  title: 'Model úspěšné vytvorený',
+                  title: 'Model successfully created',
                   icon: false,
-                  message: `Model s názvom "${this.model.model_name}" vytvorený a priradený ku značke ${this.brand.brand_name}`
+                  message: `Model "${this.model.model_name}" created and linked to ${this.brand.brand_name} brand`
                   });
             }).catch(err=>{
                 if(is422(err)){
@@ -177,13 +176,13 @@ export default {
 
         showConfirmationModal(model) {
         this.confirmedDeletion = ''
-        this.$bvModal.msgBoxConfirm(`Naozaj chcete odstrániť model "${model.model_name}"?`,  {
-          title: 'Prosím, potvrďte',
+        this.$bvModal.msgBoxConfirm(`Do you really want to delete "${model.model_name}" model?`,  {
+          title: 'Please, confirm',
           size: 'md',
           buttonSize: 'md',
           okVariant: 'danger',
-          okTitle: 'Áno',
-          cancelTitle: 'Nie',
+          okTitle: 'Yes',
+          cancelTitle: 'No',
           footerClass: 'p-2',
           hideHeaderClose: false,
           centered: true
@@ -203,9 +202,9 @@ export default {
                     let index = this.brand.device_models.indexOf(model);
                     this.brand.device_models.splice(index, 1);
                     this.flashMessage.error({
-                  title: 'Model úspěšné vymazaný',
+                  title: 'Model successfully deleted',
                   icon: false,
-                  message: `Model s názvom "${model.model_name}" vymazaný`
+                  message: `Model "${model.model_name}" has been deleted`
                   });
                 })
                 .then(() => this.loading = false)

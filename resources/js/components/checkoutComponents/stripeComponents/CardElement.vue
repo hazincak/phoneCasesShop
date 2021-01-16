@@ -1,5 +1,5 @@
 <template>
-    <div>      
+    <div>
       <card class='stripe-card'
       :class='{ complete }'
       :stripe= "stripeInstance"
@@ -10,7 +10,7 @@
     <b-alert class="mt-3" v-if="cardErrors" show variant="danger">{{cardErrors}}</b-alert>
     <hr>
     <!-- <button class='button button--block button--teal button--squared' @click='pay' :disabled='!complete'>Zaplatiť €{{priceToBePaid}} kartou</button> -->
-    <button class='button button--block button--teal button--squared' @click='pay'>Zaplatiť €{{priceBreakdown.calculatedTotalPrice.toFixed(2)}} kartou</button>
+    <button class='button button--block button--teal button--squared' @click='pay'>Pay €{{priceBreakdown.calculatedTotalPrice.toFixed(2)}} by card</button>
     </div>
 </template>
 <script>
@@ -27,7 +27,7 @@
         components: { Card },
         data () {
             return {
-            stripeInstance: Stripe('pk_test_51HczEjDDA0O0qOLHNmhiFGzQ87LyksMRmVmKqTpLfRMnvMQrd4XHxltHRT3atQPn1aKwo5TAFuqaxRuOTB7rqhrQ00qVjDabg1', { locale: 'sk' }),
+            stripeInstance: Stripe('pk_test_51HczEjDDA0O0qOLHNmhiFGzQ87LyksMRmVmKqTpLfRMnvMQrd4XHxltHRT3atQPn1aKwo5TAFuqaxRuOTB7rqhrQ00qVjDabg1', { locale: 'en' }),
             complete: false,
             errorMessage: '',
             cardErrors: null,
@@ -49,7 +49,7 @@
                 }
               },
               hidePostalCode: true,
-              
+
 
         // see https://stripe.com/docs/stripe.js#element-options for details
             }
@@ -63,8 +63,8 @@
     },
         methods: {
             pay() {
-             
-             
+
+
               // createToken returns a Promise which resolves in a result object with
               // either a token or an error key.
               // See https://stripe.com/docs/api#tokens for the token object.
@@ -72,9 +72,9 @@
               // More general https://stripe.com/docs/stripe.js#stripe-create-token.
 
               createToken().then(data => this.paymentRequest(data.token))
-              
-              
-     
+
+
+
             },
 
             async paymentRequest(data){
@@ -82,9 +82,9 @@
               this.setTotalPriceBreakdown(null);
               this.setCustomer(null);
               this.emitErrors(null);
-              
+
               try {
-                const response = await axios.post(`/api/stripe-checkout`, {customer: this.customer, priceBreakdown: this.priceBreakdown, data: data, basket: this.basket});   
+                const response = await axios.post(`/api/stripe-checkout`, {customer: this.customer, priceBreakdown: this.priceBreakdown, data: data, basket: this.basket});
                 console.log(response.data.status)
                 console.log(response.data.msg)
                 if(response.data.status === 'success'){
@@ -99,10 +99,10 @@
                 }else{
                   this.cardErrors = error.response && error.response.data.errors
                 }
-                
+
               }
-             
-            }, 
+
+            },
             change(event){
               this.errorMessage = event.error ? event.error.message : ''
             },
@@ -145,4 +145,4 @@
 }
 
 
-</style> 
+</style>

@@ -7,14 +7,11 @@
         />
     </div>
 <div v-else>
-  <div class="m-5"><h3>Správca kategorií</h3></div>
-    
     <div class="row m-5">
-      
         <div class="col-md-8">
          <div class="card shadow">
                 <div class="card-header py-3">
-                  <h3 class="m-0 font-weight-bold text-secondary">Kategórie produktov</h3>
+                  <h3 class="m-0 font-weight-bold text-secondary">Product categories</h3>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive table-hover">
@@ -22,19 +19,19 @@
                       <thead>
                         <tr>
                           <th>Id</th>
-                          <th>Názov kategórie</th>
-                          <th>Vytvorené</th>
-                          <th>Aktualizované</th>
-                          <th>Odstrániť</th>
+                          <th>Category name</th>
+                          <th>Created</th>
+                          <th>Updated</th>
+                          <th>Delete</th>
                         </tr>
                       </thead>
                       <tfoot>
                         <tr>
                           <th>Id</th>
-                          <th>Názov kategórie</th>
-                          <th>Vytvorené</th>
-                          <th>Aktualizované</th>
-                          <th>Odstrániť</th>
+                          <th>Category name</th>
+                          <th>Created</th>
+                          <th>Updated</th>
+                          <th>Delete</th>
                         </tr>
                       </tfoot>
                         <tbody v-for="item in categories" :key = item.id >
@@ -43,7 +40,7 @@
                               <td><router-link :to="{name:'categoryUpdate', params: {id: item.id}}">{{item.category_name}}</router-link></td>
                               <td>{{item.created_at | fromNow}}</td>
                               <td>{{item.updated_at | fromNow}}</td>
-                              <td class="align-middle"><b-button class="btn btn-danger" @click="showConfirmationModal(item)"><i class="fas fa-trash-alt"></i> Odstrániť</b-button></td>
+                              <td class="align-middle"><b-button class="btn btn-danger" @click="showConfirmationModal(item)"><i class="fas fa-trash-alt"></i> Delete</b-button></td>
                       </tr>
                         </tbody>
                     </table>
@@ -53,27 +50,27 @@
         </div>
         <div class="col-md-4">
             <div class="form-group">
-                <label for="category_name">Pridať kategoriu</label>
-                    <input 
-                    type="text" 
-                    class="form-control" 
+                <label for="category_name">Add category</label>
+                    <input
+                    type="text"
+                    class="form-control"
                     v-model="category.category_name"
                     name="category_name"
-                    placeholder="Názov novej kategorie"
+                    placeholder="New category name"
                     :class="[{'is-invalid': errorFor('category_name')}]"
                     >
                     <v-errors :errors="errorFor('category_name')"></v-errors>
             </div>
-            
-                  <button 
+
+                  <button
                      @click="addCategory"
-                     class="btn btn-lg btn-success" 
-                     >Pridať kategoriu</button>
+                     class="btn btn-lg btn-success"
+                     >Add category</button>
           </div>
     </div>
-        
-        
-    
+
+
+
 </div>
 </template>
 
@@ -107,13 +104,13 @@ export default {
       showConfirmationModal(item) {
         this.confirmedDeletion = ''
         this.$bvModal.msgBoxConfirm(
-          `Naozaj chcete odstrániť kategóriu s názvom "${item.category_name}"? V prípade odstránenia, budú odstránené všetky značky, modely a produkty priradené ku kategórií "${item.category_name}"! `, {
-          title: 'Prosím, potvrďte',
+          `Do you really want to delete "${item.category_name}" category? All brands, models and products linked to "${item.category_name}"category won't be accessible in the shop ! `, {
+          title: 'Please, confirm',
           size: 'md',
           buttonSize: 'md',
           okVariant: 'danger',
-          okTitle: 'Áno',
-          cancelTitle: 'Nie',
+          okTitle: 'Yes',
+          cancelTitle: 'No',
           footerClass: 'p-2',
           hideHeaderClose: false,
           centered: true
@@ -137,9 +134,9 @@ export default {
                 let index = this.categories.indexOf(item);
                 this.categories.splice(index,1);
                 this.flashMessage.error({
-                  title: 'Kategória úspěšné vymazaná',
+                  title: 'Category successfully deleted',
                   icon: false,
-                  message: `Kategória s názvom "${item.category_name}" vymazaná.`
+                  message: `Category "${item.category_name}" has been deleted .`
                   });
             });
       },
@@ -147,15 +144,15 @@ export default {
         this.loading = true;
         this.errors = null;
 
-       
+
         await axios.post('/api/kategorie', this.category)
           .then(response=>{
             const fetchedData = response.data;
             this.categories.push(fetchedData);
             this.flashMessage.info({
-               title: `Kategória úspěšné vytvorená`,
+               title: `Category successfully created`,
                icon: false,
-               message: `Kategória s názvom "${fetchedData.category_name}" vytvorená`
+               message: `Category "${fetchedData.category_name}" has been created`
             });
           })
           .catch(err =>{
@@ -166,16 +163,10 @@ export default {
               return;
             }
             }
-                    
+
           })
           .then(() => this.loading = false)
-          
-          
-    
-        
-  
       }
-
     }
 }
 </script>
