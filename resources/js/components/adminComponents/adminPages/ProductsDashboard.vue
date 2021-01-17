@@ -7,6 +7,9 @@
         />
   </div>
   <div v-else>
+      <div class="container-fluid">
+
+
     <div class="row">
         <div class="col">
           <form class="form-inline ml-auto p-3">
@@ -114,7 +117,7 @@
                             <td class="align-middle text-center">{{product.updated_at | fromNow}}</td>
                             <td class="align-middle">
                                 <b-button class="btn btn-danger mb-1" @click="showConfirmationModal(product)"><i class="fas fa-trash-alt"></i> Delete product</b-button>
-                                <b-button class="btn btn-success" @click="showConfirmationModal(product)"><i class="fas fa-plus"></i> Add to Carousel</b-button>
+                                <b-button class="btn btn-success" @click="addProductToCarousel(product.id)"><i class="fas fa-plus"></i> Add to Carousel</b-button>
                             </td>
                           </tr>
                         </tbody>
@@ -127,6 +130,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
   </div>
 </template>
@@ -213,6 +217,26 @@ export default {
             // An error occurred
           })
       },
+
+
+    addProductToCarousel(productId){
+       let carouselObject = {
+           'productId' : productId
+       }
+       axios.post(`/api/carousel-items`, carouselObject)
+       .then(response => {
+          if(200 == response.status){
+               this.flashMessage.info({
+               title: `Product added to carousel`,
+               icon: false,
+            });
+          }
+       })
+       .catch( error => {
+           console.log(error);
+       })
+
+    }
   }
 }
 </script>

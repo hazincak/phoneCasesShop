@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             ProductSeeder::class,
             ImagesTableSeeder::class,
             CarouselItemSeeder::class,
+            ModelCategorySeeder::class,
         ]);
 
     }

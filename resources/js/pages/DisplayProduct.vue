@@ -10,8 +10,8 @@
         </div>
         <div v-else>
             <b-breadcrumb>
-                <router-link class="breadcrumb-link" :to="{name: 'domov'}"> <i class="fas fa-home"></i> Home/</router-link>
-                <router-link class="breadcrumb-link" :to="{name: 'obchod'}">Shop/</router-link>
+                <router-link class="breadcrumb-link" :to="{name: 'home'}"> <i class="fas fa-home"></i> Home/</router-link>
+                <router-link class="breadcrumb-link" :to="{name: 'shop'}">Shop/</router-link>
                 <b-breadcrumb-item active>{{product.title}}</b-breadcrumb-item>
             </b-breadcrumb>
             <div class="row justify-content-around">

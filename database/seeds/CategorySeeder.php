@@ -10,16 +10,16 @@ class CategorySeeder extends Seeder
      *
      * @return void
      */
-    
+
 
     public function run()
     {
-        $categories = ['Kryty Na Mobil', 'Puzdrá Na Tablet', 'Tvrdené Sklá', 'Príslušenstvo'];
+        $categories = ['Phone cases', 'Tablet cases', 'Screen Protectors', 'Cables & Straps', 'Wireless Chargers', 'Wallets'];
         foreach($categories as $category){
             factory(Category::class)->create([
                 'category_name' => $category,
             ]);
         }
-        
+
     }
 }

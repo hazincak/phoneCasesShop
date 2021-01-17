@@ -27,6 +27,8 @@ import Categories from "./components/adminComponents/adminPages/Categories";
 import CategoriesDashboard from "./components/adminComponents/adminPages/CategoriesDashboard";
 import CategoryUpdate from "./components/adminComponents/adminPages/CategoryUpdate";
 
+import ManageCarousel from "./components/adminComponents/adminPages/ManageCarousel";
+
 import NotAuthorised from "./shared/components/NotAuthorised";
 import store from "./store";
 
@@ -37,18 +39,18 @@ const routes = [
     {
         path: "/",
         component: Home,
-        name: "domov",
+        name: "home",
     },
     {
-        path: "/obchod",
+        path: "/shop",
         component: Shop,
-        name: "obchod",
+        name: "shop",
     },
 
     {
-        path:"/kategoria-:categoryId-znacka-:brandId-model-:modelId",
+        path:"/category-:categoryId-brand-:brandId-model-:modelId",
         component: Shop,
-        name: 'obchod-vyber',
+        name: 'shop-selection',
     },
     {
         path: "/produkt/:id",
@@ -56,17 +58,17 @@ const routes = [
         name: "produkt",
     },
     {
-        path: "/nakupny-kosik",
+        path: "/shopping-cart",
         component: Basket,
-        name: "kosik",
+        name: "cart",
     },
     {
-        path:"/dakujeme-za-vas-nakup",
+        path:"/thank-you-for-your-order",
         component: SuccessfulCheckout,
         name: 'successfulCheckout',
     },
     {
-        path: "/registracia",
+        path: "/registration",
         component: Register,
         name: "register",
     },
@@ -180,6 +182,12 @@ const routes = [
                     }
                 ]
             },
+
+            {
+                path: "manage-carousel",
+                name: 'ManageCarousel',
+                component: ManageCarousel
+            }
           ],
     },
     {

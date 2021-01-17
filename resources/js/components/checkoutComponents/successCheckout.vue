@@ -7,7 +7,7 @@
           <p>Due to the high volume of orders, we're sending out individual items as soon as we can so you can get them quicker. All of your order will still arrive on or before your expected delivery date.</p>
           <hr>
           <p>
-            <router-link class="text-teal" :to="{name: 'domov'}">Return to home page</router-link>
+            <router-link class="text-teal" :to="{name: 'home'}">Return to home page</router-link>
           </p>
       </div>
     <div class="row justify-content-center mb-5">

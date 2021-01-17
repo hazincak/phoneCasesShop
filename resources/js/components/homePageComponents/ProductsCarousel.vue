@@ -1,5 +1,5 @@
 <template>
-<div class="carousel-section mb-5">
+<div class="carousel-section pb-5">
     <div class="container">
         <div class="separator mb-5"><h2>Trending now</h2></div>
        <carousel
@@ -11,12 +11,13 @@
 
         >
         <slide v-for="(item, index) in carouselProducts" :key="index">
-          <div class="card h-100 d-flex flex-column" style="width: 18rem;">
+          <div class="card h-100 d-flex flex-column" style="width: 18rem; border-radius: 15px; background-color: #f5f5fa">
+              <router-link :to="{name: 'produkt', params: { id: item.product_id }}">
             <img class="card-img-top" :src="item.image.path" alt="Card image cap">
             <div class="card-body">
-              <h3 class="card-title text-center">{{item.title}}</h3>
-              <p class="card-text text-center">{{item.description_short}}</p>
+                  <h3 class="card-title text-center">{{item.title}}</h3>
             </div>
+              </router-link>
             <div class="mt-auto">
                 <p class="text-center"><strong>€{{item.price.toFixed(2)}} <span class="text-muted"></span></strong></p>
             </div>
@@ -56,4 +57,5 @@ import {Carousel, Slide} from 'vue-carousel';
     },
   }
 </script>
+
 

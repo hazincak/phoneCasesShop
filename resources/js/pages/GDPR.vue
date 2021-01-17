@@ -1,7 +1,7 @@
 <template>
     <div class="container mb-5">
         <b-breadcrumb>
-            <router-link class="breadcrumb-link" :to="{name: 'domov'}"> <i class="fas fa-home"></i> Domov/</router-link>
+            <router-link class="breadcrumb-link" :to="{name: 'home'}"> <i class="fas fa-home"></i> Home/</router-link>
             <b-breadcrumb-item active>Ochrana osobných údajov</b-breadcrumb-item>
         </b-breadcrumb>
         <h2 class="underlined-header mt-5">Ochrana osobných údajov</h2>
@@ -22,8 +22,8 @@
                 <li>Kupujúci má právo prístupu k svojim osobným údajom a právo na ich opravu (prostredníctvom citovaného kontaktného formulára )vrátane práva požadovať vysvetlenie a odstránenie nevyhovujúceho stavu a ďalších zákonných právach k týmto údajom.</li>
                 <li>Predávajúci môže ďalej pri poskytnutí súhlasu zapracovávať tzv. "cookies" tak, aby uľahčil  poskytovanie služieb informačnej spoločnosti, v súlade s ustanovením Smernice 95/46/ES o účele "cookies" či podobných nástrojov a je zaistené, aby užívateľom boli známe informácie, ktoré sa ukladajú do koncového zariadenia, ktoré používajú, predávajúci pre tento účel stanoví samostatné podmienky pre použitie cookies. </li>
                 <li>Užívatelia majú možnosť odmietnuť, aby "cookies" alebo podobné nástroje boli uložené do ich koncových zariadení, napr. tým, že spustí vo svojom prehliadači funkcionalitu anonymného prehliadania.</li>
-            </ol> 
+            </ol>
         </div>
-        
+
     </div>
 </template>

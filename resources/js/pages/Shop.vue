@@ -19,9 +19,9 @@
                             </div>
                             <div class="align-self-center">
                                 <b-breadcrumb>
-                                <router-link class="breadcrumb-link" :to="{name: 'domov'}"> <i class="fas fa-home"></i> Home/</router-link>
-                                <router-link class="breadcrumb-link" :to="{name: 'obchod'}"> Shop/</router-link>
-                                <div v-if="this.$route.path == '/obchod'">
+                                <router-link class="breadcrumb-link" :to="{name: 'home'}"> <i class="fas fa-home"></i> Home/</router-link>
+                                <router-link class="breadcrumb-link" :to="{name: 'shop'}"> Shop/</router-link>
+                                <div v-if="this.$route.path == '/shop'">
                                     <b-breadcrumb-item active>All products</b-breadcrumb-item>
                                 </div>
                                 <div v-else>
@@ -51,10 +51,10 @@
                                     <label for="orderBy">
                                         <span class="d-inline mr-2"  v-if="orderBy != 'id'">
                                             <span v-if="order == 'asc'">
-                                                <i @click="order = 'desc'"  class="fas fa-sort-amount-down-alt mr-2 orderBy-icon"></i> Vzostupne
+                                                <i @click="order = 'desc'"  class="fas fa-sort-amount-down-alt mr-2 orderBy-icon"></i> Descending
                                             </span>
                                             <span class="d-inline" v-if="order == 'desc'">
-                                                <i @click="order = 'asc'" class="fas fa-sort-amount-down mr-2 orderBy-icon"></i> Zostupne
+                                                <i @click="order = 'asc'" class="fas fa-sort-amount-down mr-2 orderBy-icon"></i> Ascending
                                             </span>
                                         </span>
                                     </label>

@@ -18,14 +18,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('obchod', 'Api\ProductController@index');
+Route::get('shop', 'Api\ProductController@index');
 
 Route::get('vsetky-produkty', 'Api\ProductController@getAllProducts');
 
 
 Route::get('obchod/produkt-podla-id/{id}', 'Api\ProductController@productById');
 
-Route::get('/kategoria-{categoryId}-znacka-{brandId}-model-{modelId}', 'Api\ProductController@productsByCategoryBrandModel');
+Route::get('/category-{categoryId}-brand-{brandId}-model-{modelId}', 'Api\ProductController@productsByCategoryBrandModel');
 
 Route::get('/modely-podla-znacky/{brandId}', 'Api\BrandController@getModels');
 

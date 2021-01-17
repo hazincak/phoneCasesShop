@@ -1,7 +1,7 @@
 <template>
     <div class="container mb-5">
         <b-breadcrumb>
-            <router-link class="breadcrumb-link" :to="{name: 'domov'}"> <i class="fas fa-home"></i> Domov/</router-link>
+            <router-link class="breadcrumb-link" :to="{name: 'home'}"> <i class="fas fa-home"></i> home/</router-link>
             <b-breadcrumb-item active>Reklamačný poriadok</b-breadcrumb-item>
         </b-breadcrumb>
         <h2 class="underlined-header mt-5">Reklamačný poriadok</h2>
@@ -35,23 +35,23 @@
                 <li>Nepoškodenie tovaru, resp. neporušenosť obalu (podľa pokynov pri preberaní tovaru) je potrebné skontrolovať pri preberaní tovaru, nakoľko tovar pri preprave sa môže poškodiť, odporúčame kupujúcim rozbaliť tovar a prezrieť si ho v prítomnosti dopravcu. Vaším podpisom kuriérovi prehlasujete že obal je nepoškodený.</li>
                 <li>Tieto reklamačné podmienky sú neoddeliteľnou súčasťou všeobecných obchodných podmienok, a predávajúci si vyhradzuje právo ich kedykoľvek meniť aj bez predchádzajúceho upozornenie kupujúceho.</li>
                 <li>Kontaktná adresa: Vieska 143, 90863 Radošovce</li>
-                <p class="text-center"><b>Kontaktné kanály:</b></p> 
+                <p class="text-center"><b>Kontaktné kanály:</b></p>
                 <p class="text-center">email: slobodalukas@hotmail.com, tel. č.: +421 911 209 511 </p>
-                </ol> 
+                </ol>
             </div>
             <div class="col-md-4">
                 <div class="row mb-4">
                     <h3>Stiahnuť reklamačný protokol</h3>
                     <a class="link" @click="download()"><i class="fas fa-file-download"></i> reklamacny-protokol.pdf</a>
-                </div>    
-              
-            
-                
+                </div>
+
+
+
 
             </div>
-            
+
         </div>
-            
+
     </div>
 </template>
 
@@ -63,7 +63,7 @@ export default {
         };
     },
     methods:{
-        download() {    
+        download() {
         axios.get(`api/stiahnut-pdf/${this.returnsProtocol}`, {responseType: 'arraybuffer'})
         .then(response => {
         this.downloadFile(response, this.returnsProtocol)

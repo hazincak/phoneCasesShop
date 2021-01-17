@@ -16,7 +16,7 @@
                     class="form-control"
                     v-model="product.title"
                     name="title"
-                    placeholder="Názov"
+                    placeholder="Enter product name"
                     :class="[{'is-invalid': errorFor('title')}]"
                     >
             </div>
@@ -26,7 +26,7 @@
                     class="form-control"
                     v-model="product.description_short"
                     name="description_short"
-                    placeholder="Krátky popis"
+                    placeholder="Enter short description"
                     rows="3"
                     :class="[{'is-invalid': errorFor('description_short')}]"
                     >
@@ -38,7 +38,7 @@
                     class="form-control"
                     v-model="product.description_long"
                     name="description_long"
-                    placeholder="Dlhý popis"
+                    placeholder="Enter long description"
                     rows="5"
                     :class="[{'is-invalid': errorFor('description_long')}]"
                     >
@@ -53,7 +53,7 @@
                     @change="getBrandsBelongingToSelectedCategory(product.category_id)"
                     v-model="product.category_id"
                     :class="[{'is-invalid': errorFor('category_id')}]">
-                        <option disabled value="">Vyberte kategóriu</option>
+                        <option disabled value="">Chose category</option>
                         <option v-for="category in categories" :key="category.id" :value="category.id">{{category.category_name}}</option>
                 </select>
 
@@ -68,7 +68,7 @@
                     @change="getModelsBelongingToSelectedBrand(product.brand_id)"
                     :class="[{'is-invalid': errorFor('brand_id')}]"
                     >
-                        <option disabled value="">Vyberte značku</option>
+                        <option disabled value="">Chose brand</option>
                         <option v-for="brand in brands" :key="brand.id" :value="brand.id"  >{{brand.brand_name}}</option>
                 </select>
             </div>
@@ -113,13 +113,13 @@
 
                         <div class="custom-file">
                                 <input type="file" name="obrazky" class="custom-file-input" id="inputGroupFile01" @change="onFileChange">
-                                <label class="custom-file-label" for="inputGroupFile01">Vyberte obrázok </label>
+                                <label class="custom-file-label" for="inputGroupFile01">Select a picture </label>
                         </div>
                     </div>
                 </div>
                 <div v-if="!addPicture" class="row justify-content-left m-2">
                     <div class="col-md-5">
-                        <button class="btn btn-secondary" @click="addPicture = true"><i class="fas fa-plus"></i> Pridať obrázok</button>
+                        <button class="btn btn-secondary" @click="addPicture = true"><i class="fas fa-plus"></i> Add picture</button>
                     </div>
                 </div>
             </div>
@@ -133,7 +133,7 @@
                         class="form-control"
                         v-model="product.price"
                         name="price"
-                        placeholder="Cena"
+                        placeholder="Enter price"
                         :class="[{'is-invalid': errorFor('price')}]"
                         >
                     </div>
@@ -147,7 +147,7 @@
                         name="color"
                         :class="[{'is-invalid': errorFor('color')}]"
                         >
-                        <option value="">Vyberte farbu</option>
+                        <option value="">Select colour</option>
                         <option v-for="color in colors" :key="color.id" :value="color.id">{{color.color}}</option>
                     </select>
                     </div>
@@ -173,7 +173,7 @@
     </div>
     <div class="row justify-content-center mt-4">
         <div class="col-md-6">
-            <button class="btn btn-success btn-block btn-lg" @click="createProduct">Pridať produkt</button>
+            <button class="btn btn-success btn-block btn-lg" @click="createProduct">Add product</button>
         </div>
     </div>
 

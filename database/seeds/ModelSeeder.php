@@ -10,7 +10,7 @@ class ModelSeeder extends Seeder
      *
      * @return void
      */
-    
+
 
     public function run()
     {
@@ -26,8 +26,7 @@ class ModelSeeder extends Seeder
             if($brand->brand_name == 'Apple'){
                 $brand->deviceModels()->saveMany([
                     new App\DeviceModel(['model_name' => 'Iphone 8' , 'brand_id' => $brand->id  ]),
-                        new App\DeviceModel(['model_name' => 'Iphone 9' ,  'brand_id' => $brand->id]),
-                        new App\DeviceModel(['model_name' => 'Iphone 10',  'brand_id' => $brand->id ]),
+                        new App\DeviceModel(['model_name' => 'Iphone X',  'brand_id' => $brand->id ]),
                         new App\DeviceModel(['model_name' => 'Iphone 11',  'brand_id' => $brand->id ]),
 
                 ]);
@@ -35,20 +34,18 @@ class ModelSeeder extends Seeder
 
             if($brand->brand_name == 'Samsung'){
                 $brand->deviceModels()->saveMany([
-                    new App\DeviceModel(['model_name' => 'Galaxy 5' , 'brand_id' => $brand->id  ]),
-                        new App\DeviceModel(['model_name' => 'Galaxy 6',  'brand_id' => $brand->id]),
-                        new App\DeviceModel(['model_name' => 'Galaxy 7',  'brand_id' => $brand->id ]),
-                        new App\DeviceModel(['model_name' => 'Galaxy 8',  'brand_id' => $brand->id ]),
+                    new App\DeviceModel(['model_name' => 'Galaxy Note 9' , 'brand_id' => $brand->id  ]),
+                    new App\DeviceModel(['model_name' => 'Galaxy S10',  'brand_id' => $brand->id]),
+                    new App\DeviceModel(['model_name' => 'Galaxy A6',  'brand_id' => $brand->id ]),
+
 
                 ]);
             }
 
             if($brand->brand_name == 'Huawei'){
                 $brand->deviceModels()->saveMany([
-                    new App\DeviceModel(['model_name' => 'Mate 10' , 'brand_id' => $brand->id  ]),
-                    new App\DeviceModel(['model_name' => 'P30' ,  'brand_id' => $brand->id]),
-                    new App\DeviceModel(['model_name' => 'P20 PRO',  'brand_id' => $brand->id ]),
-                    new App\DeviceModel(['model_name' => 'P10 Lite',  'brand_id' => $brand->id ]),
+                    new App\DeviceModel(['model_name' => 'P40' , 'brand_id' => $brand->id  ]),
+                    new App\DeviceModel(['model_name' => 'P20' ,  'brand_id' => $brand->id]),
 
                 ]);
             }

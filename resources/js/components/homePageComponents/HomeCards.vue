@@ -1,11 +1,7 @@
 <template>
     <div class="cards-section">
         <div class="container">
-            <div class="row text-center">
-                <div class="col-12 text-center m-5">
-                    <h1>Our policies</h1>
-                </div>
-            </div>
+            <div class="separator pt-5 mb-5"><h2>Our policies</h2></div>
             <div class="row">
                 <div class="title-card col-lg-3 text-center my-vertical-alignment">
                     <i class="fas fa-check-circle icon title-card__icon"></i>

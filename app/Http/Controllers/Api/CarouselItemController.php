@@ -41,7 +41,11 @@ class CarouselItemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $productId = $request->productId;
+       $carouselItem = CarouselItem::create([
+        'product_id' => $productId
+       ]);
+
     }
 
     /**
@@ -86,6 +90,7 @@ class CarouselItemController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $carouselItem = CarouselItem::findOrFail($id);
+        $carouselItem->delete();
     }
 }

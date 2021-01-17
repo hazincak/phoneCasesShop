@@ -1,12 +1,12 @@
 <template>
     <div class="container" >
         <b-breadcrumb>
-            <router-link class="breadcrumb-link" :to="{name: 'domov'}"> <i class="fas fa-home"></i> Domov/</router-link>
+            <router-link class="breadcrumb-link" :to="{name: 'home'}"> <i class="fas fa-home"></i> Home/</router-link>
             <b-breadcrumb-item active>Registration</b-breadcrumb-item>
         </b-breadcrumb>
-        <h2 class="underlined-header mt-5">Registration</h2>
         <div class="row">
             <div class="col-md-6 my-center">
+                <h2 class="underlined-header mb-3">Registration</h2>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
@@ -195,7 +195,7 @@ export default {
                if(201 == response.status){
                    logIn();
                    this.$store.dispatch("loadUser");
-                    this.$router.push({ name: "domov" });
+                    this.$router.push({ name: "home" });
                }
             } catch (error) {
                 this.errors = error.response && error.response.data.errors;

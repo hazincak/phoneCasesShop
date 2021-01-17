@@ -2,7 +2,7 @@
 body{
     font-size: 1.6rem;
     color: $color-grey-dark-3;
-    
+
 }
 
 a{
@@ -98,13 +98,13 @@ p{
     font-size: 2rem;
 }
 
-.sidebar--link{ 
+.sidebar--link{
     display: block;
     font-size: 2rem;
     color: $color-grey-dark-3;
     transition: all .3s;
     cursor: pointer;
-   
+
     &:hover{
     color:$color-teal;
     text-decoration:none;
@@ -115,11 +115,11 @@ p{
         color: $color-grey-dark-3;
         font-size: 2.2rem;
        cursor: pointer;
-       
+
     //    &:hover{
     //         color:$color-teal-dark;
     //         text-decoration:none;
-    //     } 
+    //     }
 
 }
 }
@@ -134,7 +134,7 @@ p{
       background-size: 100% 88%;
     }
   }
-  
+
 
 
 

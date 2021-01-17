@@ -1,10 +1,10 @@
 <template>
     <div class="container mb-5">
         <b-breadcrumb>
-            <router-link class="breadcrumb-link" :to="{name: 'domov'}"> <i class="fas fa-home"></i> Domov/</router-link>
+            <router-link class="breadcrumb-link" :to="{name: 'home'}"> <i class="fas fa-home"></i> home/</router-link>
             <b-breadcrumb-item active>Všeobecné obchodné podmienky</b-breadcrumb-item>
         </b-breadcrumb>
-       <h2 class="underlined-header mt-5">Všeobecné obchodné podmienky internetového obchodu www.najlacnejsieobaly.shop</h2> 
+       <h2 class="underlined-header mt-5">Všeobecné obchodné podmienky internetového obchodu www.najlacnejsieobaly.shop</h2>
         <div class="mt-5">
             <p><b>Vymedzenie pojmov:</b></p>
                 <ol>

@@ -26,7 +26,7 @@
                             <div class="text-center m-5">
                                 Forgot your password?
                                 <div>
-                                <router-link :to="{name: 'domov'}" class="login__link">Reset password</router-link>
+                                <router-link :to="{name: 'home'}" class="login__link">Reset password</router-link>
                                 </div>
                             </div>
                         </form>

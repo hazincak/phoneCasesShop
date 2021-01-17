@@ -1,8 +1,8 @@
 <template>
     <div class="container">
         <b-breadcrumb>
-            <router-link class="breadcrumb-link" :to="{name: 'domov'}"> <i class="fas fa-home"></i> Home/</router-link>
-            <router-link class="breadcrumb-link" :to="{name: 'obchod'}">Shop/</router-link>
+            <router-link class="breadcrumb-link" :to="{name: 'home'}"> <i class="fas fa-home"></i> Home/</router-link>
+            <router-link class="breadcrumb-link" :to="{name: 'shop'}">Shop/</router-link>
             <b-breadcrumb-item active>Shopping cart</b-breadcrumb-item>
         </b-breadcrumb>
         <div class="row mt-5" v-if="itemsInBasket">
@@ -51,7 +51,7 @@
                                 </div>
                             </h4>
                         </div>
-                        <div v-if="priceBreakdown.paymentMethod === 'Platba dobierkou'">
+                        <div v-if="priceBreakdown.paymentMethod === 'Pay when delivered'">
                             <div class="d-flex border-top p-2 justify-content-between">
                                 <h4 class="text-secondary">Payment method</h4>
                                 <h4>
@@ -260,11 +260,11 @@
                           </label>
                         </div>
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="payment" id="payment4" v-model='priceBreakdown.paymentMethod' value="Platba dobierkou">
+                          <input class="form-check-input" type="radio" name="payment" id="payment4" v-model='priceBreakdown.paymentMethod' value="Pay when delivered">
                           <label class="form-check-label" for="payment4">
-                            Platba dobierkou (pri preberaní tovaru)
+                            Pay when delivered
                             <transition name="fade">
-                                <span v-if="priceBreakdown.paymentMethod === 'Platba dobierkou'" class="badge badge-secondary">€1,59</span>
+                                <span v-if="priceBreakdown.paymentMethod === 'Pay when delivered'" class="badge badge-secondary">€1,59</span>
                             </transition>
                           </label>
                         </div>
@@ -324,14 +324,14 @@
                     </div>
                 </div>
 
-                <div v-if="priceBreakdown.paymentMethod === 'Platba dobierkou' || priceBreakdown.paymentMethod === 'Money transfer'">
+                <div v-if="priceBreakdown.paymentMethod === 'Pay when delivered' || priceBreakdown.paymentMethod === 'Money transfer'">
                     <div class="row">
                         <div class="col-md-12 form-group">
                                 <button
                             type="submit"
                             class="button button--block button--teal button--squared"
                             @click="checkout()"
-                            >Dokončite objednávku <i class="fas fa-check"></i></button>
+                            >Finish Your Order <i class="fas fa-check"></i></button>
                         </div>
                     </div>
                 </div>
@@ -346,7 +346,7 @@
                         <i class="fas fa-cart-plus icon"></i>
                         <h3 class="mt-5"><strong>Your shopping cart is empty</strong></h3>
                         <h4>Add an item :)</h4>
-                        <router-link :to="{name: 'obchod'}" class="button button--block button--squared  button--teal mt-5">Continue shopping <i class="fas fa-arrow-circle-left"></i></router-link>
+                        <router-link :to="{name: 'shop'}" class="button button--block button--squared  button--teal mt-5">Continue shopping <i class="fas fa-arrow-circle-left"></i></router-link>
 
                 </div>
 
@@ -406,7 +406,7 @@ export default {
 
     methods:{
         setPaymentFee(){
-            this.priceBreakdown.paymentFee = this.priceBreakdown.paymentMethod === 'Platba dobierkou' ? 1.59 : 0;
+            this.priceBreakdown.paymentFee = this.priceBreakdown.paymentMethod === 'Pay when delivered' ? 1.59 : 0;
         },
         setDeliveryFee(){
             if(this.priceBreakdown.paidDelivery){

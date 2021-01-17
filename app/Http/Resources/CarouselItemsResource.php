@@ -15,6 +15,8 @@ class CarouselItemsResource extends JsonResource
     public function toArray($request)
     {
         return [
+            'id' => $this->id,
+            'product_id' => $this->product->id,
             'title' => $this->product->title,
             'description_short' => $this->product->description_short,
             'price' => $this->product->price,
