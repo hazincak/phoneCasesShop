@@ -41,6 +41,8 @@ Route::middleware('can:manipulateContent')->apiResource('farba', 'api\ColorContr
 
 Route::middleware('can:manipulateContent')->apiResource('material', 'api\MaterialController');
 
+Route::middleware('can:manipulateContent')->apiResource('returnAndRefundPolicy', 'api\ReturnAndRefundController');
+
 Route::apiResource('carousel-items', 'api\CarouselItemController');
 
 Route::get('kategorie-a-znacky', 'api\CategoryBrandsController@getCategoriesWithBrands');

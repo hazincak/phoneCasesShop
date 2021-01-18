@@ -29,6 +29,8 @@ import CategoryUpdate from "./components/adminComponents/adminPages/CategoryUpda
 
 import ManageCarousel from "./components/adminComponents/adminPages/ManageCarousel";
 
+import ReturnAndRefundPolicies from "./components/adminComponents/adminPages/ReturnAndRefundPolicyDashboard";
+
 import NotAuthorised from "./shared/components/NotAuthorised";
 import store from "./store";
 
@@ -187,6 +189,12 @@ const routes = [
                 path: "manage-carousel",
                 name: 'ManageCarousel',
                 component: ManageCarousel
+            },
+
+            {
+                path: "manage-return-and-refund-policy",
+                name: 'ReturnAndRefundPolicy',
+                component: ReturnAndRefundPolicies
             }
           ],
     },

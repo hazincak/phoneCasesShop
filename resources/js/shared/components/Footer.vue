@@ -3,8 +3,8 @@
         <div class="container-fluid">
             <div class="row">
                 <div class = "col-lg-4 text-center">
-                    <router-link :to="{name: 'reklamacny-poriadok'}"><i class="fas fa-list-ul"></i> Reklamačný poriadok</router-link>
-                    
+                    <router-link :to="{name: 'reklamacny-poriadok'}"><i class="fas fa-list-ul"></i>Return & Refund Policy </router-link>
+
                 </div>
                 <div class = "col-lg-4 text-center">
                     <router-link :to="{name: 'obchodne-podmienky'}"><i class="fas fa-list-ol"></i> Obchodné podmienky</router-link>
@@ -15,7 +15,7 @@
             </div>
             <div class="row">
                 <div class = "col-lg-12 text-center mt-2">
-                    © Copyright 2020 najlacnejsieobaly.shop
+                    © Copyright 2020
                 </div>
             </div>
         </div>

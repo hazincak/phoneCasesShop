@@ -4,7 +4,6 @@
         <div class="separator mb-5"><h2>Trending now</h2></div>
        <carousel
         :per-page="4"
-        :navigate-to="someLocalProperty"
         :mouse-drag="false"
         :paginationActiveColor = "'#01a9b4'"
         :paginationColor = "'#777'"

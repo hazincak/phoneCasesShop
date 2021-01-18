@@ -25,6 +25,9 @@
             <li class="text-left mb-4 mt-4">
                 <router-link class="sidebar--link-main underline--magical" :to="{name: 'ManageCarousel'}">Manage carousel</router-link>
             </li>
+            <li class="text-left mb-4 mt-4">
+                <router-link class="sidebar--link-main underline--magical" :to="{name: 'ReturnAndRefundPolicy'}">Returns & Refunds</router-link>
+            </li>
         </ul>
     </nav>
 
