@@ -41,7 +41,11 @@ Route::middleware('can:manipulateContent')->apiResource('farba', 'api\ColorContr
 
 Route::middleware('can:manipulateContent')->apiResource('material', 'api\MaterialController');
 
-Route::middleware('can:manipulateContent')->apiResource('returnAndRefundPolicy', 'api\ReturnAndRefundController');
+Route::apiResource('returnAndRefundPolicy', 'api\ReturnAndRefundController');
+
+Route::apiResource('trading-terms-and-conditions', 'api\TradingTermsController');
+
+Route::apiResource('gdpr', 'api\GdprController');
 
 Route::apiResource('carousel-items', 'api\CarouselItemController');
 

@@ -46,6 +46,8 @@ class ReturnAndRefundController extends Controller
         ]);
 
         $policies->save();
+
+        return $policies;
     }
 
     /**
@@ -100,6 +102,8 @@ class ReturnAndRefundController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $policies = ReturnAndRefundPolicy::findOrFail($id);
+
+        $policies->delete();
     }
 }

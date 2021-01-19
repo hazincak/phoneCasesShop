@@ -30,6 +30,8 @@ import CategoryUpdate from "./components/adminComponents/adminPages/CategoryUpda
 import ManageCarousel from "./components/adminComponents/adminPages/ManageCarousel";
 
 import ReturnAndRefundPolicies from "./components/adminComponents/adminPages/ReturnAndRefundPolicyDashboard";
+import TermsAndConditions from "./components/adminComponents/adminPages/TradingTermsDashboard";
+import GeneralDataProtectionRegulationRules from "./components/adminComponents/adminPages/GdprDashboard";
 
 import NotAuthorised from "./shared/components/NotAuthorised";
 import store from "./store";
@@ -195,6 +197,18 @@ const routes = [
                 path: "manage-return-and-refund-policy",
                 name: 'ReturnAndRefundPolicy',
                 component: ReturnAndRefundPolicies
+            },
+
+            {
+                path: "manage-terms-and-conditions",
+                name: 'TermsAndConditions',
+                component: TermsAndConditions
+            },
+
+            {
+                path: "manage-gdpr",
+                name: 'Gdpr',
+                component: GeneralDataProtectionRegulationRules
             }
           ],
     },

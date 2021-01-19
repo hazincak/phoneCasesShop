@@ -1,11 +1,17 @@
 <template>
-    <div class="container mb-5">
+    <div v-if="loading">
+        <atom-spinner class="my-center"
+          :animation-duration="1000"
+          :size="80"
+          :color="'#086972'"
+        />
+    </div>
+    <div v-else class="container mb-5">
         <b-breadcrumb>
             <router-link class="breadcrumb-link" :to="{name: 'home'}"> <i class="fas fa-home"></i> Home/</router-link>
             <b-breadcrumb-item active>Returns & Refunds policy</b-breadcrumb-item>
         </b-breadcrumb>
         <h2 class="underlined-header mt-5">Returns & Refunds policy</h2>
-
           <div class="row mt-5" v-if="!policiesLoaded">
                 <div class="col-md-12">
                     <div class="jumbotron">
@@ -33,22 +39,26 @@
 export default {
      data(){
         return{
-
             returnAndRefundPolicy: null,
             policiesLoaded: false,
+            loading: false,
             returnsProtocol: 'reklamacny-protokol.pdf'
         };
     },
 
     created(){
+       this.loading = true;
        axios.get(`/api/returnAndRefundPolicy`)
         .then(response => {
-            if(response.data){
+            if(200 == response.status && response.data.length > 0){
                 this.returnAndRefundPolicy = response.data[0].return_and_refund_policies
                 this.policiesLoaded = true
             }else{
                 this.policiesLoaded = false
             }
+        })
+        .then(() => {
+            this.loading = false
         })
     },
 
