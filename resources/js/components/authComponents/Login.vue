@@ -3,32 +3,17 @@
                     <div v-if="!isLoggedIn">
                         <form>
                             <div class="form-group">
-                                <label for="email">E-mail</label>
+                                <label for="email" class="text-secondary">E-mail</label>
                                 <input type="email" name="email" placeholder="E-mail" class="form-control" v-model="email" :class="[{'is-invalid': errorFor('email')}]">
                                     <v-errors :errors="errorFor('email')"></v-errors>
                             </div>
                             <div class="form-group">
-                                <label for="password">Password</label>
+                                <label for="password" class="text-secondary">Password</label>
                                 <input type="password" name="password" placeholder="Password" class="form-control" v-model="password" :class="[{'is-invalid': errorFor('password')}]">
                                     <v-errors :errors="errorFor('password')"></v-errors>
                             </div>
-                            <div class="dropdown-divider"></div>
 
                             <button type="submit" class="button button--block button--teal button--squared" :disabled="loading" @click.prevent="login">Login <i class="fas fa-sign-in-alt"></i></button>
-
-                            <div class="dropdown-divider"></div>
-                            <div class="text-center m-5">
-                                No account?
-                                <div>
-                                    <router-link :to="{name: 'register'}" class="login__link">Register</router-link>
-                                </div>
-                            </div>
-                            <div class="text-center m-5">
-                                Forgot your password?
-                                <div>
-                                <router-link :to="{name: 'home'}" class="login__link">Reset password</router-link>
-                                </div>
-                            </div>
                         </form>
                     </div>
                     <div v-else>

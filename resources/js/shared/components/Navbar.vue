@@ -1,7 +1,7 @@
 <template>
     <div>
-    <nav class="navbar navbar-expand-md navbar-dark">
-        <a class="navbar-brand" href="#">LOGO</a>
+    <nav class="navbar fixed-top navbar-expand-md navbar-dark ">
+        <img class="navbar-brand" src="../../../images/logos/logo.svg">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
                 <router-link :to="{name: 'home'}" class="nav-link" href="#"><i class="fas fa-home"></i> <span class="sr-only">(current)</span></router-link>
@@ -19,14 +19,27 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto" v-if="!isLoggedIn">
 
-         <li class="nav-item dropdown">
+
+        <li class="nav-item">
+            <router-link class="nav-link" :to="{name: 'shop'}">Shop</router-link>
+        </li>
+        <li class="nav-item">
+            <router-link class="nav-link" :to="{name: 'rules-of-returns'}">Return & Refund</router-link>
+        </li>
+        <li class="nav-item">
+            <router-link class="nav-link" :to="{name: 'trading-terms'}">Trading Terms</router-link>
+        </li>
+        <li class="nav-item">
+            <router-link class="nav-link" :to="{name: 'gdpr'}">GDPR</router-link>
+        </li>
+        <!-- <li class="nav-item">
+            <router-link class="nav-link" :to="{name: 'register'}">Register</router-link>
+        </li> -->
+        <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle login__toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="fas fa-user"></i>
             </a>
             <login></login>
-        </li>
-        <li class="nav-item">
-            <router-link class="nav-link" :to="{name: 'register'}">Register</router-link>
         </li>
     </ul>
     <ul class="navbar-nav ml-auto" v-else>

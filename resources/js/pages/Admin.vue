@@ -1,12 +1,14 @@
 <template>
-    <div class="container-fluid admin-section">
+    <div class="container-fluid section">
         <div class="row">
-            <admin-sidebar :isActive = "isActive" v-on:sidebar-change = "changeSideBarStatus($event)"></admin-sidebar>
+            <admin-sidebar></admin-sidebar>
             <div class="col">
-                <div class="row">
-                    <div class="sidebar__toggler" @click="isActive = !isActive">Menu <i class="fas fa-bars"></i></div>
+                <div class="row ml-5">
+                    <div class="sidebar__toggler" v-b-toggle.sidebar-no-header>Menu <i class="fas fa-bars"></i></div>
                 </div>
-                <router-view></router-view>
+                <div class="m-5">
+                    <router-view></router-view>
+                </div>
             </div>
         </div>
     </div>

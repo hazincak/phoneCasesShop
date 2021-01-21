@@ -1,51 +1,22 @@
-.sidebar__wrapper {
-    
-
-    min-height: 90vh;
-    width: 15%;
-    align-items: stretch;
-    background-color: $color-grey-light;
-    border-right: 1px solid $color-teal;
-    @include respond(1000) {
-        display: none;
-    }
+.b-sidebar{
+    width: 420px;
+}
+.b-sidebar > .b-sidebar-header .close{
+    font-size: 5rem;
 }
 
-#sidebar ul{
-    list-style-type: none;
-}
+.b-sidebar ul{
+     list-style-type: none;
+ }
 
-.sidebar__wrapper.active{
-  display: block;
-  height: 100%;
-  width: 65%;
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  overflow-x: hidden; /* Disable horizontal scroll */
-  transition: 0.5s; 
- 
-}
-
-.sidebar__closeButton{
-    position: absolute;
-    top: 10px;
-    right: 30px;
-    font-size: 4rem;
-    cursor: pointer;
-}
-//shop component
 .sidebar__toggler{
-        font-size: 2.5rem;
+        font-size: 2rem;
         padding: 0.75rem 1rem;
+        margin-right: 2rem;
         margin-bottom: 1rem;
-        display: none;
+        display: block;
         font-weight: bold;
         color: $color-teal;
         cursor: pointer;
-    
-        @include respond(1000) {
-            display: block;
-        }    
+
 }

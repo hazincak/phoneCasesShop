@@ -9,14 +9,11 @@
             </div>
             <!-- loading spinner -->
             <div class="row" v-else>
+                        <side-bar></side-bar>
+                <div class="col p-5">
+                         <div class="d-flex">
+                                <div v-b-toggle.sidebar-backdrop class="sidebar__toggler"><i class="fas fa-bars"></i>&nbsp;MENU</div>
 
-                        <side-bar :isActive = "isActive" v-on:sidebar-change = "changeSideBarStatus($event)"></side-bar>
-
-                <div class="col m-4">
-                        <div class="d-flex ">
-                            <div class="">
-                                <div class="sidebar__toggler" @click="isActive = !isActive"><i class="fas fa-bars"></i> Menu</div>
-                            </div>
                             <div class="align-self-center">
                                 <b-breadcrumb>
                                 <router-link class="breadcrumb-link" :to="{name: 'home'}"> <i class="fas fa-home"></i> Home/</router-link>
@@ -31,7 +28,7 @@
                             </div>
                         </div>
                         <!--Sorting navigation row  -->
-                        <div class="d-flex justify-content-between">
+                         <div class="d-flex justify-content-between">
 
                                 <form class="form-inline">
                                     <label for="productsQuantity" class="mr-2">Displaying: </label>
@@ -69,14 +66,13 @@
                                     </select>
                                 </form>
                         </div>
-
                         <hr>
 
-                            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 p-5">
+
+                            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 mt-auto">
                                 <div v-for="product in products.data" :key="product.id"><product-item-card v-bind:product="product"></product-item-card></div>
                             </div>
                         <pagination :data="products" align='center' @pagination-change-page="getResults"></pagination>
-
                 </div>
                 <!-- col row -->
              </div>

@@ -1,16 +1,29 @@
 .navbar{
-    background-color: $color-teal-dark;
+    background-color: $color-grey-dark-3;
+    padding: 0.7rem 4rem;
 }
 
 .navbar-brand{
-    font-size: 2.0rem;
+    width: 17rem;
+    margin: 0;
+
 }
 
 
 .navbar-dark .nav-item .nav-link{
-    font-size: 2.0rem;
-    color: white ;
+    // font-size: 1.8rem;
+    color: white;
     transition: all .3s;
+}
+
+.nav-link{
+    font-size: 1.8rem;
+    font-weight: bolder;
+    text-transform: uppercase;
+
+    @include respond(600) {
+        font-size: 2.5rem;
+    }
 }
 
 
@@ -18,20 +31,17 @@
 .navbar-dark .nav-item .nav-link:active,
 .navbar-dark .nav-item .nav-link:focus,
 .navbar-dark .nav-item:hover .nav-link  {
-    
+
     color: $color-yellow-light;
-    transform:scale(1.05)
 }
 
 .nav-item.dropdown  a[aria-expanded="true"]{
-    background-color: $color-teal-dark;
+    background-color: $color-grey-dark-3;
 }
-   
+
 
 .nav-item{
-   
     padding: 0 6px;
-
 }
 
 .navbar-toggler:focus,
@@ -48,4 +58,8 @@
 .collapse-icon{
     font-size: 2rem;
     color: $color-white;
+
+
 }
+
+

@@ -78,21 +78,21 @@ const routes = [
     },
 
     {
-        path: "/obchodne-podmienky",
+        path: "/trading-terms",
         component: TradingTerms,
-        name: "obchodne-podmienky",
+        name: "trading-terms",
     },
 
     {
-        path: "/ochrana-osobnych-udajov",
+        path: "/gdpr",
         component: Gdpr,
-        name: "ochrana-osobnych-udajov",
+        name: "gdpr",
     },
 
     {
-        path: "/reklamacny-poriadok",
+        path: "/rules-of-returns",
         component: RulesOfReturns,
-        name: "reklamacny-poriadok",
+        name: "rules-of-returns",
     },
 
 

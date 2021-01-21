@@ -8,12 +8,12 @@
     font-weight: bold;
     cursor: pointer;
     &:hover{
-        color: $color-teal-dark;
+        color: $color-grey-dark-3;
         text-decoration: none;
     }
 }
 
 .breadcrumb-item.active{
     color: grey;
-    
+
 }

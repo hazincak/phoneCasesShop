@@ -10,7 +10,7 @@
                 <div class="d-flex justify-content-between">
                     <h3 class="text-uppercase  font-weight-bolder">Shopping cart</h3>
                     <h3 class="badge badge-secondary text-uppercase">
-                        <span>Počet: {{itemsInBasket}}</span>
+                        <span>Quantity: {{itemsInBasket}}</span>
                     </h3>
                 </div>
                 <div>
@@ -308,7 +308,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="card-element"><h3>Kreditná karta <i class="fas fa-credit-card"></i></h3></label>
+                                <label for="card-element"><h3>Credit card <i class="fas fa-credit-card"></i></h3></label>
                                 <card-element @update:parent="errors = $event" :customer = customer :priceBreakdown = priceBreakdown></card-element>
 
                             </div>

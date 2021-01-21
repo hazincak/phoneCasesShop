@@ -1,9 +1,11 @@
 <template>
-<div class="sidebar__wrapper" :class="{active: isActive}">
-
-
-   <div v-if="isActive" class="sidebar__closeButton" @click="$emit('sidebar-change', !isActive)"><i class="far fa-times-circle"></i></div>
-    <nav id="sidebar">
+<div>
+    <b-sidebar
+      id="sidebar-backdrop"
+      :backdrop-variant="dark"
+      backdrop
+      shadow
+    >
         <div class="p-5">
             <h1 class="text-center">Menu</h1>
         </div>
@@ -31,17 +33,12 @@
             </li>
             </transition-group>
         </ul>
-    </nav>
-
+    </b-sidebar>
 </div>
+
 </template>
 <script>
 export default {
-
-
-    props:{
-        isActive: Boolean,
-    },
 
     data(){
         return{

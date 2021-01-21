@@ -44,7 +44,7 @@
             -moz-transform: translateY(-3px);
             -ms-transform: translateY(-3px);
             -o-transform: translateY(-3px);
-        
+
             box-shadow: 0 10px 20px rgba($color-black,.2);
         }
     }
@@ -62,11 +62,11 @@
     }
 
     &--teal-dark{
-        background-color: $color-teal-dark;
+        background-color: $color-grey-dark-3;
         color: $color-white;
         &:hover{
             background-color: $color-yellow-light;
-            color: $color-teal-dark;
+            color: $color-grey-dark-3;
         }
     }
 
@@ -83,17 +83,17 @@
 
     &--teal-dark-outline{
         background-color: $color-white;
-        border: 1px solid $color-teal-dark;
-        color: $color-teal-dark;
+        border: 1px solid $color-grey-dark-3;
+        color: $color-grey-dark-3;
         display: inline-block;
         &:hover{
             background-color: $color-yellow-light;
-            color: $color-teal-dark;
+            color: $color-grey-dark-3;
         }
     }
 }
 
-    
+
 
 // .center{
 //     position: absolute;

@@ -37,58 +37,58 @@
 </style>
 <div>
     <h1 style="margin: auto">LOGO</h1>
-    <h3>Dobrý deň,</h3>
+    <h3>Hello {{$user->first_name}}</h3>
 
-    <p>Potvrdzujeme prijatie Vašej objednávky z {{$order->created_at}} a posielame zhrnutie.</p>
+    <h2>Your order is confirmed!</h2>
 
-    <h3>Kontaktné údaje a adresa príjemcu</h3>
+    <h3>Contact details</h3>
     <table style="width:100%">
         <tr>
-            <th>Meno a priezvisko</th>
+            <th>Full name</th>
             <td>{{$user->first_name}} {{$user->last_name}}</td>
         </tr>
         <tr>
-            <th>E-mailová adresa</th>
+            <th>E-mail</th>
             <td>{{$user->email}}</td>
         </tr>
         <tr>
-            <th>Telefónne číslo</th>
+            <th>Phone number</th>
             <td>{{$user->phone_number}}</td>
         </tr>
         <tr>
-            <th>Ulica</th>
+            <th>Street</th>
             <td>{{$user->street}}</td>
         </tr>
         <tr>
-            <th>Mesto</th>
+            <th>City</th>
             <td>{{$user->city}}</td>
         </tr>
         <tr>
-            <th>Kraj</th>
+            <th>County</th>
             <td>{{$user->county}}</td>
         </tr>
         <tr>
-            <th>Poštové smerovacie číslo</th>
+            <th>Eircode</th>
             <td>{{$user->zip}}</td>
         </tr>
       </table>
-      <h3>Spôsob platby a doručenia</h3>
+      <h3>Payment and Delivery method</h3>
       <table style="width:100%">
         <tr>
-            <th>Spôsob platby</th>
+            <th>Payment method</th>
             <td>{{$order->payment_method}}</td>
         </tr>
         <tr>
-            <th>Spôsob doručenia</th>
+            <th>Delivery method</th>
             <td>{{$order->delivery_method}}</td>
-        </tr> 
+        </tr>
       </table>
-      <h3>Obsah objednávky</h3>
+      <h3>Your order</h3>
       <table style="width:100%">
         <tr>
             <th>#</th>
-            <th>Popis produktu</th>
-            <th>Cena</th>
+            <th>Product description</th>
+            <th>Price</th>
         </tr>
         @foreach ($products as $product)
             <tr>
@@ -98,12 +98,12 @@
             </tr>
         @endforeach
       </table>
-      <h3>Obsah objednávky</h3>
+      <h3>Order details</h3>
       <table style="width:100%">
         <tr>
             <th>#</th>
-            <th>Popis produktu</th>
-            <th>Cena</th>
+            <th>Product description</th>
+            <th>Price</th>
         </tr>
         @foreach ($products as $product)
             <tr>
@@ -114,20 +114,20 @@
         @endforeach
       </table>
 
-      <h3>Výpočet ceny</h3>
+      <h3>Price breakdown</h3>
       <table style="width:100%">
         <tr>
-            <th>Doprava</th>
+            <th>Delivery fee</th>
             <td>
-                @if($deliveryFee === 0) 
-                 ZADARMO
+                @if($deliveryFee === 0)
+                 FREE
                 @else
                 €{{$deliveryFee}}
                 @endIF
             </td>
         </tr>
         <tr>
-            <th>Cena spolu</th>
+            <th>Total price</th>
             <td>€{{$order->total_price}}</td>
         </tr>
       </table>
