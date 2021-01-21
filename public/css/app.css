@@ -20528,7 +20528,7 @@ body {
 
 body {
   font-size: 1.6rem;
-  color: #333333;
+  color: #464646fc;
 }
 
 a {
@@ -20554,7 +20554,7 @@ p {
 }
 
 .link:hover {
-  color: #333333;
+  color: #464646fc;
 }
 
 .heading-primary {
@@ -20630,7 +20630,7 @@ p {
 .sidebar--link {
   display: block;
   font-size: 2rem;
-  color: #333333;
+  color: #464646fc;
   transition: all 0.3s;
   cursor: pointer;
 }
@@ -20642,7 +20642,7 @@ p {
 }
 
 .sidebar--link-main {
-  color: #333333;
+  color: #464646fc;
   font-size: 2.2rem;
   cursor: pointer;
 }
@@ -20711,13 +20711,13 @@ p {
 }
 
 .button--teal-dark {
-  background-color: #333333;
+  background-color: #464646fc;
   color: #fff;
 }
 
 .button--teal-dark:hover {
   background-color: #fbfd8a;
-  color: #333333;
+  color: #464646fc;
 }
 
 .button--teal-outline {
@@ -20734,14 +20734,14 @@ p {
 
 .button--teal-dark-outline {
   background-color: #fff;
-  border: 1px solid #333333;
-  color: #333333;
+  border: 1px solid #464646fc;
+  color: #464646fc;
   display: inline-block;
 }
 
 .button--teal-dark-outline:hover {
   background-color: #fbfd8a;
-  color: #333333;
+  color: #464646fc;
 }
 
 .title-card {
@@ -20826,7 +20826,7 @@ p {
 }
 
 .breadcrumb-link:hover {
-  color: #333333;
+  color: #464646fc;
   text-decoration: none;
 }
 
@@ -20835,7 +20835,7 @@ p {
 }
 
 .page-link {
-  color: #333333;
+  color: #464646fc;
 }
 
 .page-link:hover {
@@ -20918,7 +20918,7 @@ p {
 }
 
 .navbar {
-  background-color: #333333;
+  background-color: #464646fc;
   padding: 0.7rem 4rem;
 }
 
@@ -20952,7 +20952,7 @@ p {
 }
 
 .nav-item.dropdown a[aria-expanded=true] {
-  background-color: #333333;
+  background-color: #464646fc;
 }
 
 .nav-item {
@@ -20989,7 +20989,7 @@ p {
 }
 
 .dropdown-menu a:hover {
-  color: #333333;
+  color: #464646fc;
   text-decoration: none;
 }
 
@@ -21020,7 +21020,7 @@ p {
   bottom: 0;
   width: 100%;
   padding: 1% 30%;
-  background-color: #333333;
+  background-color: #464646fc;
   color: #f5f5fa;
 }
 
@@ -21058,13 +21058,16 @@ p {
   padding: 15px;
 }
 
+.container {
+  padding-top: 3rem;
+}
+
 .section {
-  padding: 0;
   min-height: 85vh;
 }
 
 .section-title {
-  background-image: linear-gradient(#333333, rgba(135, 223, 214, 0.801)), url(/images/hero2.jpg?aa076a812ae5229d08f2ef34d4228f32);
+  background-image: linear-gradient(#464646, rgba(135, 223, 214, 0.801)), url(/images/hero2.jpg?aa076a812ae5229d08f2ef34d4228f32);
   background-size: cover;
   background-position: center center;
   height: 100vh;

@@ -1,6 +1,6 @@
 <template>
-<div>
-    <div class="m-5"><h1>Colours & materials dashboard</h1></div>
+<div class="p-5">
+    <div><h1>Colours & materials dashboard</h1></div>
     <router-view></router-view>
 </div>
 

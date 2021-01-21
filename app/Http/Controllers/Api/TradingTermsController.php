@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 
 class TradingTermsController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('can:manipulateContent')->except('index');
+    }
+
     /**
      * Display a listing of the resource.
      *

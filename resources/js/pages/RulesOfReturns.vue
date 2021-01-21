@@ -6,7 +6,7 @@
           :color="'#086972'"
         />
     </div>
-    <div v-else class="container mb-5">
+    <div v-else class="container">
         <b-breadcrumb>
             <router-link class="breadcrumb-link" :to="{name: 'home'}"> <i class="fas fa-home"></i> Home/</router-link>
             <b-breadcrumb-item active>Returns & Refunds policy</b-breadcrumb-item>

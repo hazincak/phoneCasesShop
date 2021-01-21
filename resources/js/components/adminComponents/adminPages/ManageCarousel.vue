@@ -1,8 +1,8 @@
 <template>
     <div>
-        <div class="row">
+        <div class="row p-5">
             <div class="col-md-12">
-                <h1 class="m-5"> Manage Carousel</h1>
+                <h1> Manage Carousel</h1>
                 <div class="card shadow">
                 <div class="card-header py-3">
                   <h3 class="m-0 font-weight-bold text-secondary">Carousel items</h3>

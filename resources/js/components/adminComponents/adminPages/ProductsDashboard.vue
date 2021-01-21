@@ -8,12 +8,10 @@
   </div>
   <div v-else>
       <div class="container-fluid">
-
-
     <div class="row">
         <div class="col">
-          <form class="form-inline ml-auto p-3">
-                <div class="form-group mr-5">
+          <form class="form-inline ml-auto">
+                <div class="form-group ">
                     <label for="productQuantity" class="mr-2">Display: </label>
                         <select
                         class="form-control"
@@ -26,7 +24,7 @@
                           <option value = 32>32</option>
                         </select>
                 </div>
-                <div class="form-group">
+                <div class="form-group ml-auto">
                     <div v-if="orderBy != 'id'">
                         <div v-if="order == 'asc'">
                             <i @click="order = 'desc'"  class="fas fa-sort-amount-down-alt mr-2 orderBy-icon"></i>
@@ -79,6 +77,7 @@
                           <th>Material</th>
                           <th>Created</th>
                           <th>Updated</th>
+                          <th>Add to Carousel</th>
                           <th>Delete</th>
                         </tr>
                       </thead>
@@ -97,6 +96,7 @@
                           <th>Material</th>
                           <th>Created</th>
                           <th>Updated</th>
+                          <th>Add to Carousel</th>
                           <th>Delete</th>
                         </tr>
                       </tfoot>
@@ -116,8 +116,10 @@
                             <td class="align-middle text-center">{{product.created_at | fromNow}}</td>
                             <td class="align-middle text-center">{{product.updated_at | fromNow}}</td>
                             <td class="align-middle">
-                                <b-button class="btn btn-danger mb-1" @click="showConfirmationModal(product)"><i class="fas fa-trash-alt"></i> Delete product</b-button>
-                                <b-button class="btn btn-success" @click="addProductToCarousel(product.id)"><i class="fas fa-plus"></i> Add to Carousel</b-button>
+                                 <b-button class="btn btn-success" @click="addProductToCarousel(product.id)"><i class="fas fa-plus"></i>&nbsp;Add to Carousel</b-button>
+                            </td>
+                            <td class="align-middle">
+                                <b-button class="btn btn-danger mb-1" @click="showConfirmationModal(product)"><i class="fas fa-trash-alt"></i>&nbsp;Delete product</b-button>
                             </td>
                           </tr>
                         </tbody>

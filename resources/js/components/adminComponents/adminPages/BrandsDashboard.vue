@@ -7,7 +7,7 @@
         />
 </div>
 <div v-else>
-    <div class="row m-5">
+    <div class="row">
         <div class="col-md-8">
          <div class="card shadow">
                 <div class="card-header py-3">

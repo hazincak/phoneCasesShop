@@ -10,8 +10,6 @@
         <div v-else class="row justify-content-center">
             <div class="col-md-8">
                 <h1 class="mt-5">Manage General Data Protection Regulation Rules</h1>
-
-
                 <div v-if="gdprLoaded">
                     <h2 class="mt-5 mb-5">General Data Protection Regulation</h2>
                     <span v-html="gdpr"></span>

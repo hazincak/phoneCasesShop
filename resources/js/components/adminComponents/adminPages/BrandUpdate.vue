@@ -8,7 +8,7 @@
             />
         </div>
         <div v-else>
-            <div class="row justify-content-left m-5">
+            <div class="row justify-content-left">
                 <div class="col-md-5">
                     <div class="form-group">
                         <label for="brand_name">Rename brand name</label>
@@ -29,7 +29,7 @@
                 </div>
             </div>
             <hr>
-            <div class="row justify-content-left m-5">
+            <div class="row justify-content-left">
                 <div class="col-md-8">
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">

@@ -9,7 +9,7 @@
         </div>
         <div v-else class="row justify-content-center">
             <div class="col-md-8">
-                <h1 class="mt-5">Manage Returns & Refunds Policies</h1>
+                <h1>Manage Returns & Refunds Policies</h1>
 
 
                 <div v-if="policiesLoaded">

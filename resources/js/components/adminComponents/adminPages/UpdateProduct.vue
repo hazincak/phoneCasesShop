@@ -10,7 +10,7 @@
         <div v-else class="mb-5">
             <h2 class="underlined-header mt-5">Update product</h2>
              <div class="row justify-content-center mt-5 mb-5">
-                <div class="col-md-4">
+                <div class="col-md-12">
                     <h3>Product details</h3>
                     <p><strong>Product title</strong></p>
                     <p>{{product.title}}</p>
@@ -22,7 +22,9 @@
                     <p>{{product.price}}</p>
 
                 </div>
-                <div class="col-md-8">
+             </div>
+             <div class="row justify-content-center mt-5 mb-5">
+                <div class="col-md-12">
                     <h3>New product details</h3>
                     <div class="form-group">
                         <label for="title">Product title</label>
@@ -70,7 +72,22 @@
                         >
 
                     </div>
-                <div v-for="(image, index) in product.images" :key="index">
+
+                     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 mt-auto">
+                                <div v-for="(image, index) in product.images" :key="index">
+                                    <div class="card" style="width: 18rem">
+                            <div v-if="image.path">
+                                <img :src="image.path" class="card-img-top">
+                                <button class="btn btn-secondary" @click="removeExistingImage(index, image)">Delete Image</button>
+                            </div>
+                            <div v-else>
+                                <img :src="image" class="img img-thumbnail">
+                                <button class="btn btn-secondary" @click="removeImage(index)">Delete image</button>
+                            </div>
+                        </div>
+                                </div>
+                    </div>
+                <!-- <div v-for="(image, index) in product.images" :key="index">
                     <div class="row justify-content-center">
                         <div class="card" style="width: 18rem">
                             <div v-if="image.path">
@@ -81,11 +98,9 @@
                                 <img :src="image" class="img img-thumbnail">
                                 <button class="btn btn-secondary" @click="removeImage(index)">Delete image</button>
                             </div>
-
-
                         </div>
                         <!-- card -->
-                    </div>
+                    <!-- </div> -->
                 </div>
             <div v-if="addPicture">
                 <label for="obrazky">Select image</label>
@@ -98,8 +113,8 @@
                     </div>
             </div>
             <div v-if="!addPicture" class="row justify-content-center mt-2">
-                <div class="col-md-5">
-                    <button class="btn btn-secondary" @click="addPicture = true"><i class="fas fa-plus"></i> Add image</button>
+                <div class="col-md-12">
+                    <button class="btn btn-secondary m-5" @click="addPicture = true"><i class="fas fa-plus"></i> Add image</button>
                 </div>
             </div>
                 </div>

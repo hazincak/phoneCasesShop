@@ -9,7 +9,7 @@ class Order extends Model
     protected $guarded = [];
 
     protected $attributes = array(
-        'order_status' => 'Nepotvrdená '
+        'order_status' => 'Unconfirmed '
       );
 
     public function ordersProducts(){

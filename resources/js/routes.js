@@ -29,6 +29,8 @@ import CategoryUpdate from "./components/adminComponents/adminPages/CategoryUpda
 
 import ManageCarousel from "./components/adminComponents/adminPages/ManageCarousel";
 
+import OrdersDashboard from "./components/adminComponents/adminPages/OrdersDashboard";
+
 import ReturnAndRefundPolicies from "./components/adminComponents/adminPages/ReturnAndRefundPolicyDashboard";
 import TermsAndConditions from "./components/adminComponents/adminPages/TradingTermsDashboard";
 import GeneralDataProtectionRegulationRules from "./components/adminComponents/adminPages/GdprDashboard";
@@ -185,6 +187,12 @@ const routes = [
                         component: UpdateProduct,
                     }
                 ]
+            },
+
+            {
+                path: "orders-dashboard",
+                name: "OrdersDashboard",
+                component: OrdersDashboard
             },
 
             {

@@ -9,7 +9,7 @@
         </div>
         <div v-else class="row justify-content-center">
             <div class="col-md-8">
-                <h1 class="mt-5">Manage Trading Terms & Conditions</h1>
+                <h1 >Manage Trading Terms & Conditions</h1>
                 <div v-if="termsLoaded">
                     <h2 class="mt-5 mb-5">Trading Terms & Conditions</h2>
                     <span v-html="terms"></span>

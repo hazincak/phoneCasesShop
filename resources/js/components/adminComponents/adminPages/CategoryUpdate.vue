@@ -8,7 +8,7 @@
             />
         </div>
         <div v-else>
-            <div class="row justify-content-left m-5">
+            <div class="row justify-content-left">
                 <div class="col-md-5">
                     <div class="form-group">
                         <label for="category_name">Rename category</label>
@@ -29,7 +29,7 @@
                 </div>
             </div>
             <hr>
-            <div class="row justify-content-left m-5">
+            <div class="row justify-content-left">
                 <div class="col-md-8">
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
@@ -91,7 +91,7 @@
             </div>
             <hr>
             <div class="m-5"><h2>Models linked to "{{category.category_name}}" category</h2></div>
-            <div class="row justify-content-left m-5">
+            <div class="row justify-content-left">
                 <div class="col-md-4">
                   <div class="row">
                             <label for="select_brand">Select brand to display all linked models to this brand and linked to "{{category.category_name}}" category</label>

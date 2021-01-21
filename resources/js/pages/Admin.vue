@@ -1,12 +1,12 @@
 <template>
-    <div class="container-fluid section">
+    <div class="container-fluid pt-5 section">
         <div class="row">
             <admin-sidebar></admin-sidebar>
             <div class="col">
                 <div class="row ml-5">
                     <div class="sidebar__toggler" v-b-toggle.sidebar-no-header>Menu <i class="fas fa-bars"></i></div>
                 </div>
-                <div class="m-5">
+                <div >
                     <router-view></router-view>
                 </div>
             </div>
@@ -24,19 +24,5 @@ export default {
  components:{
         AdminSidebar
     },
-
-data(){
-    return{
-        isActive:false,
-    }
-},
-
-methods:{
-     changeSideBarStatus(status){
-            this.isActive =  status
-        },
-}
-
-
 }
 </script>
