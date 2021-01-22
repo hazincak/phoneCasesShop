@@ -29,6 +29,7 @@ import CategoryUpdate from "./components/adminComponents/adminPages/CategoryUpda
 
 import ManageCarousel from "./components/adminComponents/adminPages/ManageCarousel";
 
+import Orders from "./components/adminComponents/adminPages/Orders";
 import OrdersDashboard from "./components/adminComponents/adminPages/OrdersDashboard";
 
 import ReturnAndRefundPolicies from "./components/adminComponents/adminPages/ReturnAndRefundPolicyDashboard";
@@ -104,7 +105,7 @@ const routes = [
         component: Admin,
         name: "admin",
 
-        beforeRouterEnter: (to, from, next) => {
+        beforerEnter: (to, from, next) => {
             if(store.state.isAdmin){
                 next()
             }else{
@@ -190,10 +191,20 @@ const routes = [
             },
 
             {
-                path: "orders-dashboard",
-                name: "OrdersDashboard",
-                component: OrdersDashboard
+                path: "orders",
+                name: "orders",
+                component: Orders,
+
+                    children:[
+                        {
+                            path: "orders-dashboard",
+                            name: "OrdersDashboard",
+                            component: OrdersDashboard
+                        },
+                    ]
             },
+
+
 
             {
                 path: "manage-carousel",

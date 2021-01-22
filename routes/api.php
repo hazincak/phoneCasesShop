@@ -41,6 +41,13 @@ Route::middleware('can:manipulateContent')->apiResource('farba', 'api\ColorContr
 
 Route::middleware('can:manipulateContent')->apiResource('material', 'api\MaterialController');
 
+Route::middleware('can:manipulateContent')->apiResource('orders', 'api\OrderController');
+
+Route::middleware('can:manipulateContent')->get('/user/{id}', 'api\UserController@getUser');
+
+Route::middleware('can:manipulateContent')->get('/getOrderItems/{id}', 'api\OrderItemsController@getOrderItems');
+
+
 Route::apiResource('returnAndRefundPolicy', 'api\ReturnAndRefundController');
 
 Route::apiResource('trading-terms-and-conditions', 'api\TradingTermsController');

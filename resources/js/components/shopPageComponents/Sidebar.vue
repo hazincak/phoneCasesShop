@@ -2,7 +2,6 @@
 <div>
     <b-sidebar
       id="sidebar-backdrop"
-      :backdrop-variant="dark"
       backdrop
       shadow
     >
