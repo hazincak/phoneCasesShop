@@ -2,17 +2,14 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\User;
 use App\Order;
-use App\OrdersProducts;
-use App\Mail\ConfirmOrder;
-use Illuminate\Support\Arr;
 use App\Traits\CreateUserTrait;
 use App\Traits\StoreOrderTrait;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
 use Cartalyst\Stripe\Laravel\Facades\Stripe;
 use App\Http\Requests\CheckoutUserValidation;
+use App\Mail\OrderReceived;
 use Cartalyst\Stripe\Exception\CardErrorException;
 
 class CheckoutController extends Controller
@@ -26,7 +23,7 @@ class CheckoutController extends Controller
         //validation
         $validated = $request->validated();
         $customersFullName = $validated['customer']['first_name'] . ' ' . $validated['customer']['last_name'];
-        //Storing user to my database        
+        //Storing user to my database
         $user = $this->createUser($validated);
 
         try {
@@ -36,50 +33,41 @@ class CheckoutController extends Controller
                 'amount'   => $request->priceBreakdown['calculatedTotalPrice'],
                 'receipt_email' => $request->customer['email'],
                 'metadata' => [
-                    'Meno a priezvisko' => $customersFullName ,
+                    'Full name' => $customersFullName ,
                     'Email' => $user->email,
-                    'Telefónne číslo' => $user->phone_number,
-                    'Adresa' => $user->street,
-                    'Mesto' => $user->city,
-                    'Poštové smerovacie čísla' => $user->zip,
-                    'Kraj' => $user->county,
-                    'číslo objednávky' => ''
+                    'Phone number' => $user->phone_number,
+                    'Address' => $user->street,
+                    'City' => $user->city,
+                    'Eircode' => $user->zip,
+                    'County' => $user->county,
+                    'Order number' => ''
                 ]
             ]);
 
             $order = $this->storeOrder($request->priceBreakdown, $request->basket, $user);
-            
-        
+
+
             $updatedCharge = Stripe::charges()->update($charge['id'], [
                 'metadata' =>[
-                    'Číslo objednávky' => $order->id,
-                ] 
+                    'Order number' => $order->id,
+                ]
             ]);
-            
-            //send Email
+
+            $products = Order::find($order->id)->ordersProducts;
+
+            Mail::to($user->email)->send(
+                new OrderReceived($user, $order, $products, $request->priceBreakdown['deliveryFee'])
+            );
 
             //SUCCESFUL
             return response()->json([
                 'status' => 'success',
             ], 201);
         } catch (CardErrorException $e) {
-            if($e->getMessage() === 'Your card has insufficient funds.'){
-                return response()->json([
-                    'errors' => 'Nedostatok prostriedkov na účte.',
-                ], 422);
-            }else if($e->getMessage() === 'Your card has expired.'){
-                return response()->json([
-                    'errors' => 'Platobná karta je expirovaná.',
-                ], 422);
-            }else if($e->getMessage() === "Your card's security code is incorrect."){
-                return response()->json([
-                    'errors' => 'Nesprávny CVV/CVC kód (číslo na zadnej strane platobnej/kreditnej karty).',
-                ], 422);
-            }else if ($e->getMessage() === 'Your card was declined.'){
-                return response()->json([
-                    'errors' => 'Vaša platba bola zamietnutá. Prosím použite inú kartu',
-                ], 422);
-            }
+
+            return response()->json([
+                'errors' => $e->getMessage()
+            ], 422);
         }
 
     }
@@ -88,30 +76,25 @@ class CheckoutController extends Controller
         $validated = $request->validated();
 
         $customerFullStreetName = $validated['customer']['street_name'] . ' ' . $validated['customer']['street_number'];
-        
+
         $user = $this->createUser($validated);
 
         $order = $this->storeOrder($request->priceBreakdown, $request->basket, $user);
 
-        //send Email
-       
-
-        // dd($request->priceBreakdown);
-
         $products = Order::find($order->id)->ordersProducts;
-      
-        
+
+
         Mail::to($user->email)->send(
-            new ConfirmOrder($user, $order, $products, $request->priceBreakdown['deliveryFee'])
+            new OrderReceived($user, $order, $products, $request->priceBreakdown['deliveryFee'])
         );
 
         return response()->json([
             'status' => 'success',
         ], 201);
-        
 
-        
+
+
     }
 
-    
+
 }

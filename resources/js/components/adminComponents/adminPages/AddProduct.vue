@@ -217,7 +217,7 @@ export default {
 
     created(){
         this.loading = true;
-        axios.get('/api/kategorie')
+        axios.get('/api/category')
         .then(response => {
             this.categories = response.data
         })
@@ -225,7 +225,7 @@ export default {
 
              this.loading = false
         );
-        axios.get('/api/farba')
+        axios.get('/api/color')
         .then(response =>{
             this.colors = response.data
         }).then(() =>
@@ -245,7 +245,7 @@ export default {
 
         getBrandsBelongingToSelectedCategory(id){
             this.loading = true;
-            axios.get(`/api/znacky-patriace-kategorii/${id}`)
+            axios.get(`/api/brands-belonging-to-category/${id}`)
                 .then(response => (this.brands = response.data))
                 .then(()=>{
                      this.loading = false;
@@ -256,7 +256,7 @@ export default {
 
         getModelsBelongingToSelectedBrand(brandId){
             this.loading = true;
-            axios.get(`/api/modely-podla-kategorie/${this.product.category_id}/znacky/${brandId}`)
+            axios.get(`/api/models-by-category/${this.product.category_id}/brand/${brandId}`)
                 .then(response => (this.models = response.data))
                 .then(()=>{
                      this.loading = false;
@@ -291,12 +291,12 @@ export default {
             this.errors = null;
 
        try {
-          const response =  await axios.post('/api/produkt', this.product);
+          const response =  await axios.post('/api/product', this.product);
           if(200 == response.status){
               this.flashMessage.info({
-               title: `Produkt úspěšné vytvorený `,
+               title: `Product successfully created `,
                icon: false,
-               message: `Produkt s názvom "${this.product.title}" vytvorený`
+               message: `Product with title "${this.product.title}" has been created`
 
             });
 

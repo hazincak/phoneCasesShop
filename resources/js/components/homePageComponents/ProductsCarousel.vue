@@ -11,7 +11,7 @@
         >
         <slide v-for="(item, index) in carouselProducts" :key="index">
           <div class="card h-100 d-flex flex-column p-2" style="width: 18rem; border-radius: 15px; background-color: #fff; border: 1px solid #87dfd6">
-              <router-link :to="{name: 'produkt', params: { id: item.product_id }}">
+              <router-link :to="{name: 'product', params: { id: item.product_id }}">
             <img class="card-img-top" style="border-radius: 15px" :src="item.image.path" alt="Card image cap">
             <div class="card-body pt-5">
                   <h3 class="card-title text-center">{{item.title}}</h3>

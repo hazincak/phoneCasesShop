@@ -103,7 +103,7 @@ export default {
 
     created(){
         this.loading=true;
-        axios.get(`/api/obchod/produkt-podla-id/${this.$route.params.id}`)
+        axios.get(`/api/shop/product-by-id/${this.$route.params.id}`)
             .then(response => {
                 this.product = response.data
                 this.loading = false;

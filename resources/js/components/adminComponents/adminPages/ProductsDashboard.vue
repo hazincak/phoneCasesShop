@@ -50,7 +50,7 @@
             <b-modal id="modal-updateProduct" size="xl" title="Upraviť produkt"
               :hide-footer = true>
             </b-modal>
-            <b-modal id="modal-addProduct" size="xl" title="Pridať produkt"
+            <b-modal id="modal-addProduct" size="xl" title-html="<h3>Add product</h3"
 
             :hide-footer = true>
               <add-product></add-product>
@@ -173,7 +173,7 @@ export default {
   methods:{
     getResults(page = 1){
              this.loading = true
-                axios.get(`/api/vsetky-produkty?page=${page}&perPage=${this.perPage}&orderBy=${this.orderBy}&order=${this.order}`)
+                axios.get(`/api/all-products?page=${page}&perPage=${this.perPage}&orderBy=${this.orderBy}&order=${this.order}`)
                 .then(response => {
                     this.products = response.data;
                     this.loading=false;
@@ -183,7 +183,7 @@ export default {
 
     deleteProduct(product){
       this.loading = true;
-        axios.delete(`/api/produkt/${product.id}`)
+        axios.delete(`/api/product/${product.id}`)
             .then(response =>{
                 this.loading = false;
                 let index = this.products.data.indexOf(product);

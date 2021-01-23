@@ -192,12 +192,12 @@ export default {
 
     created(){
         this.loading = true;
-        axios.get(`/api/kategorie/${this.$route.params.id}`)
+        axios.get(`/api/category/${this.$route.params.id}`)
         .then(response => {
             this.category = response.data
             this.loading = false;
         });
-        axios.get('/api/znacky')
+        axios.get('/api/brand')
         .then(response => {
             this.brands = response.data
              this.loading = false
@@ -209,7 +209,7 @@ export default {
         updateCategory(){
             this.loading = true;
             this.errors = null;
-            axios.put(`/api/kategorie/${this.category.id}`, this.editCategoryData)
+            axios.put(`/api/category/${this.category.id}`, this.editCategoryData)
                 .then(response => {
                     this.loading = false
                     this.flashMessage.info({
@@ -233,7 +233,7 @@ export default {
         attachBrandToCategory(){
             this.loading = true;
             this.errors = null;
-            axios.get(`/api/kategorie/${this.category.id}/pridat-znacku/${this.selectedBrandId}`)
+            axios.get(`/api/category/${this.category.id}/add-brand/${this.selectedBrandId}`)
             .then(response => {
               const fetchedData = response.data;
               this.category.brands.push(fetchedData);
@@ -274,7 +274,7 @@ export default {
 
         unattachBrandFromCategory(brand){
             this.loading = true;
-            axios.get(`/api/kategorie/${this.category.id}/odobrat-znacku/${brand.id}`)
+            axios.get(`/api/category/${this.category.id}/unattach-brand/${brand.id}`)
             .then(response => {
                 let index = this.category.brands.indexOf(brand);
                 this.category.brands.splice(index,1);
@@ -288,7 +288,7 @@ export default {
 
         getDistinctModels(){
           this.loading = true;
-          axios.get(`/api/modely-nepatriace-kategorii/${this.category.id}/znacka/${this.selectedBrandId}`)
+          axios.get(`/api/models-not-belonging-to-category/${this.category.id}/brand/${this.selectedBrandId}`)
             .then(response => {
               this.models = response.data
             }). then(() => this.loading = false)
@@ -296,7 +296,7 @@ export default {
 
         getModelsBelongingToCategoryAndSelectedBrand(){
           this.loading = true;
-          axios.get(`/api/modely-podla-kategorie/${this.category.id}/znacky/${this.selectedBrandId}`)
+          axios.get(`/api/models-by-category/${this.category.id}/brand/${this.selectedBrandId}`)
             .then(response => {
               this.queriedModels = response.data
             }). then(() => this.loading = false)
@@ -305,7 +305,7 @@ export default {
         attachModelToCategory(){
             this.loading = true;
             this.errors = null
-            axios.get(`/api/kategorie/${this.category.id}/pridat-model/${this.selectedModelId}`)
+            axios.get(`/api/category/${this.category.id}/add-model/${this.selectedModelId}`)
             .then(response => {
               const fetchedData = response.data;
               this.queriedModels.push(fetchedData);
@@ -347,7 +347,7 @@ export default {
 
          unattachModelFromCategory(model){
             this.loading = true;
-            axios.get(`/api/kategorie/${this.category.id}/odobrat-model/${model.id}`)
+            axios.get(`/api/category/${this.category.id}/unattach-model/${model.id}`)
             .then(response => {
                 let index = this.queriedModels.indexOf(model);
                 this.queriedModels.splice(index,1);

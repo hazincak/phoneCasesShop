@@ -144,7 +144,7 @@ export default {
 
   created(){
     this.loading = true;
-    axios.get('/api/farba')
+    axios.get('/api/color')
       .then(response =>{
         this.colors = response.data
          this.loading = false;
@@ -161,7 +161,7 @@ export default {
       this.loading = true;
       this.errors = null;
 
-      await axios.post('/api/farba', this.color)
+      await axios.post('/api/color', this.color)
         .then(response=> {
           if(200 == response.status){
             const fetchedData = response.data;
@@ -212,7 +212,7 @@ export default {
 
     deleteColor(color){
       this.loading = true;
-        axios.delete(`/api/farba/${color.id}`)
+        axios.delete(`/api/color/${color.id}`)
             .then(response =>{
                 this.loading = false;
                 let index = this.colors.indexOf(color);

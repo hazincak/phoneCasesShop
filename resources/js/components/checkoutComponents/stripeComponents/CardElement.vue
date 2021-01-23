@@ -10,7 +10,16 @@
     <b-alert class="mt-3" v-if="cardErrors" show variant="danger">{{cardErrors}}</b-alert>
     <hr>
     <!-- <button class='button button--block button--teal button--squared' @click='pay' :disabled='!complete'>Zaplatiť €{{priceToBePaid}} kartou</button> -->
-    <button class='button button--block button--teal button--squared' @click='pay'>Pay €{{priceBreakdown.calculatedTotalPrice.toFixed(2)}} by card</button>
+    <button class='button button--block button--teal button--squared' @click='pay'
+    >
+        <span v-if="processingPayment">
+             <span class="spinner-border spinner-border-md" role="status" aria-hidden="true"></span>
+            Loading...
+        </span>
+        <span v-else>
+            Pay €{{priceBreakdown.calculatedTotalPrice.toFixed(2)}} by card
+        </span>
+    </button>
     </div>
 </template>
 <script>
@@ -31,6 +40,7 @@
             complete: false,
             errorMessage: '',
             cardErrors: null,
+            processingPayment:false,
             stripeOptions: {
               style:{
                 base: {
@@ -78,6 +88,7 @@
             },
 
             async paymentRequest(data){
+              this.processingPayment = true,
               this.cardErrors = null,
               this.setTotalPriceBreakdown(null);
               this.setCustomer(null);
@@ -90,10 +101,11 @@
                 if(response.data.status === 'success'){
                  this.setTotalPriceBreakdown(this.priceBreakdown);
                  this.setCustomer(this.customer);
+                 this.processingPayment = false;
                  this.$router.push({ name: "successfulCheckout" });
                 }
               } catch (error) {
-
+                this.processingPayment = false;
                 if(error.response.status === 422){
                 this.emitErrors(error.response && error.response.data.errors);
                 }else{

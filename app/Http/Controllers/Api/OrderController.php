@@ -3,11 +3,39 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
+use App\Mail\OrderConfirmed;
 use App\Order;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
+
+
+    public function confirmOrder($id)
+    {
+        try{
+            $order = Order::findOrFail($id);
+            $products = $order->ordersProducts;
+            $user = $order->user;
+            Mail::to($user->email)->send(
+                new OrderConfirmed($user, $order, $products)
+            );
+
+            $this->update($id);
+
+            return response()->json([
+                'status' => 'success',
+            ], 201);
+
+
+        }catch(Exception $e){
+
+        }
+
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -68,9 +96,13 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
-        //
+        $order = Order::findOrFail($id);
+        $order->update([
+            'order_status' => 'Confirmed'
+        ]);
+        $order->save();
     }
 
     /**

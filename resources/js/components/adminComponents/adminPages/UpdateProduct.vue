@@ -156,7 +156,7 @@ export default {
 
     created(){
         this.loading = true;
-         axios.get(`/api/obchod/produkt-podla-id/${this.$route.params.id}`)
+         axios.get(`/api/shop/product-by-id/${this.$route.params.id}`)
             .then(response => {
                 this.product = response.data
                 this.loading = false;
@@ -194,7 +194,7 @@ export default {
         this.errors = null;
 
        try {
-          const response =  await axios.put(`/api/produkt/${this.product.id}`, this.editedProduct);
+          const response =  await axios.put(`/api/product/${this.product.id}`, this.editedProduct);
           if(200 == response.status){
               this.flashMessage.info({
                title: `Product successfully updated`,

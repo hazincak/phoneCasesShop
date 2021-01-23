@@ -94,7 +94,7 @@ export default {
 
     created(){
         this.loading = true;
-        axios.get('/api/znacky')
+        axios.get('/api/brand')
             .then(response =>{
                 this.brands = response.data
                 this.loading = false;
@@ -124,7 +124,7 @@ export default {
       },
       deleteBrand(item){
         this.loading = true;
-        axios.delete(`/api/znacky/${item.id}`)
+        axios.delete(`/api/brand/${item.id}`)
             .then(response =>{
                 this.loading = false;
                 let index = this.brands.indexOf(item);
@@ -141,7 +141,7 @@ export default {
         this.errors = null;
 
 
-      axios.post('/api/znacky', this.brand)
+      axios.post('/api/brand', this.brand)
           .then(response=>{
             this.success = 201 === response.status;
             const fetchedData = response.data;

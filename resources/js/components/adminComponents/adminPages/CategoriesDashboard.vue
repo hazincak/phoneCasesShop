@@ -92,7 +92,7 @@ export default {
 
     created(){
         this.loading = true;
-        axios.get('/api/kategorie')
+        axios.get('/api/category')
             .then(response =>{
                 this.categories = response.data
                 this.loading = false;
@@ -128,7 +128,7 @@ export default {
 
       deleteCategory(item){
         this.loading = true;
-        axios.delete(`/api/kategorie/${item.id}`)
+        axios.delete(`/api/category/${item.id}`)
             .then(response =>{
                 this.loading = false;
                 let index = this.categories.indexOf(item);
@@ -145,7 +145,7 @@ export default {
         this.errors = null;
 
 
-        await axios.post('/api/kategorie', this.category)
+        await axios.post('/api/category', this.category)
           .then(response=>{
             const fetchedData = response.data;
             this.categories.push(fetchedData);

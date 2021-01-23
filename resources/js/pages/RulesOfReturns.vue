@@ -64,7 +64,7 @@ export default {
 
     methods:{
         download() {
-        axios.get(`api/stiahnut-pdf/${this.returnsProtocol}`, {responseType: 'arraybuffer'})
+        axios.get(`api/download-pdf/${this.returnsProtocol}`, {responseType: 'arraybuffer'})
         .then(response => {
         this.downloadFile(response, this.returnsProtocol)
     }, response => {

@@ -118,7 +118,7 @@ export default {
 
     created(){
         this.loading = true;
-        axios.get(`/api/znacky/${this.$route.params.id}`)
+        axios.get(`/api/brand/${this.$route.params.id}`)
         .then(response => {
             this.brand = response.data
             this.loading = false;
@@ -129,7 +129,7 @@ export default {
         updateBrand(){
             this.loading = true;
             this.errors = null;
-            axios.put(`/api/znacky/${this.brand.id}`, this.editBrandData)
+            axios.put(`/api/brand/${this.brand.id}`, this.editBrandData)
                 .then(response => {
                     this.loading = false
                     this.flashMessage.info({

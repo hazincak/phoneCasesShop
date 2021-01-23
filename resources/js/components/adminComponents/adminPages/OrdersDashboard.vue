@@ -25,7 +25,7 @@
                           <th>Order status</th>
                           <th>Total price</th>
                           <th>Created at</th>
-                          <th>Updated at</th>
+                          <th>Confirmed at</th>
                           <th>Display basket</th>
                           <th>Approve</th>
                         </tr>
@@ -40,25 +40,25 @@
                           <th>Order status</th>
                           <th>Total price</th>
                           <th>Created at</th>
-                          <th>Updated at</th>
+                          <th>Confirmed at</th>
                           <th>Display basket</th>
                           <th>Approve</th>
                         </tr>
                       </tfoot>
-                        <tbody v-for="item in orders" :key = item.id >
+                        <tbody v-for="order in orders" :key = order.id >
                             <tr>
-                                <td class="align-middle">{{item.id}}</td>
-                                <!-- <td class="align-middle"><router-link :to="{name: 'view-user', params:{id: item.user_id}}">{{item.user_id}}</router-link></td> -->
-                                <td class="align-middle"> <div class="link" v-b-modal.userModal  @click="getUserData(item.user_id)"><b>{{item.user_id}}</b></div></td>
-                                <td class="align-middle">{{item.payment_method}}</td>
-                                <td class="align-middle">{{item.delivery_method}}</td>
-                                <td class="align-middle">{{item.orders_note}}</td>
-                                <td class="align-middle">{{item.order_status}}</td>
-                                <td class="align-middle">{{item.total_price}}</td>
-                                <td class="align-middle">{{item.created_at}}</td>
-                                <td class="align-middle">{{item.updated_at}}</td>
-                                <td class="align-middle text-center"><button class="btn btn-primary btn-block btn-lg" v-b-modal.orderModal @click="getOrderItems(item.id)">Display</button></td>
-                                <td class="align-middle text-center"><button class="btn btn-success btn-block btn-lg">Approve</button></td>
+                                <td class="align-middle">{{order.id}}</td>
+                                <!-- <td class="align-middle"><router-link :to="{name: 'view-user', params:{id: order.user_id}}">{{order.user_id}}</router-link></td> -->
+                                <td class="align-middle"> <div class="link" v-b-modal.userModal  @click="getUserData(order.user_id)"><b>{{order.user_id}}</b></div></td>
+                                <td class="align-middle">{{order.payment_method}}</td>
+                                <td class="align-middle">{{order.delivery_method}}</td>
+                                <td class="align-middle">{{order.orders_note}}</td>
+                                <td class="align-middle">{{order.order_status}}</td>
+                                <td class="align-middle">{{order.total_price}}</td>
+                                <td class="align-middle">{{order.created_at}}</td>
+                                <td class="align-middle">{{order.updated_at}}</td>
+                                <td class="align-middle text-center"><button class="btn btn-primary btn-lg" v-b-modal.orderModal @click="getOrderItems(order.id)">Display</button></td>
+                                <td class="align-middle text-center"><button class="btn btn-success btn-lg" @click="displayModal(order.id)" >Approve</button></td>
                             </tr>
                         </tbody>
                     </table>
@@ -124,6 +124,8 @@ export default {
 
             loading: false,
             loadingModal: false,
+
+            confirmedDeletion: null,
         }
     },
 
@@ -158,7 +160,47 @@ export default {
                 console.log(this.orderItems);
                 this.loadingModal = false;
             })
+        },
+
+        displayModal(orderId){
+          this.confirmedDeletion = ''
+          this.$bvModal.msgBoxConfirm(`Do you really want approve this order and email the customer?`, {
+          title: 'Please confirm',
+          size: 'md',
+          buttonSize: 'lg',
+          okVariant: 'danger',
+          okTitle: 'Yes',
+          cancelTitle: 'No',
+          footerClass: 'p-2',
+          hideHeaderClose: false,
+          centered: true
+        })
+          .then(value => {
+            this.confirmedDeletion = value
+            if(this.confirmedDeletion){
+              this.confirmOrder(orderId)
+            }
+          })
+          .catch(err => {
+            // An error occurred
+          })
+        },
+
+        confirmOrder(orderID){
+            axios.get(`/api/confirmOrder/${orderID}`)
+            .then(response => {
+                if(response.data.status == 'success'){
+                    this.flashMessage.info({
+                        title: `Order successfully confirmed`,
+                        icon: false,
+                        message: 'Customer has been emailed. '
+                     });
+                }
+
+            })
         }
+
+
     }
 
 

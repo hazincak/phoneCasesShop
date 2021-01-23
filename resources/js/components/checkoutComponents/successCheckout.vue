@@ -2,7 +2,7 @@
   <div class="container-fluid">
 
       <div class="jumbotron jumbotron-fluid text-center" style="background-color: transparent !important">
-          <h1 class="display-3 text-teal"><i class="far fa-thumbs-up"></i> Thank you for your order!</h1>
+          <h1 class="display-3 text-teal" m-5><i class="far fa-thumbs-up"></i> Thank you for your order!</h1>
           <p><strong>Please check your email.</strong></p>
           <p>Due to the high volume of orders, we're sending out individual items as soon as we can so you can get them quicker. All of your order will still arrive on or before your expected delivery date.</p>
           <hr>
@@ -33,7 +33,7 @@
         </table>
       <hr>
     <div class="d-flex mt-5 justify-content between">
-        <h3 class="text-uppercase text-teal font-weight-bolder">výpočet ceny</h3>
+        <h3 class="text-uppercase text-teal font-weight-bolder">Price breakdown</h3>
     </div>
     <div class="d-flex border-top p-4 justify-content-between">
         <h4>Products total</h4>

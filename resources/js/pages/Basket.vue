@@ -18,7 +18,7 @@
                     <div v-for="item in basket" :key="item.product.id" class="basket pt-2 pb-2 border-top d-flex justify-content-between">
                            <div class="p-2 "><img class="img-fluid basket__img" :src='item.product.main_image.path' alt=""></div>
                            <div class="d-flex align-items-center">
-                               <router-link :to="{name: 'produkt', params: {id: item.product.id}}">{{item.product.title}}</router-link>
+                               <router-link :to="{name: 'product', params: {id: item.product.id}}">{{item.product.title}}</router-link>
                            </div>
 
                         <!-- <div class="pt-2 pb-2 text-right"> -->
@@ -328,10 +328,18 @@
                     <div class="row">
                         <div class="col-md-12 form-group">
                                 <button
-                            type="submit"
-                            class="button button--block button--teal button--squared"
-                            @click="checkout()"
-                            >Finish Your Order <i class="fas fa-check"></i></button>
+                                type="submit"
+                                class="button button--block button--teal button--squared"
+                                @click="checkout()"
+                                ><span v-if="processingPayment">
+                                     <span class="spinner-border spinner-border-md" role="status" aria-hidden="true"></span>
+                                    Loading...
+                                </span>
+                                <span v-else>
+                                     Finish Your Order
+                                     <i class="fas fa-check"></i>
+                                </span>
+                                </button>
                         </div>
                     </div>
                 </div>
@@ -370,6 +378,7 @@ export default {
     },
     data(){
         return{
+            processingPayment: false,
             priceBreakdown:{
                 paidDelivery: true,
                 deliveryMethod: 'An Post',
@@ -432,6 +441,7 @@ export default {
         },
 
         async checkout(){
+            this.processingPayment = true
             this.errors = null
             this.setTotalPriceBreakdown(null);
             this.setCustomer(null);
@@ -440,10 +450,12 @@ export default {
                 if(response.data.status === 'success'){
                  this.setTotalPriceBreakdown(this.priceBreakdown);
                  this.setCustomer(this.customer);
+                 this.processingPayment = false;
                  this.$router.push({ name: "successfulCheckout" });
                 }
             } catch (error) {
                 this.errors = error.response && error.response.data.errors;
+                this.processingPayment = false;
             }
         },
     }

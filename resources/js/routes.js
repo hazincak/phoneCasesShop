@@ -62,7 +62,7 @@ const routes = [
     {
         path: "/produkt/:id",
         component: DisplayProduct,
-        name: "produkt",
+        name: "product",
     },
     {
         path: "/shopping-cart",
@@ -154,13 +154,13 @@ const routes = [
               },
 
             {
-                path: "znacky",
+                path: "brand",
                 name: "brands",
                 component: Brands,
 
                 children:[
                     {
-                        path: "znacky-nahlad",
+                        path: "brand-nahlad",
                         name: "BrandsDashboard",
                         component: BrandsDashboard,
                     },
@@ -172,13 +172,13 @@ const routes = [
                 ]
             },
             {
-              path: "produkty",
+              path: "products",
               name: "products",
               component: Products,
 
                 children:[
                     {
-                        path: "vsetky-produkty",
+                        path: "all-products",
                         name: "ProductsDashboard",
                         component:ProductsDashboard,
                     },
