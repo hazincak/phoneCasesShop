@@ -28,7 +28,7 @@ export default {
       setLoaded: function(resp) {
         this.setTotalPriceBreakdown(null);
         this.setCustomer(null);
-      
+
       //add Loading
       window.paypal
         .Buttons({
@@ -47,6 +47,8 @@ export default {
           },
           onApprove: async (data, actions, resp) => {
             const order = await actions.order.capture();
+            console.log(order)
+            this.checkout();
             this.modelCustomer(order);
             this.setTotalPriceBreakdown(this.priceBreakdown);
             this.setCustomer(this.customer);
@@ -75,6 +77,16 @@ export default {
     setCustomer(payload){
         this.$store.dispatch('setCustomer', payload);
     },
+
+    checkout(){
+        axios.post(`/api/payPal-checkout`, {customer: this.customer, priceBreakdown: this.priceBreakdown, basket: this.basket})
+         .then(response => {
+             console.log(response)
+         })
+         .catch(err => {
+             console.log(err)
+         })
+    }
   }
 }
 </script>

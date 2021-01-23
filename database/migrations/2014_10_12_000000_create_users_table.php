@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('city');
             $table->string('county');
             $table->string('phone_number');
-            $table->string('zip', 5);
+            $table->string('zip', 10);
             $table->string('email')->unique();
             $table->boolean('is_admin')->default(false);
             $table->string('password')->nullable();

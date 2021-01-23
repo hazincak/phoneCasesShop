@@ -22,6 +22,7 @@ Route::get('brands-belonging-to-category/{categoryId}', 'api\CategoryBrandsContr
 Route::get('sidebar/kontent', 'api\CategoriesBrandsModelsController@getSideBarContent');
 Route::post('stripe-checkout', 'api\CheckoutController@stripeCheckout');
 Route::post('checkout', 'api\CheckoutController@checkout');
+Route::post('payPal-checkout', 'api\CheckoutController@payPalCheckout');
 Route::get('models-by-category/{categoryId}/brand/{brandId}', 'api\CategoriesBrandsModelsController@getModelsBelongingToSelectedCategoryAndToSelectedBrand');
 
 

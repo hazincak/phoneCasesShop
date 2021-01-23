@@ -10,7 +10,9 @@ use Illuminate\Support\Facades\Mail;
 use Cartalyst\Stripe\Laravel\Facades\Stripe;
 use App\Http\Requests\CheckoutUserValidation;
 use App\Mail\OrderReceived;
+use App\User;
 use Cartalyst\Stripe\Exception\CardErrorException;
+use Illuminate\Http\Request;
 
 class CheckoutController extends Controller
 {
@@ -59,7 +61,6 @@ class CheckoutController extends Controller
                 new OrderReceived($user, $order, $products, $request->priceBreakdown['deliveryFee'])
             );
 
-            //SUCCESFUL
             return response()->json([
                 'status' => 'success',
             ], 201);
@@ -72,10 +73,35 @@ class CheckoutController extends Controller
 
     }
 
+    public function payPalCheckout(Request $request){
+
+
+        $user = User::create([
+            'first_name' => $request['customer']['first_name'],
+            'last_name' => $request['customer']['last_name'],
+            'street' => $request['customer']['street_name'],
+            'city' => $request['customer']['city'],
+            'county' => 'undefined',
+            'zip' => $request['customer']['zip'],
+            'email' => $request['customer']['email'],
+            'phone_number' => $request['customer']['phone_number']
+        ]);
+
+        $order = $this->storeOrder($request['priceBreakdown'], $request['basket'], $user);
+
+        $products = Order::find($order->id)->ordersProducts;
+
+        Mail::to($user->email)->send(
+            new OrderReceived($user, $order, $products, $request->priceBreakdown['deliveryFee'])
+        );
+
+        return response()->json([
+            'status' => 'success',
+        ], 201);
+    }
+
     public function checkout(CheckoutUserValidation $request){
         $validated = $request->validated();
-
-        $customerFullStreetName = $validated['customer']['street_name'] . ' ' . $validated['customer']['street_number'];
 
         $user = $this->createUser($validated);
 
