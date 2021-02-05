@@ -59,8 +59,7 @@ export default {
 
 
             } catch (error) {
-
-                    this.errors = error.response && error.response.data.errors;
+                this.errors = error.response && error.response.data.errors;
             }
 
 

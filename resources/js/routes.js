@@ -105,7 +105,7 @@ const routes = [
         component: Admin,
         name: "admin",
 
-        beforerEnter: (to, from, next) => {
+        beforeEnter: (to, from, next) => {
             if(store.state.isAdmin){
                 next()
             }else{
@@ -122,7 +122,7 @@ const routes = [
 
         children: [
             {
-                path: "kategorie",
+                path: "categories",
                 name: "categories",
                 component: Categories,
 
@@ -134,7 +134,7 @@ const routes = [
 
                     },
                     {
-                        path: "aktualizovat-kategorie/:id",
+                        path: "update-category/:id",
                         name: "categoryUpdate",
                         component: CategoryUpdate,
                     },
@@ -165,7 +165,7 @@ const routes = [
                         component: BrandsDashboard,
                     },
                     {
-                        path: "aktualizovat-znacku/:id",
+                        path: "update-brand/:id",
                         name: "brandUpdate",
                         component: BrandUpdate,
                     }

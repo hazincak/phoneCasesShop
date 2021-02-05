@@ -41,13 +41,13 @@ class CategoryController extends Controller
         ]);
 
         $category = Category::create([
-            
+
             'category_name'=>$request->category_name
-        
+
         ]);
-       
+
         return response()->json($category);
-        
+
 
         // if($category->save()){
         //     return response()->json($category, 200);
@@ -63,7 +63,7 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category, $id)
+    public function show($id)
     {
         return Category::with('brands')->findOrFail($id);
     }

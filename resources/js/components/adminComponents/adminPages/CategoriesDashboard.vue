@@ -9,6 +9,7 @@
 <div v-else>
     <div class="row">
         <div class="col-md-8">
+            <h1>Categories dashboard</h1>
          <div class="card shadow">
                 <div class="card-header py-3">
                   <h3 class="m-0 font-weight-bold text-secondary">Product categories</h3>

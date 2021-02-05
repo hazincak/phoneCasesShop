@@ -22,15 +22,15 @@
                 </div>
             </div>
         <div class="row mt-5" v-else>
-                <div class="col-md-8">
+                <div class="col-md-12">
                     <span v-html="returnAndRefundPolicy"></span>
                 </div>
-                <div class="col-md-4">
+                <!-- <div class="col-md-4">
                     <div class="row mb-4">
                         <h3>Download Return & Refund protocol</h3>
                         <a class="link" @click="download()"><i class="fas fa-file-download"></i> reklamacny-protokol.pdf</a>
                     </div>
-                </div>
+                </div> -->
         </div>
     </div>
 </template>

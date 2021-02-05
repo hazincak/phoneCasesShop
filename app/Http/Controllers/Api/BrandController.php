@@ -15,7 +15,7 @@ class BrandController extends Controller
     public function getModels($brandId){
         $brand = Brand::findOrFail($brandId);
         return BrandGetModelResource::collection(
-           
+
              $brand->deviceModels()->get()
         );
     }
@@ -54,11 +54,11 @@ class BrandController extends Controller
         ]);
 
         $brand = Brand::create([
-            
+
             'brand_name'=>$request->brand_name
-        
+
         ]);
-       
+
         return response()->json($brand);
     }
 
@@ -68,7 +68,7 @@ class BrandController extends Controller
      * @param  \App\Brand  $brand
      * @return \Illuminate\Http\Response
      */
-    public function show(Brand $brand, $id)
+    public function show($id)
     {
         return Brand::with('deviceModels')->findOrFail($id);
     }
@@ -96,9 +96,9 @@ class BrandController extends Controller
         $request->validate([
             'brand_name' => 'required|min:2|unique:brands',
          ]);
- 
+
          $brand = Brand::findOrFail($id);
- 
+
          $brand->update($request->all());
     }
 
@@ -111,7 +111,7 @@ class BrandController extends Controller
     public function destroy( $id)
     {
         $brand = Brand::findOrFail($id);
-   
+
         $brand->delete();
     }
 }

@@ -62,7 +62,7 @@
                                       <td>{{model.model_name}}</td>
                                       <td>{{model.created_at | fromNow}}</td>
                                       <td>{{model.updated_at | fromNow}}</td>
-                                      <td><b-button class="btn btn-danger" @click="showConfirmationModal(model)"><i class="fas fa-trash-alt"></i> Odstrániť</b-button></td>
+                                      <td><b-button class="btn btn-danger" @click="showConfirmationModal(model)"><i class="fas fa-trash-alt"></i> Delete</b-button></td>
                               </tr>
                                 </tbody>
                             </table>
@@ -79,7 +79,7 @@
                                     class="form-control"
                                     v-model="model.model_name"
                                     name="model_name"
-                                    placeholder="Názov modelu"
+                                    placeholder="Model name"
                                     :class="[{'is-invalid': errorFor('model_name')}]"
                                     >
                                     <v-errors :errors="errorFor('model_name')"></v-errors>

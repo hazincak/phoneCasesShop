@@ -97,7 +97,7 @@
                                     <span v-if="index === 0">Main image</span>
                                     <span v-else>Image {{index + 1}}</span>
                                 </h5>
-                                <button class="btn btn-secondary" @click="removeImage(index)">Odstrániť obrázok</button>
+                                <button class="btn btn-secondary" @click="removeImage(index)">Delete image</button>
                             </div>
 
                         </div>

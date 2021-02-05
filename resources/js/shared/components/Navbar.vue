@@ -17,7 +17,7 @@
     </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav ml-auto" v-if="!isLoggedIn">
+    <ul class="navbar-nav ml-auto">
 
 
         <li class="nav-item">
@@ -32,18 +32,13 @@
         <li class="nav-item">
             <router-link class="nav-link" :to="{name: 'gdpr'}">GDPR</router-link>
         </li>
-        <!-- <li class="nav-item">
-            <router-link class="nav-link" :to="{name: 'register'}">Register</router-link>
-        </li> -->
-        <li class="nav-item dropdown">
+        <li  v-if="!isLoggedIn" class="nav-item dropdown">
             <a class="nav-link dropdown-toggle login__toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="fas fa-user"></i>
             </a>
             <login></login>
         </li>
-    </ul>
-    <ul class="navbar-nav ml-auto" v-else>
-        <li class="nav-item dropdown">
+        <li v-else class="nav-item dropdown">
             <a class="nav-link dropdown-toggle login__toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               {{this.$store.state.user.email}}
             </a>

@@ -77,11 +77,11 @@
                                         class="form-control"
                                         name="select_brand"
                                         v-model="selectedBrandId"
-                                        :class="[{'is-invalid': errors}]">
+                                        :class="[{'is-invalid': attachBrandError}]">
                                        <option disabled value="">Select brand</option>
                                        <option v-for="(brand, index) in brands" :key="index" :value="brand.id">{{brand.brand_name}}</option>
                                      </select>
-                                  <span style="color: red; font-size: 11px">{{errors}}</span>
+                                  <span style="color: red; font-size: 12px">{{attachBrandError}}</span>
                               </div>
                                   <button class="btn btn-lg btn-success" @click="attachBrandToCategory()">Add brand</button>
 
@@ -166,7 +166,7 @@
 </template>
 
 <script>
-import {is404, is422, is500} from "./../../../shared/utils/response";
+import {is422, is500} from "./../../../shared/utils/response";
 import validationErrors from "../../../shared/mixins/validationErrors";
 export default {
     mixins:[validationErrors],
@@ -175,6 +175,7 @@ export default {
             loading: false,
             category: {},
             brands: {},
+            attachBrandError: null,
 
             selectedBrandId: null,
 
@@ -212,11 +213,13 @@ export default {
             axios.put(`/api/category/${this.category.id}`, this.editCategoryData)
                 .then(response => {
                     this.loading = false
-                    this.flashMessage.info({
-                    title: `Category renamed successfully`,
-                    icon: false,
-                    message: `Category "${this.category.category_name}" has been renamed to "${this.editCategoryData.category_name}" category`
-            });
+                    if(200 == response.status){
+                        this.flashMessage.info({
+                        title: `Category renamed successfully`,
+                        icon: false,
+                        message: `Category "${this.category.category_name}" has been renamed to "${this.editCategoryData.category_name}" category`
+                    });
+                    }
                 })
                 .catch(err=> {
                     if(is422(err)){
@@ -231,8 +234,9 @@ export default {
         },
 
         attachBrandToCategory(){
+            this.attachBrandError = null,
             this.loading = true;
-            this.errors = null;
+            // this.errors = null;
             axios.get(`/api/category/${this.category.id}/add-brand/${this.selectedBrandId}`)
             .then(response => {
               const fetchedData = response.data;
@@ -245,7 +249,7 @@ export default {
             })
             .catch(err=> {
                 if(is500(err)){
-                    this.errors = `Category ${this.category.category_name} already contains this brand`;
+                    this.attachBrandError = `Category ${this.category.category_name} already contains this brand`;
                     return;
                   }
             })

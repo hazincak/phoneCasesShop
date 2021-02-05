@@ -3,7 +3,7 @@
 	<div class="card h-100">
 
 			<router-link :to="{name: 'product', params: { id: product.id }}">
-				<img :src='product.main_image.path' class="card-img-top">
+				<img :src='product.main_image.path' class="card-img-top" style="height: 19vw;object-fit: contain;">
 			</router-link>
 			<div class="card-body d-flex flex-column">
 					<div class="p-2">

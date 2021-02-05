@@ -12,7 +12,9 @@ use App\Http\Requests\CheckoutUserValidation;
 use App\Mail\OrderReceived;
 use App\User;
 use Cartalyst\Stripe\Exception\CardErrorException;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Mockery\Undefined;
 
 class CheckoutController extends Controller
 {
@@ -75,17 +77,30 @@ class CheckoutController extends Controller
 
     public function payPalCheckout(Request $request){
 
+        try{
+            $user = User::create([
+                'first_name' => $request['customer']['first_name'],
+                'last_name' => $request['customer']['last_name'],
+                'street' => $request['customer']['street_name'],
+                'city' => $request['customer']['city'],
+                'county' => 'undefined',
+                'zip' => $request['customer']['zip'],
+                'email' => $request['customer']['email'],
+                'phone_number' => $request['customer']['phone_number']
+            ]);
+        }  catch (QueryException $e) {
+                $user = User::where('email', $request['customer']['email'])->firstOrFail();
+                $user->update([
+                    'first_name' => $request['customer']['first_name'],
+                    'last_name' => $request['customer']['last_name'],
+                    'street' => $request['customer']['street_name'],
+                    'city' => $request['customer']['city'],
+                    'county' => 'undefined',
+                    'zip' => $request['customer']['zip'],
+                    'phone_number' => $request['customer']['phone_number']
+            ]);
+        }
 
-        $user = User::create([
-            'first_name' => $request['customer']['first_name'],
-            'last_name' => $request['customer']['last_name'],
-            'street' => $request['customer']['street_name'],
-            'city' => $request['customer']['city'],
-            'county' => 'undefined',
-            'zip' => $request['customer']['zip'],
-            'email' => $request['customer']['email'],
-            'phone_number' => $request['customer']['phone_number']
-        ]);
 
         $order = $this->storeOrder($request['priceBreakdown'], $request['basket'], $user);
 
