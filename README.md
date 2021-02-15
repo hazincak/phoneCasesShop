@@ -11,5 +11,5 @@ This e-commerce website was created as a project for my portfolio (www.jhportfol
 5. Run composer install or php composer.phar install
 6. Run php artisan key:generate
 7. Run php artisan migrate
-8. Run php artisan db:seed to run seeders, if any.
+8. Run php artisan db:seed to run seeders
 9. Run php artisan serve
