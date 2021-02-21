@@ -19,4 +19,5 @@ This e-commerce website was created to enhance my skills with JavaScript and PHP
 
 ## Logging credentials
 email: jan.hazincak@gmail.com
+
 password: password
