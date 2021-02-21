@@ -16,3 +16,7 @@ This e-commerce website was created to enhance my skills with JavaScript and PHP
 10. Run php artisan db:seed to run seeders
 11. Run php artisan serve
 12. Don't forget to start your MySQL and Apache servers
+
+## Logging credentials
+email: jan.hazincak@gmail.com
+password: password
