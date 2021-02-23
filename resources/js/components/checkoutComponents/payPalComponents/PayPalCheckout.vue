@@ -5,6 +5,12 @@
 
 import { mapState, mapGetters } from "vuex";
 export default {
+
+    data(){
+      return{
+        paypal_id: process.env.MIX_PAYPAL_CLIENT_ID,
+      }
+    },
     props:{
         priceBreakdown: Object,
         customer:Object
@@ -13,7 +19,7 @@ export default {
     mounted: function() {
     const script = document.createElement("script");
     script.src =
-      "https://www.paypal.com/sdk/js?client-id=ARW5P-eRi2sHOC2zpRo554FbOiZyUcFBPlMv8iJlWlrKCt43N21KijjGoi4jbCi2DVZItvsJ72VbHgEv&currency=EUR&disable-funding=credit,card";
+      `https://www.paypal.com/sdk/js?client-id=${this.paypal_id}&currency=EUR&disable-funding=credit,card`;
     script.addEventListener("load", this.setLoaded);
     document.body.appendChild(script);
   },
